@@ -66,11 +66,12 @@ export default {
     var password = setupStore.getPassword();
 
     var setupModel = new SetupResources.Model({
-      action: 'enable_cluster',
+      action: 'enable_single_node',
       username: username,
       password: password,
       bind_address: setupStore.getBindAdressForSetupNode(),
-      port: setupStore.getPortForSetupNode()
+      port: setupStore.getPortForSetupNode(),
+      singlenode: true
     });
 
     setupModel.on('invalid', function (model, error) {
@@ -87,7 +88,13 @@ export default {
         return FauxtonAPI.session.login(username, password);
       })
       .then(function () {
-        return this.finishClusterSetup('CouchDB is set up!');
+        FauxtonAPI.addNotification({
+          msg: 'Single node setup successful.',
+          type: 'success',
+          fade: false,
+          clear: true
+        });
+        FauxtonAPI.navigate('#setup/finish');
       }.bind(this));
   },
 
@@ -96,6 +103,7 @@ export default {
     var password = setupStore.getPassword();
     var portForSetupNode = setupStore.getPortForSetupNode();
     var bindAddressForSetupNode = setupStore.getBindAdressForSetupNode();
+    var nodeCountForSetupNode = setupStore.getNodeCountForSetupNode();
 
     var bindAddressForAdditionalNode = setupStore.getAdditionalNode().bindAddress;
     var remoteAddressForAdditionalNode = setupStore.getAdditionalNode().remoteAddress;
@@ -107,7 +115,9 @@ export default {
       username: username,
       password: password,
       bind_address: bindAddressForSetupNode,
-      port: portForSetupNode
+      port: portForSetupNode,
+      node_count: nodeCountForSetupNode,
+      singlenode: false
     });
 
     setupNode.on('invalid', function (model, error) {
@@ -125,6 +135,7 @@ export default {
       password: password,
       bind_address: bindAddressForAdditionalNode,
       port: portForForAdditionalNode,
+      node_count: nodeCountForSetupNode,
       remote_node: remoteAddressForAdditionalNode,
       remote_current_user: username,
       remote_current_password: password
@@ -159,7 +170,8 @@ export default {
         username: username,
         password: password,
         host: remoteAddressForAdditionalNode,
-        port: portForForAdditionalNode
+        port: portForForAdditionalNode,
+        singlenode: false
       });
 
       additionalNode
@@ -259,6 +271,15 @@ export default {
   setBindAddressForSetupNode: function (value) {
     FauxtonAPI.dispatch({
       type: ActionTypes.SETUP_BIND_ADDRESS_FOR_SINGLE_NODE,
+      options: {
+        value: value
+      }
+    });
+  },
+
+  setNodeCount: function (value) {
+    FauxtonAPI.dispatch({
+      type: ActionTypes.SETUP_NODE_COUNT,
       options: {
         value: value
       }
