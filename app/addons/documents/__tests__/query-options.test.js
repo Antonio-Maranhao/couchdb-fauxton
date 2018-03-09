@@ -21,9 +21,13 @@ describe('QueryOptions', () => {
   const props = {
     includeDocs: false,
     queryOptionsToggleIncludeDocs: () => {},
+    queryOptionsToggleStable: () => {},
+    queryOptionsChangeUpdate: () => {},
     reduce: false,
     contentVisible: true,
-    perPage: 10
+    perPage: 10,
+    stable: false,
+    update: 'true'
   };
 
   it('calls resetPagination and queryOptionsExecute on submit', () => {
@@ -126,7 +130,6 @@ describe('QueryOptions', () => {
 
     const wrapper = shallow(<QueryOptions
       ddocsOnly={true}
-      update='true'
       queryOptionsRemoveFilterOnlyDdocs={() => {}}
       queryOptionsApplyFilterOnlyDdocs={() => {}}
       queryOptionsExecute={() => {}}
@@ -281,7 +284,6 @@ describe('QueryOptions', () => {
     };
     const wrapper = shallow(<QueryOptions
       ddocsOnly={true}
-      update='true'
       queryOptionsRemoveFilterOnlyDdocs={() => {}}
       queryOptionsApplyFilterOnlyDdocs={() => {}}
       queryOptionsExecute={() => {}}
