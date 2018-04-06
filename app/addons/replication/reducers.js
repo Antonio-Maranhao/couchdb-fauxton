@@ -41,7 +41,11 @@ const validFieldMap = {
   replicationDocName: 'replicationDocName',
   replicationSource: 'replicationSource',
   replicationTarget: 'replicationTarget',
-  localSource: 'localSource'
+  localSource: 'localSource',
+  sourceAuthType: 'sourceAuthType',
+  sourceAuth: 'sourceAuth',
+  targetAuthType: 'targetAuthType',
+  targetAuth: 'targetAuth'
 };
 
 const initialState = {
@@ -53,11 +57,15 @@ const initialState = {
   replicationSource: '',
   localSource: '',
   remoteSource: '',
+  sourceAuthType: '',
+  sourceAuth: {},
 
   // target fields
   replicationTarget: '',
   localTarget: '',
   remoteTarget: '',
+  targetAuthType: '',
+  targetAuth: {},
 
   // other
   isPasswordModalVisible: false,
@@ -87,7 +95,13 @@ const clearForm = (state) => {
   const newState = {
     ...state
   };
-  Object.values(validFieldMap).forEach(field => newState[field] = '');
+  Object.values(validFieldMap).forEach(field => {
+    if (field === 'sourceAuth') {
+      newState[field] = {};
+    } else {
+      newState[field] = '';
+    }
+  });
   return newState;
 };
 

@@ -15,7 +15,6 @@ import React from 'react';
 import Constants from '../constants';
 import Components from '../../components/react-components';
 import ReactSelect from 'react-select';
-import RemoteExample from './remoteexample';
 
 const { StyledSelect } = Components;
 
@@ -55,7 +54,7 @@ ReplicationTargetSelect.propTypes = {
   onChange: PropTypes.func.isRequired
 };
 
-const RemoteTargetReplicationRow = ({onChange, value, newRemote}) => {
+const RemoteTargetReplicationRow = ({onChange, value}) => {
   return (
     <div>
       <input
@@ -65,7 +64,6 @@ const RemoteTargetReplicationRow = ({onChange, value, newRemote}) => {
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
-      <RemoteExample newRemote={newRemote} />
     </div>
   );
 };
@@ -183,6 +181,7 @@ export class ReplicationTarget extends React.Component {
     } = this.props;
     return (
       <div>
+        <h3>Target</h3>
         <ReplicationTargetSelect
           value={replicationTarget}
           onChange={onTargetChange}

@@ -69,7 +69,11 @@ export default class ReplicationController extends React.Component {
       replicateInfo, replicateLoading, replicateFilter, allReplicateSelected, someReplicateSelected,
       showPasswordModal, hidePasswordModal, hideConflictModal, isConflictModalVisible, filterDocs,
       filterReplicate, replicate, clearReplicationForm, selectAllDocs, changeActivitySort, selectDoc,
-      deleteDocs, deleteReplicates, selectAllReplicates, selectReplicate
+      deleteDocs, deleteReplicates, selectAllReplicates, selectReplicate,
+      sourceAuthType,
+      sourceAuth,
+      targetAuthType,
+      targetAuth
     } = this.props;
 
     if (tabSection === 'new replication') {
@@ -94,6 +98,10 @@ export default class ReplicationController extends React.Component {
         remoteSource={remoteSource}
         remoteTarget={remoteTarget}
         localTarget={localTarget}
+        sourceAuthType={sourceAuthType}
+        sourceAuth={sourceAuth}
+        targetAuthType={targetAuthType}
+        targetAuth={targetAuth}
         updateFormField={updateFormField}
         conflictModalVisible={isConflictModalVisible}
         hideConflictModal={hideConflictModal}

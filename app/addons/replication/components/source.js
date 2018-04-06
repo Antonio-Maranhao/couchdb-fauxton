@@ -30,7 +30,6 @@ const RemoteSourceInput = ({onChange, value}) =>
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
-      <RemoteExample />
     </div>
   </div>;
 
@@ -151,6 +150,7 @@ export class ReplicationSource extends React.Component {
     const {replicationSource, onSourceSelect} = this.props;
     return (
       <div>
+        <h3>Source</h3>
         <ReplicationSourceSelect
           onChange={onSourceSelect}
           value={replicationSource}

@@ -9,6 +9,7 @@
 // WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 // License for the specific language governing permissions and limitations under
 // the License.
+import base64 from 'base-64';
 import FauxtonAPI from '../../core/api';
 import {get, post} from '../../core/ajax';
 import ActionTypes from './actiontypes';
@@ -283,6 +284,42 @@ export const deleteReplicates = (replicates) => dispatch => {
     });
 };
 
+const getAuthTypeAndCredentials = (source) => {
+  const authTypeAndCreds = {
+    type: 'no_auth',
+    creds: {}
+  };
+  if (source.headers && source.headers.Authorization) {
+    // Removes 'Basic ' prefix
+    const encodedCreds = source.headers.Authorization.substring(6);
+    const decodedCreds = base64.decode(encodedCreds);
+    authTypeAndCreds.type = 'basic_auth';
+    authTypeAndCreds.creds = {
+      username: decodedCreds.split(':')[0],
+      password: decodedCreds.split(':')[1]
+    };
+    return authTypeAndCreds;
+  }
+
+  // Tries to get creds using one of the custom auth methods
+  const customAuths = FauxtonAPI.getExtensions('Replication:Auth');
+  let credentials = undefined;
+  let customAuthType = undefined;
+  if (customAuths) {
+    customAuths.map(auth => {
+      if (!credentials && auth.getCredentials) {
+        credentials = auth.getCredentials(source);
+        customAuthType = auth.authType;
+      }
+    });
+  }
+  if (credentials) {
+    authTypeAndCreds.type = customAuthType;
+    authTypeAndCreds.creds = credentials;
+  }
+  return authTypeAndCreds;
+};
+
 export const getReplicationStateFrom = (id) => dispatch => {
   dispatch({
     type: ActionTypes.REPLICATION_FETCHING_FORM_STATE
@@ -306,6 +343,9 @@ export const getReplicationStateFrom = (id) => dispatch => {
         stateDoc.replicationSource = Constants.REPLICATION_SOURCE.REMOTE;
         stateDoc.remoteSource = decodeFullUrl(sourceUrl);
       }
+      const sourceAuth = getAuthTypeAndCredentials(doc.source);
+      stateDoc.sourceAuthType = sourceAuth.type;
+      stateDoc.sourceAuth = sourceAuth.creds;
 
       if (targetUrl.indexOf(window.location.hostname) > -1) {
         const url = new URL(targetUrl);
@@ -315,6 +355,9 @@ export const getReplicationStateFrom = (id) => dispatch => {
         stateDoc.replicationTarget = Constants.REPLICATION_TARGET.EXISTING_REMOTE_DATABASE;
         stateDoc.remoteTarget = decodeFullUrl(targetUrl);
       }
+      const targetAuth = getAuthTypeAndCredentials(doc.target);
+      stateDoc.targetAuthType = targetAuth.type;
+      stateDoc.targetAuth = targetAuth.creds;
 
       dispatch({
         type: ActionTypes.REPLICATION_SET_STATE_FROM_DOC,

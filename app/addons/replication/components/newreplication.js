@@ -17,6 +17,7 @@ import {ReplicationSource} from './source';
 import {ReplicationTarget} from './target';
 import {ReplicationOptions} from './options';
 import {ReplicationSubmit} from './submit';
+import {ReplicationAuth} from './auth-options';
 import AuthComponents from '../../auth/components';
 import Constants from '../constants';
 import {ConflictModal} from './modals';
@@ -28,15 +29,15 @@ export default class NewReplicationController extends React.Component {
   constructor (props) {
     super(props);
     this.submit = this.submit.bind(this);
-    this.clear = this.clear.bind(this);
+    // this.clear = this.clear.bind(this);
     this.showPasswordModal = this.showPasswordModal.bind(this);
     this.runReplicationChecks = this.runReplicationChecks.bind(this);
   }
 
-  clear (e) {
-    e.preventDefault();
-    this.props.clearReplicationForm();
-  }
+  // clear (e) {
+  //   e.preventDefault();
+  //   this.props.clearReplicationForm();
+  // }
 
   showPasswordModal () {
     this.props.hideConflictModal();
@@ -223,11 +224,17 @@ export default class NewReplicationController extends React.Component {
       remoteTarget,
       localTarget,
       updateFormField,
-      clearReplicationForm
+      clearReplicationForm,
+      sourceAuthType,
+      sourceAuth,
+      targetAuthType,
+      targetAuth
     } = this.props;
 
+    console.log('source:', sourceAuthType, sourceAuth);
+    console.log('target:', targetAuthType, targetAuth);
     return (
-      <div>
+      <div style={ {paddingBottom: 20} }>
         <ReplicationSource
           replicationSource={replicationSource}
           localSource={localSource}
@@ -236,6 +243,13 @@ export default class NewReplicationController extends React.Component {
           onSourceSelect={updateFormField('replicationSource')}
           onRemoteSourceChange={updateFormField('remoteSource')}
           onLocalSourceChange={updateFormField('localSource')}
+        />
+        <ReplicationAuth
+          value={sourceAuth}
+          authType={sourceAuthType}
+          onChangeAuthType={updateFormField('sourceAuthType')}
+          onChangeAuth={updateFormField('sourceAuth')}
+          selectId={'replication-source-auth'}
         />
         <hr className="replication__seperator" size="1"/>
         <ReplicationTarget
@@ -246,6 +260,13 @@ export default class NewReplicationController extends React.Component {
           remoteTarget={remoteTarget}
           onRemoteTargetChange={updateFormField('remoteTarget')}
           onLocalTargetChange={updateFormField('localTarget')}
+        />
+        <ReplicationAuth
+          value={targetAuth}
+          authType={targetAuthType}
+          onChangeAuthType={updateFormField('targetAuthType')}
+          onChangeAuth={updateFormField('targetAuth')}
+          selectId={'replication-target-auth'}
         />
         <hr className="replication__seperator" size="1"/>
         <ReplicationOptions
@@ -276,3 +297,4 @@ export default class NewReplicationController extends React.Component {
     );
   }
 }
+

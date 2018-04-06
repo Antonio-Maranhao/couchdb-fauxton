@@ -75,12 +75,16 @@ const mapStateToProps = ({replication}, ownProps) => {
     localSource: getLocalSource(replication),
     localSourceKnown: isLocalSourceKnown(replication),
     remoteSource: getRemoteSource(replication),
+    sourceAuthType: replication.sourceAuthType,
+    sourceAuth: replication.sourceAuth,
 
     // target fields
     replicationTarget: getReplicationTarget(replication),
     localTarget: getLocalTarget(replication),
     localTargetKnown: isLocalTargetKnown(replication),
     remoteTarget: getRemoteTarget(replication),
+    targetAuthType: replication.targetAuthType,
+    targetAuth: replication.targetAuth,
 
     // other
     passwordModalVisible: isPasswordModalVisible(replication),

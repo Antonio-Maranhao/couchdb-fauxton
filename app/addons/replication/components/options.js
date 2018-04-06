@@ -76,6 +76,7 @@ export class ReplicationOptions extends React.Component {
 
     return (
       <div>
+        <h3>Options</h3>
         <ReplicationType
           onChange={onTypeChange}
           value={replicationType}
