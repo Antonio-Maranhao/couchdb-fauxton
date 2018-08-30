@@ -88,10 +88,10 @@ class MainSidebar extends React.Component {
           </a>
         </li>
         <li className={this.getNavItemClass('permissions')}>
-          <a id="permissions" href={permissionsUrl}>Permissions</a>
+          <a className="item-disabled" id="permissions" href={permissionsUrl}>Permissions</a>
         </li>
         <li className={this.getNavItemClass('changes')}>
-          <a id="changes" href={changesUrl}>Changes</a>
+          <a className="item-disabled" id="changes" href={changesUrl}>Changes</a>
         </li>
         {docLinks}
         <li className={this.getNavItemClass('design-docs')}>
@@ -249,7 +249,8 @@ class DesignDoc extends React.Component {
     isExpanded: PropTypes.bool.isRequired,
     selectedNavInfo: PropTypes.object.isRequired,
     toggledSections: PropTypes.object.isRequired,
-    designDocName:  PropTypes.string.isRequired
+    designDocName:  PropTypes.string.isRequired,
+    partitioned:  PropTypes.bool.isRequired
   };
 
   state = {
@@ -333,6 +334,11 @@ class DesignDoc extends React.Component {
     }];
   };
 
+  // globalPartitionedIcon() {
+  //   const {partitioned} = this.props;
+  //   return <span className={partitioned ? 'fonticon-activetasks' : 'fonticon-database'} style={{color: '#152935'}}></span>;
+  // }
+
   render () {
     const buttonLinks = this.getNewButtonLinks();
     let toggleClassNames = 'design-doc-section accordion-header';
@@ -352,7 +358,10 @@ class DesignDoc extends React.Component {
           <div id={"nav-header-" + designDocName} onClick={this.toggle} className='accordion-list-item'>
             <div className="fonticon-play"></div>
             <p className='design-doc-name'>
-              <span title={'_design/' + designDocName}>{designDocName}</span>
+              <span title={'_design/' + designDocName} >
+                <span className={this.props.partitioned ? 'fonticon-documents' : 'fonticon-document'}  style={{display: 'inline', padding: '0px 10px 0px 0px', width: 'auto'}}></span>
+                {designDocName}
+              </span>
             </p>
           </div>
           <div className='new-button add-dropdown'>
@@ -406,6 +415,7 @@ class DesignDocList extends React.Component {
           selectedNavInfo={selectedNavInfo}
           key={key}
           designDoc={designDoc}
+          partitioned={(ddName.length % 2) === 0}
           designDocName={ddName}
           database={this.props.database} />
       );

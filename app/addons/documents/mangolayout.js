@@ -22,6 +22,7 @@ import PaginationContainer from './index-results/containers/PaginationContainer'
 import ApiBarContainer from './index-results/containers/ApiBarContainer';
 import FauxtonAPI from "../../core/api";
 import Constants from './constants';
+import PartitionDbModeSelector from './components/partitioned-db-selector';
 
 export const RightHeader = ({ docURL, endpoint }) => {
   const apiBar = <ApiBarContainer docURL={docURL} endpoint={endpoint} includeQueryOptionsParams={false}/>;
@@ -49,10 +50,17 @@ export const MangoFooter = ({databaseName, fetchUrl, queryDocs}) => {
 };
 
 export const MangoHeader = ({ crumbs, docURL, endpoint }) => {
+  const dbName = crumbs[0].name;
+  console.log(dbName);
   return (
     <div className="header-wrapper flex-layout flex-row">
-      <div className='flex-body faux__breadcrumbs-mango-header'>
-        <Breadcrumbs crumbs={crumbs} />
+      <div className='flex-body faux__breadcrumbs-mango-header' style={{display: 'flex'}}>
+        {/* <Breadcrumbs crumbs={crumbs} /> */}
+        <div className="faux-header__doc-header-title flex-fill" style={{width: 250}} title={dbName}>
+          {dbName}
+          <PartitionDbModeSelector />
+        </div>
+        <div style={{width: 'auto', padding: '16px 0 0 6px', fontSize: 24}}>Cloudant Query</div>
       </div>
       <RightHeader
         docURL={docURL}

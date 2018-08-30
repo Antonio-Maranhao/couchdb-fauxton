@@ -15,6 +15,7 @@ import ReactDOM from "react-dom";
 import Helpers from "../helpers";
 import FauxtonAPI from '../../../core/api';
 import { Dropdown } from "react-bootstrap";
+import PartitionDbModeSelector from "./partitioned-db-selector";
 
 function getModififyDbLinks (dbName) {
   return Helpers.getModifyDatabaseLinks(dbName);
@@ -60,7 +61,7 @@ const Item = ({url, icon, onClick, children}) => {
 const HeaderDocsLeft = ({dbName}) => {
   const items = getAllDatabaseModalLinks(dbName);
   const dropdownItems = getDropdownItems(items);
-
+  // let global = false;
   return (
     <div className="faux-header__doc-header-left">
       <button type="button" className="faux-header__doc-header-backlink" onClick={() => { FauxtonAPI.navigate('#/_all_dbs'); }}>
@@ -68,6 +69,7 @@ const HeaderDocsLeft = ({dbName}) => {
       </button>
       <div className="faux-header__doc-header-title flex-fill" title={dbName}>
         {dbName}
+        <PartitionDbModeSelector />
       </div>
       <Dropdown id="faux-header__doc-header-left-1">
         <Dropdown.Toggle noCaret className="faux-header__doc-header-dropdown-toggle">
@@ -80,5 +82,6 @@ const HeaderDocsLeft = ({dbName}) => {
     </div>
   );
 };
+
 
 export default HeaderDocsLeft;

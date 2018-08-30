@@ -114,6 +114,7 @@ class DatabaseTable extends React.Component {
         <table className="table table-striped fauxton-table-list databases">
           <thead>
             <tr>
+              <th width="35"> </th>
               <th>Name</th>
               <th>Size</th>
               <th># of Docs</th>
@@ -167,6 +168,9 @@ class DatabaseRow extends React.Component {
 
     return (
       <tr>
+        <td className={id.length % 2 === 0 ? 'fonticon-database' : 'fonticon-activetasks'} style={{color: '#152935'}}>
+          
+        </td>
         <td>
           <a href={url}>{id}</a>
         </td>
@@ -265,6 +269,11 @@ class AddDatabaseWidget extends React.Component {
             placeholder="Name of database"
           />
           <a className="btn" id="js-create-database" onClick={this.onAddDatabase}>Create</a>
+          <br/>
+          <label style={{margin: '10px 10px 0px 0px'}}>
+            <input style={{margin: '0px 10px 0px 0px'}} type="checkbox" />
+            Partitioned
+          </label>
         </TrayContents>
       </div>
     );
