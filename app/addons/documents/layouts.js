@@ -161,7 +161,7 @@ export const DocsTabsSidebarLayout = ({
 
   if (fetchUrl.indexOf('dq/_view/new') != -1) {
     lowerContent = (
-      <div>Oops... You need to select a partition key to query a partitioned view.</div>
+      <div>Oops... You need to select a partition key to query a partitioned view.<br/></div>
     );
   }
 
