@@ -69,7 +69,7 @@ const HeaderDocsLeft = ({dbName}) => {
       </button>
       <div className="faux-header__doc-header-title flex-fill" title={dbName}>
         {dbName}
-        <PartitionDbModeSelector />
+        {/* <PartitionDbModeSelector /> */}
       </div>
       <Dropdown id="faux-header__doc-header-left-1">
         <Dropdown.Toggle noCaret className="faux-header__doc-header-dropdown-toggle">

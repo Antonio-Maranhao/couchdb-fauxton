@@ -26,6 +26,7 @@ import ApiBarContainer from './index-results/containers/ApiBarContainer';
 import { queryAllDocs, queryMapReduceView } from './index-results/api';
 import Constants from './constants';
 import Helpers from './helpers';
+import PartitionDbModeSelector from './components/partitioned-db-selector';
 
 export const TabsSidebarHeader = ({
   hideQueryOptions,
@@ -51,6 +52,9 @@ export const TabsSidebarHeader = ({
           />
         </div>
         <div className="right-header-wrapper flex-layout flex-row flex-body">
+          <div style={{flex:1, padding: '18px 6px 12px 12px'}}>
+            <PartitionDbModeSelector />
+          </div>
           <div id="right-header" className="flex-fill">
             <RightAllDocsHeader
               hideQueryOptions={hideQueryOptions}
@@ -144,7 +148,8 @@ export const DocsTabsSidebarLayout = ({
   if (Helpers.isViewSelected(selectedNavItem)) {
     queryDocs = (params) => { return queryMapReduceView(fetchUrl, params); };
   }
-  const lowerContent = <IndexResultsContainer
+
+  let lowerContent = <IndexResultsContainer
     fetchUrl={fetchUrl}
     designDocs={designDocs}
     ddocsOnly={ddocsOnly}
@@ -153,6 +158,12 @@ export const DocsTabsSidebarLayout = ({
     queryDocs={queryDocs}
     docType={Constants.INDEX_RESULTS_DOC_TYPE.VIEW}
     deleteEnabled={deleteEnabled} />;
+
+  if (fetchUrl.indexOf('dq/_view/new') != -1) {
+    lowerContent = (
+      <div>Oops... You need to select a partition key to query a partitioned view.</div>
+    );
+  }
 
   return (
     <div id="dashboard" className="with-sidebar">

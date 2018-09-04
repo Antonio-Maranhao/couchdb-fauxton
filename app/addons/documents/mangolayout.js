@@ -28,6 +28,9 @@ export const RightHeader = ({ docURL, endpoint }) => {
   const apiBar = <ApiBarContainer docURL={docURL} endpoint={endpoint} includeQueryOptionsParams={false}/>;
   return (
     <div className="right-header-wrapper flex-layout flex-row flex-body">
+      <div style={{flex:1, padding: '18px 6px 12px 12px'}}>
+        <PartitionDbModeSelector />
+      </div>
       <div id="right-header" className="flex-body">
       </div>
       {apiBar}
@@ -55,12 +58,12 @@ export const MangoHeader = ({ crumbs, docURL, endpoint }) => {
   return (
     <div className="header-wrapper flex-layout flex-row">
       <div className='flex-body faux__breadcrumbs-mango-header' style={{display: 'flex'}}>
-        {/* <Breadcrumbs crumbs={crumbs} /> */}
-        <div className="faux-header__doc-header-title flex-fill" style={{width: 250}} title={dbName}>
+        <Breadcrumbs crumbs={crumbs} />
+        {/* <div className="faux-header__doc-header-title flex-fill" style={{width: 250}} title={dbName}>
           {dbName}
           <PartitionDbModeSelector />
         </div>
-        <div style={{width: 'auto', padding: '16px 0 0 6px', fontSize: 24}}>Cloudant Query</div>
+        <div style={{width: 'auto', padding: '16px 0 0 6px', fontSize: 24}}>Cloudant Query</div> */}
       </div>
       <RightHeader
         docURL={docURL}

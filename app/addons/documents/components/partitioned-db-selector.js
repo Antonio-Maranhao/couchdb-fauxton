@@ -19,7 +19,7 @@ export default class PartitionDbModeSelector extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      global: false,
+      global: true,
       partitionName: '',
       selectedPartitionName: '',
       editMode: false
@@ -65,6 +65,11 @@ export default class PartitionDbModeSelector extends React.Component {
     }
   }
 
+  isPartitionSelected() {
+    // console.log((this.state.selectedPartitionName.trim().length > 0));
+    return !this.state.global && (this.state.selectedPartitionName.trim().length > 0);
+  }
+
   onChange(e) {
     this.setState({partitionName: e.target.value});
   }
@@ -73,7 +78,7 @@ export default class PartitionDbModeSelector extends React.Component {
     if (this.state.editMode) {
       // onKeyPress={this.onKeyPress} onBlur={this.onBlur}
       return (
-        <input style={{padding:2, fontSize:16}} type="text" onKeyPress={this.onKeyPress} onChange={this.onChange} onBlur={this.onBlur} value={this.state.partitionName} />
+        <input style={{padding:2, fontSize:16, margin: 0}} type="text" onKeyPress={this.onKeyPress} onChange={this.onChange} onBlur={this.onBlur} value={this.state.partitionName} />
       );
     }
     let partName = 'Click to select a partition';
@@ -91,9 +96,10 @@ export default class PartitionDbModeSelector extends React.Component {
   render() {
     const {global} = this.state;
     return (
-      <div className="faux-header__doc-header-partition" style={{display: 'flex'}}>
-        <a onClick={this.flip} style={{paddingRight: 8}}>
-          <svg style={{fill:(global ? "gray" : "#3d70b2")}} width="16" height="12" viewBox="0 0 16 12"><path d="M8.05 2a2.5 2.5 0 0 1 4.9 0H16v1h-3.05a2.5 2.5 0 0 1-4.9 0H0V2h8.05zm2.45 2a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM3.05 9a2.5 2.5 0 0 1 4.9 0H16v1H7.95a2.5 2.5 0 0 1-4.9 0H0V9h3.05zm2.45 2a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path></svg>
+      <div className="faux-header__doc-header-partition" style={{display: 'flex', padding: 0, alignItems: 'center', minHeight: '30px'}}>
+        <a onClick={this.flip} style={{paddingRight: 0, color:(this.isPartitionSelected() ? "#3d70b2" : "gray")}}>
+          <i className="fonticon-filter"></i>
+          {/* <svg style={{fill:(global ? "gray" : "#3d70b2")}} width="16" height="12" viewBox="0 0 16 12"><path d="M8.05 2a2.5 2.5 0 0 1 4.9 0H16v1h-3.05a2.5 2.5 0 0 1-4.9 0H0V2h8.05zm2.45 2a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM3.05 9a2.5 2.5 0 0 1 4.9 0H16v1H7.95a2.5 2.5 0 0 1-4.9 0H0V9h3.05zm2.45 2a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path></svg> */}
         </a>
 
         {global ? this.globalHeader() : this.partitionHeader()}

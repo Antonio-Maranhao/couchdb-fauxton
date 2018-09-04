@@ -88,10 +88,12 @@ class MainSidebar extends React.Component {
           </a>
         </li>
         <li className={this.getNavItemClass('permissions')}>
-          <a className="item-disabled" id="permissions" href={permissionsUrl}>Permissions</a>
+          <a id="permissions" href={permissionsUrl}>Permissions</a>
+          {/* <a className="item-disabled" id="permissions" href={permissionsUrl}>Permissions</a> */}
         </li>
         <li className={this.getNavItemClass('changes')}>
-          <a className="item-disabled" id="changes" href={changesUrl}>Changes</a>
+          <a id="changes" href={changesUrl}>Changes</a>
+          {/* <a className="item-disabled" id="changes" href={changesUrl}>Changes</a> */}
         </li>
         {docLinks}
         <li className={this.getNavItemClass('design-docs')}>
