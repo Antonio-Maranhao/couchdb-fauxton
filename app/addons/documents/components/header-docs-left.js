@@ -15,7 +15,6 @@ import ReactDOM from "react-dom";
 import Helpers from "../helpers";
 import FauxtonAPI from '../../../core/api';
 import { Dropdown } from "react-bootstrap";
-import PartitionDbModeSelector from "./partitioned-db-selector";
 
 function getModififyDbLinks (dbName) {
   return Helpers.getModifyDatabaseLinks(dbName);
