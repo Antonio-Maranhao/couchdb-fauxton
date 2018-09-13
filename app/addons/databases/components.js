@@ -114,10 +114,11 @@ class DatabaseTable extends React.Component {
         <table className="table table-striped fauxton-table-list databases">
           <thead>
             <tr>
-              <th width="35"> </th>
+              {/* <th width="35"> </th> */}
               <th>Name</th>
               <th>Size</th>
               <th># of Docs</th>
+              <th>Partitioned</th>
               {this.getExtensionColumns()}
               <th>Actions</th>
             </tr>
@@ -168,14 +169,16 @@ class DatabaseRow extends React.Component {
 
     return (
       <tr>
-        <td className={id.length % 2 === 0 ? 'fonticon-database' : 'fonticon-activetasks'} style={{color: '#152935'}}>
-          
-        </td>
+        {/* <td className={id.length % 2 === 0 ? 'fonticon-database' : 'fonticon-activetasks'} style={{color: '#152935'}}>
+        </td> */}
         <td>
           <a href={url}>{id}</a>
         </td>
         <td>{dataSize}</td>
         <td>{docCount} {tombStoneWarning}</td>
+        <td>
+          {id.length % 2 === 0 ? 'No' : 'Yes'}
+        </td>
         {this.getExtensionColumns(item)}
 
         <td className="database-actions">
