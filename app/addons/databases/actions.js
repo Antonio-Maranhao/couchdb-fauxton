@@ -126,7 +126,7 @@ export default {
     });
   },
 
-  createNewDatabase: function (databaseName) {
+  createNewDatabase: function (databaseName, partitioned) {
     if (_.isNull(databaseName) || databaseName.trim().length === 0) {
       FauxtonAPI.addNotification({
         msg: 'Please enter a valid database name',
@@ -144,7 +144,7 @@ export default {
       }
     });
 
-    var db = Stores.databasesStore.obtainNewDatabaseModel(databaseName);
+    const db = Stores.databasesStore.obtainNewDatabaseModel(databaseName, partitioned);
     FauxtonAPI.addNotification({ msg: 'Creating database.' });
     db.save().done(function () {
       FauxtonAPI.addNotification({
@@ -152,11 +152,11 @@ export default {
         type: 'success',
         clear: true
       });
-      var route = FauxtonAPI.urls('allDocs', 'app', app.utils.safeURLName(databaseName), '?limit=' + Resources.DocLimit);
+      const route = FauxtonAPI.urls('allDocs', 'app', app.utils.safeURLName(databaseName), '?limit=' + Resources.DocLimit);
       app.router.navigate(route, { trigger: true });
     }
     ).fail(function (xhr) {
-      var responseText = JSON.parse(xhr.responseText).reason;
+      const responseText = JSON.parse(xhr.responseText).reason;
       FauxtonAPI.addNotification({
         msg: 'Create database failed: ' + responseText,
         type: 'error',
@@ -194,6 +194,22 @@ export default {
         };
       });
       callback(null, { options: options });
+    });
+  },
+
+  checkPartitionedQueriesIsAvailable: () => {
+    // Checks if CouchDB version has support for Partitioned Queries
+    get(Helpers.getServerUrl("/")).then((dbinfo) => {
+      const versionParts = dbinfo.version.split('.');
+      const versionAsNumber = parseFloat(versionParts[0] + '.' + versionParts[1]);
+      FauxtonAPI.dispatch({
+        type: ActionTypes.DATABASES_PARTITIONED_QUERIES_AVAILABLE,
+        options: {
+          available: versionAsNumber >= 2.1
+        }
+      });
+    }).catch(() => {
+      // ignore as the default is false
     });
   }
 };

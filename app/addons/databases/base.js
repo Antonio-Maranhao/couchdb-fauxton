@@ -14,6 +14,7 @@ import app from "../../app";
 import Helpers from "../../helpers";
 import FauxtonAPI from "../../core/api";
 import Databases from "./routes";
+import Actions from "./actions";
 import "./assets/less/databases.less";
 
 Databases.initialize = function () {
@@ -23,6 +24,7 @@ Databases.initialize = function () {
     icon: "fonticon-database",
     className: 'databases'
   });
+  Actions.checkPartitionedQueriesIsAvailable();
 };
 
 // Utility functions

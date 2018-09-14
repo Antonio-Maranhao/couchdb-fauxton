@@ -14,7 +14,7 @@ import FauxtonAPI from "../../core/api";
 
 import PropTypes from 'prop-types';
 
-import React from "react";
+import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 import Components from "../components/react-components";
 import ComponentsStore from "../components/stores";
@@ -133,12 +133,12 @@ class DatabaseTable extends React.Component {
 
 class DatabaseRow extends React.Component {
   static propTypes = {
-    row: PropTypes.shape({
+    item: PropTypes.shape({
       id: PropTypes.string.isRequired,
       encodedId: PropTypes.string.isRequired,
       url: PropTypes.string.isRequired,
       failed: PropTypes.bool.isRequired,
-      dataSize: PropTypes.number,
+      dataSize: PropTypes.string,
       docCount: PropTypes.number,
       docDelCount: PropTypes.number,
       isPartitioned: PropTypes.bool,
@@ -216,46 +216,119 @@ const GraveyardInfo = ({docCount, docDelCount}) => {
   );
 };
 
-const RightDatabasesHeader = () => {
-  return (
-    <div className="header-right right-db-header flex-layout flex-row">
-      <JumpToDatabaseWidget loadOptions={Actions.fetchAllDbsWithKey} />
-      <AddDatabaseWidget />
-    </div>
-  );
-};
+class RightDatabasesHeader extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = this.getStoreState();
+  }
+
+  getStoreState () {
+    return {
+      showPartitionedOption: databasesStore.isPartitionedQueriesAvailable()
+    };
+  }
+
+  componentDidMount() {
+    databasesStore.on('change', this.onChange, this);
+  }
+
+  componentWillUnmount() {
+    databasesStore.off('change', this.onChange, this);
+  }
+
+  onChange () {
+    this.setState(this.getStoreState());
+  }
+
+  render() {
+    return (
+      <div className="header-right right-db-header flex-layout flex-row">
+        <JumpToDatabaseWidget loadOptions={Actions.fetchAllDbsWithKey} />
+        <AddDatabaseWidget showPartitionedOption={this.state.showPartitionedOption}/>
+      </div>
+    );
+  }
+}
 
 class AddDatabaseWidget extends React.Component {
-  state = {
-    isPromptVisible: false,
-    databaseName: ''
+  static defaultProps = {
+    showPartitionedOption: false
   };
 
-  onTrayToggle = () => {
+  static propTypes = {
+    showPartitionedOption: PropTypes.bool.isRequired
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isPromptVisible: false,
+      databaseName: '',
+      partitionedSelected: false
+    };
+
+    this.onTrayToggle = this.onTrayToggle.bind(this);
+    this.closeTray = this.closeTray.bind(this);
+    this.focusInput = this.focusInput.bind(this);
+    this.onKeyUpInInput = this.onKeyUpInInput.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.onAddDatabase = this.onAddDatabase.bind(this);
+    this.onTogglePartitioned = this.onTogglePartitioned.bind(this);
+  }
+
+  onTrayToggle () {
     this.setState({isPromptVisible: !this.state.isPromptVisible});
-  };
+  }
 
-  closeTray = () => {
+  closeTray () {
     this.setState({isPromptVisible: false});
-  };
+  }
 
-  focusInput = () => {
+  focusInput () {
     this.newDbName.focus();
-  };
+  }
 
-  onKeyUpInInput = (e) => {
+  onKeyUpInInput (e) {
     if (e.which === 13) {
       this.onAddDatabase();
     }
-  };
+  }
 
-  onChange = (e) => {
+  onChange (e) {
     this.setState({databaseName: e.target.value});
-  };
+  }
 
-  onAddDatabase = () => {
-    Actions.createNewDatabase(this.state.databaseName);
-  };
+  onAddDatabase () {
+    Actions.createNewDatabase(
+      this.state.databaseName,
+      this.state.partitionedSelected
+    );
+  }
+
+  onTogglePartitioned() {
+    this.setState({ partitionedSelected: !this.state.partitionedSelected });
+  }
+
+  partitionedCheckobx() {
+    if (!this.props.showPartitionedOption) {
+      return null;
+    }
+    return (
+      <Fragment>
+        <br/>
+        <label style={{margin: '10px 10px 0px 0px'}}>
+          <input
+            id="js-partitioned-db"
+            type="checkbox"
+            checked={this.state.partitionedSelected}
+            onChange={this.onTogglePartitioned}
+            style={{margin: '0px 10px 0px 0px'}} />
+          Partitioned
+        </label>
+      </Fragment>
+    );
+  }
 
   render() {
     return (
@@ -279,11 +352,7 @@ class AddDatabaseWidget extends React.Component {
             placeholder="Name of database"
           />
           <a className="btn" id="js-create-database" onClick={this.onAddDatabase}>Create</a>
-          <br/>
-          <label style={{margin: '10px 10px 0px 0px'}}>
-            <input style={{margin: '0px 10px 0px 0px'}} type="checkbox" />
-            Partitioned
-          </label>
+          { this.partitionedCheckobx() }
         </TrayContents>
       </div>
     );
