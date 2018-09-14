@@ -114,7 +114,6 @@ class DatabaseTable extends React.Component {
         <table className="table table-striped fauxton-table-list databases">
           <thead>
             <tr>
-              {/* <th width="35"> </th> */}
               <th>Name</th>
               <th>Size</th>
               <th># of Docs</th>
@@ -134,7 +133,17 @@ class DatabaseTable extends React.Component {
 
 class DatabaseRow extends React.Component {
   static propTypes = {
-    row: PropTypes.object
+    row: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      encodedId: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+      failed: PropTypes.bool.isRequired,
+      dataSize: PropTypes.number,
+      docCount: PropTypes.number,
+      docDelCount: PropTypes.number,
+      isPartitioned: PropTypes.bool,
+      showTombstoneWarning: PropTypes.bool
+    }).isRequired
   };
 
   getExtensionColumns = (row) => {
@@ -153,7 +162,7 @@ class DatabaseRow extends React.Component {
       item
     } = this.props;
 
-    const {encodedId, id, url, dataSize, docCount, docDelCount, showTombstoneWarning, failed } = item;
+    const {encodedId, id, url, dataSize, docCount, docDelCount, showTombstoneWarning, failed, isPartitioned } = item;
     const tombStoneWarning = showTombstoneWarning ?
       (<GraveyardInfo docCount={docCount} docDelCount={docDelCount} />) : null;
 
@@ -169,15 +178,13 @@ class DatabaseRow extends React.Component {
 
     return (
       <tr>
-        {/* <td className={id.length % 2 === 0 ? 'fonticon-database' : 'fonticon-activetasks'} style={{color: '#152935'}}>
-        </td> */}
         <td>
           <a href={url}>{id}</a>
         </td>
         <td>{dataSize}</td>
         <td>{docCount} {tombStoneWarning}</td>
         <td>
-          {id.length % 2 === 0 ? 'No' : 'Yes'}
+          {isPartitioned ? 'Yes' : 'No'}
         </td>
         {this.getExtensionColumns(item)}
 

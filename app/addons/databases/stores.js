@@ -95,7 +95,8 @@ const DatabasesStoreConstructor = FauxtonAPI.Store.extend({
       dataSize: Helpers.formatSize(dataSize),
       docCount: details.doc_count,
       docDelCount: details.doc_del_count,
-      showTombstoneWarning: details.doc_del_count > details.doc_count
+      showTombstoneWarning: details.doc_del_count > details.doc_count,
+      isPartitioned: details.partitioned === true
     };
   },
 
