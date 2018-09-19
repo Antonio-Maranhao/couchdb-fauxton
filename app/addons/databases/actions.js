@@ -13,6 +13,7 @@ import app from "../../app";
 import Helpers from "../../helpers";
 import FauxtonAPI from "../../core/api";
 import { get } from "../../core/ajax";
+import DatabasesBase from '../databases/base';
 import Stores from "./stores";
 import ActionTypes from "./actiontypes";
 import Resources from "./resources";
@@ -197,17 +198,23 @@ export default {
     });
   },
 
-  checkPartitionedQueriesIsAvailable: () => {
-    // Checks if CouchDB version has support for Partitioned Queries
-    get(Helpers.getServerUrl("/")).then((dbinfo) => {
-      const versionParts = dbinfo.version.split('.');
-      const versionAsNumber = parseFloat(versionParts[0] + '.' + versionParts[1]);
-      FauxtonAPI.dispatch({
-        type: ActionTypes.DATABASES_PARTITIONED_QUERIES_AVAILABLE,
-        options: {
-          available: versionAsNumber >= 2.1
-        }
-      });
+  setPartitionedDatabasesAvailable(available) {
+    FauxtonAPI.dispatch({
+      type: ActionTypes.DATABASES_PARTITIONED_DB_AVAILABLE,
+      options: {
+        available
+      }
+    });
+  },
+
+  checkPartitionedQueriesIsAvailable() {
+    const exts = FauxtonAPI.getExtensions(DatabasesBase.PARTITONED_DB_CHECK_EXTENSION);
+    let promises = exts.map(checkFunction => {
+      return checkFunction();
+    });
+    FauxtonAPI.Promise.all(promises).then(results => {
+      const isAvailable = results.every(check => check === true);
+      this.setPartitionedDatabasesAvailable(isAvailable);
     }).catch(() => {
       // ignore as the default is false
     });

@@ -36,7 +36,8 @@ class DatabasesController extends React.Component {
     return {
       dbList: databasesStore.getDbList(),
       loading: databasesStore.isLoading(),
-      showDeleteDatabaseModal: deleteDbModalStore.getShowDeleteDatabaseModal()
+      showDeleteDatabaseModal: deleteDbModalStore.getShowDeleteDatabaseModal(),
+      showPartitionedColumn: databasesStore.isPartitionedDatabasesAvailable()
     };
   };
 
@@ -63,7 +64,8 @@ class DatabasesController extends React.Component {
       <DatabaseTable
         showDeleteDatabaseModal={this.state.showDeleteDatabaseModal}
         dbList={dbList}
-        loading={loading} />
+        loading={loading}
+        showPartitionedColumn={this.state.showPartitionedColumn} />
     );
   }
 }
@@ -73,12 +75,13 @@ class DatabaseTable extends React.Component {
     dbList: PropTypes.array.isRequired,
     showDeleteDatabaseModal: PropTypes.object.isRequired,
     loading: PropTypes.bool.isRequired,
+    showPartitionedColumn: PropTypes.bool.isRequired
   };
 
   createRows = (dbList) => {
     return dbList.map((item, k) => {
       return (
-        <DatabaseRow item={item} key={k} />
+        <DatabaseRow item={item} key={k} showPartitionedColumn={this.props.showPartitionedColumn}/>
       );
     });
   };
@@ -117,7 +120,7 @@ class DatabaseTable extends React.Component {
               <th>Name</th>
               <th>Size</th>
               <th># of Docs</th>
-              <th>Partitioned</th>
+              {this.props.showPartitionedColumn ? (<th>Partitioned</th>) : null}
               {this.getExtensionColumns()}
               <th>Actions</th>
             </tr>
@@ -143,7 +146,8 @@ class DatabaseRow extends React.Component {
       docDelCount: PropTypes.number,
       isPartitioned: PropTypes.bool,
       showTombstoneWarning: PropTypes.bool
-    }).isRequired
+    }).isRequired,
+    showPartitionedColumn: PropTypes.bool.isRequired
   };
 
   getExtensionColumns = (row) => {
@@ -175,7 +179,9 @@ class DatabaseRow extends React.Component {
         </tr>
       );
     }
-
+    const partitionedCol = this.props.showPartitionedColumn ?
+      (<td>{isPartitioned ? 'Yes' : 'No'}</td>) :
+      null;
     return (
       <tr>
         <td>
@@ -183,9 +189,7 @@ class DatabaseRow extends React.Component {
         </td>
         <td>{dataSize}</td>
         <td>{docCount} {tombStoneWarning}</td>
-        <td>
-          {isPartitioned ? 'Yes' : 'No'}
-        </td>
+        {partitionedCol}
         {this.getExtensionColumns(item)}
 
         <td className="database-actions">
@@ -225,7 +229,7 @@ class RightDatabasesHeader extends React.Component {
 
   getStoreState () {
     return {
-      showPartitionedOption: databasesStore.isPartitionedQueriesAvailable()
+      showPartitionedOption: databasesStore.isPartitionedDatabasesAvailable()
     };
   }
 
@@ -300,9 +304,13 @@ class AddDatabaseWidget extends React.Component {
   }
 
   onAddDatabase () {
+    const partitioned = this.props.showPartitionedOption ?
+      this.state.partitionedSelected :
+      undefined;
+
     Actions.createNewDatabase(
       this.state.databaseName,
-      this.state.partitionedSelected
+      partitioned
     );
   }
 
