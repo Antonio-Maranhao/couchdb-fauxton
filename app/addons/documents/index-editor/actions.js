@@ -10,7 +10,6 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 
-import app from '../../../app';
 import FauxtonAPI from '../../../core/api';
 import Documents from '../resources';
 import ActionTypes from './actiontypes';
@@ -65,7 +64,7 @@ const shouldRemoveDdocView = (viewInfo) => {
           viewInfo.originalViewName !== viewInfo.viewName;
 };
 
-const saveView = (viewInfo) => (dispatch) => {
+const saveView = (viewInfo, navigateToURL) => (dispatch) => {
   const designDoc = viewInfo.designDoc;
   designDoc.setDdocView(viewInfo.viewName, viewInfo.map, viewInfo.reduce);
 
@@ -103,8 +102,7 @@ const saveView = (viewInfo) => (dispatch) => {
     }
     SidebarActions.dispatchUpdateDesignDocs(viewInfo.designDocs);
     dispatch({ type: ActionTypes.VIEW_SAVED });
-    const fragment = FauxtonAPI.urls('view', 'showView', viewInfo.database.safeID(), designDoc.safeID(), app.utils.safeURLName(viewInfo.viewName));
-    FauxtonAPI.navigate(fragment, { trigger: true });
+    FauxtonAPI.navigate(navigateToURL, { trigger: true });
   }, (xhr) => {
     FauxtonAPI.addNotification({
       msg: 'Save failed. ' + (xhr.responseJSON ? `Reason: ${xhr.responseJSON.reason}` : ''),
@@ -223,6 +221,15 @@ const updateNewDesignDocName = (designDocName) => (dispatch) => {
   });
 };
 
+const updateNewDesignDocPartitioned = (isPartitioned) => (dispatch) => {
+  dispatch({
+    type: ActionTypes.DESIGN_DOC_NEW_PARTITIONED_UPDATED,
+    options: {
+      value: isPartitioned
+    }
+  });
+};
+
 // safely deletes an index of any type. It only deletes the actual design doc if there are no
 // other indexes of any type left in the doc
 const safeDeleteIndex = (designDoc, designDocs, indexPropName, indexName, options) => {
@@ -314,5 +321,6 @@ export default {
   updateMapCode,
   updateReduceCode,
   selectDesignDoc,
-  updateNewDesignDocName
+  updateNewDesignDocName,
+  updateNewDesignDocPartitioned
 };
