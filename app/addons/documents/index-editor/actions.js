@@ -144,7 +144,8 @@ const deleteView = (options) => {
 };
 
 const cloneView = (params) => {
-  const targetDesignDoc = getDesignDoc(params.designDocs, params.targetDesignDocName, params.newDesignDocName, params.database);
+  const targetDesignDoc = getDesignDoc(params.designDocs, params.targetDesignDocName, params.newDesignDocName,
+    params.newDesignDocPartitioned, params.database, params.isDbPartitioned);
   let indexes = targetDesignDoc.get('views');
   if (indexes && _.has(indexes, params.newIndexName)) {
     FauxtonAPI.addNotification({
@@ -284,14 +285,18 @@ const findDesignDoc = (designDocs, designDocName) => {
   }).dDocModel();
 };
 
-const getDesignDoc = (designDocs, targetDesignDocName, newDesignDocName, database) => {
+const getDesignDoc = (designDocs, targetDesignDocName, newDesignDocName, newDesignDocPartitioned, database, isDbPartitioned) => {
   if (targetDesignDocName === 'new-doc') {
     const doc = {
       "_id": "_design/" + newDesignDocName,
       "views": {},
       "language": "javascript"
     };
-    return new Documents.Doc(doc, { database: database });
+    const dDoc = new Documents.Doc(doc, { database: database });
+    if (isDbPartitioned) {
+      dDoc.setDDocPartitionedOption(newDesignDocPartitioned);
+    }
+    return dDoc;
   }
 
   const foundDoc = designDocs.find(function (ddoc) {

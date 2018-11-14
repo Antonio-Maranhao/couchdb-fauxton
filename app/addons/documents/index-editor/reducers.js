@@ -116,21 +116,13 @@ export function getSaveDesignDoc(state, isDbPartitioned) {
 }
 
 // returns a simple array of design doc IDs. Omits mango docs
-export function getDesignDocList(state/*, isDbPartitioned*/) {
+export function getDesignDocList(state) {
   if (!state.designDocs) {
     return [];
   }
   return state.designDocs.filter(doc => {
     return !doc.isMangoDoc();
   }).map(doc => {
-    // let isDDocPartitioned = isDbPartitioned;
-    // if (isDbPartitioned && doc.options && doc.options.partitioned === false) {
-    //   isDDocPartitioned = false;
-    // }
-    // return {
-    //   id: doc.id,
-    //   isPartitioned: isDDocPartitioned
-    // };
     return doc.id;
   });
 }
