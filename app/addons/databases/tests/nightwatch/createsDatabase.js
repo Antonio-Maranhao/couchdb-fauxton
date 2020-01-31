@@ -19,7 +19,7 @@ module.exports = {
   '@tags': ['nonpartitioned'],
 
   before: function (client, done) {
-    const nano = helpers.getNanoInstance(client.globals.test_settings.db_url);
+    const nano = helpers.getNanoInstance(client.options.db_url);
     nano.db.destroy(newDatabaseName).then(() => {
       done();
     }).catch(()  => {
@@ -28,7 +28,7 @@ module.exports = {
   },
 
   after: function (client, done) {
-    const nano = helpers.getNanoInstance(client.globals.test_settings.db_url);
+    const nano = helpers.getNanoInstance(client.options.db_url);
     nano.db.destroy(newDatabaseName).then(() => {
       done();
     }).catch(()  => {

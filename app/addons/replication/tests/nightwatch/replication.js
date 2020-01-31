@@ -20,7 +20,7 @@ const docName1 = 'doc-name1';
 const docName2 = 'doc-name2';
 
 const destroyDBsAndCreateReplicator = (client, done) => {
-  var nano = helpers.getNanoInstance(client.globals.test_settings.db_url);
+  var nano = helpers.getNanoInstance(client.options.db_url);
   nano.db.destroy(newDatabaseName1, () => {
     nano.db.destroy(newDatabaseName2, () => {
       nano.db.destroy(replicatedDBName, () => {

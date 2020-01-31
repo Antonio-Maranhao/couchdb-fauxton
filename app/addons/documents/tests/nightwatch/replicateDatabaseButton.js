@@ -15,14 +15,14 @@ const helpers = require('../../../../../test/nightwatch_tests/helpers/helpers.js
 const testDbName = 'test_database';
 module.exports = {
   before: function (client, done) {
-    const nano = helpers.getNanoInstance(client.globals.test_settings.db_url);
+    const nano = helpers.getNanoInstance(client.options.db_url);
     nano.db.create(testDbName, function () {
       done();
     });
   },
 
   after: function (client, done) {
-    const nano = helpers.getNanoInstance(client.globals.test_settings.db_url);
+    const nano = helpers.getNanoInstance(client.options.db_url);
     nano.db.destroy(testDbName, function () {
       done();
     });

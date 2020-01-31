@@ -16,14 +16,14 @@ var helpers = require('../../../../../test/nightwatch_tests/helpers/helpers.js')
 module.exports = {
 
   before: function (client, done) {
-    var nano = helpers.getNanoInstance(client.globals.test_settings.db_url);
+    var nano = helpers.getNanoInstance(client.options.db_url);
     nano.db.create('_replicator', function () {
       done();
     });
   },
 
   after: function (client, done) {
-    var nano = helpers.getNanoInstance(client.globals.test_settings.db_url);
+    var nano = helpers.getNanoInstance(client.options.db_url);
     nano.db.destroy('_replicator', function () {
       done();
     });

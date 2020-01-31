@@ -18,9 +18,10 @@ exports.command = function (element, waitTime) {
     waitTime = helpers.maxWaitTime;
   }
 
+  encodedString = JSON.stringify(element);
   this
-    .waitForElementPresent(element, waitTime, false)
-    .execute('document.querySelector("' + element + '").scrollIntoView();')
+    // .waitForElementPresent(element, waitTime, false)
+    // .execute('document.querySelector("' + element + '").scrollIntoView();')
     .waitForElementVisible(element, waitTime, false)
     .click(element);
 

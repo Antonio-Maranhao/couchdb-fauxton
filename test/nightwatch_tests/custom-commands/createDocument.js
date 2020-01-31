@@ -26,6 +26,8 @@ function CreateDocument () {
 util.inherits(CreateDocument, events.EventEmitter);
 
 CreateDocument.prototype.command = function (documentName, databaseName, docContents) {
+  // console.log('CreateDocument:::this.client:', this.client);
+  // console.log('CreateDocument:::this.client.options', this.client.options);
   const couchUrl = this.client.options.db_url;
 
   if (!docContents) {

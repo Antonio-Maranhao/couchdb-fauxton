@@ -94,8 +94,11 @@ module.exports = function (grunt) {
       addonsWithTests = _findSpecificNightwatchTest(addonsWithTests, singleTestToRun);
     }
 
+    // console.info('Nightwatch settings:', this.data.settings.nightwatch);
+
     // now generate the new nightwatch.json file
     var nightwatchTemplate = _.template(grunt.file.read(this.data.template));
+    console.info('Saving nightwatch settings to', this.data.dest);
     grunt.file.write(this.data.dest, nightwatchTemplate({
       src_folders: JSON.stringify(addonsWithTests),
       exclude_tests: JSON.stringify(excludeTests, null, '\t'),
@@ -123,10 +126,17 @@ module.exports = function (grunt) {
     }
     //making some assumptions here
     const interfaces = os.networkInterfaces();
-    const eth0 = interfaces[Object.keys(interfaces)[2]];
-    return eth0.find(function (item) {
-      return item.family === 'IPv4';
-    }).address;
+    let ipv4Address = null;
+    // Uses the first IP v4 address it can find
+    Object.keys(interfaces).forEach(k => {
+      if (ipv4Address === null) {
+        const ip = interfaces[k].find(add => add.family.toLowerCase() === 'ipv4' && !add.internal);
+        if (ip) {
+          ipv4Address = ip.address;
+        }
+      }
+    });
+    return ipv4Address ? ipv4Address : '127.0.0.1';
   }
 
   function _validateNightwatchSettings (data) {
@@ -152,6 +162,7 @@ module.exports = function (grunt) {
     var filename = file + '.js';
 
     var paths = addonsWithTests.reduce(function (acc, dir) {
+      console.log('Checking addon', dir + '/' + filename);
       if (fs.existsSync(dir + '/' + filename)) {
         acc.push(dir + '/' + filename);
       }
@@ -172,6 +183,7 @@ module.exports = function (grunt) {
     var addonFolders = [],
         excludeTests = [];
 
+    console.log('_getNightwatchTests::DEPS:', settings.deps);
     _.each(settings.deps, function (addon) {
       var addonTestsFolder = 'app/addons/' + addon.name + '/tests/nightwatch';
       if (_.has(addon, 'path')) {
@@ -179,6 +191,7 @@ module.exports = function (grunt) {
       }
 
       // if this addon doesn't have any tests, just move along. Nothing to see here.
+      console.log('_getNightwatchTests::Checking ', addonTestsFolder, fs.existsSync(addonTestsFolder));
       if (!fs.existsSync(addonTestsFolder)) {
         return;
       }
@@ -198,7 +211,8 @@ module.exports = function (grunt) {
           if (_.includes(testBlacklist[addon.name], file)) {
             // the relative path is added to work around an oddity with nightwatch. It evaluates all exclude paths
             // relative to the current src_folder being examined, so we need to return to the root first
-            excludeTests.push('../../../../../' + addonTestsFolder + '/' + file);
+            // excludeTests.push('../../../../../' + addonTestsFolder + '/' + file);
+            excludeTests.push(addonTestsFolder + '/' + file);
           }
         });
 

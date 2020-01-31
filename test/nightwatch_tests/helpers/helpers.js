@@ -40,7 +40,9 @@ module.exports = {
   },
 
   beforeEach: function (browser, done) {
-    var nano = module.exports.getNanoInstance(browser.globals.test_settings.db_url),
+    // console.log('>>>>helpers:: browser.globals=', browser.globals);
+    // console.log('>>>>helpers:: browser.options=', browser.options);
+    var nano = module.exports.getNanoInstance(browser.options.db_url),
       database = module.exports.testDatabaseName;
 
     console.log('nano setting up database', database);
@@ -69,7 +71,7 @@ module.exports = {
   },
 
   afterEach: function (browser, done) {
-    var nano = module.exports.getNanoInstance(browser.globals.test_settings.db_url),
+    var nano = module.exports.getNanoInstance(browser.options.db_url),
       database = module.exports.testDatabaseName;
 
     console.log('nano cleaning up', database);

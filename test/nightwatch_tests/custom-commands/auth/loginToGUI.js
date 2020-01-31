@@ -15,20 +15,27 @@ exports.command = LoginToGui;
 function LoginToGui (user, pw) {
 
   const client = this;
+  // console.log('client is:::', client.options);
+  // console.log('client is:::', client.globals);
   const waitTime = client.globals.maxWaitTime;
-  const baseUrl = client.globals.test_settings.launch_url;
+  const baseUrl = client.options.launch_url;
 
-  const username = user || client.globals.test_settings.fauxton_username;
-  const password = pw || client.globals.test_settings.password;
-
+  const username = user || client.options.fauxton_username;
+  const password = pw || client.options.password;
+  console.log('user/pwd:', username, password);
+  console.log('>>>> client.options:', client.options);
   client
     .resizeWindow(1200, 1200)
     .url(baseUrl + '/#/login')
     .waitForElementPresent('a[href="#/login"]', 50000, false)
     .click('a[href="#/login"]')
     .waitForElementVisible('.couch-login-wrapper', waitTime, false)
-    .waitForElementVisible('#username', waitTime, false)
-    .setValue('.couch-login-wrapper #username', [username])
+    .waitForElementVisible('#username', waitTime, false);
+
+  console.log('>>>> user/pwd:', username, password);
+  client
+    // .waitForElementVisible('.couch-login-wrapper #username', waitTime, false)
+    // .setValue('.couch-login-wrapper #username', [username])
 
     .waitForElementVisible('#password', waitTime, false)
     .setValue('.couch-login-wrapper #password', [password])
