@@ -12,14 +12,25 @@ on:
 jobs:
   build:
 
+    services:
+      couchdb:
+        image: apache/couchdb:3
+        # Set health checks to wait until redis has started
+        options: >-
+          --health-cmd "curl http://127.0.0.1:5984"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+    - run: curl http://127.0.0.1:5984
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
