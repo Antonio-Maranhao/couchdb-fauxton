@@ -30,7 +30,7 @@ jobs:
           - 5984:5984
 
       # Runs Selenium in the background 
-      couchdb:
+      selenium:
         image: selenium/standalone-chrome:3.141.59
         ports:
           # Maps tcp port 4444 on service container to the host
