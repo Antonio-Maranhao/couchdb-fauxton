@@ -15,12 +15,18 @@ jobs:
     services:
       couchdb:
         image: apache/couchdb:3
+        env:
+          COUCHDB_USER: tester
+          COUCHDB_PASSWORD: testerpass
         # Set health checks to wait until redis has started
         options: >-
           --health-cmd "curl http://127.0.0.1:5984"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+        ports:
+          # Maps tcp port 5984 on service container to the host
+          - 5984:5984
 
     runs-on: ubuntu-latest
 
