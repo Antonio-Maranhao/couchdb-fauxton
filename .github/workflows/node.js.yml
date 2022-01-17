@@ -29,7 +29,6 @@ jobs:
           # Maps tcp port 5984 on service container to the host
           - 5984:5984
 
-    services:
       # Runs Selenium in the background 
       couchdb:
         image: selenium/standalone-chrome:3.141.59
