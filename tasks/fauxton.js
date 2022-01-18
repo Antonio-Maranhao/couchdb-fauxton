@@ -106,7 +106,7 @@ module.exports = function (grunt) {
       launch_url: this.data.settings.nightwatch.launch_url,
       // fauxton_host: _getHost(this.data.settings.nightwatch.fauxton_ip),
       // fauxton_host: "host.docker.internal",
-      fauxton_host: "172.17.0.1",
+      fauxton_host: "127.0.0.1",
       fauxton_port: this.data.settings.nightwatch.fauxton_port,
       db_protocol: this.data.settings.nightwatch.db_protocol,
       db_host: this.data.settings.nightwatch.db_host,
