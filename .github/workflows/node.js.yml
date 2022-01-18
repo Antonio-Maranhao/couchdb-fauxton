@@ -54,7 +54,7 @@ jobs:
     - run: npm ci
     # - run: npm run stylecheck
     # - run: npm test
-    - run: npm run docker:up
+    # - run: npm run docker:up
     - run: DIST=./dist/debug ./bin/fauxton &
     - run: sleep 15
     - run: ./node_modules/.bin/grunt nightwatch_retries
