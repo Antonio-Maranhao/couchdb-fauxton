@@ -44,7 +44,6 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - run: curl http://127.0.0.1:5984
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
@@ -56,6 +55,7 @@ jobs:
     # - run: npm test
     - run: npm run docker:up
     - run: sleep 15
+    - run: curl http://127.0.0.1:5984
     - run: DIST=./dist/debug ./bin/fauxton &
     - run: sleep 10
     - run: ./node_modules/.bin/grunt nightwatch_retries
