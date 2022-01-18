@@ -123,6 +123,7 @@ module.exports = function (grunt) {
     }
     //making some assumptions here
     const interfaces = os.networkInterfaces();
+    console.log("NETWORK INTERFACES:\n", JSON.stringify(interfaces));
     const eth0 = interfaces[Object.keys(interfaces)[2]];
     return eth0.find(function (item) {
       return item.family === 'IPv4';
