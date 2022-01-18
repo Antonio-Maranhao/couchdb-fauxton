@@ -5,9 +5,11 @@ services:
     image: selenium/standalone-chrome:3.141.59
     ports:
       - "4444:4444"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
   couchdb:
     container_name: couchdb
-    image: ${COUCHDB_IMAGE}
+    image: apache/couchdb:3
     environment:
       COUCHDB_USER: tester
       COUCHDB_PASSWORD: testerpass

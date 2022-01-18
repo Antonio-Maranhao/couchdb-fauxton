@@ -24,7 +24,7 @@ function LoginToGui (user, pw) {
   client
     .resizeWindow(1200, 1200)
     .url(baseUrl + '/#/login')
-    .waitForElementPresent('a[href="#/login"]', 50000, false)
+    .waitForElementPresent('a[href="#/login"]', 30000, false)
     .click('a[href="#/login"]')
     .waitForElementVisible('.couch-login-wrapper', waitTime, false)
     .waitForElementVisible('#username', waitTime, false)

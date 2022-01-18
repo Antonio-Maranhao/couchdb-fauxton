@@ -1,0 +1,61 @@
+# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    # services:
+    #   # Runs CouchDB in the background
+    #   couchdb:
+    #     image: apache/couchdb:3
+    #     env:
+    #       COUCHDB_USER: tester
+    #       COUCHDB_PASSWORD: testerpass
+    #     # Set Docker health checks. GH Actions runner polls Docker to check if the image is healthy
+    #     options: >-
+    #       --health-cmd "curl http://127.0.0.1:5984"
+    #       --health-interval 10s
+    #       --health-timeout 2s
+    #       --health-retries 5
+    #     ports:
+    #       # Maps tcp port 5984 on service container to the host
+    #       - 5984:5984
+
+    #   # Runs Selenium in the background 
+    #   selenium:
+    #     image: selenium/standalone-chrome:3.141.59
+    #     ports:
+    #       # Maps tcp port 4444 on service container to the host
+    #       - 4444:4444
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    # - run: npm run stylecheck
+    # - run: npm test
+    - run: npm run docker:up
+    - run: sleep 15
+    - run: curl http://127.0.0.1:5984
+    - run: DIST=./dist/debug ./bin/fauxton &
+    - run: sleep 10
+    - run: ./node_modules/.bin/grunt nightwatch_retries

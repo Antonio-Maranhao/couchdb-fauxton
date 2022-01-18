@@ -104,7 +104,9 @@ module.exports = function (grunt) {
       fauxton_username: this.data.settings.nightwatch.fauxton_username,
       password: this.data.settings.nightwatch.password,
       launch_url: this.data.settings.nightwatch.launch_url,
-      fauxton_host: _getHost(this.data.settings.nightwatch.fauxton_ip),
+      // fauxton_host: _getHost(this.data.settings.nightwatch.fauxton_ip),
+      // fauxton_host: "host.docker.internal",
+      fauxton_host: "127.0.0.1",
       fauxton_port: this.data.settings.nightwatch.fauxton_port,
       db_protocol: this.data.settings.nightwatch.db_protocol,
       db_host: this.data.settings.nightwatch.db_host,
@@ -123,6 +125,8 @@ module.exports = function (grunt) {
     }
     //making some assumptions here
     const interfaces = os.networkInterfaces();
+    console.log("NETWORK INTERFACES:\n", JSON.stringify(interfaces, null, 2));
+    console.log("NETWORK INTERFACES2:\n", interfaces);
     const eth0 = interfaces[Object.keys(interfaces)[2]];
     return eth0.find(function (item) {
       return item.family === 'IPv4';
