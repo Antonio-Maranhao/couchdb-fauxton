@@ -31,7 +31,7 @@ function createDatabase(nano, database) {
 
 module.exports = {
   asyncHookTimeout: 20000,
-  maxWaitTime: 30000,
+  maxWaitTime: 10000,
   testDatabaseName: dbName,
 
   getNanoInstance: function (dbURL) {
