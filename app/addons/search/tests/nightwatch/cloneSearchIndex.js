@@ -37,7 +37,7 @@ module.exports = {
       .clickWhenVisible('.popover-content .fonticon-files-o', waitTime, true)
       .waitForElementVisible('#new-index-name', waitTime, true)
       .setValue('#new-index-name', 'cloned-search-index')
-      .clickWhenVisible('.clone-index-modal .btn-primary', waitTime, true)
+      .clickWhenVisible('.clone-index-modal .btn-cf-primary', waitTime, true)
 
       // now wait for the sidebar to be updated with the new view
       .waitForElementVisible('#test1_cloned-search-index', waitTime, true)

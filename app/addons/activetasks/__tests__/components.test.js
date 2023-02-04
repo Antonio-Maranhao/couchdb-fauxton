@@ -51,7 +51,8 @@ describe('Active Tasks -- Components', () => {
             selectedRadio={"All Tasks"}
           />
         );
-        tabs.find('.searchbox').simulate('change', {target: {value: 'searching'}});
+
+        tabs.find('input.searchbox').simulate('change', {target: {value: 'searching'}});
         expect(spy.calledOnce).toBeTruthy();
       });
     });
@@ -64,7 +65,6 @@ describe('Active Tasks -- Components', () => {
       ];
 
       it('should trigger change to radio buttons', () => {
-
         tableTexts.forEach((text) => {
           let spy = sinon.spy();
           const table = mount(
@@ -77,7 +77,7 @@ describe('Active Tasks -- Components', () => {
             </table>
           );
 
-          table.find(`.${text}`).simulate('click');
+          table.find(`.header-${text}`).simulate('click');
           expect(spy.calledOnce).toBeTruthy();
         });
       });
