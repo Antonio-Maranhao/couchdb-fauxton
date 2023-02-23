@@ -130,15 +130,17 @@ class PermissionsSection extends React.Component {
               <p>Specify users who will have {this.props.section} access to this database.</p>
             </header>
 
-            <InputGroup>
-              <Form.Control
-                placeholder="Username"
-                onChange={this.nameChange}
-                aria-label="Username"
-                type="text" />
+            <form onSubmit={this.addNames}>
+              <InputGroup>
+                <Form.Control
+                  placeholder="Username"
+                  onChange={this.nameChange}
+                  aria-label="Username"
+                  type="text" />
 
-              <Button type="submit" variant="cf-primary" onClick={this.addNames}  aria-label="Add username"><i className="fonticon-plus-circled" />Add User</Button>
-            </InputGroup>
+                <Button type="submit" variant="cf-primary" aria-label="Add username"><i className="fonticon-plus-circled" />Add User</Button>
+              </InputGroup>
+            </form>
 
             <ul className="list-unstyled permission-items">
               {this.getNames()}
@@ -150,16 +152,18 @@ class PermissionsSection extends React.Component {
               <p>Users with any of the following role(s) will have {this.props.section} access.</p>
             </header>
 
-            <InputGroup>
-              <Form.Control
-                placeholder="Role"
-                value={this.state.newRole}
-                onChange={this.roleChange}
-                aria-label="Role"
-                type="text" />
+            <form onSubmit={this.addRoles}>
+              <InputGroup>
+                <Form.Control
+                  placeholder="Role"
+                  value={this.state.newRole}
+                  onChange={this.roleChange}
+                  aria-label="Role"
+                  type="text" />
 
-              <Button type="submit" variant="cf-primary" onClick={this.addRoles} aria-label="Add role"><i className="fonticon-plus-circled" />Add Role</Button>
-            </InputGroup>
+                <Button type="submit" variant="cf-primary" aria-label="Add role"><i className="fonticon-plus-circled" />Add Role</Button>
+              </InputGroup>
+            </form>
 
             <ul className="list-unstyled permission-items">
               {this.getRoles()}
