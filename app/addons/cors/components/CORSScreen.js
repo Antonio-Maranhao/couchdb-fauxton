@@ -142,7 +142,6 @@ export default class CORSScreen extends Component {
           title="Confirm Deletion"
           visible={this.props.deleteDomainModalVisible}
           text={deleteMsg}
-          buttonClass="btn-danger"
           onClose={this.props.hideDeleteDomainConfirmation}
           onSubmit={this.deleteOrigin.bind(this)}
           successButtonLabel="Delete Domain" />

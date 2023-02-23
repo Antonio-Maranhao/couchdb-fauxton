@@ -1,4 +1,4 @@
-import FauxtonAPI from "../../core/api";
+
 
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not
 // use this file except in compliance with the License. You may obtain a copy of
@@ -13,13 +13,9 @@ import FauxtonAPI from "../../core/api";
 // the License.
 
 import PropTypes from 'prop-types';
-
 import React from "react";
-import ReactDOM from "react-dom";
-import { Modal } from "react-bootstrap";
-
-// import "velocity-animate/velocity";
-// import "velocity-animate/velocity.ui";
+import { Button, Modal } from "react-bootstrap";
+import FauxtonAPI from "../../core/api";
 
 
 // formats a block of code and pretty-prints it in the page. Currently uses the prettyPrint plugin
@@ -162,10 +158,10 @@ class ConfirmationModal extends React.Component {
 
   static defaultProps = {
     visible: false,
-    title: 'Please confirm',
+    title: 'Confirmation',
     text: '',
-    successButtonLabel: 'Okay',
-    buttonClass: 'btn-primary'
+    successButtonLabel: 'Ok',
+    buttonVariant: 'cf-primary'
   };
 
   close = (e) => {
@@ -180,14 +176,13 @@ class ConfirmationModal extends React.Component {
     if (!_.isString(this.props.text)) {
       content = this.props.text;
     }
-    const btnClasses = 'btn ' + this.props.buttonClass;
     const closeButton = this.props.onClose ? (
       <a href="#" data-bypass="true" className="cancel-link" onClick={this.close}>Cancel</a>
     ) : null;
     const submitButton = this.props.onSubmit ? (
-      <button className={btnClasses} onClick={this.props.onSubmit}>
+      <Button variant={this.props.buttonVariant} onClick={this.props.onSubmit}>
         <i className="fonticon-ok-circled"></i> {this.props.successButtonLabel}
-      </button>
+      </Button>
     ) : null;
     return (
       <Modal dialogClassName="confirmation-modal" show={this.props.visible} onHide={this.close}>

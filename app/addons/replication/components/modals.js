@@ -43,7 +43,7 @@ export const DeleteModal = ({
   return (
     <Modal dialogClassName="replication_delete-doc-modal" show={visible} onHide={() => onClose()}>
       <Modal.Header closeButton={true}>
-        <Modal.Title>Verify Deletion</Modal.Title>
+        <Modal.Title>Confirm Deletion</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <p dangerouslySetInnerHTML={{__html: header}}></p>
@@ -99,6 +99,7 @@ export const ErrorModal = ({visible, onClose, errorMsg, status}) => {
         {warning}
       </Modal.Body>
       <Modal.Footer>
+        <Button variant="cf-primary" onClick={() => onClose()} >Close</Button>
       </Modal.Footer>
     </Modal>
   );
