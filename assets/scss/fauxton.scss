@@ -248,20 +248,16 @@ table.table.column-bordered {
   th {
     border-left-width: 1px;
   }
-
   th:first-child {
     border-left-width: 0px;
   }
-
   td {
     border-left-width: 1px;
   }
-
   td:first-child {
     border-left-width: 0px;
   }
 }
-
 // table.table {
 //   table-layout: fixed;
 // }
@@ -350,7 +346,6 @@ table.table.column-bordered {
     position: relative;
     background-color: $cf-white;
     color: $cf-text01;
-
     &:after {
       content: '';
       width: 0;
@@ -362,7 +357,6 @@ table.table.column-bordered {
       right: 9px;
       top: 12px;
     }
-
     &:before {
       content: '';
       border-left: 1px solid $cf-border-color02;
@@ -380,7 +374,6 @@ table.table.column-bordered {
 // missing: add_config_option
 .header-icon {
   font-size: 20px;
-
   &:before {
     float: left;
     margin: 10px 6px 0px 0px;
@@ -391,7 +384,6 @@ table.table.column-bordered {
   .help-block {
     padding: 5px 0 5px 0;
   }
-
   .icon {
     font-size: 16px;
   }
@@ -409,8 +401,7 @@ table.table.column-bordered {
     @include bottom-border();
     position: absolute;
     width: 100%;
-    z-index: 2;
-    /* needed because ace's selected row has a z-index of 1 & can't be overridden */
+    z-index: 2; /* needed because ace's selected row has a z-index of 1 & can't be overridden */
   }
 }
 
@@ -446,7 +437,6 @@ table.table.column-bordered {
   & > div > div {
     padding-right: 25px; // prevents overlapping of auto-generated scrollbar
   }
-
   min-width: 210px;
   max-width: 450px;
   width: auto;
@@ -492,7 +482,6 @@ table.table.column-bordered {
   max-height: 291px;
   background-color: $cf-background02;
 }
-
 .Select-arrow-zone > .Select-arrow {
   border-top-color: $cf-background02;
 }
@@ -583,7 +572,6 @@ table.table.column-bordered {
 
 body .control-toggle-include-docs span {
   margin-left: 0;
-
   &::before {
     content: 'Include Docs';
   }
@@ -596,7 +584,6 @@ body .control-toggle-include-docs span {
         .control-toggle-include-docs span::before {
           content: ' Docs';
         }
-
         .right-header button i:before {
           margin: 2px 0 0 0;
         }
@@ -612,19 +599,15 @@ body .control-toggle-include-docs span {
         .control-toggle-include-docs span::before {
           content: 'Docs';
         }
-
         button:not(.control-toggle-include-docs) span {
           display: none;
         }
-
         button i:before {
           float: none;
         }
-
         .right-header button i:before {
           margin: 2px 0 0 0;
         }
-
         #query-options-tray:before {
           right: 180px;
         }
@@ -640,7 +623,6 @@ body .control-toggle-include-docs span {
         .control-toggle-include-docs span::before {
           content: 'Docs';
         }
-
         .right-header button i:before {
           margin: 2px 0 0 0;
         }
@@ -656,19 +638,15 @@ body .control-toggle-include-docs span {
         .control-toggle-include-docs span::before {
           content: 'Docs';
         }
-
         button:not(.control-toggle-include-docs) span {
           display: none;
         }
-
         button i:before {
           float: none;
         }
-
         #query-options-tray:before {
           right: 180px;
         }
-
         .right-header button i:before {
           margin: 2px 0 0 0;
         }
@@ -690,13 +668,11 @@ body .control-toggle-include-docs span {
     @include border-radius(6px);
     text-decoration: none;
     font-size: 19px;
-
     &:hover {
       background-color: $cf-brand-hightlight-hover;
       color: $cf-white;
     }
   }
-
   td {
     vertical-align: middle;
   }
@@ -721,7 +697,6 @@ body .control-toggle-include-docs span {
   input[type='radio'] {
     display: none;
   }
-
   label.btn {
     margin-right: 0;
   }
