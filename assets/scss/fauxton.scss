@@ -77,11 +77,37 @@
 }
 
 .btn-cf-secondary {
-  @include button-variant($cf-btn-secondary-bg, $cf-btn-secondary-bg, $cf-btn-secondary-color, $cf-brand-hightlight-hover, $cf-brand-hightlight-hover, $cf-btn-secondary-color, $cf-btn-secondary-bg, $cf-btn-secondary-bg, $cf-btn-secondary-color, $cf-btn-secondary-bg-disabled, $cf-btn-secondary-bg-disabled, $cf-btn-secondary-color-disabled);
+  @include button-variant(
+    $cf-btn-secondary-bg,
+    $cf-btn-secondary-bg,
+    $cf-btn-secondary-color,
+    $cf-brand-hightlight-hover,
+    $cf-brand-hightlight-hover,
+    $cf-btn-secondary-color,
+    $cf-btn-secondary-bg,
+    $cf-btn-secondary-bg,
+    $cf-btn-secondary-color,
+    $cf-btn-secondary-bg-disabled,
+    $cf-btn-secondary-bg-disabled,
+    $cf-btn-secondary-color-disabled
+  );
 }
 
 .btn-cf-danger {
-  @include button-variant($cf-btn-danger-bg, $cf-btn-danger-bg, $cf-btn-danger-color, $cf-brand-hightlight-hover, $cf-brand-hightlight-hover, $cf-btn-danger-color, $cf-btn-danger-bg, $cf-btn-danger-bg, $cf-btn-danger-color, $cf-btn-danger-bg-disabled, $cf-btn-danger-bg-disabled, $cf-btn-danger-color-disabled);
+  @include button-variant(
+    $cf-btn-danger-bg,
+    $cf-btn-danger-bg,
+    $cf-btn-danger-color,
+    $cf-brand-hightlight-hover,
+    $cf-brand-hightlight-hover,
+    $cf-btn-danger-color,
+    $cf-btn-danger-bg,
+    $cf-btn-danger-bg,
+    $cf-btn-danger-color,
+    $cf-btn-danger-bg-disabled,
+    $cf-btn-danger-bg-disabled,
+    $cf-btn-danger-color-disabled
+  );
 }
 
 /**
