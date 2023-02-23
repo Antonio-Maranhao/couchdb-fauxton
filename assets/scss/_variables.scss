@@ -11,7 +11,7 @@
 //  the License.
 
 // Import bootstrap functions here so we can use the color utilities below
-@import "~bootstrap/scss/functions";
+@import '~bootstrap/scss/functions';
 
 // ==================================================================================
 // Note: Fauxton colors/styling must be defined first so they can be used to
@@ -62,7 +62,7 @@ $cf-text03: #d9d9d9 !default; // text color for items in dropdowns, main nav bar
 $cf-text04: #767f89 !default; // sidebar subitems
 $cf-text01-muted: #999999 !default;
 $cf-text02-muted: #bbbbbb !default;
-$cf-sans-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$cf-sans-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
 
 // padding and margins
 $cf-main-content-padding: 15px !default;
@@ -196,8 +196,8 @@ $cf-tray-body-bg: $cf-background02 !default;
 $cf-tray-body-color: $cf-text02 !default;
 
 // logo paths can be set via settings.json
-$largeLogoPath: "../../../../../assets/img/CouchDB-negative-logo.png" !default;
-$smallLogoPath: "../../../../../assets/img/couchdb-logo.png" !default;
+$largeLogoPath: '../../../../../assets/img/CouchDB-negative-logo.png' !default;
+$smallLogoPath: '../../../../../assets/img/couchdb-logo.png' !default;
 
 //
 // Bootstrap V5 variable overrides
