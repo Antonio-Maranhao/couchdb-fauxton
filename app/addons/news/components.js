@@ -11,7 +11,7 @@
 // the License.
 import app from '../../app';
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 
 const LoadNewsButton = ({ showNews, isChecked, toggleChange }) => {
   return (
@@ -25,11 +25,13 @@ const LoadNewsButton = ({ showNews, isChecked, toggleChange }) => {
       <p>
         If you don’t want to share your IP address, do not click the button.
       </p>
-      <Button onClick={showNews} variant="cf-primary">Load News</Button>
-      <label className="news-checkbox">
-        <input type="checkbox" checked={isChecked} onChange={toggleChange} />
-        Remember my choice
-      </label>
+      <Button onClick={showNews} variant="cf-primary" className="mb-3">Load News</Button>
+      <Form.Check
+        type='checkbox'
+        checked={isChecked}
+        onChange={toggleChange}
+        label='Remember my choice'
+      />
     </div>
   );
 };
