@@ -24,12 +24,16 @@
   border: none;
   color: $cf-text-fonticon01;
   font-size: 1rem;
-  .fonticon-filter {
-    font-size: 1.25rem;
-    padding-right: 6px;
-  }
+  // .fonticon-filter {
+  //   font-size: 1.25rem;
+  //   padding-right: 6px;
+  // }
   &:hover {
     color: $cf-brand-hightlight-hover;
+  }
+
+  i {
+    margin-right: 10px;
   }
 }
 
