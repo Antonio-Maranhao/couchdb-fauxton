@@ -79,36 +79,18 @@ $cf-box-shadow: 2px 2px rgba(0, 0, 0, 0.2) !default;
 $cf-disable-mix-amount: 15%;
 $cf-btn-primary-bg: $cf-primary !default;
 $cf-btn-primary-color: $cf-white !default;
-$cf-btn-primary-bg-disabled: tint-color(
-  $cf-btn-primary-bg,
-  $cf-disable-mix-amount
-) !default;
-$cf-btn-primary-color-disabled: tint-color(
-  $cf-btn-primary-color,
-  $cf-disable-mix-amount
-) !default;
+$cf-btn-primary-bg-disabled: tint-color($cf-btn-primary-bg, $cf-disable-mix-amount) !default;
+$cf-btn-primary-color-disabled: tint-color($cf-btn-primary-color, $cf-disable-mix-amount) !default;
 
 $cf-btn-secondary-bg: $cf-secondary !default;
 $cf-btn-secondary-color: $cf-white !default;
-$cf-btn-secondary-bg-disabled: tint-color(
-  $cf-btn-secondary-bg,
-  $cf-disable-mix-amount
-) !default;
-$cf-btn-secondary-color-disabled: tint-color(
-  $cf-btn-secondary-color,
-  $cf-disable-mix-amount
-) !default;
+$cf-btn-secondary-bg-disabled: tint-color($cf-btn-secondary-bg, $cf-disable-mix-amount) !default;
+$cf-btn-secondary-color-disabled: tint-color($cf-btn-secondary-color, $cf-disable-mix-amount) !default;
 
 $cf-btn-danger-bg: $cf-danger !default;
 $cf-btn-danger-color: $cf-white !default;
-$cf-btn-danger-bg-disabled: tint-color(
-  $cf-btn-danger-bg,
-  $cf-disable-mix-amount
-) !default;
-$cf-btn-danger-color-disabled: tint-color(
-  $cf-btn-danger-color,
-  $cf-disable-mix-amount
-) !default;
+$cf-btn-danger-bg-disabled: tint-color($cf-btn-danger-bg, $cf-disable-mix-amount) !default;
+$cf-btn-danger-color-disabled: tint-color($cf-btn-danger-color, $cf-disable-mix-amount) !default;
 
 // code editor or viewer
 $cf-code-bg: #4d4d4d !default;
