@@ -64,13 +64,7 @@
       }
     }
   }
-  .fonticon-filter {
-    position: absolute;
-    left: -25px;
-    top: 10px;
-    color: $cf-text-fonticon01;
-    font-size: 20px;
-  }
+
   form {
     margin: 0;
   }
@@ -165,7 +159,6 @@
 @keyframes highlight-element {
   from {
     background-color: $cf-border-color01;
-    
   }
   to {
     background-color: $cf-background01;

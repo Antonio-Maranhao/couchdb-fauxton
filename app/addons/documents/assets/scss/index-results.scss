@@ -117,7 +117,6 @@ a.document-result-screen__toolbar-create-btn:visited {
 }
 
 .table-view-docs {
-
   .bulk-action-component {
     padding-bottom: 0;
     min-height: 0;
@@ -202,14 +201,6 @@ a.document-result-screen__toolbar-create-btn:visited {
     max-width: 138px;
     width: 100%;
     overflow: visible;
-  }
-
-  .fonticon-filter {
-    position: absolute;
-    right: 6px;
-    top: 6px;
-    pointer-events: none;
-    color: $cf-text-fonticon01;
   }
 
   .table-container-autocomplete {
