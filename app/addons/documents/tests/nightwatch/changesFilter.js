@@ -42,7 +42,7 @@ module.exports = {
       // add a filter
       .waitForElementVisible('.js-changes-filter-field', waitTime, false)
       .setValue('.js-changes-filter-field', "doc_1")
-      .clickWhenVisible('.js-filter-form button[type="submit"]')
+      .clickWhenVisible('.changes-header .input-group button[type="submit"]')
 
       // confirm only the single result is now listed in the page
       .waitForElementVisible('span.label-info', waitTime, false)

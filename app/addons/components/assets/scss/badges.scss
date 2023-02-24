@@ -11,11 +11,14 @@
 // the License.
 
 ul.component-badgelist {
-  margin: 0;
+  margin-top:15px;
   display: inline-block;
+  padding-left:0;
+
   li {
+    margin: 0;
+    margin-left: 5px;
     list-style-type: none;
     float: left;
-    margin-left: 5px;
   }
 }
