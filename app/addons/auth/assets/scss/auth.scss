@@ -11,33 +11,18 @@
 //  the License.
 
 @import "../../../../../assets/scss/variables";
-// @import "../../../style/assets/scss/variables";
 
 .sidenav header {
   padding-left: 24px !important;
   h3 {
     margin: 8px 0 4px;
-    // color: $newColor1;
   }
 }
 
 .faux__auth-page {
   padding: 20px !important;
   h3 {
-    margin-top: 0;
+    margin-bottom: 1rem;
     
   }
-}
-
-// #login p {
-//   color: $newColor1;
-// }
-
-// #login #t1 {
-//   color: $newColor2; 
-// }
-
-#login #t2 {
-  background-color: $cf-black;
-  color: $cf-brand-highlight;
 }
