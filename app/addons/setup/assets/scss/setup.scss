@@ -10,20 +10,40 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 
+@import "../../../../../assets/scss/variables";
+
 .setup-screen {
-  padding: 20px;
-  button {
-    margin-top: 20px;
+  .header {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
   }
-  #setup-btn-no-thanks {
-    margin-left: 30px;
+  
+  .configure-buttons {
+    margin-top: 1.5rem;
+    button {
+      margin-right: 1.5rem;
+    }
+  }
+}
+
+.setup-setupnode-section {
+  margin-top: 1rem;
+}
+
+.setup-addnode-section {
+  border-top: 1px solid $cf-border-color01;
+  border-bottom: 1px solid $cf-border-color01;
+  margin-bottom: 1rem;
+
+  .setup-nodelist {
+    margin-bottom: 1rem;
   }
 }
 
 .setup-nodes {
-  input {
-    margin-right: 15px;
-  }
+  // input {
+  //   margin-right: 15px;
+  // }
 
   h2 {
     font-size: 16px;
@@ -38,24 +58,7 @@
     }
   }
 
-  .input-remote-node {
-    width: 50%;
-  }
-
-  .centered {
-    text-align: center;
-  }
-
-  .setup-finish,
-  .setup-nodelist,
-  .setup-opt-settings,
-  .setup-creds,
-  .setup-port,
-  .setup-add-button {
-    margin-top: 30px;
-  }
-
-  .setup-finish {
-    padding-bottom: 40px;
-  }
+  // .input-remote-node {
+  //   width: 50%;
+  // }
 }
