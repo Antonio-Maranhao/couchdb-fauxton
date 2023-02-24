@@ -11,7 +11,7 @@
 // the License.
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Button, Table, Tooltip, OverlayTrigger} from "react-bootstrap";
+import {Table, Tooltip, OverlayTrigger} from "react-bootstrap";
 import moment from 'moment';
 import {ErrorModal} from './modals';
 import {removeCredentialsFromUrl} from '../api';
@@ -236,11 +236,9 @@ Row.propTypes = {
 
 const BulkSelectHeader = ({isSelected, deleteDocs, someDocsSelected, onCheck}) => {
   const trash = someDocsSelected ?
-    <Button
-      onClick={() => deleteDocs()}
-      className="bulk-select-trash">
-      <i className="fonticon-trash"/>Delete all selected
-    </Button> : null;
+    <ToolbarButton icon="fonticon-trash"
+      aria-label="Delete all selected"
+      onClick={() => deleteDocs()} /> : null;
 
   return (
     <div className="replication__bulk-select-wrapper">
