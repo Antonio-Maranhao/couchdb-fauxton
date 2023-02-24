@@ -89,7 +89,7 @@ describe('PermissionsScreen', () => {
     );
 
     wrapper
-      .find('.permissions__admins .permissions__entry button')
+      .find('.permissions__entry li button')
       .simulate('click');
 
     expect(stub).toHaveBeenCalled();

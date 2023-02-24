@@ -28,12 +28,12 @@ module.exports = {
       .setValue('.permissions__admins [placeholder="Username"]', 'blergie')
       .clickWhenVisible('.permissions__admins .permissions-add-user button')
 
-      .waitForElementVisible('.permissions__admins .permissions__entry', waitTime, false)
-      .assert.textContains('.permissions__entry span', 'blergie')
+      .waitForElementVisible('.permissions__entry li', waitTime, false)
+      .assert.textContains('.permissions__entry li span', 'blergie')
 
       .url(baseUrl + '/#/database/' + newDatabaseName + '/permissions')
-      .waitForElementVisible('.permissions__admins .permissions__entry', waitTime, false)
-      .assert.textContains('.permissions__entry span', 'blergie')
+      .waitForElementVisible('.permissions__entry li', waitTime, false)
+      .assert.textContains('.permissions__entry li span', 'blergie')
 
       .end();
   }

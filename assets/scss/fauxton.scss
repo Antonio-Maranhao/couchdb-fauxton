@@ -163,15 +163,18 @@
 //   text-decoration: none;
 // }
 
+.page-header {
+  border-bottom: 1px solid $cf-page-header-border;
+  margin-bottom: 10px;
+  margin-top: 15px;
+
+  h3 {
+    text-transform: capitalize;
+    margin-bottom: 0;
+  }
+}
+
 /* bootstrap overrides */
-// .page-header {
-//   border-bottom: 1px solid $cf-border-lighter-gray;
-//   margin-bottom: 10px;
-//   h3 {
-//     text-transform: capitalize;
-//     margin-bottom: 0;
-//   }
-// }
 
 // .nav-tabs > li {
 //   margin-right: 2px;
