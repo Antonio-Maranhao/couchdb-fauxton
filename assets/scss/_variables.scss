@@ -182,7 +182,7 @@ $cf-tray-body-bg: $cf-background02 !default;
 $cf-tray-body-color: $cf-text02 !default;
 
 // pills
-$cf-pill-bg: $cf-background03;
+$cf-pill-bg: $cf-background03 !default;
 
 // logo paths can be set via settings.json
 $largeLogoPath: "../../../../../assets/img/CouchDB-negative-logo.png" !default;
