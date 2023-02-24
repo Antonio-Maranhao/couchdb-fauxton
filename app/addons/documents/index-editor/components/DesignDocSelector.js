@@ -76,7 +76,7 @@ export default class DesignDocSelector extends Component {
     }
     return (
       <a className="help-link" data-bypass="true" href={this.props.docLink} target="_blank" rel="noopener noreferrer">
-        <i className="icon-question-sign" />
+        <i className="fonticon-help-circled" />
       </a>
     );
   }

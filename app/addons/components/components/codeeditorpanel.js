@@ -65,7 +65,7 @@ export class CodeEditorPanel extends React.Component {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <i className="icon-question-sign"></i>
+          <i className="fonticon-help-circled"></i>
         </a>
       );
     }

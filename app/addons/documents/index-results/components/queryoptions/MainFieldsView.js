@@ -143,7 +143,7 @@ export default class MainFieldsView extends React.Component {
         <span className="add-on">
           Query Options
           <a className="help-link" href={this.props.docURL} target="_blank" rel="noopener noreferrer" data-bypass="true">
-            <i className="icon-question-sign"/>
+            <i className="fonticon-help-circled"/>
           </a>
         </span>
         <div className="row-fluid fieldsets">

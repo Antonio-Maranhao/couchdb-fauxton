@@ -121,7 +121,7 @@ export default class SearchForm extends React.Component {
               onClick={this.querySearch}>{buttonLabel}</Button>
           </span>
           <a className="help-link" data-bypass="true" href={FauxtonAPI.constants.DOC_URLS.SEARCH_INDEX_QUERIES} target="_blank" rel="noopener noreferrer">
-            <i className="icon-question-sign" />
+            <i className="fonticon-help-circled" />
           </a>
         </form>
 

@@ -146,7 +146,7 @@ export default class IndexEditor extends Component {
                 href={getDocUrl('VIEW_FUNCS')}
                 target="_blank"
                 rel="noopener noreferrer">
-                <i className="icon-question-sign"></i>
+                <i className="fonticon-help-circled"></i>
               </a>
             </label>
             <input
