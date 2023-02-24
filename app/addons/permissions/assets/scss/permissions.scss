@@ -38,3 +38,10 @@
 #dashboard #dashboard-content div.permissions-page {
   padding: 5px $cf-main-content-padding;
 }
+
+/* Bootstrap 'lg' breakpoint */
+@media (min-width: 992px) {
+  .permission-items.list-unstyled {
+    width: calc($desktop-input-width + 110px);
+  }
+}

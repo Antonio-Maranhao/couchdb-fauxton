@@ -710,3 +710,23 @@ body .control-toggle-include-docs span {
   margin: 100px;
   box-shadow: 2px 2px 5px $cf-border-color02;
 }
+
+/* prevent button (etc) on input group wrapping under text input */
+.input-group {
+  flex-wrap: nowrap !important;
+  button {
+    white-space: nowrap;
+  }
+}
+
+/* Bootstrap 'lg' breakpoint */
+@media (min-width: 992px) {
+  input[type='text'], input[type='email'], input[type='password'] {
+    /* for flex elements */
+    flex-grow: 0 !important;
+    flex-basis: $desktop-input-width !important;
+    /* for block elements */
+    width:100%;
+    max-width: $desktop-input-width;
+  }
+}
