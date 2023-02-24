@@ -13,6 +13,7 @@
 import React from "react";
 import FauxtonAPI from "../../core/api";
 import DocumentationComponents from "./components";
+import { OnePaneSimpleLayout } from '../components/layouts';
 
 var DocumentationRouteObject = FauxtonAPI.RouteObject.extend({
   selectedHeader: "Documentation",
@@ -22,12 +23,15 @@ var DocumentationRouteObject = FauxtonAPI.RouteObject.extend({
     documentation: "documentation",
   },
   roles: ["fx_loggedIn"],
-  documentation: function () {
-    return (
-      <div id="dashboard" className="one-pane ">
-        <DocumentationComponents.DocumentationPage />
-      </div>
-    );
+  documentation: () => {
+    return <OnePaneSimpleLayout
+      component={<DocumentationComponents.DocumentationPage/>}
+      docURL=""
+      endpoint=""
+      crumbs={[
+        {'name': 'Documentation'}
+      ]}
+    />;
   },
 });
 DocumentationRouteObject.RouteObjects = [DocumentationRouteObject];

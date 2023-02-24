@@ -10,56 +10,53 @@
 // License for the specific language governing permissions and limitations under
 // the License.*/
 
-#documentation-page {
+#dashboard-content #documentation-page {
+  padding: 1.5rem;
 
-  table{
-    margin: 50px;
-
-    .icons-container {
-      width: 80px;
-      height: 80px;
-      max-width: 200px;
-      max-height: 100px;
-      padding-right: 20px;
+  .links {
+    div.logo {
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
     }
+  }
 
-    .couchdb-icon {
-      background: transparent url('../../../../../assets/img/couchdb-logo.png') no-repeat 50% 50%;
-      height: 60px;
-      width: 60px;
-      background-size: 60px auto;
-    }
+  .couchdb-icon {
+    background: transparent url('../../../../../assets/img/couchdb-logo.png')
+      no-repeat 50% 50%;
+    background-size: 60px auto;
+    background-position-x: left;
+    padding-left: 70px;
+  }
 
-    .github-icon {
-      background: transparent url('../../../../../assets/img/github.png') no-repeat 50% 50%;
-      height: 40px;
-      width: 40px;
-      background-size: 40px auto;
-    }
+  .github-icon {
+    background: transparent url('../../../../../assets/img/github.png')
+      no-repeat 50% 50%;
+    background-size: 48px auto;
+    background-position-x: left;
+    padding-left: 70px;
+  }
 
-    .asf-feather-icon {
-      background: transparent url('../../../../../assets/img/asf-feather-logo.png') no-repeat 50% 50%;
-      height: 70px;
-      width: 100px;
-      background-size: 70px;
-    }
+  .asf-feather-icon {
+    background: transparent
+      url('../../../../../assets/img/asf-feather-logo.png') no-repeat 50% 50%;
+    background-size: 70px;
+    background-position-x: left;
+    padding-left: 70px;
+  }
 
-    .linkedin-icon {
-      background: transparent url('../../../../../assets/img/linkedin.png') no-repeat 50% 50%;
-      height: 40px;
-      width: 40px;
-      background-size: 40px auto;
-    }
+  .linkedin-icon {
+    background: transparent url('../../../../../assets/img/linkedin.png')
+      no-repeat 50% 50%;
+    background-size: 40px auto;
+    background-position-x: left;
+    padding-left: 70px;
+  }
 
-    .twitter-icon {
-      background: transparent url('../../../../../assets/img/twitter.png') no-repeat 50% 50%;
-      height: 50px;
-      width: 50px;
-      background-size: 60px;
-    }
-
-    .icon {
-      margin: auto;
-    }
+  .twitter-icon {
+    background: transparent url('../../../../../assets/img/twitter.png')
+      no-repeat 50% 50%;
+    background-size: 60px;
+    background-position-x: left;
+    padding-left: 70px;
   }
 }
