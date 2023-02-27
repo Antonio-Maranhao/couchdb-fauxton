@@ -14,9 +14,8 @@ import FauxtonAPI from '../../../core/api';
 import app from '../../../app';
 import React from 'react';
 import Constants from '../constants';
-import Components from '../../components/react-components';
+import Form from 'react-bootstrap/Form';
 
-const { StyledSelect } = Components;
 
 export class ReplicationAuth extends React.Component {
 
@@ -101,11 +100,13 @@ export class ReplicationAuth extends React.Component {
           Authentication:
         </div>
         <div className="replication__input-select">
-          <StyledSelect
-            selectContent={this.getAuthOptions()}
-            selectChange={(e) => this.onChangeType(e.target.value)}
-            selectId={'select-' + authId}
-            selectValue={authType} />
+          <Form.Select
+            onChange={(e) => this.onChangeType(e.target.value)}
+            id={'select-' + authId}
+            value={authType}
+          >
+            {this.getAuthOptions()}
+          </Form.Select>
         </div>
       </div>
       {this.getAuthInputFields(credentials, authType)}

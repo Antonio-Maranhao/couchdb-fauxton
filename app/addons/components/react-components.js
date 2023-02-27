@@ -14,7 +14,6 @@ import {Accordion, AccordionItem} from './components/accordion';
 import {Badge, BadgeList} from './components/badge';
 import {ToggleHeaderButton} from './components/toggleheaderbutton';
 import {BulkActionComponent} from './components/bulkaction';
-import {StyledSelect} from './components/styledselect';
 import {StringEditModal} from './components/stringeditmodal';
 import {CodeEditorPanel} from './components/codeeditorpanel';
 import {CodeEditor} from './components/codeeditor';
@@ -42,7 +41,6 @@ export default {
   BulkActionComponent,
   ConfirmButton,
   ToggleHeaderButton,
-  StyledSelect,
   CodeEditorPanel,
   CodeEditor,
   StringEditModal,

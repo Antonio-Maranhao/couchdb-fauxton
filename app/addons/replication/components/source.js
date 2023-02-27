@@ -13,10 +13,8 @@ import PropTypes from 'prop-types';
 
 import React from 'react';
 import Constants from '../constants';
-import Components from '../../components/react-components';
 import ReactSelect from 'react-select';
-
-const { StyledSelect } = Components;
+import Form from 'react-bootstrap/Form';
 
 const RemoteSourceInput = ({onChange, value}) =>
   <div className="replication__section">
@@ -104,11 +102,13 @@ export const ReplicationSourceSelect = ({onChange, value}) => {
         Type:
       </div>
       <div className="replication__input-select">
-        <StyledSelect
-          selectContent={replicationSourceSelectOptions()}
-          selectChange={(e) => onChange(e.target.value)}
-          selectId="replication-source"
-          selectValue={value} />
+        <Form.Select
+          onChange={(e) => onChange(e.target.value)}
+          id="replication-source"
+          value={value}
+        >
+          {replicationSourceSelectOptions()}
+        </Form.Select>
       </div>
     </div>
   );
