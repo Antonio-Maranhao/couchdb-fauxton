@@ -115,9 +115,9 @@ export class CodeEditorPanel extends React.Component {
   state = this.getStoreState();
 
   render() {
-    var classes = 'control-group';
+    var classes = '';
     if (this.props.className) {
-      classes += ' ' + this.props.className;
+      classes = this.props.className;
     }
     return (
       <div className={classes}>

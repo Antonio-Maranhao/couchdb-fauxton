@@ -48,33 +48,16 @@ button.beautify {
   margin-right: 17px;
 }
 
-/** used in view_editor.html **/
-.design-doc-group {
-  .span3 {
-    margin: 0;
-  }
-  #new-ddoc-section {
-    margin-top: 10px;
-    width: 325px;
-    label {
-      width: 100px;
-    }
-    .controls {
-      margin-left: 100px;
-    }
-  }
-}
-
 #map-function,
 #reduce-function {
   width: 100%;
   font-size: 13px;
   line-height: 22px;
+  border-radius: $cf-border-radius;
 }
 
 .metadata-page {
   font-size: 14px;
-  padding: 20px;
 
   .preheading {
     font-size: 14px;

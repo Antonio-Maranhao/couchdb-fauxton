@@ -77,8 +77,8 @@ export default class ReduceEditor extends Component {
     }
 
     return (
-      <div>
-        <div className="control-group">
+      <div className="row">
+        <div className="mb-3 col-12 col-lg-6 col-xxl-4">
           <label htmlFor="reduce-function-selector">
             <span>Reduce (optional)</span>
             <a
