@@ -47,53 +47,9 @@
   width: 5%;
 }
 
-#add-option-button {
-  line-height: 38px;
-  cursor: pointer;
-  border-left: 1px solid $cf-border-color01;
-  border-right: none;
-  border-top: none;
-  border-bottom: none;
-  padding: 12px 14px;
-
-  &:hover {
-    transition: none;
-    text-decoration: none;
-    color: $link-hover-color;
-  }
-}
-
 #add-option-popover {
-  background-color: $cf-background02;
-  color: white;
   display: block;
-
-  .popover-content {
-    padding: 0;
-  }
-
-  .popover-title {
-    font-size: 16px;
-    padding: 0;
-    margin: 10px 0;
-    border: none;
-    display: block;
-    text-align: left;
-    color: $cf-text02;
-    text-shadow: none;
-    height: auto;
-    line-height: 1em;
-    background-color: $cf-background02;
-  }
-
-  .arrow,
-  .arrow::after {
-    border-bottom-color: #333 !important;
-  }
-}
-
-#add-option-popover::before {
-  display: none;
+  width: 300px;
 }
 
 .config-warning-cluster-wrapper {

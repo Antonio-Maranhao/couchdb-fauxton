@@ -220,10 +220,10 @@ describe('Config Components', () => {
       );
 
       el.find('button#add-option-button').simulate('click');
-      expect(el.find('div#add-option-popover .input-section-name').length).toBe(1);
-      expect(el.find('div#add-option-popover .input-option-name').length).toBe(1);
-      expect(el.find('div#add-option-popover .input-value').length).toBe(1);
-      expect(el.find('div#add-option-popover .btn-create').length).toBe(1);
+      expect(el.find('div#add-option-popover input[name="section"]').length).toBe(1);
+      expect(el.find('div#add-option-popover input[name="name"]').length).toBe(1);
+      expect(el.find('div#add-option-popover input[name="value"]').length).toBe(1);
+      expect(el.find('div#add-option-popover .btn').length).toBe(1);
     });
 
     it('does not hide popover if create clicked with invalid input', () => {
@@ -232,7 +232,7 @@ describe('Config Components', () => {
       );
 
       el.find('button#add-option-button').simulate('click');
-      el.find('div#add-option-popover .btn-create').simulate('click');
+      el.find('div#add-option-popover .btn').simulate('click');
       expect(el.find('div#add-option-popover').length).toBe(1);
     });
 
@@ -243,7 +243,7 @@ describe('Config Components', () => {
       );
 
       el.find('button#add-option-button').simulate('click');
-      el.find('div#add-option-popover .btn-create').simulate('click');
+      el.find('div#add-option-popover .btn').simulate('click');
       sinon.assert.notCalled(spy);
     });
 
@@ -254,10 +254,10 @@ describe('Config Components', () => {
       );
 
       el.find('button#add-option-button').simulate('click');
-      el.find('div#add-option-popover .input-section-name').simulate('change', { target: { value: 'test_section' } });
-      el.find('div#add-option-popover .input-option-name').simulate('change', { target: { value: 'test_option' } });
-      el.find('div#add-option-popover .input-value').simulate('change', { target: { value: 'test_value' } });
-      el.find('div#add-option-popover .btn-create').simulate('click');
+      el.find('div#add-option-popover input[name="section"]').simulate('change', { target: { value: 'test_section' } });
+      el.find('div#add-option-popover input[name="name"]').simulate('change', { target: { value: 'test_option' } });
+      el.find('div#add-option-popover input[name="value"]').simulate('change', { target: { value: 'test_value' } });
+      el.find('div#add-option-popover .btn').simulate('click');
       sinon.assert.calledWithMatch(spy, {
         sectionName: 'test_section',
         optionName: 'test_option',

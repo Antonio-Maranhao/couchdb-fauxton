@@ -10,13 +10,6 @@
 //  License for the specific language governing permissions and limitations under
 //  the License.
 
-// @import "icons";
-
-// $deprated - old trays
-.hide-tray {
-  display: none;
-}
-
 .show-tray {
   display: block !important; //nasty hack until we convert all trays to React
 }
@@ -44,41 +37,6 @@
     height: auto;
     line-height: 1em;
   }
-
-  input[type="text"],
-  textarea {
-    @include border-radius(5px);
-    padding: 8px;
-    border: none;
-    font-size: 13px;
-  }
-
-  input[type="text"]:focus,
-  textarea:focus,
-  input[type="text"]:hover,
-  textarea:hover {
-    border: 2px solid $cf-border-color02;
-  }
-  input[type="text"],
-  textarea {
-    box-shadow: none;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    padding: 8px;
-    font-size: 13px;
-  }
-}
-
-.tray:before {
-  content: "";
-  position: absolute;
-  top: -25px;
-  border-color: transparent transparent #333 transparent;
-  border-style: solid;
-  border-width: 15px;
-  width: 0;
-  height: 0;
 }
 
 #header-lookahead .dropdown-menu li.active {
