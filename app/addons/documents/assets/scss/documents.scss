@@ -119,8 +119,14 @@ button.string-edit {
   position: absolute;
   padding: 0;
   z-index: 1000;
-  width: 20px;
-  left: 22px;
+  width: 22px;
+  left: 20px;
+  font-size: 0.75rem;
+  background-color: $cf-code-btn-string-edit-color;
+
+  &:hover {
+    background-color: $cf-code-btn-string-edit-color-hover;
+  }
 
   i.icon {
     margin-right: 0px;
