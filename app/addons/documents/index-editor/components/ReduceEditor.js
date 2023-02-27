@@ -14,9 +14,10 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import app from '../../../../app';
 import ReactComponents from '../../../components/react-components';
+import Form from 'react-bootstrap/Form';
 
 const getDocUrl = app.helpers.getDocUrl;
-const {CodeEditorPanel, StyledSelect} = ReactComponents;
+const {CodeEditorPanel} = ReactComponents;
 
 export default class ReduceEditor extends Component {
 
@@ -90,11 +91,13 @@ export default class ReduceEditor extends Component {
               <i className="fonticon-help-circled"></i>
             </a>
           </label>
-          <StyledSelect
-            selectContent={reduceOptions}
-            selectChange={this.selectChange.bind(this)}
-            selectId="reduce-function-selector"
-            selectValue={this.props.reduceSelectedOption} />
+          <Form.Select
+            onChange={this.selectChange.bind(this)}
+            id="reduce-function-selector"
+            value={this.props.reduceSelectedOption}
+          >
+            {reduceOptions}
+          </Form.Select>
         </div>
         {customReduceSection}
       </div>

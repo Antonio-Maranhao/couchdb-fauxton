@@ -9,10 +9,10 @@
 // WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 // License for the specific language governing permissions and limitations under
 // the License.
-import ReactComponents from "../react-components";
 import React from "react";
 import {mount} from 'enzyme';
 import sinon from "sinon";
+import Form from 'react-bootstrap/Form';
 
 describe('styled select', () => {
   let selectorEl, spy = sinon.spy();
@@ -26,12 +26,13 @@ describe('styled select', () => {
     );
 
     selectorEl = mount(
-      <ReactComponents.StyledSelect
-        selectValue={"foo"}
-        selectId="new-ddoc"
-        selectClass=""
-        selectContent={selectContent}
-        selectChange={spy} />
+      <Form.Select
+        value="foo"
+        id="new-ddoc"
+        onChange={spy}
+      >
+        {selectContent}
+      </Form.Select>
     );
   });
 
@@ -43,5 +44,4 @@ describe('styled select', () => {
     });
     expect(spy.calledOnce).toBeTruthy();
   });
-
 });

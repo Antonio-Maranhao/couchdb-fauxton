@@ -13,9 +13,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import FauxtonAPI from '../../../../core/api';
-import ReactComponents from '../../../components/react-components';
+import Form from 'react-bootstrap/Form';
 
-const { StyledSelect } = ReactComponents;
 
 export default class DesignDocSelector extends Component {
 
@@ -127,12 +126,13 @@ export default class DesignDocSelector extends Component {
           <label htmlFor="ddoc">{this.props.designDocLabel}
             {this.getDocLink()}
           </label>
-          <StyledSelect
-            selectChange={this.selectDesignDoc.bind(this)}
-            selectValue={this.props.selectedDesignDocName}
-            selectId={"faux__edit-view__design-doc"}
-            selectContent={selectContent}
-          />
+          <Form.Select
+            onChange={this.selectDesignDoc.bind(this)}
+            value={this.props.selectedDesignDocName}
+            id="faux__edit-view__design-doc"
+          >
+            {selectContent}
+          </Form.Select>
         </div>
         {this.getNewDDocField()}
         {this.getPartitionedCheckbox()}

@@ -13,9 +13,8 @@ import PropTypes from 'prop-types';
 
 import React from 'react';
 import Constants from '../constants';
-import Components from '../../components/react-components';
+import Form from 'react-bootstrap/Form';
 
-const { StyledSelect } = Components;
 
 const getReplicationTypeOptions = () => {
   return [
@@ -31,11 +30,13 @@ const ReplicationType = ({value, onChange}) => {
         Replication type:
       </div>
       <div className="replication__input-select">
-        <StyledSelect
-          selectContent={getReplicationTypeOptions()}
-          selectChange={(e) => onChange(e.target.value)}
-          selectId="replication-target"
-          selectValue={value} />
+        <Form.Select
+          onChange={(e) => onChange(e.target.value)}
+          id="replication-target"
+          value={value}
+        >
+          {getReplicationTypeOptions()}
+        </Form.Select>
       </div>
     </div>
   );

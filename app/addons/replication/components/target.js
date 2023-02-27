@@ -15,10 +15,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import Constants from '../constants';
-import Components from '../../components/react-components';
 import ReactSelect from 'react-select';
-
-const { StyledSelect } = Components;
+import Form from 'react-bootstrap/Form';
 
 const replicationTargetSourceOptions = () => {
   return [
@@ -41,11 +39,13 @@ const ReplicationTargetSelect = ({ value, onChange }) => {
         Type:
       </div>
       <div id="replication-target" className="replication__input-select">
-        <StyledSelect
-          selectContent={replicationTargetSourceOptions()}
-          selectChange={(e) => onChange(e.target.value)}
-          selectId="replication-target"
-          selectValue={value} />
+        <Form.Select
+          onChange={(e) => onChange(e.target.value)}
+          id="replication-target"
+          value={value}
+        >
+          {replicationTargetSourceOptions()}
+        </Form.Select>
       </div>
     </div>
   );
