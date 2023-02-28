@@ -32,25 +32,16 @@
 
 .search-index-content {
   margin-bottom: 1rem;
-
-  &> div {
-    .fonticon-help-circled {
-      margin-left: 4px;
-      &:hover {
-        color: $cf-brand-hightlight-hover;
-      }
-    }
-  }
 }
 
 #search-index-preview-form {
-  margin: 5px 0 20px;
+  margin: 0.5rem 0 1rem;
   .input-append {
     vertical-align: bottom;
   }
   .help-link {
     display: inline-block;
+    vertical-align: top;
     margin-left: 12px;
-    padding-bottom: 23px;
   }
 }
