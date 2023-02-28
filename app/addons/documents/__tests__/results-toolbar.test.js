@@ -54,7 +54,7 @@ describe('Results Toolbar', () => {
     );
     expect(wrapper.find('.bulk-action-component').length).toBe(1);
     expect(wrapper.find('div.two-sides-toggle-button').length).toBe(1);
-    expect(wrapper.find('.document-result-screen__toolbar-create-btn').length).toBe(1);
+    expect(wrapper.find('#create-new-doc-btn').length).toBe(1);
   });
 
   it('does not render bulk action component when list is not deletable', () => {
@@ -65,7 +65,7 @@ describe('Results Toolbar', () => {
     );
     expect(wrapper.find('.bulk-action-component').length).toBe(0);
     expect(wrapper.find('div.two-sides-toggle-button').length).toBe(1);
-    expect(wrapper.find('.document-result-screen__toolbar-create-btn').length).toBe(1);
+    expect(wrapper.find('#create-new-doc-btn').length).toBe(1);
   });
 
   it('includes default partition key when one is selected', () => {
@@ -74,7 +74,7 @@ describe('Results Toolbar', () => {
       hasResults={true}
       isListDeletable={false}
       partitionKey={'partKey1'} />);
-    expect(wrapper.find('a.document-result-screen__toolbar-create-btn').prop('href')).toMatch(/\?partitionKey=partKey1$/);
+    expect(wrapper.find('#create-new-doc-btn').prop('href')).toMatch(/\?partitionKey=partKey1$/);
   });
 
   it('toggles display density', () => {

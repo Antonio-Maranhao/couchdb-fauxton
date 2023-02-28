@@ -67,8 +67,8 @@ export class ResultsToolBar extends React.Component {
     let createDocumentLink = null;
     if (databaseName) {
       createDocumentLink = (
-        <div className="document-result-screen__toolbar-flex-container">
-          <Button href={Helpers.getNewDocUrl(databaseName, partitionKey)} variant="cf-primary">
+        <div className="ms-auto">
+          <Button id="create-new-doc-btn" href={Helpers.getNewDocUrl(databaseName, partitionKey)} variant="cf-primary">
             Create Document
           </Button>
         </div>

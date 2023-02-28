@@ -30,15 +30,8 @@
   justify-content: flex-end;
 }
 
-.two-sides-toggle-button {
-  .btn {
-    height: 43px;
-    .fonticon-table {
-      vertical-align: middle;
-    }
-
-    .fonticon-json {
-      vertical-align: middle;
-    }
+.alternative-header {
+  .two-sides-toggle-button {
+    margin-right: 1rem;
   }
 }

@@ -50,11 +50,6 @@ body #notification-center .flex-body {
   overflow: auto;
 }
 
-/* tells an element to be as large as the content. This will replace the hardcoded ones */
-body #dashboard .flex-fill {
-  @include flex(0 0 auto);
-}
-
 /* used on the databases page. To be removed once moved to flexbox */
 .faux__onepane-footer {
   position: absolute;

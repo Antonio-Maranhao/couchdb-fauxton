@@ -119,7 +119,7 @@ module.exports = {
       .loginToGUI()
       .url(baseUrl + '/#/database/' + newDatabaseName + '/_all_docs')
       .waitForElementPresent('.tableview-checkbox-cell', waitTime, false)
-      .clickWhenVisible('.document-result-screen__toolbar-create-btn')
+      .clickWhenVisible('#create-new-doc-btn')
       .waitForElementPresent('#editor-container', waitTime, false)
       .verify.urlEquals(baseUrl + '/#database/' + newDatabaseName + '/_new')
       .waitForElementPresent('.ace_gutter-active-line', waitTime, false)

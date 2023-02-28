@@ -62,13 +62,3 @@
     color: $cf-brand-highlight;
   }
 }
-
-button.control-toggle-alternative-header {
-  float: left;
-  border-right: 1px solid $cf-border-color01;
-  border-left: none;
-}
-
-button.control-toggle-alternative-header.js-headerbar-togglebutton-selected {
-  border-right: none;
-}

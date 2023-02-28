@@ -111,11 +111,8 @@ const CustomMenuButtonToggle = React.forwardRef(
       onClick(e);
     };
     return (
-      <Button ref={ref} onClick={handleClick}>
-        <i
-          className={'dropdown-toggle ' + icon}
-          style={{ fontSize: '1rem', boxShadow: '0px 0px 0px' }}
-        ></i>
+      <Button className="dropdown-toggle" ref={ref} onClick={handleClick} variant="cf-secondary">
+        <i className={icon} />
         {children}
       </Button>
     );
