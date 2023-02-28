@@ -119,7 +119,7 @@ export default class SearchIndexEditor extends React.Component {
     const pageHeader = this.props.isCreatingIndex ? 'New Search Index' : 'Edit Search Index';
     const btnLabel = this.props.isCreatingIndex ? 'Create Document and Build Index' : 'Save Document and Build Index';
     return (
-      <form className="form-horizontal search-query-save" id="search-index">
+      <form id="search-index">
         <h3 className='simple-header'>{pageHeader}</h3>
 
         <DesignDocSelector

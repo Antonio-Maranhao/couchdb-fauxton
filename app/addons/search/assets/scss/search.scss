@@ -24,19 +24,7 @@
   margin-top: 25px;
 }
 
-.index-tabs.dashboard-upper-menu {
-  position: inherit;
-  &.index-tabs {
-    border-bottom: 0;
-    .fonticon:before {
-      margin-right: 6px;
-    }
-  }
-}
-
-#queryText {
-  max-width: 300px;
-}
+// TODO: review unused classes
 
 .ace-editor-section .ace_editor {
   font-size: 13px;
@@ -44,36 +32,17 @@
   line-height: 22px;
 }
 
-.search-query-save {
-  max-width: 100%;
-  .design-doc-group #new-ddoc-section {
-    margin-top: 24px;
-    label {
-      padding-top: 12px;
+.search-index-content {
+  margin-bottom: 1rem;
+
+  &> div {
+    .fonticon-help-circled {
+      margin-left: 4px;
+      &:hover {
+        color: $cf-brand-hightlight-hover;
+      }
     }
   }
-}
-
-.search-index-content > div {
-  .fonticon-help-circled {
-    margin-left: 4px;
-    &:hover {
-      color: $cf-brand-hightlight-hover;
-    }
-  }
-}
-
-.search-index-function {
-  label {
-    margin-right: 0;
-  }
-  .ace_editor {
-    line-height: 22px;
-  }
-}
-
-#search-query-submit {
-  padding: 12px;
 }
 
 #search-index-preview-form {
@@ -86,46 +55,4 @@
     margin-left: 12px;
     padding-bottom: 23px;
   }
-}
-
-@mixin search-index-code-section() {
-  font-size: 12px;
-  font-family: monospace;
-  background-color: $cf-background01;
-  padding: 5px;
-  border-radius: 3px;
-}
-
-#search-index-help {
-  h4 {
-    margin-top: 18px;
-  }
-
-  ul {
-    margin: 0 0 10px;
-    padding: 0;
-    list-style-type: none;
-  }
-  .search-index-examples {
-    li {
-      line-height: 28px;
-      span {
-        @include search-index-code-section();
-      }
-    }
-  }
-}
-
-.search-index-tab-content {
-  a:hover {
-    text-decoration: none;
-  }
-}
-
-#search-index-query-button {
-  height: 46px;
-}
-
-body #dashboard-content #search-index-form {
-  position: relative;
 }
