@@ -66,14 +66,16 @@ export default class AnalyzerMultiple extends React.Component {
       return row.valid;
     });
 
-    if (!allValid || hasDuplicate) {
+    const checksPass = allValid && !hasDuplicate;
+    if (!checksPass) {
       FauxtonAPI.addNotification({
-        msg: 'Fieldnames cannot be empty and must be unique.',
+        msg: 'Field names cannot be empty and must be unique.',
         type: 'error',
         clear: true
       });
     }
-    return allValid;
+
+    return checksPass;
   };
 
   render() {
@@ -82,11 +84,14 @@ export default class AnalyzerMultiple extends React.Component {
         <AnalyzerDropdown
           label="Default"
           id="defaultAnalyzer"
+          classes="mb-3"
           defaultSelected={this.props.defaultAnalyzer}
           onChange={this.props.selectDefaultMultipleAnalyzer}
           isValidating={this.validate} />
-        <ul id="analyzer-fields" className="list-unstyled">{this.getRows()}</ul>
-        <Button className="addfield" variant="cf-primary" onClick={this.addRow}>
+        <div>
+          {this.getRows()}
+        </div>
+        <Button className="addfield" variant="cf-secondary" onClick={this.addRow}>
           Add Field
         </Button>
       </div>

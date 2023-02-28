@@ -27,19 +27,14 @@ button.beautify {
   margin-top: 20px;
 }
 
-.toggle-btns {
-  label {
-    margin-right: 0;
-  }
-}
-
 #per-page {
   float: right;
   margin-right: 16px;
 
   #select-per-page {
     margin-top: 10px;
-    width: 60px;
+    width: auto;
+    display: inline-block;
   }
 }
 

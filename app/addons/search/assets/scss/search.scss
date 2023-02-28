@@ -12,6 +12,10 @@
 @import "../../../../../assets/scss/variables";
 @import "../../../../../assets/scss/mixins";
 
+.search-analyzer-type-selector {
+  display: block;
+}
+
 .search-index-page-loading {
   margin-top: 20px;
 }
@@ -50,40 +54,7 @@
   }
 }
 
-#analyzer-fields {
-  margin-top: 10px;
-
-  li {
-    margin-bottom: 5px;
-
-    &:first-child {
-      button {
-        margin-top: 27px;
-      }
-    }
-    div:first-child {
-      margin-left: 0;
-    }
-  }
-
-  .span4 {
-    margin-right: 3px;
-    width: 30%;
-
-    .styled-select,
-    select {
-      width: 100%;
-    }
-  }
-}
-
-.delete-analyzer {
-  margin-top: 3px;
-  margin-left: 15px;
-}
-
 .search-index-content > div {
-  margin: 20px 10px 0 20px;
   .fonticon-help-circled {
     margin-left: 4px;
     &:hover {

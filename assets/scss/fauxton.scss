@@ -62,9 +62,9 @@
     // hover color
     $cf-btn-primary-color,
     // active background
-    $cf-btn-primary-bg,
+    shade-color($cf-btn-primary-bg, $cf-btn-active-bg-shade-amount),
     // active border
-    $cf-btn-primary-bg,
+    shade-color($cf-btn-primary-bg, $cf-btn-active-bg-shade-amount),
     // active color
     $cf-btn-primary-color,
     // disabled background
@@ -84,8 +84,8 @@
     $cf-brand-hightlight-hover,
     $cf-brand-hightlight-hover,
     $cf-btn-secondary-color,
-    $cf-btn-secondary-bg,
-    $cf-btn-secondary-bg,
+    shade-color($cf-btn-secondary-bg, $cf-btn-active-bg-shade-amount),
+    shade-color($cf-btn-secondary-bg, $cf-btn-active-bg-shade-amount),
     $cf-btn-secondary-color,
     $cf-btn-secondary-bg-disabled,
     $cf-btn-secondary-bg-disabled,
@@ -101,8 +101,8 @@
     $cf-brand-hightlight-hover,
     $cf-brand-hightlight-hover,
     $cf-btn-danger-color,
-    $cf-btn-danger-bg,
-    $cf-btn-danger-bg,
+    shade-color($cf-btn-danger-bg, $cf-btn-active-bg-shade-amount),
+    shade-color($cf-btn-danger-bg, $cf-btn-active-bg-shade-amount),
     $cf-btn-danger-color,
     $cf-btn-danger-bg-disabled,
     $cf-btn-danger-bg-disabled,
@@ -679,15 +679,6 @@ body .control-toggle-include-docs span {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
-}
-
-.btn-group.toggle-btns {
-  input[type='radio'] {
-    display: none;
-  }
-  label.btn {
-    margin-right: 0;
-  }
 }
 
 .noscript-warning {
