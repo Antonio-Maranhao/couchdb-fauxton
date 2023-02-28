@@ -107,7 +107,7 @@ class DiffyController extends React.Component {
               className={isDiffViewEnabled ? '' : 'active'}
               onClick={this.toggleDiffView.bind(this, false)}
             >
-              <i className="icon-file-text" /> Document
+              <i className="fonticon-document" /> Document
             </Button>
           </ButtonGroup>
         </div>
@@ -378,7 +378,7 @@ class ConfirmModal extends React.Component {
         </Modal.Header>
         <Modal.Body>
           <p>
-            <i className="icon-warning-sign"></i> Do you want to delete all conflicting revisions for this document?
+            <i className="fonticon-attention-circled"></i> Do you want to delete all conflicting revisions for this document?
           </p>
 
 

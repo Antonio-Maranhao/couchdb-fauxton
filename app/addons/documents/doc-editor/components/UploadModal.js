@@ -86,7 +86,7 @@ export default class UploadModal extends React.Component {
         <Modal.Footer>
           <a href="#" data-bypass="true" className="cancel-link" onClick={this.closeModal}>Cancel</a>
           <button href="#" id="upload-btn" data-bypass="true" className="btn btn-primary save" onClick={this.upload} {...disabledAttribute}>
-            <i className="icon icon-upload" /> Upload Attachment
+            <i className="fonticon-up-circled" /> Upload Attachment
           </button>
         </Modal.Footer>
       </Modal>

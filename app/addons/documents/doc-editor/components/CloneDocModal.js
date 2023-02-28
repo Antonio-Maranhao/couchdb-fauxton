@@ -91,7 +91,7 @@ export default class CloneDocModal extends React.Component {
         <Modal.Footer>
           <a href="#" data-bypass="true" className="cancel-link" onClick={this.closeModal}>Cancel</a>
           <button className="btn btn-primary save" onClick={this.cloneDoc}>
-            <i className="icon-repeat"></i> Clone Document
+            <i className="fonticon-cw"></i> Clone Document
           </button>
         </Modal.Footer>
       </Modal>

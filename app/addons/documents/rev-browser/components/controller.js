@@ -65,7 +65,7 @@ export default class DiffyController extends React.Component {
               className={isDiffViewEnabled ? '' : 'active'}
               onClick={this.toggleDiffViewFalse}
             >
-              <i className="icon-file-text" /> Document
+              <i className="fonticon-document" /> Document
             </Button>
           </ButtonGroup>
         </div>

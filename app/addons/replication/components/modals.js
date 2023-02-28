@@ -140,7 +140,7 @@ export const ConflictModal = ({visible, docId, onClose, onClick}) => {
           Change Document ID
         </Button>
         <Button onClick={onClick} variant="cf-primary" className="replication__error-continue">
-          <i className="icon icon-eraser" />Overwrite Existing Document
+          Overwrite Existing Document
         </Button>
       </Modal.Footer>
     </Modal>
