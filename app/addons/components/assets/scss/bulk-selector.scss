@@ -72,30 +72,10 @@
     margin-left: 7px;
   }
 
-  .fonticon-trash:before {
-    font-size: 12px;
-    margin-left: 2px;
-    margin-top: 1px;
-  }
-
-
   .separator {
     border-left: 1px solid $cf-border-color01;
     margin: 5px 0;
     height: 15px;
-  }
-
-  .bulk-action-component-selector-group {
-
-    .fonticon {
-      font-size: 8px;
-      color: $cf-text-fonticon01;
-      padding: 3px 0;
-      &:hover {
-        color: $cf-danger;
-      }
-    }
-
   }
 
   .bulk-action-component-panel {

@@ -11,10 +11,9 @@
 // the License.
 
 import PropTypes from 'prop-types';
-
 import React from "react";
-import ReactDOM from "react-dom";
-import {OverlayTrigger, Popover} from "react-bootstrap";
+import { OverlayTrigger, Popover } from "react-bootstrap";
+import { ToolbarButton } from './toolbarbutton';
 
 export class BulkActionComponent extends React.Component {
   static propTypes = {
@@ -51,12 +50,9 @@ export class BulkActionComponent extends React.Component {
       return null;
     }
 
-    return (
-      <button
-        onClick={this.props.removeItem}
-        className={'fonticon ' + this.props.bulkIcon}
-        title={this.props.buttonTitle} />
-    );
+    return <ToolbarButton icon={this.props.bulkIcon}
+      aria-label={this.props.buttonTitle}
+      onClick={this.props.removeItem} />;
   };
 
   getPopupContent = () => {
