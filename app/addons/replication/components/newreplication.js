@@ -338,7 +338,7 @@ export default class NewReplicationController extends React.Component {
     } = this.props;
 
     return (
-      <div className="container px-3 py-2">
+      <div className="container px-3 py-3">
         <div className="row">
           <div className="col-12"><h3>Source</h3></div>
           <div className="col-12">

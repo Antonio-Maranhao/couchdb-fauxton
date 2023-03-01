@@ -17,7 +17,7 @@ import Components from '../../components/react-components';
 const {ConfirmButton} = Components;
 
 export const ReplicationSubmit = ({onClear, disabled, onClick}) =>
-  <div className="row mt-2">
+  <div className="row mt-3">
     <div className="col-12 text-end">
       <ConfirmButton
         customIcon="fonticon-replicate"
