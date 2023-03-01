@@ -48,6 +48,10 @@
         .header-doc-id {
           color: $cf-jsondocs-header-docid;
           margin-left: 0;
+          word-wrap: break-word;
+          &:hover {
+            color: $cf-brand-hightlight-hover;
+          }
         }
         .header-keylabel {
           margin-right: 10px;
@@ -86,8 +90,9 @@
     }
   }
   .checkbox.inline {
-    padding-top: 17px;
-    padding-left: 0;
+    padding-top: 6px;
+    padding-left: 6px;
+    padding-right: 1rem;
     label  {
       padding-left: 23px; // 7px to the right-border + 16px around
     }
@@ -101,26 +106,6 @@
   .doc-item {
     width: auto;
     overflow: hidden;
-  }
-  .custom-inputs {
-    label.label-checkbox-doclist {
-      // https://code.google.com/p/chromium/issues/detail?id=411065
-      -webkit-user-select: none;
-      height: 1px;
-      width: 1px;
-    }
-    /* checkboxes in doc-list */
-    input[type="checkbox"] + label:before {
-      background-color: $cf-jsondocs-check-bg;
-      border: $cf-jsondocs-check-border;
-    }
-    input[type="checkbox"] + label:hover:before {
-      border: $cf-jsondocs-check-border-hover;
-    }
-    input[type="checkbox"]:checked + label::before {
-      border: $cf-jsondocs-check-checked-border;
-      background-color: $cf-jsondocs-check-checked-bg;
-    }
   }
 }
 
