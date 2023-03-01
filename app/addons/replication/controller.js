@@ -235,7 +235,7 @@ export default class ReplicationController extends React.Component {
         <OnePaneContent>
           <div className="template-content flex-body flex-layout flex-col">
             {this.getTabs()}
-            <div className="replication__page flex-layout flex-col">
+            <div className="replication__page">
               {this.showSection()}
             </div>
           </div>

@@ -16,7 +16,7 @@
 $replication_input_field_width: 100%;
 
 div.replication__page {
-  padding-top: 25px !important;
+  padding: 1.5rem 1rem 1rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,7 +40,7 @@ div.replication__page {
 }
 
 .replication__activity {
-  padding: 0 10px 0 10px !important;
+  padding: 1rem;
   width: 100%;
 }
 
@@ -210,7 +210,7 @@ td.replication__empty-row {
 }
 
 .replication__activity-caveat {
-  padding-left: 10px;
+  margin-bottom: 1.5rem;
 }
 
 .replication__actions > button {
