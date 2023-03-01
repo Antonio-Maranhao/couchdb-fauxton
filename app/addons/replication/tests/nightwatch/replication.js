@@ -51,9 +51,9 @@ module.exports = {
 
       // select LOCAL as the source
       .clickWhenVisible('select[id="replication-source"] option[value="REPLICATION_SOURCE_LOCAL"]')
-      .waitForElementVisible('.replication__input-react-select', waitTime, true)
+      .waitForElementVisible('#replication-source-local-database-select', waitTime, true)
       // enter our source DB
-      .setValue('.replication__input-react-select .Select-input input', [newDatabaseName1, client.Keys.ENTER])
+      .setValue('#replication-source-local-database-select', [newDatabaseName1, client.Keys.ENTER])
 
       // select source USER/PASSWORD authentication
       .clickWhenVisible('select[id="select-replication-source-auth"] option[value="BASIC_AUTH"]')
@@ -65,7 +65,7 @@ module.exports = {
       // enter a new target name
       .waitForElementVisible('#replication-target', waitTime, true)
       .clickWhenVisible('option[value="REPLICATION_TARGET_NEW_LOCAL_DATABASE"]')
-      .setValue('.replication__new-input', replicatedDBName)
+      .setValue('#replication-target-new-local-database-database-name', replicatedDBName)
 
       // select target USER/PASSWORD authentication
       .clickWhenVisible('select[id="select-replication-target-auth"] option[value="BASIC_AUTH"]')
@@ -103,8 +103,8 @@ module.exports = {
 
       // select the LOCAL db as the source
       .clickWhenVisible('select[id="replication-source"] option[value="REPLICATION_SOURCE_LOCAL"]')
-      .waitForElementVisible('.replication__input-react-select', waitTime, true)
-      .setValue('.replication__input-react-select .Select-input input', [newDatabaseName1, client.Keys.ENTER])
+      .waitForElementVisible('#replication-source-local-database-select', waitTime, true)
+      .setValue('#replication-source-local-database-select', [newDatabaseName1, client.Keys.ENTER])
 
 
       // select source USER/PASSWORD authentication
@@ -166,8 +166,8 @@ module.exports = {
 
       // select the LOCAL db as the source
       .clickWhenVisible('select[id="replication-source"] option[value="REPLICATION_SOURCE_LOCAL"]')
-      .waitForElementVisible('.replication__input-react-select', waitTime, true)
-      .setValue('.replication__input-react-select .Select-input input', [newDatabaseName1, client.Keys.ENTER])
+      .waitForElementVisible('#replication-source-local-database-select', waitTime, true)
+      .setValue('#replication-source-local-database-select', [newDatabaseName1, client.Keys.ENTER])
 
 
       // select source USER/PASSWORD authentication
@@ -181,7 +181,7 @@ module.exports = {
       .waitForElementVisible('#replication-target', waitTime, true)
       .clickWhenVisible('#replication-target option[value="REPLICATION_TARGET_EXISTING_LOCAL_DATABASE"]')
       .setValue('#replication-target-local .Select-input input', [newDatabaseName2, client.Keys.ENTER])
-      .setValue('.replication__doc-name-input', [replicatorDoc._id, client.Keys.ENTER])
+      .setValue('#replication-options-replication-doc', [replicatorDoc._id, client.Keys.ENTER])
 
       // select target USER/PASSWORD authentication
       .clickWhenVisible('select[id="select-replication-target-auth"] option[value="BASIC_AUTH"]')
@@ -219,16 +219,16 @@ module.exports = {
 
       // select local db as the source
       .clickWhenVisible('select[id="replication-source"] option[value="REPLICATION_SOURCE_LOCAL"]')
-      .waitForElementVisible('.replication__input-react-select', waitTime, true)
-      .setValue('.replication__input-react-select .Select-input input', [newDatabaseName1, client.Keys.ENTER])
+      .waitForElementVisible('#replication-source-local-database-select', waitTime, true)
+      .setValue('#replication-source-local-database-select', [newDatabaseName1, client.Keys.ENTER])
 
       // enter our source DB
-      .setValue('.replication__input-react-select .Select-input input', [newDatabaseName1, client.Keys.ENTER])
+      .setValue('#replication-source-local-database-select', [newDatabaseName1, client.Keys.ENTER])
 
       // enter a new target name
       .waitForElementVisible('#replication-target', waitTime, true)
       .clickWhenVisible('option[value="REPLICATION_TARGET_NEW_LOCAL_DATABASE"]')
-      .setValue('.replication__new-input', replicatedDBName)
+      .setValue('#replication-target-new-local-database-database-name', replicatedDBName)
 
       .clickWhenVisible('#replicate')
 
@@ -251,11 +251,11 @@ module.exports = {
 
       // select local db as the source
       .clickWhenVisible('select[id="replication-source"] option[value="REPLICATION_SOURCE_LOCAL"]')
-      .waitForElementVisible('.replication__input-react-select', waitTime, true)
-      .setValue('.replication__input-react-select .Select-input input', [newDatabaseName1, client.Keys.ENTER])
+      .waitForElementVisible('#replication-source-local-database-select', waitTime, true)
+      .setValue('#replication-source-local-database-select', [newDatabaseName1, client.Keys.ENTER])
 
       // enter our source DB
-      .setValue('.replication__input-react-select .Select-input input', [newDatabaseName1, client.Keys.ENTER])
+      .setValue('#replication-source-local-database-select', [newDatabaseName1, client.Keys.ENTER])
 
       // select source USER/PASSWORD authentication
       .clickWhenVisible('select[id="select-replication-source-auth"] option[value="BASIC_AUTH"]')
@@ -267,7 +267,7 @@ module.exports = {
       // enter a new target name
       .waitForElementVisible('#replication-target', waitTime, true)
       .clickWhenVisible('option[value="REPLICATION_TARGET_NEW_REMOTE_DATABASE"]')
-      .setValue('.replication__remote-connection-url', 'http://fake.com/dummydb')
+      .setValue('#replication-remote-connection-url', 'http://fake.com/dummydb')
 
       .clickWhenVisible('#replicate')
 

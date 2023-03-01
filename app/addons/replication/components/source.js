@@ -13,22 +13,25 @@ import PropTypes from 'prop-types';
 
 import React from 'react';
 import Constants from '../constants';
-import ReactSelect from 'react-select';
 import Form from 'react-bootstrap/Form';
 
-const RemoteSourceInput = ({onChange, value}) =>
-  <div className="replication__section">
-    <div className="replication__input-label">Database URL:</div>
-    <div className="">
-      <input
-        type="text"
-        className="replication__remote-connection-url"
-        placeholder="https://"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-      />
+const RemoteSourceInput = ({onChange, value}) => {
+  return (
+    <div className="row mt-2">
+      <div className="col-12 col-md-2">Database URL:</div>
+      <div className="col-12 col-md mt-1 mt-md-0">
+        <Form.Control
+          id="replication-remote-connection-url"
+          type="text"
+          className="form-control"
+          placeholder="https://"
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+        />
+      </div>
     </div>
-  </div>;
+  );
+};
 
 RemoteSourceInput.propTypes = {
   value: PropTypes.string.isRequired,
@@ -36,20 +39,19 @@ RemoteSourceInput.propTypes = {
 };
 
 const LocalSourceInput = ({value, onChange, databases}) => {
-  const options = databases.map(db => ({value: db, label: db}));
+  const options = databases.map(option => <option value={option} key={option}>{option}</option>);
   return (
-    <div className="replication__section">
-      <div className="replication__input-label">
-        Name:
-      </div>
-      <div className="replication__input-react-select">
-        <ReactSelect
-          name="source-name"
+    <div className="row mt-2">
+      <div className="col-12 col-md-2">Name:</div>
+      <div className="col-12 col-md mt-1 mt-md-0">
+        <Form.Select
+          id="replication-source-local-database-select"
           value={value}
           placeholder="Database name"
-          options={options}
-          clearable={false}
-          onChange={({value}) => onChange(value)} />
+          onChange={(e) => onChange(e.target.value)}
+        >
+          {options}
+        </Form.Select>
       </div>
     </div>
   );
@@ -97,11 +99,9 @@ const replicationSourceSelectOptions = () => {
 export const ReplicationSourceSelect = ({onChange, value}) => {
 
   return (
-    <div className="replication__section">
-      <div className="replication__input-label">
-        Type:
-      </div>
-      <div className="replication__input-select">
+    <div className="row">
+      <div className="col-12 col-md-2">Type:</div>
+      <div className="col-12 col-md mt-1 mt-md-0">
         <Form.Select
           onChange={(e) => onChange(e.target.value)}
           id="replication-source"
@@ -148,14 +148,13 @@ export class ReplicationSource extends React.Component {
   render () {
     const {replicationSource, onSourceSelect} = this.props;
     return (
-      <div>
-        <h3>Source</h3>
+      <React.Fragment>
         <ReplicationSourceSelect
           onChange={onSourceSelect}
           value={replicationSource}
         />
         {this.getReplicationSourceRow()}
-      </div>
+      </React.Fragment>
     );
   }
 }
