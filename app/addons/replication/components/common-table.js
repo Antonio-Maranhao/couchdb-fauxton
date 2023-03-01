@@ -132,12 +132,14 @@ const RowActions = ({onlyDeleteAction, _id, url, deleteDocs}) => {
   if (!onlyDeleteAction) {
     actions.push(
       <ToolbarButton icon="fonticon-wrench"
+        title={`Edit replication`}
         aria-label={`Edit replication`}
         key={1}
         onClick={() => FauxtonAPI.navigate(`#replication/id/${encodeURIComponent(_id)}`)} />
     );
     actions.push(
       <ToolbarButton icon="fonticon-document"
+        title={`Edit replication document`}
         aria-label={`Edit replication document ${_id}`}
         key={2}
         onClick={() => FauxtonAPI.navigate(url)} />
@@ -146,6 +148,7 @@ const RowActions = ({onlyDeleteAction, _id, url, deleteDocs}) => {
 
   actions.push(
     <ToolbarButton icon="fonticon-trash"
+      title={`Delete ${onlyDeleteAction ? 'job' : 'document'}`}
       aria-label={`Delete ${onlyDeleteAction ? 'job' : 'document'} ${_id}`}
       key={3}
       onClick={() => deleteDocs(_id)} />

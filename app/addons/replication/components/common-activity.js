@@ -15,9 +15,10 @@ import { Button, Form, InputGroup } from 'react-bootstrap';
 
 export const ReplicationFilter = ({value, onChange}) => {
   return (
-    <InputGroup>
+    <InputGroup id="replication-filter-group">
       <InputGroup.Text><i className="fonticon-filter" /></InputGroup.Text>
       <Form.Control
+        id="replication-filter-input"
         type="text"
         placeholder="Filter replications"
         value={value}
