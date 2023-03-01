@@ -12,7 +12,7 @@ import FauxtonAPI from "../../core/api";
 // License for the specific language governing permissions and limitations under
 // the License.
 
-// import classnames from 'classnames';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import React from "react";
 import Components from "../components/react-components";
@@ -23,14 +23,14 @@ import FauxtonComponentsReact from "..//fauxton/components";
 import Stores from "./stores";
 import Actions from "./actions";
 
-import { Tooltip, OverlayTrigger, Popover, Button, Form, ButtonGroup, ButtonToolbar, Accordion } from 'react-bootstrap';
+import { Tooltip, OverlayTrigger, Button, Form, ButtonGroup, Accordion} from 'react-bootstrap';
 
 const databasesStore = Stores.databasesStore;
 const deleteDbModalStore = ComponentsStore.deleteDbModalStore;
 
-const {AccordionItem, DeleteDatabaseModal,
-  //ToggleHeaderButton,
-  //TrayContents,
+const {DeleteDatabaseModal,
+  ToggleHeaderButton,
+  TrayContents,
   ToolbarButton } = Components;
 
 
@@ -366,155 +366,88 @@ class AddDatabaseWidget extends React.Component {
       return null;
     }
     const partitionedDbHelp = this.props.partitionedDbHelpText ? (
-      <Accordion className='partitioned-db-help'>
-        <AccordionItem title='Which should I choose?'>
-          <p dangerouslySetInnerHTML={{__html: this.props.partitionedDbHelpText}} />
-        </AccordionItem>
+      <Accordion flush>
+        <Accordion.Item eventKey="0">
+          <Accordion.Header>Which should I choose?</Accordion.Header>
+          <Accordion.Body dangerouslySetInnerHTML={{__html: this.props.partitionedDbHelpText}} />
+        </Accordion.Item>
       </Accordion>
     ) : null;
     return (
-      <div className='partitioned-db-section' >
-        <label htmlFor="partitioned-db" className='partitioned-db-label'>
-          Partitioning
-        </label>
-        <div className='partitioned-db-options'>
-          <form>
-            <label htmlFor="non-partitioned-option">
-              <input
-                id="non-partitioned-option"
-                type="radio"
-                checked={this.state.partitionedSelected === false}
-                onChange={this.onTogglePartitioned}
-              />
-              Non-partitioned - recommended for most workloads
-            </label>
-            <label htmlFor="partitioned-option">
-              <input
-                id="partitioned-option"
-                type="radio"
-                checked={this.state.partitionedSelected === true}
-                onChange={this.onTogglePartitioned}
-              />
-              Partitioned
-            </label>
-          </form>
+      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Label>Partitioning</Form.Label>
+        <div key="partition-radio" className="mb-3">
+          <Form.Check
+            label="Non-partitioned - recommended for most workloads"
+            name="group1"
+            type="radio"
+            id="non-partitioned-option"
+            checked={this.state.partitionedSelected === false}
+            onChange={this.onTogglePartitioned}
+          />
+          <Form.Check
+            label="Partitioned"
+            name="group1"
+            type="radio"
+            id="partitioned-option"
+            checked={this.state.partitionedSelected === true}
+            onChange={this.onTogglePartitioned}
+          />
         </div>
         {partitionedDbHelp}
-      </div>
+      </Form.Group>
     );
   }
 
   render() {
-    // const classNames = classnames('new-database-tray', {
-    //   'new-database-tray--expanded': this.props.showPartitionedOption
-    // });
-
-    const databasePopover = (
-      <Popover id="popover-basic">
-        <Popover.Header as="h3" >Create Database</Popover.Header>
-        <Popover.Body>
-          <Form>
-            <Form.Group className="mb-3" controlId="databaseName">
-              <Form.Label>Database name</Form.Label>
-              <Form.Control placeholder="database-name" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Label>Partitioning</Form.Label>
-              <div key="partition-radio" className="mb-3">
-                <Form.Check
-                  label="Non-partitioned - recommended for most workloads"
-                  name="group1"
-                  type="radio"
-                  id="nonpartitioned"
-                />
-                <Form.Check
-                  label="Partitioned"
-                  name="group1"
-                  type="radio"
-                  id="partitioned"
-                />
-              </div>
-              <Accordion flush>
-                <Accordion.Item eventKey="0">
-                  <Accordion.Header>Which should I choose?</Accordion.Header>
-                  <Accordion.Body>{this.props.partitionedDbHelpText}
-                  </Accordion.Body>
-                </Accordion.Item>
-              </Accordion>
-            </Form.Group>
-
-            <ButtonToolbar
-              className="justify-content-between"
-              aria-label="Toolbar with Button groups"
-            >
-              <ButtonGroup aria-label="First group">
-                <Button variant="dark">Cancel</Button>
-              </ButtonGroup>
-              <ButtonGroup>
-                <Button variant="success">Create</Button>
-              </ButtonGroup>
-            </ButtonToolbar>
-          </Form>
-        </Popover.Body>
-      </Popover>
-    );
-
-    const NewDatabaseButton = () => (
-      <OverlayTrigger trigger="click" placement="bottom-start" overlay={databasePopover}>
-        <Button
-          variant="light"
-        >
-          <i className="fonticon-new-database"></i> Create Database
-        </Button>
-      </OverlayTrigger>
-    );
+    const classNames = classnames('new-database-tray', {
+      'new-database-tray--expanded': this.props.showPartitionedOption
+    });
 
     return (
-      <NewDatabaseButton/>
-      // <div>
-      //   <ToggleHeaderButton
-      //     selected={this.state.isPromptVisible}
-      //     toggleCallback={this.onTrayToggle}
-      //     containerClasses='header-control-box add-new-database-btn'
-      //     title="Create Database"
-      //     fonticon="fonticon-new-database"
-      //     text="Create Database" />
-      //
-      //   <TrayContents
-      //     className={classNames}
-      //     contentVisible={this.state.isPromptVisible}
-      //     closeTray={this.closeTray}
-      //     onEnter={this.focusInput} >
-      //     <div className='tray-contents'>
-      //       <div className='tray-header'>
-      //         <h3>Create Database</h3>
-      //       </div>
-      //       <div className='tray-body'>
-      //         <label htmlFor="js-new-database-name" className='db-name-label'>
-      //           Database name
-      //         </label>
-      //         <input
-      //           id="js-new-database-name"
-      //           ref={node => this.newDbName = node}
-      //           type="text"
-      //           value={this.state.databaseName}
-      //           onChange={this.onChange} onKeyUp={this.onKeyUpInInput}
-      //           className="input-xxlarge"
-      //           placeholder="database-name"
-      //         />
-      //         {this.partitionedOption()}
-      //       </div>
-      //       <div className='tray-footer'>
-      //         <a className="btn btn-cancel" id="js-cancel-create-database" onClick={this.closeTray}>
-      //           Cancel
-      //         </a>
-      //         <a className="btn btn-primary" id="js-create-database" onClick={this.onAddDatabase}>
-      //           Create
-      //         </a>
-      //       </div>
-      //     </div>
-      //   </TrayContents>
-      // </div>
+      <div>
+        <ToggleHeaderButton
+          selected={this.state.isPromptVisible}
+          toggleCallback={this.onTrayToggle}
+          containerClasses='header-control-box add-new-database-btn'
+          title="Create Database"
+          fonticon="fonticon-new-database"
+          text="Create Database" />
+
+        <TrayContents
+          className={classNames}
+          contentVisible={this.state.isPromptVisible}
+          closeTray={this.closeTray}
+          onEnter={this.focusInput} >
+          <div className='tray-contents'>
+            <h3 >Create Database</h3>
+            <div className='tray-body'>
+              <Form>
+                <Form.Group className="mb-3" controlId="databaseName">
+                  <Form.Label htmlFor="js-new-database-name">Database name</Form.Label>
+                  <Form.Control
+                    id="js-new-database-name"
+                    ref={node => this.newDbName = node}
+                    type="text"
+                    value={this.state.databaseName}
+                    onChange={this.onChange}
+                    onKeyUp={this.onKeyUpInInput}
+                    placeholder="database-name"/>
+                </Form.Group>
+                {this.partitionedOption()}
+              </Form>
+            </div>
+            <ButtonGroup bsPrefix="tray-footer" >
+              <Button className="btn btn-cancel" id="js-cancel-create-database" onClick={this.closeTray}>
+               Cancel
+              </Button>
+              <Button className="btn btn-primary" id="js-create-database" onClick={this.onAddDatabase}>
+                Create
+              </Button>
+            </ButtonGroup>
+          </div>
+        </TrayContents>
+      </div>
     );
   }
 }

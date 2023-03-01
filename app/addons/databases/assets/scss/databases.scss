@@ -16,91 +16,50 @@
   margin-bottom: 10px;
 }
 
-// .new-database-tray {
-//   &:before {
-//     right: 250px;
-//   }
+.new-database-tray {
 
-//   input.input-xxlarge {
-//     margin-bottom: 0px;
-//     width: 100%;
-//   }
+  .btn {
+    border: 0px;
+    min-width: 140px;
 
-//   a.btn {
-//     margin-left: 0;
-//     line-height: 1.5em;
-//     border: 0px;
-//     padding: 10px 10px 9px;
-//     font-size: 14px;
+    &.btn-cancel {
+      background-color: transparent;
+      border-width: 1px;
+      border-style: solid;
+      color: $cf-btn-secondary-color;
+      &:hover {
+        background-color: $cf-background01;
+        color: $cf-brand-hightlight-hover;
+      }
+    }
+  }
 
-//     &.btn-cancel {
-//       background-color: transparent;
-//       border-width: 1px;
-//       border-style: solid;
-//       color: $cf-btn-secondary-color;
-//       &:hover {
-//         background-color: $cf-background01;
-//         color: $cf-brand-hightlight-hover;
-//       }
-//     }
-//   }
+  .tray-contents {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 352px;
+    overflow-y: scroll;
+    padding: 20px;
+  }
 
-//   .tray-contents {
-//     display: flex;
-//     flex-direction: column;
-//     height: 100%;
-//     width: 352px;
-//     overflow-y: scroll;
-//   }
+  .tray-body {
+    flex: 1;
+  }
+  .tray-footer {
+    display: flex;
+    justify-content: space-between;
+  }
 
-//   .tray-header {
-//     padding-right: 20px;
-//     padding-left: 20px;
-//     padding-top: 10px;
-//   }
-//   .tray-body {
-//     flex: 1;
-//     padding-right: 20px;
-//     padding-left: 20px;
-//   }
-//   .tray-footer {
-//     display: flex;
-//     justify-content: space-between;
-//     padding: 20px;
-//     a.btn {
-//       min-width: 140px;
-//     }
-//   }
+}
 
-//   .db-name-label {
-//     font-weight: bold;
-//   }
+.database-name-input{
+  background-color: transparent;
+}
 
-//   .partitioned-db-section {
-//     flex: 1;
-//   }
-//   .partitioned-db-label {
-//     font-weight: bold;
-//     padding-top: 1rem;
-//   }
-//   .partitioned-db-options {
-//     display: flex;
-//     align-items: baseline;
-//     padding-top: 1rem;
-//     input {
-//       margin: 0px 10px 0px 0px;
-//     }
-//   }
-//   .partitioned-db-help {
-//     padding-top: 1rem;
-//     font-size: 0.875rem;
-//     border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-//   }
-// }
-
-// .new-database-tray--expanded {
-//   height: calc(100% - 64px);
-// }
+.new-database-tray--expanded {
+  height: calc(100% - 64px);
+}
 
 #database-pagination {
   float: right;
