@@ -12,6 +12,7 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Form } from 'react-bootstrap';
 
 export default class PartitionKeySelector extends React.Component {
 
@@ -84,7 +85,7 @@ export default class PartitionKeySelector extends React.Component {
 
   partitionHeader() {
     const editor = (
-      <input type="text"
+      <Form.Control type="text"
         style={{padding:2, fontSize:16, margin: 0, display: this.state.editMode ? 'block' : 'none'}}
         onKeyPress={this.onKeyPress}
         onChange={this.onChange}

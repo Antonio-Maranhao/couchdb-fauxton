@@ -42,6 +42,9 @@
 .partition-selector__key {
   flex: 1;
   color: $cf-text-fonticon01;
+  input {
+    max-width: 20rem;
+  }
 }
 
 .partition-selector__key--active {
