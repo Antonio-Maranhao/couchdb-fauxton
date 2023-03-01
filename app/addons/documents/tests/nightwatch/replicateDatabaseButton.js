@@ -31,7 +31,7 @@ module.exports = {
   'Shows correct view on replicate database': function (client) {
     const waitTime = client.globals.maxWaitTime,
           baseUrl = client.options.launch_url;
-    const srcDbSelector = '.replication__page .replication__section:nth-child(3) .replication__input-react-select .Select-value-label';
+    const srcDbSelector = '#replication-source-local-database-select';
     client
       .loginToGUI()
       .url(baseUrl + '/#/database/' + testDbName + '/_all_docs')
