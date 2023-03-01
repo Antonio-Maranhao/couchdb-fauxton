@@ -91,7 +91,7 @@ class LoginForm extends React.Component {
           </div>
           <div className="row">
             <div className="col12 col-md-5 col-xl-4 mb-3">
-              <Button id="submit" variant="cf-primary" type="submit">
+              <Button id="login-btn" variant="cf-primary" type="submit">
                 Log In
               </Button>
             </div>
