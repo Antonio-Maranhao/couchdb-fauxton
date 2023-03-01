@@ -25,8 +25,8 @@ const Burger = ({toggleMenu, isMinimized}) => {
   );
 
   const icon = isMinimized ?
-    'fonticon-burger' :
-    'fonticon-cancel';
+    'fonticon-menu' :
+    'fonticon-menu_close';
 
   return (
     <div aria-expanded={!isMinimized} aria-label="Toggle Navigation Menu" className={burgerClasses} onClick={toggleMenu} role="button" tabIndex="0">

@@ -38,7 +38,9 @@
 
 .faux-navbar__burger {
   background-color: $cf-navbar-bg;
-  padding: 19px 0 18px 18px;
+  padding: 18px 0 18px 20px;
+  min-height: 64px;
+  line-height: 32px;
 }
 
 .faux-navbar--narrow {
