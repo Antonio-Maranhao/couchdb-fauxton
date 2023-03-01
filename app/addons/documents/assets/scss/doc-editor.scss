@@ -209,13 +209,13 @@
 
 div.string-editor-modal {
   width: 80%;
-
-  .modal-content {
-    min-width: initial;
-  }
-
+  max-width: none!important;
   .modal-body {
     padding: 0px;
+  }
+
+  .hide {
+    display: none;
   }
 }
 

@@ -12,7 +12,7 @@
 
 import PropTypes from 'prop-types';
 import React from "react";
-import {Modal} from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import ace from "ace-builds";
 import Helpers from "../../documents/helpers";
 
@@ -57,14 +57,17 @@ export class StringEditModal extends React.Component {
 
   getSaveBtn = () => {
     return this.state.editorInitialized && (
-      <button id="string-edit-save-btn" onClick={this.save} className="btn btn-primary save">
-        <i className="fonticon-circle-check"></i> Modify Text
-      </button>);
+      <Button
+        id="string-edit-save-btn"
+        onClick={this.save}
+        variant="cf-primary">
+        <i className="fonticon-circle-check"></i>Modify Text
+      </Button>);
   };
 
   render() {
     return (
-      <Modal className="string-editor-modal" show={this.props.visible} onHide={this.closeModal}>
+      <Modal dialogClassName="string-editor-modal" show={this.props.visible} onHide={this.closeModal} scrollable>
         <Modal.Header closeButton={true}>
           <Modal.Title>Edit Value <span id="string-edit-header"></span></Modal.Title>
         </Modal.Header>
