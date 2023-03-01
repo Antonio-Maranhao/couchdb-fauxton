@@ -35,7 +35,7 @@ ReplicationFilter.propTypes = {
 
 export const ReplicationHeader = ({filter, onFilterChange}) => {
   return (
-    <div className="row">
+    <div className="row px-2">
       <div className="col-12 col-md-8">
         <ReplicationFilter value={filter} onChange={onFilterChange} />
       </div>
