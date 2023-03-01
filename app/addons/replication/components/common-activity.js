@@ -11,20 +11,20 @@
 // the License.
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Form, InputGroup } from 'react-bootstrap';
 
 export const ReplicationFilter = ({value, onChange}) => {
   return (
-    <div className="replication__filter">
-      <i className="replication__filter-icon fonticon-filter" />
-      <input
+    <InputGroup>
+      <InputGroup.Text><i className="fonticon-filter" /></InputGroup.Text>
+      <Form.Control
         type="text"
         placeholder="Filter replications"
-        className="replication__filter-input"
         value={value}
         onChange={(e) => {onChange(e.target.value);}}
+        aria-label="Filter replication results"
       />
-    </div>
+    </InputGroup>
   );
 };
 
@@ -35,13 +35,16 @@ ReplicationFilter.propTypes = {
 
 export const ReplicationHeader = ({filter, onFilterChange}) => {
   return (
-    <div className="replication__activity_header">
-      <div></div>
-      <ReplicationFilter value={filter} onChange={onFilterChange} />
-      <Button href="#/replication/_create" variant="cf-primary">
-        <i className="fonticon-plus-circled"></i>
-        New Replication
-      </Button>
+    <div className="row">
+      <div className="col-12 col-md-8">
+        <ReplicationFilter value={filter} onChange={onFilterChange} />
+      </div>
+      <div className="col-12 col-md text-end text-nowrap">
+        <Button className="mt-2 mt-md-0" href="#/replication/_create" variant="cf-primary">
+          <i className="fonticon-plus-circled"></i>
+          New Replication
+        </Button>
+      </div>
     </div>
   );
 };
