@@ -51,7 +51,7 @@ export default class DiffyController extends React.Component {
     return (
       <div className="revision-wrapper scrollable">
         <RevisionBrowserControls {...this.props} />
-        <div className="revision-view-controls">
+        <div className="revision-view-controls text-center">
           <ButtonGroup className="two-sides-toggle-button">
             <Button
               style={{width: '130px'}}
