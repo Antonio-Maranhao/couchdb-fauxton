@@ -27,7 +27,7 @@ export const ReplicationSubmit = ({onClear, disabled, onClick}) =>
         disabled={disabled}
       />
       <a
-        className="replication__clear-link"
+        className="cancel-link"
         href="#"
         data-bypass="true"
         onClick={(e) => {
