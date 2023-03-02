@@ -128,7 +128,7 @@ export default class CORSScreen extends Component {
             <Button
               type="button"
               id="enable-disable-cors"
-              variant="cf-secondary"
+              variant="cf-primary"
               onClick={this.enableCorsChange.bind(this)}
               disabled={this.props.isLoading}
             >
