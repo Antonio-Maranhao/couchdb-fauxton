@@ -43,14 +43,22 @@
     padding: 20px;
   }
 
+  .tray-header {
+    margin-bottom: 1rem;
+  }
+
   .tray-body {
     flex: 1;
   }
+
   .tray-footer {
     display: flex;
     justify-content: space-between;
   }
 
+  ul.partitioned-db-help {
+    padding-left: 0;
+  }
 }
 
 .database-name-input{

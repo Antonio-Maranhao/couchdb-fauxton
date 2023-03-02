@@ -23,12 +23,12 @@ import FauxtonComponentsReact from "..//fauxton/components";
 import Stores from "./stores";
 import Actions from "./actions";
 
-import { Tooltip, OverlayTrigger, Button, Form, ButtonGroup, Accordion} from 'react-bootstrap';
+import { Tooltip, OverlayTrigger, Button, Form, ButtonGroup } from 'react-bootstrap';
 
 const databasesStore = Stores.databasesStore;
 const deleteDbModalStore = ComponentsStore.deleteDbModalStore;
 
-const {DeleteDatabaseModal,
+const {Accordion, AccordionItem, DeleteDatabaseModal,
   ToggleHeaderButton,
   TrayContents,
   ToolbarButton } = Components;
@@ -366,11 +366,10 @@ class AddDatabaseWidget extends React.Component {
       return null;
     }
     const partitionedDbHelp = this.props.partitionedDbHelpText ? (
-      <Accordion flush>
-        <Accordion.Item eventKey="0">
-          <Accordion.Header>Which should I choose?</Accordion.Header>
-          <Accordion.Body dangerouslySetInnerHTML={{__html: this.props.partitionedDbHelpText}} />
-        </Accordion.Item>
+      <Accordion className='partitioned-db-help'>
+        <AccordionItem title='Which should I choose?'>
+          <p dangerouslySetInnerHTML={{__html: this.props.partitionedDbHelpText}} />
+        </AccordionItem>
       </Accordion>
     ) : null;
     return (
@@ -420,7 +419,9 @@ class AddDatabaseWidget extends React.Component {
           closeTray={this.closeTray}
           onEnter={this.focusInput} >
           <div className='tray-contents'>
-            <h3 >Create Database</h3>
+            <div className='tray-header'>
+              <h3 >Create Database</h3>
+            </div>
             <div className='tray-body'>
               <Form>
                 <Form.Group className="mb-3" controlId="databaseName">
@@ -438,10 +439,10 @@ class AddDatabaseWidget extends React.Component {
               </Form>
             </div>
             <ButtonGroup bsPrefix="tray-footer" >
-              <Button className="btn btn-cancel" id="js-cancel-create-database" onClick={this.closeTray}>
+              <Button variant='cancel' id="js-cancel-create-database" onClick={this.closeTray}>
                Cancel
               </Button>
-              <Button className="btn btn-primary" id="js-create-database" onClick={this.onAddDatabase}>
+              <Button variant='cf-primary' id="js-create-database" onClick={this.onAddDatabase}>
                 Create
               </Button>
             </ButtonGroup>
