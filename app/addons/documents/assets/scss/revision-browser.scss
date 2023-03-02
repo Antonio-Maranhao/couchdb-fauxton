@@ -12,7 +12,7 @@
 
 div#dashboard-content div.revision-wrapper {
   padding: 0 0 15px 0;
-  margin-top: 60px;
+  margin-top: $cf-topheader-height;
 
   .rev-subtree-selector {
     font-family: monospace;
@@ -28,8 +28,12 @@ div#dashboard-content div.revision-wrapper {
   }
 
   .revision-browser-controls {
-    color: $cf-white;
-    margin: 30px 0;
+    padding: 2rem 1rem 2rem 1rem;
+    background-color: $cf-background01;
+  }
+
+  .revision-browser-controls-label-col {
+    min-width: 185px;
   }
 
   .revision-browser-controls .Select .Select-control {
@@ -50,29 +54,49 @@ div#dashboard-content div.revision-wrapper {
   }
 
   .revision-view-controls {
-    border-top: 1px solid grey;
-    text-align: center;
+    background-color: $cf-background01;
+    padding: 1rem;
+    border-top: 1px solid $cf-border-color01;
   }
 
   .revision-split-area {
-    padding: 20px 15px;
+    padding: 2rem ;
     @include display-flex();
     color: $cf-white;
+
+    .ours-area {
+      width: 50%;
+      padding-right: 1.5rem;
+    }
+
+    .theirs-area {
+      width: 50%;
+    }
+
+    .doc-title {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid $cf-border-color01;  
+    }
+
+    pre {
+      border: none;
+      background-color: transparent;
+    }
   }
 
   .conflicting-revs-dropdown {
-    max-width: 370px;
     @include display-flex();
-    margin-left: -17px;
+    align-items: center;
+    select {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
   }
 
-  .revision-split-area pre {
-    border: none;
-    background-color: transparent;
-  }
   .revision-diff-area {
+    background-color: $cf-code-bg;
     color: $cf-white;
-    margin-left: 60px;
+    padding: 2rem ;
   }
   .revision-diff-area .jsondiffpatch-unchanged,
   .revision-diff-area .jsondiffpatch-unchanged pre {
@@ -91,7 +115,22 @@ div#dashboard-content div.revision-wrapper {
     text-decoration: none;
   }
 
+  .revision-diff-area .jsondiffpatch-modified .jsondiffpatch-value {
+    color: $cf-black;
+  }
+
+  .revision-diff-area .jsondiffpatch-delta {
+    font-size: 0.825rem;
+    padding: 0;
+  }
+
   .two-sides-toggle-button {
     z-index: 0;
+  }
+}
+
+.delete-conflicts-modal {
+  .do-not-show-again label {
+    font-size: 0.825rem;
   }
 }

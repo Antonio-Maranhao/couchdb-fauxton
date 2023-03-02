@@ -54,14 +54,16 @@ export default class DiffyController extends React.Component {
         <div className="revision-view-controls">
           <ButtonGroup className="two-sides-toggle-button">
             <Button
-              style={{width: '120px'}}
+              style={{width: '130px'}}
+              variant='cf-secondary'
               className={isDiffViewEnabled ? 'active' : ''}
               onClick={this.toggleDiffViewTrue}
             >
               <i className="icon-columns" /> Diff
             </Button>
             <Button
-              style={{width: '120px'}}
+              style={{width: '130px'}}
+              variant='cf-secondary'
               className={isDiffViewEnabled ? '' : 'active'}
               onClick={this.toggleDiffViewFalse}
             >

@@ -12,9 +12,8 @@
 
 import PropTypes from 'prop-types';
 import React from "react";
-import ReactDOM from "react-dom";
 import ReactComponents from "../../../components/react-components";
-import { Modal } from "react-bootstrap";
+import { Form, Modal } from "react-bootstrap";
 
 const ConfirmButton = ReactComponents.ConfirmButton;
 
@@ -48,33 +47,34 @@ export default class ConfirmModal extends React.Component {
         </Modal.Header>
         <Modal.Body>
           <p>
-            <i className="fonticon-attention-circled"></i> Do you want to delete all conflicting revisions for this document?
+            Do you want to delete all conflicting revisions for this document?
           </p>
-
-
         </Modal.Body>
         <Modal.Footer>
-          <div style={{float: 'left', marginTop: '10px'}}>
-            <label>
-              <input
-                style={{margin: '0 5px 3px 0'}}
-                onChange={() => { this.setState({checked: !this.state.checked }); }}
-                type="checkbox" />
-                Do not show this warning message again
-            </label>
-          </div>
-          <a
-            style={{marginRight: '10px', cursor: 'pointer'}}
-            onClick={this.close}
-            data-bypass="true"
-          >
-            Cancel
-          </a>
 
-          <ConfirmButton
-            onClick={this.onDeleteConflicts}
-            text="Delete Revisions"
-            variant="danger" />
+          <div className='col-12'>
+            <Form.Check type="checkbox"
+              className='do-not-show-again'
+              label="Do not show this warning message again"
+              onChange={() => { this.setState({checked: !this.state.checked }); }} />
+          </div>
+
+          <div className="col-auto">
+            <a
+              className='cancel-link'
+              onClick={this.close}
+              data-bypass="true"
+            >
+            Cancel
+            </a>
+          </div>
+          <div className="col-auto">
+            <ConfirmButton
+              onClick={this.onDeleteConflicts}
+              text="Delete Revisions"
+              variant="danger" />
+          </div>
+
         </Modal.Footer>
       </Modal>
     );

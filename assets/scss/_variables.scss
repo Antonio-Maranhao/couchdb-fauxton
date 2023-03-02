@@ -131,6 +131,7 @@ $cf-dropdown-item-color: $cf-text03 !default;
 
 // forms
 $cf-input-bg: $cf-white !default;
+$cf-check-radio-bg: $cf-secondary !default;
 
 // main nav bar
 $cf-navbar-width: 220px !default;
@@ -216,6 +217,8 @@ $dropdown-color: $cf-dropdown-color;
 $input-btn-focus-color: rgba($cf-brand-highlight, .25);
 $input-focus-border-color: tint-color($cf-brand-highlight, 50%);
 $input-bg: $cf-input-bg;
+$form-check-input-checked-bg-color: $cf-secondary;
+$form-check-input-checked-border-color: $cf-secondary;
 
 // modals
 $modal-backdrop-opacity: 0.5;
