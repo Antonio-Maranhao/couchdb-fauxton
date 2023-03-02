@@ -204,94 +204,91 @@ a.help-link {
 //   }
 // }
 
-
-.custom-inputs {
-  input[type="radio"],
-  input[type="checkbox"] {
-    display: none;
-  }
-
-  .checkbox label:before {
-    border-radius: 12px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    transition: linear 0.2s, box-shadow linear 0.2s;
-    -moz-transition: linear 0.2s, box-shadow linear 0.2s;
-    -webkit-transition: linear 0.2s, box-shadow linear 0.2s;
-  }
-
-  .controls > .radio:first-child,
-  .controls > .checkbox:first-child {
-    padding-top: 15px;
-  }
-
-  .radio.inline,
-  .checkbox.inline {
-    display: inline-block;
-    padding-top: 15px;
-    margin-bottom: 12px;
-    vertical-align: middle;
-  }
-
-  input[type="checkbox"] + label:hover:before {
-    border: 2px solid $cf-white;
-    transition: linear 0.2s, box-shadow linear 0.2s;
-    -moz-transition: linear 0.2s, box-shadow linear 0.2s;
-    -webkit-transition: linear 0.2s, box-shadow linear 0.2s;
-  }
-
-  /* if the checkbox is disabled, we don't want the red border on hover */
-  input[type="checkbox"]:disabled + label:hover:before {
-    border: none;
-  }
-
-  /* if the checkbox is disabled, we don't want the white border on hover */
-  input[type="checkbox"]:disabled + label:hover:before {
-    border: none;
-  }
-
-  input[type="checkbox"]:checked + label:before {
-    font-family: $fauxtonFont;
-    content: $fonticon-ok;
-    font-size: 12px;
-    background-color: inherit;
-    border: 2px solid $cf-border-color02;
-    color: $cf-brand-highlight;
-    text-align: center;
-    line-height: 19px;
-    box-shadow: none;
-    display: inline-block;
-  }
-
-  label:before {
-    content: "";
-    display: inline-block;
-    width: 22px;
-    height: 22px;
-    margin-right: 10px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-  }
-
-  .radio label:before {
-    border-radius: 8px;
-  }
-
-  input[type="radio"]:checked + label:before {
-    content: "\2022";
-    color: $cf-text02;
-    font-size: 30px;
-    text-align: center;
-    line-height: 18px;
-  }
-
-  label.drop-down {
-    &:before {
-      display: none;
-    }
-  }
+.label-left {
+  color:green;
 }
+
+  // .checkbox label:before {
+  //   border-radius: 12px;
+  //   background-color: rgba(255, 255, 255, 0.1);
+  //   border: 2px solid rgba(255, 255, 255, 0.1);
+  //   transition: linear 0.2s, box-shadow linear 0.2s;
+  //   -moz-transition: linear 0.2s, box-shadow linear 0.2s;
+  //   -webkit-transition: linear 0.2s, box-shadow linear 0.2s;
+  // }
+
+  // .controls > .radio:first-child,
+  // .controls > .checkbox:first-child {
+  //   padding-top: 15px;
+  // }
+
+  // .radio.inline,
+  // .checkbox.inline {
+  //   display: inline-block;
+  //   padding-top: 15px;s
+  //   margin-bottom: 12px;
+  //   vertical-align: middle;
+  // }
+
+  // input[type="checkbox"] + label:hover:before {
+  //   border: 2px solid $cf-white;
+  //   transition: linear 0.2s, box-shadow linear 0.2s;
+  //   -moz-transition: linear 0.2s, box-shadow linear 0.2s;
+  //   -webkit-transition: linear 0.2s, box-shadow linear 0.2s;
+  // }
+
+  // /* if the checkbox is disabled, we don't want the red border on hover */
+  // input[type="checkbox"]:disabled + label:hover:before {
+  //   border: none;
+  // }
+
+  // /* if the checkbox is disabled, we don't want the white border on hover */
+  // input[type="checkbox"]:disabled + label:hover:before {
+  //   border: none;
+  // }
+
+  // input[type="checkbox"]:checked + label:before {
+  //   font-family: $fauxtonFont;
+  //   content: $fonticon-ok;
+  //   font-size: 12px;
+  //   background-color: inherit;
+  //   border: 2px solid $cf-border-color02;
+  //   color: $cf-brand-highlight;
+  //   text-align: center;
+  //   line-height: 19px;
+  //   box-shadow: none;
+  //   display: inline-block;
+  // }
+
+  // label:before {
+  //   content: "";
+  //   display: inline-block;
+  //   width: 22px;
+  //   height: 22px;
+  //   margin-right: 10px;
+  //   position: absolute;
+  //   left: 0;
+  //   bottom: 0;
+  // }
+
+  // .radio label:before {
+  //   border-radius: 8px;
+  // }
+
+  // input[type="radio"]:checked + label:before {
+  //   content: "\2022";
+  //   color: $cf-text02;
+  //   font-size: 30px;
+  //   text-align: center;
+  //   line-height: 18px;
+  // }
+
+//   label.drop-down {
+//     &:before {
+//       display: none;
+//     }
+//   }
+// }
 
 div.add-dropdown {
   position: absolute;

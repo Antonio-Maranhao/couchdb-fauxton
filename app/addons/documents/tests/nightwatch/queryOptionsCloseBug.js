@@ -35,7 +35,7 @@ module.exports = {
       .clickWhenVisible('.control-toggle-queryoptions')
       .clickWhenVisible('.query-options .btn-cancelDark')
 
-      .waitForElementNotPresent('.query-options .js-view-query-update', waitTime, false)
+      .waitForElementNotPresent('#query-options_js-view-query-update', waitTime, false)
 
       .end();
   }
