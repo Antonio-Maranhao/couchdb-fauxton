@@ -1,4 +1,4 @@
-@fauxtonFont: "{{fontname}}";
+$fauxtonFont: "{{fontname}}";
 
 @font-face {font-family: "{{fontname}}";
   src: url('{{cssPath}}{{fontname}}.eot'); /* IE9*/
