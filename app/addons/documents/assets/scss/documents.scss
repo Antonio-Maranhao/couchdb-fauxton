@@ -140,22 +140,6 @@ button.string-edit[disabled] {
   .js-query-keys-wrapper {
     padding-top: 0;
   }
-
-  /** used in query-options.html**/
-  .custom-inputs {
-    .row-fluid {
-      padding-top: 20px;
-      .radio,
-      .checkbox {
-        padding-left: 0;
-      }
-      .checkbox.inline,
-      #skipRows {
-        margin-bottom: 0;
-        padding: 6px;
-      }
-    }
-  }
 }
 
 .end-of-results {

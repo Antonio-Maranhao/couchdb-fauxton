@@ -22,11 +22,6 @@
   max-height: calc(100vh - 64px);
   overflow-y: scroll;
 
-  .query-group:first-child {
-    margin-top: 0;
-    padding-top: 0;
-  }
-
   .fonticon-help-circled {
     margin-left: 3px;
     font-size: 17.5px;
@@ -36,14 +31,6 @@
     }
   }
 
-  .query-group {
-    padding: 20px;
-    border-bottom: 1px solid $cf-border-color02;
-  }
-
-  .query-group:last-child {
-    border-bottom: none;
-  }
   .controls-group {
     margin: 0;
   }
@@ -51,49 +38,6 @@
     margin: 0;
   }
 
-  form {
-    overflow: auto;
-    margin-bottom: 0;
-    .dropdown.inline {
-      display: inline-block;
-    }
-
-    #keys-input {
-      resize: none;
-    }
-
-    #qoGroupLevelGroup {
-      width: 34%;
-    }
-
-    .input-small {
-      width: 74px;
-      margin-left: 5px;
-    }
-    .checkbox {
-      padding: 0;
-      margin: 0;
-    }
-    .btn-success {
-      @include border-radius(5px);
-    }
-    .btn-cancelDark,
-    .btn-cancelDark:active {
-      background: none;
-      border: none;
-      box-shadow: none;
-      color: $cf-text03;
-      line-height: 1em;
-    }
-    select {
-      margin-top: -4px;
-      margin-bottom: 0px;
-    }
-    .include-end-key-row {
-      line-height: 20px;
-      margin-left: 8px;
-    }
-  }
 
   .toggle-btns {
     .btn {
@@ -117,17 +61,6 @@
     }
   }
 
-  label {
-    margin-right: 0;
-    font-size: 13px;
-
-    /*
-    due to: https://code.google.com/p/chromium/issues/detail?id=411065 - that bug causes the checkbox state not to
-    update when the user clicks on labels quickly. It can be removed once the fix is in Chrome stable
-    */
-    -webkit-user-select: none;
-    user-select: none;
-  }
   label.disabled {
     cursor: not-allowed;
     opacity: 0.5;
@@ -138,31 +71,6 @@
     border: none;
     padding: 10px 0;
   }
-  .row-fluid.fieldsets {
-    .inline {
-      width: 32%;
-    }
-    .inline:nth-child(3) {
-      text-align: right;
-      width: 34%;
-    }
-  }
-  .qo-main-fields-row .row-fluid.fieldsets {
-    .inline:nth-child(2) {
-      width: 30%;
-    }
-    .inline:nth-child(3) {
-      text-align: right;
-      width: 36%;
-    }
-  }
-
-  .row-fluid.fieldsets {
-    margin-bottom: 5px;
-    :last-child {
-      margin-bottom: 2px;
-    }
-  }
 
   #skipRows {
     margin-left: 5px;
@@ -172,9 +80,5 @@
   }
   .hide {
     display: none;
-  }
-
-  .additionalParams {
-    margin-bottom: 2px;
   }
 }

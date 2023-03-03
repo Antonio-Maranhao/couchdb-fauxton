@@ -13,9 +13,6 @@
 @import "../../../../../assets/scss/variables";
 
 #doc-list {
-  .custom-inputs {
-    display: none;
-  }
   padding: 30px 0 0 0;
   div.doc-row {
     margin-bottom: 20px;
@@ -84,10 +81,6 @@
 .show-select {
   #doc-list {
     padding: 0px 0 30px 0;
-    .custom-inputs {
-      display: block;
-      float: left;
-    }
   }
   .checkbox.inline {
     padding-top: 6px;
