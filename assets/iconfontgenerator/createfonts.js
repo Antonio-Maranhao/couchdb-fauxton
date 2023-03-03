@@ -64,7 +64,7 @@ svgtofont({
     });
 
     // Replace 'assets/styles/icons.scss' with the newly generated version
-    const iconsScss = "../scss/icons.scss";
+    const iconsScss = "../scss/_icons.scss";
     console.log(`Replacing ${iconsScss} with the new version`);
     if (fs.existsSync(iconsScss)) {
       fs.unlinkSync(iconsScss);
