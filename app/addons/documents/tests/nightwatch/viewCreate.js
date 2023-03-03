@@ -19,8 +19,8 @@ module.exports = {
     openDifferentDropdownsAndClick(client)
       .waitForElementPresent('#new-ddoc', waitTime, false)
       .setValue('#new-ddoc', 'test_design_doc-selenium-0')
-      .clearValue('#index-name')
-      .setValue('#index-name', 'furbie')
+      .clearValue('input#index-name')
+      .setValue('input#index-name', 'furbie')
       .execute('\
         var editor = ace.edit("map-function");\
         editor.getSession().setValue("function (doc) { if (doc != \'\') { emit(\'blerg\'); } else { emit(\'nana\'); }  }");\
@@ -40,8 +40,8 @@ module.exports = {
     openDifferentDropdownsAndClick(client)
       .waitForElementPresent('#new-ddoc', waitTime, false)
       .setValue('#new-ddoc', 'test_design_doc-selenium-1')
-      .clearValue('#index-name')
-      .setValue('#index-name', 'hasenindex')
+      .clearValue('input#index-name')
+      .setValue('input#index-name', 'hasenindex')
       .execute('\
         var editor = ace.edit("map-function");\
         editor.getSession().setValue("function (doc) { emit(\'hasehase\'); }");\
@@ -61,8 +61,8 @@ module.exports = {
     openDifferentDropdownsAndClick(client)
       .waitForElementPresent('#new-ddoc', waitTime, false)
       .setValue('#new-ddoc', 'test_design_doc-selenium-3')
-      .clearValue('#index-name')
-      .setValue('#index-name', 'hasenindex')
+      .clearValue('input#index-name')
+      .setValue('input#index-name', 'hasenindex')
       .execute('\
         var editor = ace.edit("map-function");\
         editor.getSession().setValue("function (doc) { emit(\'hasehase\'); }");\
@@ -84,8 +84,8 @@ module.exports = {
     openDifferentDropdownsAndClick(client)
       .waitForElementPresent('#new-ddoc', waitTime, false)
       .setValue('#new-ddoc', 'test_design_doc-selenium-2')
-      .clearValue('#index-name')
-      .setValue('#index-name', 'gaenseindex')
+      .clearValue('input#index-name')
+      .setValue('input#index-name', 'gaenseindex')
       .execute('\
         var editor = ace.edit("map-function");\
         editor.getSession().setValue("function (doc) { emit(\'gansgans\'); }");\
@@ -110,9 +110,9 @@ module.exports = {
       .url(baseUrl + '/#/database/' + newDatabaseName + '/_all_docs')
       .clickWhenVisible('#sidebar-tab-testdesigndoc a.dropdown-toggle.icon.fonticon-plus-circled', waitTime, false)
       .clickWhenVisible('#sidebar-tab-testdesigndoc a[href*="new_view"]', waitTime, false)
-      .waitForElementVisible('#index-name', waitTime, false)
-      .clearValue('#index-name')
-      .setValue('#index-name', 'test-new-view')
+      .waitForElementVisible('input#index-name', waitTime, false)
+      .clearValue('input#index-name')
+      .setValue('input#index-name', 'test-new-view')
       .execute('\
         var editor = ace.edit("map-function");\
         editor.getSession().setValue("function (doc) { emit(\'enteente\', 1); }");\

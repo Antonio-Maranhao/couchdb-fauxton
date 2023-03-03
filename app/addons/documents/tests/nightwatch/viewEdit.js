@@ -26,7 +26,7 @@ module.exports = {
       .url(baseUrl + '/#/database/' + newDatabaseName + '/_design/testdesigndoc/_view/stubview/edit')
       .waitForElementPresent('.index-cancel-link', waitTime, true)
       .waitForElementNotPresent('.loading-lines', waitTime, true)
-      .waitForElementVisible('#index-name', waitTime, true)
+      .waitForElementVisible('input#index-name', waitTime, true)
       .waitForElementPresent('.faux-header__doc-header-title', waitTime, false)
       .getText('.faux-header__doc-header-title', function (result) {
         const headerContent = result && result.value;
@@ -36,11 +36,11 @@ module.exports = {
           `expected header text to contain '${newDatabaseName}' and found '${headerContent}'`
         );
       })
-      .waitForAttribute('#index-name', 'value', function (val) {
+      .waitForAttribute('input#index-name', 'value', function (val) {
         return val === 'stubview';
       })
-      .clearValue('#index-name')
-      .setValue('#index-name', 'hasenindex5000')
+      .clearValue('input#index-name')
+      .setValue('input#index-name', 'hasenindex5000')
 
       .clickWhenVisible('#save-view')
 
@@ -66,7 +66,7 @@ module.exports = {
       .url(baseUrl + '/#/database/' + newDatabaseName + '/_design/testdesigndoc/_view/stubview/edit')
       .waitForElementPresent('.index-cancel-link', waitTime, true)
       .waitForElementNotPresent('.loading-lines', waitTime, true)
-      .waitForElementVisible('#index-name', waitTime, true)
+      .waitForElementVisible('input#index-name', waitTime, true)
       .waitForElementPresent('.faux-header__doc-header-title', waitTime, false)
       .getText('.faux-header__doc-header-title', function (result) {
         const headerContent = result && result.value;
@@ -77,7 +77,7 @@ module.exports = {
         );
       })
 
-      .waitForAttribute('#index-name', 'value', function (val) {
+      .waitForAttribute('input#index-name', 'value', function (val) {
         return val === 'stubview';
       })
 
@@ -140,8 +140,8 @@ module.exports = {
       })
       .waitForElementVisible('#new-ddoc', waitTime, false)
       .setValue('#new-ddoc', 'view1-name')
-      .clearValue('#index-name')
-      .setValue('#index-name', 'view1')
+      .clearValue('input#index-name')
+      .setValue('input#index-name', 'view1')
       .clickWhenVisible('select[id="reduce-function-selector"] option[value="_sum"]')
       .execute('\
         var editor = ace.edit("map-function");\
@@ -169,8 +169,8 @@ module.exports = {
       })
 
       .setValue('#new-ddoc', 'view2-name')
-      .clearValue('#index-name')
-      .setValue('#index-name', 'view2')
+      .clearValue('input#index-name')
+      .setValue('input#index-name', 'view2')
       .clickWhenVisible('select[id="reduce-function-selector"] option[value="_count"]')
       .execute('\
         var editor = ace.edit("map-function");\

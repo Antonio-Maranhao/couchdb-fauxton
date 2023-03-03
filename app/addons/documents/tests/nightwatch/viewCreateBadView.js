@@ -26,8 +26,8 @@ module.exports = {
       .clickWhenVisible('.faux-header__doc-header-dropdown-itemwrapper a[href*="new_view"]')
       .waitForElementVisible('#new-ddoc', waitTime, false)
       .setValue('#new-ddoc', 'test_design_doc-selenium-bad-reduce')
-      .clearValue('#index-name')
-      .setValue('#index-name', 'hasenindex')
+      .clearValue('input#index-name')
+      .setValue('input#index-name', 'hasenindex')
       .clickWhenVisible('select[id="reduce-function-selector"] option[value="_sum"]')
       .execute('\
         var editor = ace.edit("map-function");\
