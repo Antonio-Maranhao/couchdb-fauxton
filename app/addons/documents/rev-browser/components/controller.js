@@ -59,7 +59,7 @@ export default class DiffyController extends React.Component {
               className={isDiffViewEnabled ? 'active' : ''}
               onClick={this.toggleDiffViewTrue}
             >
-              <i className="icon-columns" /> Diff
+              <i className="fonticon-columns" /> Diff
             </Button>
             <Button
               style={{width: '130px'}}
