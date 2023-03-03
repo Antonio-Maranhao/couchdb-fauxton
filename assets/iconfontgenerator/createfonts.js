@@ -42,7 +42,6 @@ svgtofont({
 }).then(() => {
   console.log(`Font ${fauxtonFontname} generated`);
   try {
-    // The custom template ../styles/icons.scss includes the '{{cssToVars}}' variable so the generator adds the list of icons as variables.
     // Remove old icons font files
     const fontsDir = "../fonts";
     fs.readdirSync(fontsDir).forEach((file) => {
@@ -63,7 +62,7 @@ svgtofont({
       }
     });
 
-    // Replace 'assets/styles/icons.scss' with the newly generated version
+    // Replace 'assets/scss/icons.scss' with the newly generated version
     const iconsScss = "../scss/_icons.scss";
     console.log(`Replacing ${iconsScss} with the new version`);
     if (fs.existsSync(iconsScss)) {
