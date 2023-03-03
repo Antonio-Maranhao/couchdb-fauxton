@@ -12,7 +12,7 @@
 
 import PropTypes from 'prop-types';
 import React from "react";
-import { OverlayTrigger, Popover } from "react-bootstrap";
+import { OverlayTrigger, Popover, Form } from "react-bootstrap";
 import { ToolbarButton } from './toolbarbutton';
 
 export class BulkActionComponent extends React.Component {
@@ -92,10 +92,12 @@ export class BulkActionComponent extends React.Component {
   getMasterSelector = () => {
     return (
       <div className="bulk-action-component-panel">
-        <input type="checkbox"
+        <Form.Check
           checked={this.props.isChecked}
           onChange={this.props.toggleSelect}
-          disabled={this.props.disabled} />
+          disabled={this.props.disabled}
+          type="checkbox"
+        />
         {this.props.enableOverlay ? <div className="separator"></div> : null}
         {this.props.enableOverlay ? this.getOverlay() : null}
       </div>

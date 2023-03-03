@@ -17,6 +17,7 @@ import { v4 as uuidv4 } from 'uuid';
 import FauxtonAPI from '../../../../../core/api';
 import Components from '../../../../components/react-components';
 import Constants from '../../../constants';
+import Form from 'react-bootstrap/Form';
 
 const { Copy } = Components;
 
@@ -64,11 +65,14 @@ export default class TableRow extends React.Component {
   maybeGetCheckboxCell (el, i) {
     return (
       <td className="tableview-checkbox-cell" key={"tableview-checkbox-cell-" + i}>
-        {el.isDeletable ? <input
-          id={"checkbox-" + this.props.docIdentifier}
-          checked={this.props.isSelected}
-          type="checkbox"
-          onChange={this.onChange.bind(this)} /> : null}
+        {el.isDeletable ? <React.Fragment>
+          <Form.Check
+            id={"checkbox-" + this.props.docIdentifier}
+            checked={this.props.isSelected}
+            type="checkbox"
+            onChange={this.onChange.bind(this)}
+          />
+        </React.Fragment> : null}
       </td>
     );
   }
