@@ -107,7 +107,7 @@ export default class MainFieldsView extends React.Component {
 
     return (
       <React.Fragment>
-        <div className="col-6 mt-1">
+        <div className="col-6">
           <Form.Check
             id="qoReduce"
             label="Reduce"
@@ -174,17 +174,17 @@ export default class MainFieldsView extends React.Component {
 
   render() {
     return (
-      <div className="row p-3">
+      <div className="row m-2">
         <div className="col-12">
-          <h3>
+          <h5>
             Query Options
             <a className="help-link ms-1" href={this.props.docURL} target="_blank" rel="noopener noreferrer" data-bypass="true">
               <i className="fonticon-help-circled"/>
             </a>
-          </h3>
+          </h5>
         </div>
-        <div className="col-12 mt-2">
-          <div className="row">
+        <div className="col-12">
+          <div className="row align-items-center">
             {this.includeDocsOption()}
             {this.reduceOption()}
           </div>

@@ -66,11 +66,11 @@ export default class KeySearchFields extends React.Component {
     }
 
     return (
-      <div className="row p-3 pt-1">
-        <div className="col-12">
-          <h4>Keys</h4>
+      <div className="row m-2 mt-0">
+        <div className="col-12 mb-3">
+          <h5>Keys</h5>
         </div>
-        <div className="col-12">
+        <div className="col-12 mb-3">
           <ButtonGroup>
             <ToggleButton
               id="byKeys"
@@ -93,7 +93,7 @@ export default class KeySearchFields extends React.Component {
             </ToggleButton>
           </ButtonGroup>
         </div>
-        <div className="col-12 mt-2">
+        <div className="col-12">
           <div className={byKeysClass} id="js-showKeys">
             <label htmlFor="keys-input" className="form-label">A key, or an array of keys</label>
             <Form.Control

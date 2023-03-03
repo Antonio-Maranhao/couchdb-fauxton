@@ -26,7 +26,7 @@ export default class QueryButtons extends React.Component {
 
   render () {
     return (
-      <div className="row p-3 pt-0 text-end">
+      <div className="row m-2 mt-0 text-end">
         <div id="button-options" className="col">
           <Button type="submit" variant="cf-secondary">Run Query</Button>
           <a onClick={this.hideTray.bind(this)} className="btn btn-link">Cancel</a>
