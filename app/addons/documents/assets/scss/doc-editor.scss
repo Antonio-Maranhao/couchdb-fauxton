@@ -202,8 +202,13 @@
   max-width: 540px;
   text-align: left;
   overflow: hidden;
-  a:hover {
-    color: $cf-brand-hightlight-hover;
+  a {
+    background-color: $cf-navbar-bg;
+    color: $cf-white;
+
+    &:hover {
+      background-color: $cf-brand-hightlight-hover;
+    }
   }
 }
 
