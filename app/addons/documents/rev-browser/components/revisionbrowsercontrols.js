@@ -108,7 +108,7 @@ export default class RevisionBrowserControls extends React.Component {
               onClick={this.onSelectAsWinnerClickOurs}
               text="Delete Other Conflicts"
               variant="secondary"
-              customIcon="icon-trophy"
+              customIcon="fonticon-trophy"
             />
           </div>
         </div>
@@ -130,7 +130,7 @@ export default class RevisionBrowserControls extends React.Component {
               onClick={this.onSelectAsWinnerClickTheirs}
               text="Select as Winner"
               variant="secondary"
-              customIcon="icon-trophy"
+              customIcon="fonticon-trophy"
             />
           </div>
         </div>
