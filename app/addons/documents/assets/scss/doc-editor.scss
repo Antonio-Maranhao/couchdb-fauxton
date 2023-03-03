@@ -202,8 +202,14 @@
   max-width: 540px;
   text-align: left;
   overflow: hidden;
-  a:hover {
-    color: $cf-brand-hightlight-hover;
+  a {
+    background-color: $cf-dropdown-item-bg;
+    color: $cf-dropdown-item-color;
+    margin-bottom: 2px;
+    
+    &:hover {
+      background-color: $cf-brand-hightlight-hover;
+    }
   }
 }
 
