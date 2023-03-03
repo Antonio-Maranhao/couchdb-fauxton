@@ -166,7 +166,7 @@ export default class DocEditorScreen extends React.Component {
 
         {this.props.conflictCount ? <PanelButton
           title={`Conflicts (${this.props.conflictCount})`}
-          iconClass="icon-columns"
+          iconClass="fonticon-columns"
           className="conflicts"
           disabled={this.props.isSaving}
           onClick={() => { FauxtonAPI.navigate(FauxtonAPI.urls('revision-browser', 'app', this.props.database.safeID(), this.props.doc.id));}}/> : null}
