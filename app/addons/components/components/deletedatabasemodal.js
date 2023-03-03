@@ -117,6 +117,7 @@ export class DeleteDatabaseModal extends React.Component {
             Cancel
           </a>
           <Button
+            id="delete-db-btn"
             disabled={this.state.disableSubmit}
             onClick={this.onDeleteClick}
             variant="cf-danger"
