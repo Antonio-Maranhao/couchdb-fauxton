@@ -112,7 +112,7 @@ class PermissionsSection extends React.Component {
     const { section } = this.props;
 
     return (
-      <div className={"permissions__" + section}>
+      <div id={"permissions__" + section}>
         <header className="page-header">
           <h3>{section}</h3>
           <p className="help">
@@ -130,7 +130,7 @@ class PermissionsSection extends React.Component {
               <p>Specify users who will have {this.props.section} access to this database.</p>
             </header>
 
-            <form onSubmit={this.addNames}>
+            <form onSubmit={this.addNames} id="form-users-permissions">
               <InputGroup>
                 <Form.Control
                   placeholder="Username"

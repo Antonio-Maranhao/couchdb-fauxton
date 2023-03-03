@@ -51,7 +51,7 @@ describe('Permissions Container', () => {
 
     wrapper.update();
     const item = wrapper
-      .find('.permissions__entry li');
+      .find('.permission-items li');
 
     expect(item.text()).toContain('banana');
   });
