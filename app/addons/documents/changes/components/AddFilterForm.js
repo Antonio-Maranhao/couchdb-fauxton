@@ -56,19 +56,12 @@ export default class AddFilterForm extends React.Component {
     this.addItem.focus();
   }
 
-  inputClassNames () {
-    let className = 'js-changes-filter-field';
-    if (this.state.error) {
-      className += ' errorHighlight';
-    }
-    return className;
-  }
-
   render () {
     return (
       <form onSubmit={this.submitForm}>
         <InputGroup>
           <Form.Control
+            id="changes-filter-field"
             ref={node => this.addItem = node}
             placeholder="Sequence or ID"
             onChange={(e) => this.setState({ filter: e.target.value })}
