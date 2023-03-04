@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {Button, Form, Overlay, Popover} from 'react-bootstrap';
 
-export default class AddOptionButtonV2 extends React.Component {
+export default class AddOptionButton extends React.Component {
   static propTypes = {
     onAdd: PropTypes.func.isRequired
   };

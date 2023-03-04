@@ -11,8 +11,11 @@
 // the License.
 
 import React from 'react';
+import { Provider } from 'react-redux';
+import { createStore, combineReducers } from 'redux';
 import {mount} from 'enzyme';
 import sinon from 'sinon';
+import reducer from '../reducers';
 import FauxtonAPI from '../../../core/api';
 import AddOptionButton from '../components/AddOptionButton';
 import ConfigOption from '../components/ConfigOption';
@@ -40,44 +43,62 @@ describe('Config Components', () => {
       node,
       options
     };
+    let store;
+    beforeEach(() => {
+      store = createStore(
+        combineReducers({ permissions: reducer})
+      );
+    });
 
     it('deletes options', () => {
       const spy = sinon.stub();
-      const wrapper = mount(<ConfigTableScreen
-        {...defaultProps}
-        deleteOption={spy}/>
+      const wrapper = mount(
+        <Provider store={store}>
+          <ConfigTableScreen
+            {...defaultProps}
+            deleteOption={spy}/>
+        </Provider>
       );
-      wrapper.instance().deleteOption({});
+      wrapper.find(ConfigTableScreen).instance().deleteOption({});
       sinon.assert.called(spy);
     });
 
     it('saves options', () => {
       const spy = sinon.stub();
-      const wrapper = mount(<ConfigTableScreen
-        {...defaultProps}
-        saveOption={spy}/>
+      const wrapper = mount(
+        <Provider store={store}>
+          <ConfigTableScreen
+            {...defaultProps}
+            saveOption={spy}/>
+        </Provider>
       );
-      wrapper.instance().saveOption({});
+      wrapper.find(ConfigTableScreen).instance().saveOption({});
       sinon.assert.called(spy);
     });
 
     it('edits options', () => {
       const spy = sinon.stub();
-      const wrapper = mount(<ConfigTableScreen
-        {...defaultProps}
-        editOption={spy}/>
+      const wrapper = mount(
+        <Provider store={store}>
+          <ConfigTableScreen
+            {...defaultProps}
+            editOption={spy}/>
+        </Provider>
       );
-      wrapper.instance().editOption({});
+      wrapper.find(ConfigTableScreen).instance().editOption({});
       sinon.assert.called(spy);
     });
 
     it('cancels editing', () => {
       const spy = sinon.stub();
-      const wrapper = mount(<ConfigTableScreen
-        {...defaultProps}
-        cancelEdit={spy}/>
+      const wrapper = mount(
+        <Provider store={store}>
+          <ConfigTableScreen
+            {...defaultProps}
+            cancelEdit={spy}/>
+        </Provider>
       );
-      wrapper.instance().cancelEdit();
+      wrapper.find(ConfigTableScreen).instance().cancelEdit();
       sinon.assert.called(spy);
     });
   });
