@@ -197,7 +197,7 @@ describe('Config Components', () => {
         <table><tbody><tr><ConfigOptionTrash {...defaultProps}/></tr></tbody></table>
       );
 
-      el.find('i.icon').simulate('click');
+      el.find('i.fonticon-trash').simulate('click');
       expect(el.find('div.confirmation-modal').length).toBe(1);
     });
 
@@ -207,7 +207,7 @@ describe('Config Components', () => {
         <table><tbody><tr><ConfigOptionTrash {...defaultProps} onDelete={spy}/></tr></tbody></table>
       );
 
-      el.find('i.icon').simulate('click');
+      el.find('i.fonticon-trash').simulate('click');
       el.find('div.confirmation-modal .btn').simulate('click');
       sinon.assert.calledOnce(spy);
     });
