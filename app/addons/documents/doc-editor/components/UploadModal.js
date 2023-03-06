@@ -49,10 +49,7 @@ export default class UploadModal extends React.Component {
     });
   };
 
-  handleFileSelected = (e) => {
-    // const files = e.target.files;
-    // console.info(files);
-    // console.info(e);
+  handleSelectedFile = (e) => {
     this.attachments = e.target;
   };
 
@@ -60,16 +57,13 @@ export default class UploadModal extends React.Component {
   render() {
     let errorClasses = 'alert alert-error';
     if (this.props.errorMessage === '') {
-      errorClasses += ' hide';
+      errorClasses += ' d-none';
     }
 
-    // let progressBar = document.getElementById("upload-progress-bar");
-
-    // if (!this.props.inProgress) {
-    //   progressBar.class.add("hide");
-    // } else {
-    //   progressBar.class.remove("hide");
-    // }
+    let loadIndicatorClasses = 'progress progress-info mt-3';
+    if (!this.props.inProgress) {
+      loadIndicatorClasses += ' d-none';
+    }
 
     this.attachmentsRef = React.createRef();
 
@@ -79,40 +73,33 @@ export default class UploadModal extends React.Component {
           <Modal.Title>Upload Attachment</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className={errorClasses}>Hello there. This is an example error message /*{this.props.errorMessage}*/</div>
+          <div className={errorClasses}>{this.props.errorMessage}</div>
           <div>
             <form className="form">
-              {/* <Form.Group> */}
-              <p>
-                Select a file to upload as an attachment to this document. Uploading a file saves the document as a new
-                revision.
-              </p>
-              <Form.Control
-                onChange={this.handleFileSelected}
-                // ref={el => this.attachments = el}
-                type="file"
-                name="_attachments"
-                disabled={this.props.inProgress}
-              />
-              {/* <Form.Control.Feedback type="invalid" style={{display: "block"}}>Please provide a valid city.</Form.Control.Feedback> */}
-              {/* </Form.Group> */}
+              <Form.Group>
+                <p>
+                  Select a file to upload as an attachment to this document. Uploading a file saves the document as a new
+                  revision.
+                </p>
+                <Form.Control
+                  onChange={this.handleSelectedFile}
+                  type="file"
+                  name="_attachments"
+                  disabled={this.props.inProgress}
+                />
+              </Form.Group>
             </form>
 
             <ProgressBar
               id="upload-progress-bar"
               now={this.props.uploadPercentage}
-              className="mt-3"
+              className={ loadIndicatorClasses }
             />
-
-            {/* <div className={loadIndicatorClasses + " mt-2"}>
-              <div className="bar" style={{ width: this.props.uploadPercentage + '%'}}></div>
-            </div> */}
           </div>
         </Modal.Body>
         <Modal.Footer>
-          {/* <a href="#" data-bypass="true" className="cancel-link" onClick={this.closeModal}>Cancel</a> */}
+          <a href="#" data-bypass="true" className="cancel-link" onClick={this.closeModal}>Cancel</a>
           <Button
-            href="#"
             id="upload-btn"
             data-bypass="true"
             variant="cf-primary"
