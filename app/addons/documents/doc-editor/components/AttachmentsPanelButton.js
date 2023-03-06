@@ -38,7 +38,7 @@ export default class AttachmentsPanelButton extends React.Component {
     return _.map(this.props.doc.get('_attachments'), (item, filename) => {
       const url = FauxtonAPI.urls('document', 'attachment', db, doc, encodeURIComponent(filename));
       return (
-        <Dropdown.Item key={filename} href={url} target="_blank" data-bypass="true" className="jkf-test">
+        <Dropdown.Item key={filename} href={url} target="_blank" data-bypass="true">
           <strong>{filename}</strong>
           <span className="attachment-delimiter">-</span>
           <span>{item.content_type}{item.content_type ? ', ' : ''}{Helpers.formatSize(item.length)}</span>
