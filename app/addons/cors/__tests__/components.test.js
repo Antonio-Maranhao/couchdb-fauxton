@@ -15,7 +15,7 @@ import Views from "../components";
 import utils from "../../../../test/mocha/testUtils";
 import React from "react";
 import sinon from "sinon";
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 
 FauxtonAPI.router = new FauxtonAPI.Router([]);
 const { restore } = utils;
