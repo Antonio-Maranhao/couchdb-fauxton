@@ -13,7 +13,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Modal } from 'react-bootstrap';
+import { Modal, Button, Form, ProgressBar } from 'react-bootstrap';
 
 
 export default class UploadModal extends React.Component {
@@ -49,17 +49,29 @@ export default class UploadModal extends React.Component {
     });
   };
 
+  handleFileSelected = (e) => {
+    // const files = e.target.files;
+    // console.info(files);
+    // console.info(e);
+    this.attachments = e.target;
+  };
+
+
   render() {
     let errorClasses = 'alert alert-error';
     if (this.props.errorMessage === '') {
       errorClasses += ' hide';
     }
-    let loadIndicatorClasses = 'progress progress-info';
-    let disabledAttribute = {disabled: 'disabled'};
-    if (!this.props.inProgress) {
-      loadIndicatorClasses += ' hide';
-      disabledAttribute = {};
-    }
+
+    // let progressBar = document.getElementById("upload-progress-bar");
+
+    // if (!this.props.inProgress) {
+    //   progressBar.class.add("hide");
+    // } else {
+    //   progressBar.class.remove("hide");
+    // }
+
+    this.attachmentsRef = React.createRef();
 
     return (
       <Modal dialogClassName="upload-file-modal" show={this.props.visible} onHide={this.closeModal}>
@@ -67,27 +79,49 @@ export default class UploadModal extends React.Component {
           <Modal.Title>Upload Attachment</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className={errorClasses}>{this.props.errorMessage}</div>
+          <div className={errorClasses}>Hello there. This is an example error message /*{this.props.errorMessage}*/</div>
           <div>
-            <form ref={node => this.uploadForm = node} className="form">
+            <form className="form">
+              {/* <Form.Group> */}
               <p>
                 Select a file to upload as an attachment to this document. Uploading a file saves the document as a new
                 revision.
               </p>
-              <input ref={el => this.attachments = el} type="file" name="_attachments" {...disabledAttribute}/>
-              <br />
+              <Form.Control
+                onChange={this.handleFileSelected}
+                // ref={el => this.attachments = el}
+                type="file"
+                name="_attachments"
+                disabled={this.props.inProgress}
+              />
+              {/* <Form.Control.Feedback type="invalid" style={{display: "block"}}>Please provide a valid city.</Form.Control.Feedback> */}
+              {/* </Form.Group> */}
             </form>
 
-            <div className={loadIndicatorClasses}>
+            <ProgressBar
+              id="upload-progress-bar"
+              now={this.props.uploadPercentage}
+              className="mt-3"
+            />
+
+            {/* <div className={loadIndicatorClasses + " mt-2"}>
               <div className="bar" style={{ width: this.props.uploadPercentage + '%'}}></div>
-            </div>
+            </div> */}
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <a href="#" data-bypass="true" className="cancel-link" onClick={this.closeModal}>Cancel</a>
-          <button href="#" id="upload-btn" data-bypass="true" className="btn btn-primary save" onClick={this.upload} {...disabledAttribute}>
+          {/* <a href="#" data-bypass="true" className="cancel-link" onClick={this.closeModal}>Cancel</a> */}
+          <Button
+            href="#"
+            id="upload-btn"
+            data-bypass="true"
+            variant="cf-primary"
+            onClick={this.upload}
+            disabled={this.props.inProgress}
+            type="button"
+          >
             <i className="fonticon-up-circled" /> Upload Attachment
-          </button>
+          </Button>
         </Modal.Footer>
       </Modal>
     );
