@@ -94,16 +94,15 @@ export default class TableRow extends React.Component {
       );
     }
 
-    //TODO: revert - forcing it to show up so we remember to fix the icon
-    // if (conflictCount) {
-    textConflicts = conflictCount === 1 ? conflictCount + ' Conflict' : conflictCount + ' Conflicts';
-    conflictIndicator = (
-      <div className="tableview-conflict" data-conflicts-indicator style={{display: 'inline'}} title={textConflicts}>
-        <i
-          className="fonticon fonticon-attention-circled"></i>{conflictCount}
-      </div>
-    );
-    // }
+    if (conflictCount) {
+      textConflicts = conflictCount === 1 ? conflictCount + ' Conflict' : conflictCount + ' Conflicts';
+      conflictIndicator = (
+        <div className="tableview-conflict" data-conflicts-indicator style={{display: 'inline'}} title={textConflicts}>
+          <i
+            className="fonticon-code-branch"></i>{conflictCount}
+        </div>
+      );
+    }
 
     return (
       <td className="tableview-el-last" onClick={this.onClick.bind(this)}>
