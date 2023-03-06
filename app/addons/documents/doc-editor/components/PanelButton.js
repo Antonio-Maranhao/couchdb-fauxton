@@ -35,6 +35,7 @@ export default class PanelButton extends React.Component {
       <div className="panel-section">
         <Button variant='cf-secondary'
           onClick={this.props.onClick}
+          title={this.props.title}
           className={this.props.className}
           disabled={this.props.disabled} >
           <i className={this.props.iconClass}></i>
