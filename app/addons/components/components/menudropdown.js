@@ -39,34 +39,28 @@ export class MenuDropDown extends React.Component {
     });
   };
 
-  createEntry = (link, key) => {
+  createEntry = (link) => {
     return (
-      <li key={key}>
-        <a
-          className={classnames('icon', link.icon, {
-            'fonticon-placeholder': !link.icon,
-          })}
-          data-bypass={link.external ? 'true' : ''}
-          href={link.url}
-          onClick={link.onClick}
-          rel="noreferrer noopener"
-          target={link.external ? '_blank' : ''}
-        >
-          {link.title}
-        </a>
-      </li>
+      <Dropdown.Item
+        href={link.url}
+        onClick={link.onClick}
+        className={"py-1"}
+      >
+        <div className="row p-0 m-0 align-self-center">
+          <div className="col-auto px-0"><span className={classnames('icon', link.icon, {'fonticon-placeholder': !link.icon})}></span></div>
+          <div className="col px-0"><span className="ms-1">{link.title}</span></div>
+        </div>
+      </Dropdown.Item>
     );
   };
 
-  createSectionTitle = (title, key) => {
+  createSectionTitle = (title) => {
     if (!title) {
       return null;
     }
 
     return (
-      <li key={key} className="header-label">
-        {title}
-      </li>
+      <Dropdown.Header>{title}</Dropdown.Header>
     );
   };
 
@@ -84,19 +78,20 @@ export class MenuDropDown extends React.Component {
 
   render() {
     const menuItems = this.createSection();
-    const arrowClass = this.props.hideArrow ? '' : 'arrow';
     const CustomMenuToggle =
       this.props.toggleType === 'button'
         ? CustomMenuButtonToggle
         : CustomMenuLinkToggle;
     return (
-      <Dropdown id="dropdown-menu">
+      <Dropdown
+        id="dropdown-menu">
         <Dropdown.Toggle
           as={CustomMenuToggle}
-          id="dropdown-custom-components"
           icon={this.props.icon}
         ></Dropdown.Toggle>
-        <Dropdown.Menu as={CustomMenu} className={arrowClass}>
+        <Dropdown.Menu
+          className={"pt-0 dropdown-arrow"}
+        >
           {menuItems}
         </Dropdown.Menu>
       </Dropdown>
@@ -129,8 +124,8 @@ const CustomMenuLinkToggle = React.forwardRef(
     return (
       <a
         ref={ref}
-        className={'dropdown-toggle icon ' + icon}
-        style={{ fontSize: '1rem', boxShadow: '0px 0px 0px' }}
+        className={'dropdown-toggle cursor-pointer icon ' + icon}
+        style={{ fontSize: '1rem', boxShadow: '0px 0px 0px'}}
         onClick={handleClick}
       >
         {children}
@@ -138,16 +133,3 @@ const CustomMenuLinkToggle = React.forwardRef(
     );
   }
 );
-
-const CustomMenu = React.forwardRef(({ children, className }, ref) => {
-  return (
-    <ul
-      ref={ref}
-      className={classnames('dropdown-menu', className)}
-      role="menu"
-      aria-labelledby="dLabel"
-    >
-      {children}
-    </ul>
-  );
-});
