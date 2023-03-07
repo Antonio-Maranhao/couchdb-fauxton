@@ -15,49 +15,4 @@
   content: "";
 }
 
-#new-design-docs-button {
-  right:15px;
-
-  #dropdown-menu {
-    .dropdown-menu{
-      width:200px;
-    }
-
-    %dropdown-arrow-generic {
-      border-left: 12px solid rgba(0, 0, 0, 0);
-      border-right: 12px solid rgba(0, 0, 0, 0);
-      content: "";
-      display: inline-block;
-      right: 0;
-      position:absolute;
-    }
-    
-    .dropdown-arrow {
-      &::before {
-        @extend %dropdown-arrow-generic;
-        border-bottom: 12px solid rgba(0, 0, 0, 0.2);
-        top: -8px;
-      }
-
-      &::after {
-        @extend %dropdown-arrow-generic;
-        border-bottom: 12px solid $cf-dropdown-heading-bg;
-        top: -7px;
-      }
-    }
-
-    .dropdown-item {
-      margin-bottom:2px;
-
-      &:last-child {
-        margin-bottom:0;
-      }
-    }
-
-    .dropdown-header {
-      color: $cf-dropdown-heading-color;
-      background-color: $cf-dropdown-heading-bg;
-    }
-  }
-}
 
