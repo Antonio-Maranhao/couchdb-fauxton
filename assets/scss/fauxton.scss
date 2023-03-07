@@ -175,6 +175,11 @@
 
 /* bootstrap overrides */
 
+.dropdown-toggle::after {
+  /* removes caret from dropdown toggle - a Bootstrap default */
+  display: none !important; 
+}
+
 // .nav-tabs > li {
 //   margin-right: 2px;
 //   > a {
@@ -687,4 +692,8 @@ body .control-toggle-include-docs span {
   background: $cf-brand-highlight;
   margin: 100px;
   box-shadow: 2px 2px 5px $cf-border-color02;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
