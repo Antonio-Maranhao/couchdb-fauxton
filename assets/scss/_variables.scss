@@ -13,6 +13,9 @@
 // Import bootstrap functions here so we can use the color utilities below
 @import '~bootstrap/scss/functions';
 
+
+@import 'variable_overrides';
+
 // ==================================================================================
 // Note: Fauxton colors/styling must be defined first so they can be used to 
 // override Bootstrap variables at the end.
