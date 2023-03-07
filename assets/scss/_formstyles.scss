@@ -290,38 +290,14 @@ a.help-link {
 //   }
 // }
 
-
-%dropdown-arrow-generic {
-  border-left: 12px solid rgba(0, 0, 0, 0);
-  border-right: 12px solid rgba(0, 0, 0, 0);
-  content: "";
-  display: inline-block;
-  right: 0;
-  position:absolute;
-}
-
 div.add-dropdown {
   position: absolute;
   top: 2px;
   right: 15px;
-
-  .dropdown-arrow {
-    &::before {
-      @extend %dropdown-arrow-generic;
-      border-bottom: 12px solid rgba(0, 0, 0, 0.2);
-      top: -8px;
-    }
-
-    &::after {
-      @extend %dropdown-arrow-generic;
-      border-bottom: 12px solid $cf-dropdown-heading-bg;
-      top: -7px;
-    }
-  }
+  padding: 10px 5px 5px 15px;
 
   .dropdown-menu {
     box-shadow: $cf-box-shadow;
-    width:200px;
     padding-bottom:0;
     border-radius:0;
 

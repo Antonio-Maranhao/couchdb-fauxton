@@ -44,11 +44,13 @@ export class MenuDropDown extends React.Component {
       <Dropdown.Item
         href={link.url}
         onClick={link.onClick}
-        className={"py-1"}
+        className={"py-2"}
       >
-        <div className="row p-0 m-0 align-self-center">
-          <div className="col-auto px-0"><span className={classnames('icon', link.icon, {'fonticon-placeholder': !link.icon})}></span></div>
-          <div className="col px-0"><span className="ms-1">{link.title}</span></div>
+        <div className='ms-1'>
+          <i className={classnames('align-middle', link.icon, {'fonticon-placeholder': !link.icon})}></i>
+          <span className="ms-2 align-middle">
+            {link.title}
+          </span>
         </div>
       </Dropdown.Item>
     );
