@@ -138,6 +138,12 @@ $cf-dropdown-item-color: $cf-text03 !default;
 $cf-input-bg: $cf-white !default;
 $cf-check-radio-bg: $cf-secondary !default;
 
+// links
+$cf-link-color: $cf-brand-highlight !default;
+$cf-link-color-hover: $cf-brand-hightlight-hover !default;
+$cf-link-decoration: none !default;
+$cf-link-decoration-hover: none !default;
+
 // main nav bar
 $cf-navbar-width: 220px !default;
 $cf-navbar-width-collapsed: 64px !default;
@@ -203,45 +209,46 @@ $smallLogoPath: "../../../../../assets/img/couchdb-logo.png" !default;
 // ===============================
 
 // globals
-$body-bg: $cf-background01;
-$body-color: $cf-text01;
-$text-muted: $cf-text01-muted;
-$font-family-base: $cf-sans-font-family;
-$link-color: $cf-brand-highlight;
-$link-hover-color: $cf-brand-hightlight-hover;
-$link-decoration: none;
-$primary: $cf-primary;
-$secondary: $cf-secondary;
-$danger: $cf-danger;
+$body-bg: $cf-background01 !default;
+$body-color: $cf-text01 !default;
+$text-muted: $cf-text01-muted !default;
+$font-family-base: $cf-sans-font-family !default;
+$link-color: $cf-link-color !default;
+$link-hover-color: $cf-link-color-hover !default;
+$link-decoration: $cf-link-decoration !default;
+$link-hover-decoration: $cf-link-decoration-hover !default;
+$primary: $cf-primary !default;
+$secondary: $cf-secondary !default;
+$danger: $cf-danger !default;
 
 // dropdowns
-$dropdown-bg: $cf-dropdown-bg;
-$dropdown-color: $cf-dropdown-color;
+$dropdown-bg: $cf-dropdown-bg !default;
+$dropdown-color: $cf-dropdown-color !default;
 
 // forms
-$input-btn-focus-color: rgba($cf-brand-highlight, .25);
-$input-focus-border-color: tint-color($cf-brand-highlight, 50%);
-$input-bg: $cf-input-bg;
-$form-check-input-checked-bg-color: $cf-secondary;
-$form-check-input-checked-border-color: $cf-secondary;
+$input-btn-focus-color: rgba($cf-brand-highlight, .25) !default;
+$input-focus-border-color: tint-color($cf-brand-highlight, 50%) !default;
+$input-bg: $cf-input-bg !default;
+$form-check-input-checked-bg-color: $cf-secondary !default;
+$form-check-input-checked-border-color: $cf-secondary !default;
 
 // modals
-$modal-backdrop-opacity: 0.5;
+$modal-backdrop-opacity: 0.5 !default;
 
 // pagination
-$pagination-bg: $cf-pagination-bg;
-$pagination-border-color: $cf-pagination-border;
+$pagination-bg: $cf-pagination-bg !default;
+$pagination-border-color: $cf-pagination-border !default;
 // disabling border radius because paginatin buttons should always be square to match the footer.
-$pagination-border-radius: 0;
-$pagination-active-bg: $cf-pagination-active-bg;
-$pagination-active-color: $cf-pagination-active-color;
+$pagination-border-radius: 0 !default;
+$pagination-active-bg: $cf-pagination-active-bg !default;
+$pagination-active-color: $cf-pagination-active-color !default;
 
 // popover
-$popover-bg: $cf-background02;
-$popover-body-color: $cf-text02;
+$popover-bg: $cf-background02 !default;
+$popover-body-color: $cf-text02 !default;
 
 // tables
-$table-striped-bg: $cf-table-stripped-bg;
+$table-striped-bg: $cf-table-stripped-bg !default;
 
 // other
 $enable-rounded: true !default; // TODO: this is a change from the Fauxton's previous setting 'borderRadius: 0'. I think it should be using the round corners (it's the current trend) but the rest of the UI will have to follow suit.
