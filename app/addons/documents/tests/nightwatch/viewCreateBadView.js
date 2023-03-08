@@ -22,7 +22,7 @@ module.exports = {
       .loginToGUI()
       .populateDatabase(newDatabaseName)
       .url(baseUrl + '/#/database/' + newDatabaseName + '/_all_docs')
-      .clickWhenVisible('.faux-header__doc-header-dropdown-toggle')
+      .clickWhenVisible('#faux-header__doc-header-dropdown-toggle')
       .clickWhenVisible('.faux-header__doc-header-dropdown-itemwrapper a[href*="new_view"]')
       .waitForElementVisible('#new-ddoc', waitTime, false)
       .setValue('#new-ddoc', 'test_design_doc-selenium-bad-reduce')

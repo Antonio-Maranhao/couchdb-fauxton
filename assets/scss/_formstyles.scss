@@ -295,34 +295,6 @@ div.add-dropdown {
   top: 2px;
   right: 15px;
   padding: 10px 5px 5px 15px;
-
-  .dropdown-menu {
-    box-shadow: $cf-box-shadow;
-    padding-bottom:0;
-    border-radius:0;
-
-    a {
-      background-color: $cf-dropdown-item-bg;
-      color: $cf-dropdown-item-color;
-      &:hover {
-        background-color: $cf-brand-hightlight-hover;
-        color: $cf-white;
-      }
-    }
-
-    .dropdown-item {
-      margin-bottom:2px;
-  
-      &:last-child {
-        margin-bottom:0;
-      }
-    }
-
-    .dropdown-header {
-      color: $cf-dropdown-heading-color;
-      background-color: $cf-dropdown-heading-bg;
-    }
-  }
 }
 
 @keyframes errorBlinkBG {

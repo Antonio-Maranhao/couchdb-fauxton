@@ -24,7 +24,7 @@
   text-overflow: ellipsis;
 }
 
-button.faux-header__doc-header-dropdown-toggle {
+#faux-header__doc-header-dropdown-toggle {
   border: none;
   height: $cf-navbar-width-collapsed;
   right: 0;
@@ -33,24 +33,28 @@ button.faux-header__doc-header-dropdown-toggle {
   background-color: transparent !important;
   border: none;
   box-shadow: none !important;
-}
 
-button.faux-header__doc-header-dropdown-toggle:focus {
-  color: $cf-brand-hightlight-hover;
-  background-color: transparent !important;
-  border: none;
-  box-shadow: none !important;
-}
+  > i {
+    margin:0 !important;
 
-.faux-header__doc-header-dropdown-toggle:hover {
-  color: $cf-brand-hightlight-hover;
-  background-color: transparent;
-}
+    &:before {
+      width: 6px;
+      font-size: 20px;
+      padding-top: 4px;
+    }
+  }
 
-.faux-header__doc-header-dropdown-toggle-icon:before {
-  width: 6px;
-  font-size: 20px;
-  padding-top: 4px;
+  &:focus{
+    color: $cf-brand-hightlight-hover;
+    background-color: transparent !important;
+    border: none;
+    box-shadow: none !important;
+  }
+
+  &:hover{
+    color: $cf-brand-hightlight-hover;
+    background-color: transparent;
+  }
 }
 
 .faux-header__doc-header-backlink {
@@ -71,14 +75,3 @@ button.faux-header__doc-header-dropdown-toggle:focus {
   color: $cf-brand-hightlight-hover;
 }
 
-// override bootstrap styles
-.faux-header__doc-header-dropdown-itemwrapper
-  .faux-header__doc-header-dropdown-item {
-  padding: 10px 15px 10px 12px;
-}
-.faux-header__doc-header-dropdown-itemwrapper
-  .faux-header__doc-header-dropdown-item:hover {
-  background-color: $cf-brand-hightlight-hover;
-  color: $cf-white;
-  cursor: pointer;
-}

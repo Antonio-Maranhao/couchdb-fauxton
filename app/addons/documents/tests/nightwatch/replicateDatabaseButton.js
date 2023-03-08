@@ -36,7 +36,7 @@ module.exports = {
       .loginToGUI()
       .url(baseUrl + '/#/database/' + testDbName + '/_all_docs')
 
-      .clickWhenVisible('.faux-header__doc-header-dropdown-toggle')
+      .clickWhenVisible('#faux-header__doc-header-dropdown-toggle')
       .clickWhenVisible('.faux-header__doc-header-dropdown-itemwrapper .fonticon-replicate')
 
       //Wait for replication page to show up
