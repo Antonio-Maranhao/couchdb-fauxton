@@ -29,7 +29,7 @@
 }
 
 .faux-navbar__version-footer {
-  color: $cf-text02;
+  color: $cf-navbar-color;
   font-size: 10px;
   text-align: center;
   background-color: $cf-navbar-bg;
@@ -52,11 +52,11 @@
 }
 
 .faux-navbar__burger:hover .faux-navbar__burger__icon {
-  color: $cf-navbar-icon-color-selected;
+  color: $cf-navbar-item-color-hover;
 }
 
 .faux-navbar__burger__icon {
-  color: $cf-navbar-icon-color;
+  color: $cf-navbar-item-color;
   font-size: 24px;
 }
 
@@ -69,7 +69,7 @@
 }
 
 .faux-navbar__link--active {
-  background-color: $cf-brand-highlight;
+  background-color: $cf-navbar-item-bg-active;
   text-decoration: none;
 }
 
@@ -80,8 +80,14 @@
 .faux-navbar__link:hover,
 .faux-logout__link:hover,
 .faux-login__link:hover {
-  background-color: $cf-brand-hightlight-hover;
+  background-color: $cf-navbar-item-bg-hover;
   text-decoration: none;
+}
+
+.faux-logout__link:hover {
+  .faux-navbar__logout__text, .faux-navbar__logout__username {
+    color: $cf-navbar-item-color-hover;
+  }
 }
 
 .faux-navbar__link:active,
@@ -89,17 +95,27 @@
   text-decoration: none;
 }
 
-.faux-navbar__link:hover .faux-navbar__icon:before {
-  color: $cf-navbar-icon-color-selected;
+.faux-navbar__link:hover {
+  .faux-navbar__icon:before {
+    color: $cf-navbar-item-color-hover;
+  }
+  .faux-navbar__text {
+    color: $cf-navbar-item-color-hover;
+  }
 }
 
-.faux-navbar__link--active .faux-navbar__icon:before {
-  color: $cf-navbar-icon-color-selected;
+.faux-navbar__link--active {
+  .faux-navbar__icon:before {
+    color: $cf-navbar-item-color-active;
+  }
+  .faux-navbar__text {
+    color: $cf-navbar-item-color-active;
+  }
 }
 
 .faux-navbar__icon {
   margin-right: 14px;
-  color: $cf-navbar-icon-color;
+  color: $cf-navbar-item-color;
   font-size: 24px;
   vertical-align: middle;
   position: relative;
@@ -108,8 +124,8 @@
 .faux-navbar__icon-badge:after {
   content: "";
   position: absolute;
-  background: $cf-brand-hightlight-hover;
-  border: 1px solid $cf-brand-hightlight-hover;
+  background: $cf-navbar-item-bg-hover;
+  border: 1px solid $cf-navbar-item-bg-hover;
   height: 8px;
   width: 8px;
   top: 0;
@@ -120,26 +136,26 @@
 }
 
 .faux-navbar__link:hover .faux-navbar__icon-badge:after {
-  border-color: $cf-navbar-icon-color-selected;
+  border-color: $cf-navbar-item-color-hover;
 }
 
 .faux-navbar__link--active .faux-navbar__icon-badge:after {
-  border-color: $cf-navbar-icon-color-selected;
+  border-color: $cf-navbar-item-color-active;
 }
 
 .faux-navbar__text {
-  color: $cf-text02;
+  color: $cf-navbar-color;
   vertical-align: middle;
 }
 
 .faux-navbar__logout__text {
   font-size: 0.75rem;
-  color: $cf-text02;
+  color: $cf-navbar-color;
 }
 
 .faux-navbar__logout__textcontainer {
   text-align: center;
-  color: $cf-text02;
+  color: $cf-navbar-color;
 }
 
 .faux-navbar__logout__textcontainer--narrow {
@@ -156,7 +172,7 @@
 
 .faux-navbar__login__textcontainer {
   text-align: center;
-  color: $cf-text02;
+  color: $cf-navbar-color;
 }
 
 .faux-navbar__login__textcontainer--narrow {
@@ -205,7 +221,7 @@
 }
 
 .faux-navbar__logout__username {
-  color: $cf-text02;
+  color: $cf-navbar-color;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 150px;

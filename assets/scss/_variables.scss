@@ -158,10 +158,14 @@ $cf-link-decoration-hover: none !default;
 // main nav bar
 $cf-navbar-width: 220px !default;
 $cf-navbar-width-collapsed: 64px !default;
-$cf-navbar-icon-color: $cf-text03 !default;
-$cf-navbar-icon-color-selected: $cf-white !default;
+$cf-navbar-color: $cf-text03 !default;
 $cf-navbar-bg: $cf-background02 !default;
 $cf-navbar-item-bg: $cf-background03 !default;
+$cf-navbar-item-color: $cf-text03 !default;
+$cf-navbar-item-bg-hover: $cf-brand-hightlight-hover !default;
+$cf-navbar-item-color-hover: $cf-white !default;
+$cf-navbar-item-bg-active: $cf-brand-highlight !default;
+$cf-navbar-item-color-active: $cf-white !default;
 
 // notifications
 $cf-alert-bg: $cf-white !default;
