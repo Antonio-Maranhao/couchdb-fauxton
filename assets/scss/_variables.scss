@@ -32,10 +32,9 @@
 
 
 // TODO: not sure makes sense to have a common color for icons - maybe they should just use whatever the font color is around them.
-$cf-text05: #666666 !default; // font-icon, top header icons/text
-$cf-text-fonticon01: $cf-text05;
+
 // TODO: Styling of cancel buttons should be revised when styling form elements 
-$cf-btn-cancel-color: $cf-text05;
+
 // TODO: review - does it need its own bg color?
 $cf-query-options-btn-bg: #727a82;
 
@@ -66,6 +65,7 @@ $cf-text01: #333333 !default; // default text color for pages
 $cf-text02: #ffffff !default; // text color for overlay panels, trays
 $cf-text03: #d9d9d9 !default; // text color for items in dropdowns, main nav bar
 $cf-text04: #767f89 !default; // sidebar subitems
+$cf-text05: #666666 !default; // font-icon, top header icons/text
 $cf-text01-muted: #999999 !default;
 $cf-text02-muted: #bbbbbb !default;
 $cf-sans-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
@@ -106,6 +106,10 @@ $cf-btn-danger-bg-disabled: tint-color($cf-btn-danger-bg, $cf-disable-mix-amount
 $cf-btn-danger-color-disabled: tint-color($cf-btn-danger-color, $cf-disable-mix-amount) !default;
 $cf-btn-danger-bg-hover: $cf-brand-hightlight-hover !default;
 $cf-btn-danger-color-hover: $cf-btn-danger-color !default;
+
+$cf-btn-cancel-color: $cf-text05;
+
+$cf-text-fonticon01: $cf-text05;
 
 // code editor or viewer
 $cf-code-bg: #4d4d4d !default;
@@ -236,8 +240,8 @@ $dropdown-color: $cf-dropdown-color !default;
 $input-btn-focus-color: rgba($cf-brand-highlight, .25) !default;
 $input-focus-border-color: tint-color($cf-brand-highlight, 50%) !default;
 $input-bg: $cf-input-bg !default;
-$form-check-input-checked-bg-color: $cf-secondary !default;
-$form-check-input-checked-border-color: $cf-secondary !default;
+$form-check-input-checked-bg-color: $cf-check-radio-bg !default;
+$form-check-input-checked-border-color: $cf-check-radio-bg !default;
 
 // modals
 $modal-backdrop-opacity: 0.5 !default;
