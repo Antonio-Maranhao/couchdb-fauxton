@@ -56,11 +56,11 @@
     // color
     $cf-btn-primary-color,
     // hover background
-    $cf-brand-hightlight-hover,
+    $cf-btn-primary-bg-hover,
     // hover border
-    $cf-brand-hightlight-hover,
+    $cf-btn-primary-bg-hover,
     // hover color
-    $cf-btn-primary-color,
+    $cf-btn-primary-color-hover,
     // active background
     shade-color($cf-btn-primary-bg, $cf-btn-active-bg-shade-amount),
     // active border
@@ -81,9 +81,9 @@
     $cf-btn-secondary-bg,
     $cf-btn-secondary-bg,
     $cf-btn-secondary-color,
-    $cf-brand-hightlight-hover,
-    $cf-brand-hightlight-hover,
-    $cf-btn-secondary-color,
+    $cf-btn-secondary-bg-hover,
+    $cf-btn-secondary-bg-hover,
+    $cf-btn-secondary-color-hover,
     shade-color($cf-btn-secondary-bg, $cf-btn-active-bg-shade-amount),
     shade-color($cf-btn-secondary-bg, $cf-btn-active-bg-shade-amount),
     $cf-btn-secondary-color,
@@ -98,9 +98,9 @@
     $cf-btn-danger-bg,
     $cf-btn-danger-bg,
     $cf-btn-danger-color,
-    $cf-brand-hightlight-hover,
-    $cf-brand-hightlight-hover,
-    $cf-btn-danger-color,
+    $cf-btn-danger-bg-hover,
+    $cf-btn-danger-bg-hover,
+    $cf-btn-danger-color-hover,
     shade-color($cf-btn-danger-bg, $cf-btn-active-bg-shade-amount),
     shade-color($cf-btn-danger-bg, $cf-btn-active-bg-shade-amount),
     $cf-btn-danger-color,
