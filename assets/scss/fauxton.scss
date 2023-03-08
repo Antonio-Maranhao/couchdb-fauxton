@@ -697,3 +697,32 @@ body .control-toggle-include-docs span {
 .cursor-pointer {
   cursor: pointer;
 }
+
+/* Generic dropdown Bootstrap overrides */
+.dropdown-menu {
+  box-shadow: $cf-box-shadow;
+  padding:0;
+  border-radius:0;
+
+  a {
+    background-color: $cf-dropdown-item-bg;
+    color: $cf-dropdown-item-color;
+    &:hover {
+      background-color: $cf-brand-hightlight-hover;
+      color: $cf-white;
+    }
+  }
+
+  .dropdown-item {
+    margin-bottom:2px;
+
+    &:last-child {
+      margin-bottom:0;
+    }
+  }
+
+  .dropdown-header {
+    color: $cf-dropdown-heading-color;
+    background-color: $cf-dropdown-heading-bg;
+  }
+}

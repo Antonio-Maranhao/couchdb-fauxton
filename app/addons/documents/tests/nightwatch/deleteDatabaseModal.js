@@ -37,7 +37,7 @@ module.exports = {
       .loginToGUI()
       .url(baseUrl + '/#/database/_replicator/_all_docs')
 
-      .clickWhenVisible('.faux-header__doc-header-dropdown-toggle')
+      .clickWhenVisible('#faux-header__doc-header-dropdown-toggle')
       .clickWhenVisible('.faux-header__doc-header-dropdown-itemwrapper .fonticon-trash')
 
       .waitForElementVisible('.delete-db-modal', waitTime, false)
@@ -55,7 +55,7 @@ module.exports = {
       .loginToGUI()
       .url(baseUrl + '/#/database/' + newDatabaseName + '/_all_docs')
 
-      .clickWhenVisible('.faux-header__doc-header-dropdown-toggle')
+      .clickWhenVisible('#faux-header__doc-header-dropdown-toggle')
       .clickWhenVisible('.faux-header__doc-header-dropdown-itemwrapper .fonticon-trash')
 
       .waitForElementVisible('.delete-db-modal', waitTime, false)

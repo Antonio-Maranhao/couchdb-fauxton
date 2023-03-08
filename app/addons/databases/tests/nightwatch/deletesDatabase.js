@@ -22,7 +22,7 @@ module.exports = {
       .createDatabase(newDatabaseName)
       .loginToGUI()
       .url(baseUrl + '/#/database/' + newDatabaseName + '/_all_docs')
-      .clickWhenVisible('.faux-header__doc-header-dropdown-toggle')
+      .clickWhenVisible('#faux-header__doc-header-dropdown-toggle')
       .clickWhenVisible('.faux-header__doc-header-dropdown-itemwrapper .fonticon-trash')
       .waitForElementVisible('.delete-db-modal', waitTime, false)
       .clickWhenVisible('.delete-db-modal input[type="text"]', waitTime, false)
