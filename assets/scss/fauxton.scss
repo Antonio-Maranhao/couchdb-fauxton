@@ -388,6 +388,7 @@ table.table.column-bordered {
 //---header--//
 #dashboard > header {
   background-color: $cf-topheader-bg;
+  color: $cf-topheader-color;
   height: 64px;
 
   /* the position absolute is necessary to allow the 6px box shadow overlap the panels below. The parent <header>
