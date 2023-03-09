@@ -39,7 +39,7 @@ body #dashboard #notification-center-btn {
         font-size: $font-size-base;
         line-height: $line-height-base;
         margin: 0;
-        color: $cf-white;
+        color: $cf-text02;
         font-weight: normal;
       }
       .fonticon-bell {
@@ -121,7 +121,7 @@ body #dashboard #notification-center-btn {
         }
         button {
           @include flex(0 0 22px);
-          color: $cf-text02;
+          color: $cf-link-color;
           background: transparent;
           border: 0;
           height: 20px;
@@ -129,7 +129,7 @@ body #dashboard #notification-center-btn {
           margin-left: 6px;
           font-size: 100%;
           &:hover {
-            color: $cf-brand-hightlight-hover;
+            color: $cf-link-color-hover;
           }
         }
         p {
@@ -162,7 +162,7 @@ body #dashboard #notification-center-btn {
         color: $cf-text02-muted;
       }
       .copy {
-        color: $blue;
+        color: $cf-link-color;
         text-decoration: none;
       }
     }

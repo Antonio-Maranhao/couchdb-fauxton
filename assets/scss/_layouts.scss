@@ -148,10 +148,6 @@ body #dashboard.template-with-sidebar {
   .template-content {
     overflow: hidden;
   }
-  #dashboard-content {
-    border-left: 1px solid $cf-border-color02;
-    @include left-border();
-  }
 }
 
 /* tmp. Will be removed at end of flexbox refactor */
