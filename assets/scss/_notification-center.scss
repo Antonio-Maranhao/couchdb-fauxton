@@ -3,10 +3,11 @@
 
 body #dashboard #notification-center-btn {
   border: 0;
-  background-color: $cf-background01;
+  background-color: $cf-topheader-bg;
   border-left: 1px solid $cf-border-color01;
   font-size: 24px;
-  color: $cf-text-fonticon01;
+  color: $cf-topheader-color;
+  max-height: $cf-topheader-height;
   padding: 0;
   cursor: pointer;
   @include flex(0 0 auto);
@@ -15,7 +16,8 @@ body #dashboard #notification-center-btn {
     padding: 18px 16px 10px 16px;
   }
   &:hover {
-    color: $cf-brand-hightlight-hover;
+    background-color: $cf-topheader-bg-hover;
+    color: $cf-topheader-color-hover;
   }
 }
 

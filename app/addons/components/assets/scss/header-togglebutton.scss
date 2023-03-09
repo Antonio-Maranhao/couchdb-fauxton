@@ -13,7 +13,7 @@
 @import "../../../../../assets/scss/variables";
 
 .header-control-box {
-  color: $cf-text-fonticon01;
+  color: $cf-topheader-color;
   font-size: 13px;
   line-height: 33px;
   padding: 12px 20px 12px 20px;
@@ -52,8 +52,10 @@
 }
 
 .header-control-box:hover {
+  background-color: $cf-topheader-bg-hover;
+
   .icon, span {
-    color: $cf-brand-hightlight-hover;
+    color: $cf-topheader-color-hover;
   }
 }
 
