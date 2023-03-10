@@ -40,15 +40,16 @@ export class MenuDropDown extends React.Component {
   };
 
   createEntry = (link) => {
+    let itemType = (link.url == null) ? 'button' : "a";
     return (
       <Dropdown.Item
+        as={itemType}
         href={link.url}
         onClick={link.onClick}
-        className={"py-2"}
+        className={"py-2 ps-0"}
       >
-        <div className='ms-1'>
-          <i className={classnames('align-middle', link.icon, {'fonticon-placeholder': !link.icon})}></i>
-          <span className="ms-2 align-middle">
+        <div className='ms-0'>
+          <span className={classnames('ms-2 align-middle icon', link.icon, {'fonticon-placeholder': !link.icon})}>
             {link.title}
           </span>
         </div>
