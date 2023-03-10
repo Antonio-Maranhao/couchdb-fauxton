@@ -705,7 +705,13 @@ body .control-toggle-include-docs span {
   padding:0;
   border-radius:0;
 
-  a {
+  .icon:before {
+    padding-right: 10px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  a, button {
     background-color: $cf-dropdown-item-bg;
     color: $cf-dropdown-item-color;
     &:hover {
