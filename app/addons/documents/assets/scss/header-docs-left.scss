@@ -30,7 +30,7 @@
   right: 0;
   padding: 10px 16px;
   width: 43px;
-  background-color: transparent !important;
+  background-color: $cf-topheader-bg;
   border: none;
   box-shadow: none !important;
 
@@ -45,15 +45,15 @@
   }
 
   &:focus{
-    color: $cf-brand-hightlight-hover;
+    color: $cf-topheader-color-hover;
     background-color: transparent !important;
     border: none;
     box-shadow: none !important;
   }
 
   &:hover{
-    color: $cf-brand-hightlight-hover;
-    background-color: transparent;
+    color: $cf-topheader-color-hover;
+    background-color: $cf-topheader-bg-hover;
   }
 }
 
@@ -64,6 +64,7 @@
   border-right: 1px solid $cf-border-color01;
   width: 40px;
   padding: 11px;
+  color: $cf-topheader-title-color;
 }
 
 .faux-header__doc-header-backlink__icon:before {
@@ -72,6 +73,7 @@
 
 .faux-header__doc-header-backlink:hover {
   text-decoration: none;
-  color: $cf-brand-hightlight-hover;
+  color: $cf-topheader-color-hover;
+  background-color: $cf-topheader-bg-hover;
 }
 
