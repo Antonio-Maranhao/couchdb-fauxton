@@ -47,6 +47,7 @@ $cf-query-options-btn-bg: #727a82;
 $cf-background01: #f2f2f2 !default; // main page background color. former $background
 $cf-background02: #333333 !default; // background for overlay panels, trays
 $cf-background03: #564e4c !default; // background for items in dropdowns, main nav bar
+$cf-background-01-alt: #F7F7F7 !default; // sidebar subitems, stripped table
 $cf-brand-highlight: #af2d24 !default; // former $brandHighlight
 $cf-brand-hightlight-hover: #e73d34 !default; // former $hoverHighlight
 $cf-border-color01: #cccccc !default;
@@ -184,10 +185,12 @@ $cf-pagination-active-color: $cf-text02;
 $cf-sidebar-width: 330px !default;
 $cf-sidebar-bg: $cf-white !default;
 $cf-sidebar-color: $cf-text01 !default;
+$cf-sidebar-icon-color: $cf-text-fonticon01 !default;
 $cf-sidebar-bg-hover: $cf-brand-hightlight-hover !default;
 $cf-sidebar-color-hover: $cf-white !default;
 $cf-sidebar-bg-active: $cf-background01 !default;
 $cf-sidebar-color-active: $cf-brand-highlight !default;
+$cf-sidebar-subitem-bg: $cf-background-01-alt !default;
 $cf-sidebar-subitem-color: $cf-text04 !default;
 
 // slider
@@ -202,7 +205,7 @@ $cf-page-header-border: $cf-border-color01 !default;
 $cf-tab-wrapper-bg: $cf-background03 !default;
 
 // tables
-$cf-table-stripped-bg: #F7F7F7 !default;
+$cf-table-stripped-bg: $cf-background-01-alt !default;
 
 // top header
 $cf-topheader-bg: $cf-background01 !default;

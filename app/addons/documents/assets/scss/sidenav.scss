@@ -33,8 +33,12 @@
     }
   }
 
-  .dropdown-toggle:hover {
-    color: $cf-brand-hightlight-hover;
+  .dropdown-toggle {
+    color: $cf-sidebar-icon-color;
+
+    &:hover {
+      color: $cf-brand-hightlight-hover;
+    }
   }
 
   // ugly! This styles the (+) icon to make it white when a user hovers over a row. Better solution would be to move the
@@ -100,6 +104,7 @@
         cursor: pointer;
         &.active > a {
           background-color: $cf-background01;
+          color: $cf-sidebar-color-active;
         }
         > a.down .fonticon-play {
           @include rotate(90deg);
@@ -109,7 +114,8 @@
         }
         a {
           font-size: 14px;
-          background-color: rgba(0, 0, 0, 0.02);
+          background-color: $cf-sidebar-subitem-bg;
+          color: $cf-sidebar-subitem-color;
           &:hover {
             color: $cf-white;
             text-decoration: none;
@@ -170,7 +176,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    color: $cf-sidebar-color;
+    color: $cf-sidebar-icon-color;
     height: 30px;
     width: 40px;
     padding-top: 2px;
