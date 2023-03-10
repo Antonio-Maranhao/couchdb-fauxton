@@ -131,14 +131,14 @@ body #dashboard.two-pane {
 
   /* temporary. header-wrapper will be converted to flexbox everywhere */
   .header-wrapper {
-    @include flex(0 0 65px);
+    @include flex(0 0 $cf-topheader-height);
     position: inherit;
   }
 }
 
 body #dashboard.template-with-sidebar {
   header {
-    @include flex(0 0 65px);
+    @include flex(0 0 $cf-topheader-height);
   }
   #sidebar-content {
     @include flex(0 0 330px);
