@@ -81,6 +81,7 @@ export class Document extends React.Component {
           checked={this.props.checked}
           data-checked={this.props.checked}
           type="checkbox"
+          className="form-check-input"
           onChange={this.onChange} />
         <label
           className="visually-hidden"
