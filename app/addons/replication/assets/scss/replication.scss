@@ -20,6 +20,10 @@ div.replication__page {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  div.container {
+    max-width: 800px;
+  }
 }
 
 .replication__seperator {
