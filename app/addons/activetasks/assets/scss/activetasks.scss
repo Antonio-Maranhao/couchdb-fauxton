@@ -22,6 +22,7 @@
   }
 
   .table-active-tasks {
+    font-size: 0.875rem;
     th {
       cursor: pointer;
 
@@ -78,7 +79,7 @@
       display: inline;
       height: 51px;
       width: 200px;
-      margin: 9px 0 0 0;
+      margin: 8px 0 0 0.5rem;
     }
   }
 }

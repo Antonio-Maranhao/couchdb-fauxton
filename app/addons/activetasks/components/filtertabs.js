@@ -10,6 +10,7 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 import React from 'react';
+import { Form } from 'react-bootstrap';
 import Components from "../../components/react-components";
 const {TabElement, TabElementWrapper} = Components;
 
@@ -60,7 +61,7 @@ export default class ActiveTasksFilterTabs extends React.Component {
       <TabElementWrapper>
         {filterTabs}
         <li className="component-tab-list-element">
-          <input
+          <Form.Control
             id="active-tasks-search-box"
             className="searchbox"
             type="text"
