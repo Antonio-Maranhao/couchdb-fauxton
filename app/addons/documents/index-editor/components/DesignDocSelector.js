@@ -58,7 +58,7 @@ export default class DesignDocSelector extends Component {
       return;
     }
     return (
-      <div id="new-ddoc-section" className="mb-3 col-12 col-lg-6 col-xxl-4">
+      <div id="new-ddoc-section" className={this.props.className}>
         <label className="control-label" htmlFor="new-ddoc">_design/</label>
         <Form.Control type="text"
           id="new-ddoc"
@@ -97,7 +97,7 @@ export default class DesignDocSelector extends Component {
       (this.props.newDesignDocPartitioned ? 'New document will be partitioned' : 'New document will not be partitioned');
     return (
       <div className="row">
-        <div className="ddoc-selector-partitioned mb-3 col-12 col-lg-6 col-xxl-4">
+        <div className={"ddoc-selector-partitioned " + this.props.className}>
           <Form.Check type="checkbox"
             id="js-ddoc-selector-partitioned"
             title={inputTitle}
@@ -120,7 +120,7 @@ export default class DesignDocSelector extends Component {
     return (
       <>
         <div className="row">
-          <div className="mb-3 col-12 col-lg-6 col-xxl-4">
+          <div className={this.props.className}>
             <label htmlFor="ddoc">{this.props.designDocLabel}
               {this.getDocLink()}
             </label>
@@ -145,7 +145,8 @@ export default class DesignDocSelector extends Component {
 DesignDocSelector.defaultProps = {
   designDocLabel: 'Design Document',
   selectedDesignDocName: '',
-  newDesignDocName: ''
+  newDesignDocName: '',
+  className: 'mb-3 col-12 col-lg-6 col-xxl-4'
 };
 
 DesignDocSelector.propTypes = {
