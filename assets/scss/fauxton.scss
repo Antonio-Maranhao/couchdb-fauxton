@@ -416,13 +416,20 @@ table.table.column-bordered {
 }
 
 .faux-header__searchboxcontainer {
-  height: $cf-navbar-width-collapsed;
   overflow: visible;
   position: absolute;
   padding: 12px;
-}
+  
+  /* Async Select overrides to (somewhat) match Bootstrap styling */
+  .Select-control {
+    border: 1px solid #ced4da !important;
+    border-radius: 0.375rem !important;
 
-.faux-header__searchboxcontainer {
+    .Select-placeholder {
+      color: #333333;
+    }
+  }
+  
   .Select-control,
   .Select-menu-outer {
     width: 210px;
@@ -441,44 +448,31 @@ table.table.column-bordered {
 
 // react-select color design
 .Select div.Select-control {
-  border-radius: initial;
   border: none;
 }
 
-.Select .Select-menu-outer {
-  border-radius: inherit;
+.Select .Select-menu-outer{
   border: none;
-}
-
-.Select-option {
-  color: $cf-white;
-  background-color: $cf-background02;
 }
 
 .Select .is-focused {
   background-color: $cf-brand-hightlight-hover;
-}
-
-.Select-option:hover {
-  background-color: $cf-brand-hightlight-hover;
+  color: $cf-white;
+  
 }
 
 .Select-option:last-child {
-  border-radius: initial;
+  border-radius: 0 !important;
 }
 
 .Select .is-focused:not(.is-open) > .Select-control {
   box-shadow: transparent;
 }
 
-.Select-option.is-selected {
-  color: $cf-white;
-}
-
 .Select .Select-menu {
   max-height: 291px;
-  background-color: $cf-background02;
 }
+
 .Select-arrow-zone > .Select-arrow {
   border-top-color: $cf-background02;
 }
