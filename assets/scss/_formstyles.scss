@@ -295,6 +295,11 @@ div.add-dropdown {
   top: 2px;
   right: 15px;
   padding: 10px 5px 5px 15px;
+
+  &.sidebar-sub-item{
+    top:4px;
+    padding: 0;
+  }
 }
 
 @keyframes errorBlinkBG {
