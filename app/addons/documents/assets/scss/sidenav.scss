@@ -152,7 +152,6 @@
       color: $cf-sidebar-subitem-color;
       position: absolute;
       display: block;
-      vertical-align: bottom;
       @include transition(all 0.25s linear);
     }
     .fonticon:before {
