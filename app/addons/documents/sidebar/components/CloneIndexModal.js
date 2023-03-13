@@ -12,8 +12,7 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Modal } from 'react-bootstrap';
-import ReactDOM from 'react-dom';
+import { Button, Modal } from 'react-bootstrap';
 import FauxtonAPI from '../../../../core/api';
 import IndexEditorComponents from '../../index-editor/components';
 
@@ -109,8 +108,8 @@ export default class CloneIndexModal extends React.Component {
         </Modal.Body>
         <Modal.Footer>
           <a href="#" className="cancel-link" onClick={this.close} data-bypass="true">Cancel</a>
-          <button onClick={this.submit} data-bypass="true" className="btn btn-primary save">
-            <i className="icon fonticon-ok-circled" /> Clone {this.props.indexLabel}</button>
+          <Button onClick={this.submit} data-bypass="true" variant="cf-primary" className="save">
+            <i className="icon fonticon-ok-circled" /> Clone {this.props.indexLabel}</Button>
         </Modal.Footer>
       </Modal>
     );
