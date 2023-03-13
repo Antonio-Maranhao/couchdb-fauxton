@@ -97,34 +97,6 @@
       color: $cf-btn-cancel-color;
     }
   }
-  .panel-button {
-    color: $cf-text-fonticon01;
-    border: 0;
-    background-color: $cf-background01;
-    padding: 11px;
-
-    &:hover {
-      color: $cf-brand-hightlight-hover;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    &:disabled {
-      color: $cf-text01-muted;
-      cursor: not-allowed;
-    }
-
-    span:first-of-type {
-      margin-left: 4px;
-    }
-
-    .fonticon {
-      font-size: 18px;
-    }
-
-    .button-text {
-      padding-right: 5px;
-    }
-  }
 
   .bgEditorGutter {
     width: 49px;
@@ -167,8 +139,11 @@
 
   // hide the labels on the buttons when the screen is shrunk too small,
   @media screen and (max-width: 1000px) {
-    .panel-button span {
+    .panel-section button span {
       display: none;
+    }
+    .panel-section button i[class*=fonticon-] {
+      margin-right: 0;
     }
   }
 
