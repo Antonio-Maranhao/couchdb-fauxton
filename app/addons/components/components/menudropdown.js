@@ -39,11 +39,12 @@ export class MenuDropDown extends React.Component {
     });
   };
 
-  createEntry = (link) => {
+  createEntry = (link, key) => {
     let itemType = (link.url == null) ? 'button' : "a";
     return (
       <Dropdown.Item
         as={itemType}
+        key={key}
         href={link.url}
         onClick={link.onClick}
         className={"py-2 ps-0"}
@@ -57,13 +58,13 @@ export class MenuDropDown extends React.Component {
     );
   };
 
-  createSectionTitle = (title) => {
+  createSectionTitle = (title, key) => {
     if (!title) {
       return null;
     }
 
     return (
-      <Dropdown.Header>{title}</Dropdown.Header>
+      <Dropdown.Header key={key}>{title}</Dropdown.Header>
     );
   };
 
