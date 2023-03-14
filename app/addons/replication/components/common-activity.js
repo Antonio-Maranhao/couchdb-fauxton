@@ -41,7 +41,7 @@ export const ReplicationHeader = ({filter, onFilterChange}) => {
         <ReplicationFilter value={filter} onChange={onFilterChange} />
       </div>
       <div className="col-12 col-md text-end">
-        <Button className="mt-2 mt-md-0" href="#/replication/_create" variant="cf-primary">
+        <Button id="new-replication-btn" className="mt-2 mt-md-0" href="#/replication/_create" variant="cf-primary">
           <i className="fonticon-plus-circled"></i>
           New Replication
         </Button>
