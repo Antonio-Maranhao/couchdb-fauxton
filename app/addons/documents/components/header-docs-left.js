@@ -46,8 +46,9 @@ function getDropdownItems (items) {
 
 
 const Item = ({title, url, icon, onClick}) => {
+  let itemType = (url == null) ? 'button' : "a";
   return (
-    <Dropdown.Item onClick={onClick} href={url}>
+    <Dropdown.Item as={itemType} onClick={onClick} href={url}>
       <div className='ms-1'>
         <i className={"align-middle icon " + icon}></i>
         <span className="ms-2 align-middle">

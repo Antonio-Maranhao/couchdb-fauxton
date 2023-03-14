@@ -587,20 +587,22 @@ body .control-toggle-include-docs span {
   #main.closeMenu {
     .with-sidebar {
       .two-panel-header {
-        .control-toggle-include-docs span::before {
-          content: 'Docs';
-        }
-        button:not(.control-toggle-include-docs) span {
-          display: none;
-        }
-        button i:before {
-          float: none;
-        }
-        .right-header button i:before {
-          margin: 2px 0 0 0;
-        }
-        #query-options-tray:before {
-          right: 180px;
+        .right-header-wrapper {
+          .control-toggle-include-docs span::before {
+            content: 'Docs';
+          }
+          button:not(.control-toggle-include-docs) span {
+            display: none;
+          }
+          button i:before {
+            float: none;
+          }
+          .right-header button i:before {
+            margin: 2px 0 0 0;
+          }
+          #query-options-tray:before {
+            right: 180px;
+          }
         }
       }
     }
