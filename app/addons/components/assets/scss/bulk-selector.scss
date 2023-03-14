@@ -65,8 +65,8 @@
   min-height: 43px;
 
   button {
-    height: 26px;
-    width: 26px;
+    height: 30px;
+    width: 30px;
     background-color: $cf-background01;
     border: 1px solid $cf-border-color01;
     margin-left: 7px;
@@ -81,10 +81,11 @@
   .bulk-action-component-panel {
     input[type="checkbox"] {
       margin: 6px;
+      font-size: 0.875rem;
     }
 
     border: 1px solid $cf-border-color01;
-
+    min-height: 30px;
     position: relative;
     float: left;
     div.arrow-button {

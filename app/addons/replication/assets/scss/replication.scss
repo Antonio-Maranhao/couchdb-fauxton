@@ -35,7 +35,7 @@ div.replication__page {
 .replication__clear-link {
   padding: 12px;
   font-size: 14px;
-  padding: 12px 0 12px 24px;
+  padding: 12px 24px 12px 24px;
 }
 
 .replication__clear-link:focus,
@@ -141,6 +141,11 @@ a.replication__activity_header-btn:visited {
 .replication__bulk-select-wrapper {
   display: flex;
   align-items: center;
+  margin-left: 7px;
+  min-height: 30px;
+  .replication__bulk-select-input {
+    font-size: 14px;
+  }
 }
 
 .replication__bulk-select-header {

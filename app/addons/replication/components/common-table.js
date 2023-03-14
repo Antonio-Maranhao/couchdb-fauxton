@@ -11,7 +11,7 @@
 // the License.
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Table, Tooltip, OverlayTrigger} from "react-bootstrap";
+import {Form, Table, Tooltip, OverlayTrigger} from "react-bootstrap";
 import moment from 'moment';
 import {ErrorModal} from './modals';
 import {removeCredentialsFromUrl} from '../api';
@@ -199,7 +199,11 @@ const Row = ({
 
   return (
     <tr className="replication__table-row">
-      <td className="replication__table-col"><input checked={selected} type="checkbox" onChange={() => selectDoc(_id)} /> </td>
+      <td className="replication__table-col">
+        <Form.Check type="checkbox"
+          checked={selected}
+          onChange={() => selectDoc(_id)} />
+      </td>
       <td className="replication__table-col">{formatUrl(source)}</td>
       <td className="replication__table-col">{formatUrl(target)}</td>
       <td className="replication__table-col">{formattedStartTime}</td>
@@ -246,7 +250,10 @@ const BulkSelectHeader = ({isSelected, deleteDocs, someDocsSelected, onCheck}) =
   return (
     <div className="replication__bulk-select-wrapper">
       <div className="replication__bulk-select-header">
-        <input className="replication__bulk-select-input" checked={isSelected} type="checkbox" onChange={onCheck} />
+        <Form.Check type="checkbox"
+          className="replication__bulk-select-input"
+          checked={isSelected}
+          onChange={onCheck} />
       </div>
       {trash}
     </div>
