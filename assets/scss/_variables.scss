@@ -109,9 +109,9 @@ $cf-btn-danger-color-disabled: tint-color($cf-btn-danger-color, $cf-disable-mix-
 $cf-btn-danger-bg-hover: $cf-brand-hightlight-hover !default;
 $cf-btn-danger-color-hover: $cf-btn-danger-color !default;
 
-$cf-btn-cancel-color: $cf-text05;
+$cf-btn-cancel-color: $cf-text05 !default;
 
-$cf-text-fonticon01: $cf-text05;
+$cf-text-fonticon01: $cf-text05 !default;
 
 // code editor or viewer
 $cf-code-bg: #4d4d4d !default;
@@ -121,11 +121,11 @@ $cf-code-btn-string-edit-color: $cf-white !default;
 $cf-code-btn-string-edit-color-hover: $cf-brand-hightlight-hover !default;
 $cf-code-active-bg: $cf-black !default;
 $cf-code-selection-bg: rgba(29, 151, 215, 0.5) !default;
-$cf-code-token-variable-color: $cf-white;
-$cf-code-token-constant-color: #88D5F6;
-$cf-code-token-boolean-color: #F8C072;
-$cf-code-token-string-color: #18E2B6;
-$cf-code-token-muted: $cf-text02-muted;
+$cf-code-token-variable-color: $cf-white !default;
+$cf-code-token-constant-color: #88D5F6 !default;
+$cf-code-token-boolean-color: #F8C072 !default;
+$cf-code-token-string-color: #18E2B6 !default;
+$cf-code-token-muted: $cf-text02-muted !default;
 
 // documents list (JSON view)
 $cf-jsondocs-header-bg: $cf-code-gutter-bg !default;
@@ -223,6 +223,8 @@ $cf-tray-body-color: $cf-text02 !default;
 
 // pills
 $cf-pill-bg: $cf-background03 !default;
+$cf-pill-color: $cf-text03 !default;
+$cf-pill-color-hover: $cf-brand-hightlight-hover !default;
 
 // logo paths can be set via settings.json
 $largeLogoPath: "../../../../../assets/img/CouchDB-negative-logo.png" !default;
