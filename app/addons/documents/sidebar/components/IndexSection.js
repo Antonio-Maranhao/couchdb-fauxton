@@ -58,7 +58,7 @@ export default class IndexSection extends React.Component {
     {
       title: 'Clone',
       icon: 'fonticon-files-o',
-      onClick: () => {this.indexAction('clone', { indexName: indexName, onDelete: this.props.onClone });}
+      onClick: () => {this.indexAction('clone', { indexName: indexName, onClone: this.props.onClone });}
     },
     {
       title: 'Delete',
