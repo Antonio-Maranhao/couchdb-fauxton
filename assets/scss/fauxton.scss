@@ -423,7 +423,7 @@ table.table.column-bordered {
   /* Async Select overrides to (somewhat) match Bootstrap styling */
   .Select-control {
     border: 1px solid $cf-border-color01 !important;
-    border-radius: 0.375rem !important;
+    border-radius: $cf-border-radius !important;
 
     .Select-placeholder {
       color: $cf-text01-muted;
