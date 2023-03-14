@@ -28,8 +28,8 @@ export default class QueryButtons extends React.Component {
     return (
       <div className="row mx-2 mb-3 mt-0 text-end">
         <div id="button-options" className="col">
-          <Button type="submit" variant="cf-secondary">Run Query</Button>
           <a onClick={this.hideTray.bind(this)} className="btn btn-link">Cancel</a>
+          <Button type="submit" variant="cf-primary">Run Query</Button>
         </div>
       </div>
     );

@@ -19,13 +19,6 @@ const {ConfirmButton} = Components;
 export const ReplicationSubmit = ({onClear, disabled, onClick}) =>
   <div className="row mt-3">
     <div className="col-12 text-end">
-      <ConfirmButton
-        customIcon="fonticon-replicate"
-        id="replicate"
-        text="Start Replication"
-        onClick={onClick}
-        disabled={disabled}
-      />
       <a
         className="replication__clear-link"
         href="#"
@@ -36,6 +29,13 @@ export const ReplicationSubmit = ({onClear, disabled, onClick}) =>
         }}>
       Clear
       </a>
+      <ConfirmButton
+        customIcon="fonticon-replicate"
+        id="replicate"
+        text="Start Replication"
+        onClick={onClick}
+        disabled={disabled}
+      />
     </div>
   </div>;
 
