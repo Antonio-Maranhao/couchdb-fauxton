@@ -121,7 +121,7 @@ export default class MangoIndexEditor extends Component {
           </PaddedBorderedBox>
           <div className="padded-box">
             <div className="actions-panel">
-              <Button variant="cf-primary" className="btn-space" id="create-index-btn" >
+              <Button variant="cf-primary" className="btn-space" id="create-index-btn" onClick={this.saveIndex}>
               Create Index
               </Button>
               <div className="right-side-actions">
