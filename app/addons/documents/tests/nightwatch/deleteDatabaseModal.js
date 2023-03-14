@@ -38,7 +38,7 @@ module.exports = {
       .url(baseUrl + '/#/database/_replicator/_all_docs')
 
       .clickWhenVisible('#faux-header__doc-header-dropdown-toggle')
-      .clickWhenVisible('a.dropdown-item .fonticon-trash')
+      .clickWhenVisible('button.dropdown-item .fonticon-trash')
 
       .waitForElementVisible('.delete-db-modal', waitTime, false)
       .waitForElementVisible('.delete-db-modal input[type="text"]', waitTime, false)
@@ -56,7 +56,7 @@ module.exports = {
       .url(baseUrl + '/#/database/' + newDatabaseName + '/_all_docs')
 
       .clickWhenVisible('#faux-header__doc-header-dropdown-toggle')
-      .clickWhenVisible('.faux-header__doc-header-dropdown-itemwrapper .fonticon-trash')
+      .clickWhenVisible('button.dropdown-item .fonticon-trash')
 
       .waitForElementVisible('.delete-db-modal', waitTime, false)
       .waitForElementVisible('.delete-db-modal input[type="text"]', waitTime, false)
