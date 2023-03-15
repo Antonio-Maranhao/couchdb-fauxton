@@ -29,7 +29,8 @@
 }
 
 .component-tab-element {
-  background-color: $cf-background01;
+  background-color: $cf-tab-element-bg;
+  color: $cf-tab-element-color;
   margin-top: 10px;
   margin-right: 5px;
   margin-bottom: -1px;
@@ -67,7 +68,7 @@
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    background-color: $link-hover-color;
+    background-color: $cf-tab-element-badge;
     border-radius: 10px;
     margin-left: 0.25rem;
     font-size: 0.75rem;
@@ -80,11 +81,12 @@
 
   &.tab-element-checked .tab-element-indicator {
     height: 5px;
-    background-color: $link-hover-color;
+    background-color: $cf-tab-element-indicator-active;
   }
 
   &.tab-element-checked {
-    background-color: $cf-white;
+    background-color: $cf-tab-element-bg-active;
+    color: $cf-tab-element-color-active;
     label {
       cursor: default;
       pointer-events: none;
@@ -98,8 +100,8 @@
   transition: all 0.25s linear;
 
   &:hover {
-    background-color: $cf-white;
-    color: $link-hover-color;
+    background-color: $cf-tab-element-bg-hover;
+    color: $cf-tab-element-color-hover;
   }
 
   &.tab-element-checked .tab-element-content:hover {
@@ -112,6 +114,6 @@
 
   &:hover .tab-element-indicator {
     height: 5px;
-    background-color: $link-hover-color;
+    background-color: $cf-tab-element-indicator-hover;
   }
 }
