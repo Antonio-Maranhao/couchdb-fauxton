@@ -51,6 +51,7 @@ export class BulkActionComponent extends React.Component {
     }
 
     return <ToolbarButton icon={this.props.bulkIcon}
+      title={this.props.buttonTitle}
       aria-label={this.props.buttonTitle}
       onClick={this.props.removeItem} />;
   };

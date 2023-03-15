@@ -233,9 +233,9 @@ class DatabaseRow extends React.Component {
         {this.getExtensionColumns(item)}
 
         <td className="database-actions">
-          <ToolbarButton icon="fonticon-replicate" aria-label={`Replicate ${id}`} onClick={() => FauxtonAPI.navigate("#/replication/_create/" + encodedId)} />
-          <ToolbarButton icon="fonticon-lock" aria-label={`Set permission for ${id}`} onClick={() => FauxtonAPI.navigate("#/database/" + encodedId + "/permissions")} />
-          <ToolbarButton icon="fonticon-trash" aria-label={`Delete ${id}`} onClick={this.showDeleteDatabaseModal.bind(this, id, encodedId)} />
+          <ToolbarButton icon="fonticon-replicate" title={`Replicate ${id}`} aria-label={`Replicate ${id}`} onClick={() => FauxtonAPI.navigate("#/replication/_create/" + encodedId)} />
+          <ToolbarButton icon="fonticon-lock" title={`Set permission for ${id}`} aria-label={`Set permission for ${id}`} onClick={() => FauxtonAPI.navigate("#/database/" + encodedId + "/permissions")} />
+          <ToolbarButton icon="fonticon-trash" title={`Delete ${id}`} aria-label={`Delete ${id}`} onClick={this.showDeleteDatabaseModal.bind(this, id, encodedId)} />
         </td>
       </tr>
     );

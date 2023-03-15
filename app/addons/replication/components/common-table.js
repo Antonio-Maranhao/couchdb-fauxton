@@ -244,6 +244,7 @@ Row.propTypes = {
 const BulkSelectHeader = ({isSelected, deleteDocs, someDocsSelected, onCheck}) => {
   const trash = someDocsSelected ?
     <ToolbarButton icon="fonticon-trash"
+      title="Delete all selected"
       aria-label="Delete all selected"
       onClick={() => deleteDocs()} /> : null;
 
