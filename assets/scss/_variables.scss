@@ -186,6 +186,12 @@ $cf-pagination-color-hover: $cf-link-color !default;
 $cf-pagination-active-bg: $cf-brand-highlight !default;
 $cf-pagination-active-color: $cf-text02 !default;
 
+// partition selector
+$cf-partition-selector-bg: transparent !default;
+$cf-partition-selector-color: $cf-text-fonticon01 !default;
+$cf-partition-selector-color-hover: $cf-brand-hightlight-hover !default;
+$cf-partition-selector-color-active: $cf-brand-highlight !default;
+
 // sidebar
 $cf-sidebar-width: 330px !default;
 $cf-sidebar-bg: $cf-white !default;

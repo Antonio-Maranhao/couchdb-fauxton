@@ -20,13 +20,13 @@
 }
 
 .partition-selector__switch {
-  background-color: transparent;
+  background-color: $cf-partition-selector-bg;
   border: none;
-  color: $cf-text-fonticon01;
+  color: $cf-partition-selector-color;
   font-size: 1rem;
 
   &:hover {
-    color: $cf-brand-hightlight-hover;
+    color: $cf-partition-selector-color-hover;
   }
 
   i {
@@ -35,22 +35,25 @@
 }
 
 .partition-selector__switch--active {
-  color: $cf-brand-highlight;
+  color: $cf-partition-selector-color-active;
   padding-right: 0px;
 }
 
 .partition-selector__key {
   flex: 1;
-  color: $cf-text-fonticon01;
+  color: $cf-partition-selector-color;
   input {
     max-width: 20rem;
+  }
+  &:hover {
+    cursor: pointer;
   }
 }
 
 .partition-selector__key--active {
-  color: $cf-brand-highlight;
+  color: $cf-partition-selector-color-active;
 }
 
 .partition-selector__global {
-  color: $cf-text-fonticon01;
+  color: $cf-partition-selector-color-active;
 }
