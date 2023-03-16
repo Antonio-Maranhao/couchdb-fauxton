@@ -31,8 +31,8 @@ module.exports = {
       // confirm the sidebar shows the testdesigndoc design doc
       .waitForElementVisible('#design-doc-menu-testdesigndoc', waitTime, true)
 
-      .clickWhenVisible('.index-list .active span', waitTime, true)
-      .clickWhenVisible('.popover-content .fonticon-trash', waitTime, true)
+      .clickWhenVisible('ul.index-list li.active a.icon', waitTime, true)
+      .clickWhenVisible('ul.index-list li.active .fonticon-trash', waitTime, true)
       .clickWhenVisible('.confirmation-modal button.btn-cf-primary', waitTime, true)
       .waitForElementNotPresent('.confirmation-modal button.btn-cf-primary', waitTime, true)
 
