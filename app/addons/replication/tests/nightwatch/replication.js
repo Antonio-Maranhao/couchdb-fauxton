@@ -117,7 +117,7 @@ module.exports = {
       // select existing local as the target
       .waitForElementVisible('#replication-target', waitTime, true)
       .clickWhenVisible('#replication-target option[value="REPLICATION_TARGET_EXISTING_LOCAL_DATABASE"]')
-      .setValue('#replication-target-local .Select-input input', [newDatabaseName2, client.Keys.ENTER])
+      .clickWhenVisible('select[placeholder="Database name"] option[value="' + newDatabaseName2 + '"')
 
       // select target USER/PASSWORD authentication
       .clickWhenVisible('select[id="select-replication-target-auth"] option[value="BASIC_AUTH"]')
@@ -125,8 +125,7 @@ module.exports = {
 
       // enter target username/password
       .setValue('#replication-target-auth-password', [password, client.Keys.ENTER])
-
-      .getAttribute('#replicate', 'disabled', function (result) {
+      .getAttribute('button#replicate', 'disabled', function (result) {
         // confirm it's not disabled
         this.assert.equal(result.value, null);
       })
@@ -180,8 +179,8 @@ module.exports = {
       // select existing local as the target
       .waitForElementVisible('#replication-target', waitTime, true)
       .clickWhenVisible('#replication-target option[value="REPLICATION_TARGET_EXISTING_LOCAL_DATABASE"]')
-      .setValue('#replication-target-local .Select-input input', [newDatabaseName2, client.Keys.ENTER])
-      .setValue('#replication-options-replication-doc', [replicatorDoc._id, client.Keys.ENTER])
+      .clickWhenVisible('select[placeholder="Database name"] option[value="' + newDatabaseName2 + '"')
+      .setValue('input#replication-options-replication-doc', [replicatorDoc._id, client.Keys.ENTER])
 
       // select target USER/PASSWORD authentication
       .clickWhenVisible('select[id="select-replication-target-auth"] option[value="BASIC_AUTH"]')

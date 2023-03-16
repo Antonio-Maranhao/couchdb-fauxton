@@ -56,6 +56,7 @@ const RemoteTargetReplicationRow = ({ onChange, value }) => {
   return (
     <Form.Control
       type="text"
+      id="replication-remote-connection-url"
       className="form-control"
       placeholder="https://"
       value={value}
