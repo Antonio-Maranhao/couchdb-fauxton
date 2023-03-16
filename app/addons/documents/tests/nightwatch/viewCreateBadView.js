@@ -37,7 +37,7 @@ module.exports = {
       .closeNotifications()
       .clickWhenVisible('.control-toggle-queryoptions', waitTime, false)
       .clickWhenVisible('label[for="qoReduce"]', waitTime, false)
-      .clickWhenVisible('#query-options-tray #button-options .btn-cf-secondary', waitTime, false)
+      .clickWhenVisible('#query-options-tray #button-options .btn-cf-primary', waitTime, false)
       .waitForElementVisible('div.table-view-docs', waitTime, false)
       .waitForAttribute('.table-view-docs td:nth-child(4)', 'title', function (docContents) {
         return (/_sum function requires/).test(docContents);
@@ -56,7 +56,7 @@ module.exports = {
       .url(baseUrl + '/#/database/' + newDatabaseName + '/_design/brokenview/_view/brokenview')
       .clickWhenVisible('.control-toggle-queryoptions', waitTime, false)
       .clickWhenVisible('label[for="qoReduce"]', waitTime, false)
-      .clickWhenVisible('#query-options-tray #button-options .btn-cf-secondary', waitTime, false)
+      .clickWhenVisible('#query-options-tray #button-options .btn-cf-primary', waitTime, false)
       .waitForElementVisible('div.table-view-docs', waitTime, false)
       .waitForAttribute('.table-view-docs td:nth-child(4)', 'title', function (docContents) {
         return (/_sum function requires/).test(docContents);
