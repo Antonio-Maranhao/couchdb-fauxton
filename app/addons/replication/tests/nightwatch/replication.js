@@ -117,7 +117,7 @@ module.exports = {
       // select existing local as the target
       .waitForElementVisible('#replication-target', waitTime, true)
       .clickWhenVisible('#replication-target option[value="REPLICATION_TARGET_EXISTING_LOCAL_DATABASE"]')
-      .clickWhenVisible('select[placeholder="Database name"] option[value="' + newDatabaseName2 + '"')
+      .clickWhenVisible('#replication-target-existing-local-database-database-name option[value="' + newDatabaseName2 + '"')
 
       // select target USER/PASSWORD authentication
       .clickWhenVisible('select[id="select-replication-target-auth"] option[value="BASIC_AUTH"]')
@@ -179,7 +179,7 @@ module.exports = {
       // select existing local as the target
       .waitForElementVisible('#replication-target', waitTime, true)
       .clickWhenVisible('#replication-target option[value="REPLICATION_TARGET_EXISTING_LOCAL_DATABASE"]')
-      .clickWhenVisible('select[placeholder="Database name"] option[value="' + newDatabaseName2 + '"')
+      .clickWhenVisible('#replication-target-existing-local-database-database-name option[value="' + newDatabaseName2 + '"')
       .setValue('input#replication-options-replication-doc', [replicatorDoc._id, client.Keys.ENTER])
 
       // select target USER/PASSWORD authentication
