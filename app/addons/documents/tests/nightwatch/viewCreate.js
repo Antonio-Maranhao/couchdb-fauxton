@@ -109,7 +109,7 @@ module.exports = {
       .populateDatabase(newDatabaseName)
       .url(baseUrl + '/#/database/' + newDatabaseName + '/_all_docs')
       .clickWhenVisible('#sidebar-tab-testdesigndoc a.dropdown-toggle.icon.fonticon-plus-circled', waitTime, false)
-      .clickWhenVisible('#sidebar-tab-testdesigndoc a[href*="new_view"]', waitTime, false)
+      .clickWhenVisible('div.design-doc-section div.dropdown-menu a[href*="new_view"]')
       .waitForElementVisible('input#index-name', waitTime, false)
       .clearValue('input#index-name')
       .setValue('input#index-name', 'test-new-view')
@@ -136,6 +136,6 @@ function openDifferentDropdownsAndClick (client) {
     .populateDatabase(newDatabaseName)
     .url(baseUrl + '/#/database/' + newDatabaseName + '/_all_docs')
     .clickWhenVisible('#faux-header__doc-header-dropdown-toggle')
-    .clickWhenVisible('.faux-header__doc-header-dropdown-itemwrapper a[href*="new_view"]')
+    .clickWhenVisible('div[aria-labelledby="faux-header__doc-header-dropdown-toggle"] a[href*="new_view"]')
     .waitForElementPresent('.index-cancel-link', waitTime, false);
 }
