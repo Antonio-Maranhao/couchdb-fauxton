@@ -179,9 +179,12 @@ $cf-alert-error-color: $cf-error !default;
 
 // pagination
 $cf-pagination-bg: $cf-white !default;
+$cf-pagination-color: $cf-link-color !default;
 $cf-pagination-border: $cf-border-color01 !default;
-$cf-pagination-active-bg: $cf-brand-highlight;
-$cf-pagination-active-color: $cf-text02;
+$cf-pagination-bg-hover: $cf-background01 !default;
+$cf-pagination-color-hover: $cf-link-color !default;
+$cf-pagination-active-bg: $cf-brand-highlight !default;
+$cf-pagination-active-color: $cf-text02 !default;
 
 // sidebar
 $cf-sidebar-width: 330px !default;
@@ -274,11 +277,14 @@ $modal-backdrop-opacity: 0.5 !default;
 
 // pagination
 $pagination-bg: $cf-pagination-bg !default;
+$pagination-color: $cf-pagination-color !default;
 $pagination-border-color: $cf-pagination-border !default;
 // disabling border radius because paginatin buttons should always be square to match the footer.
 $pagination-border-radius: 0 !default;
 $pagination-active-bg: $cf-pagination-active-bg !default;
 $pagination-active-color: $cf-pagination-active-color !default;
+$pagination-hover-color: $cf-pagination-color-hover !default;
+$pagination-hover-bg: $cf-pagination-bg-hover !default;
 
 // popover
 $popover-bg: $cf-background02 !default;
