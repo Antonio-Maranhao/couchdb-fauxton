@@ -1,3 +1,4 @@
+
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not
 // use this file except in compliance with the License. You may obtain a copy of
 // the License at
@@ -27,13 +28,13 @@ module.exports = {
       .clickWhenVisible('.fonticon-json')
       .waitForElementNotPresent('.loading-lines', waitTime, false)
       .clickWhenVisible('.control-toggle-queryoptions')
-      .clickWhenVisible('label[htmlFor="betweenKeys"]', waitTime, false)
+      .clickWhenVisible('label[for="betweenKeys"]', waitTime, false)
       .setValue('input#startkey', '"document_2"')
-      .clickWhenVisible('.query-options .btn-secondary')
+      .clickWhenVisible('#query-options-tray #button-options .btn-cf-primary')
       .waitForElementNotPresent('.loading-lines', waitTime, false)
       .waitForElementNotPresent('#doc-list [data-id="document_1"]', waitTime, false)
       .clickWhenVisible('.control-toggle-queryoptions')
-      .clickWhenVisible('.query-options .btn-cancelDark')
+      .clickWhenVisible('#query-options-tray #button-options .btn-link')
 
       .waitForElementNotPresent('#query-options_js-view-query-update', waitTime, false)
 
