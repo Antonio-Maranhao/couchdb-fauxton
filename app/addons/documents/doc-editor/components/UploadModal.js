@@ -29,6 +29,13 @@ export default class UploadModal extends React.Component {
     uploadAttachment: PropTypes.func.isRequired
   };
 
+  constructor (props) {
+    super(props);
+    this.state = {
+      isFileSelected: false,
+    };
+  }
+
   closeModal = (e) => {
     if (e) {
       e.preventDefault();
@@ -51,6 +58,9 @@ export default class UploadModal extends React.Component {
 
   handleSelectedFile = (e) => {
     this.attachments = e.target;
+    this.setState({
+      isFileSelected: this.attachments && this.attachments.files && this.attachments.files.length > 0
+    });
   };
 
 
@@ -66,6 +76,7 @@ export default class UploadModal extends React.Component {
     }
 
     this.attachmentsRef = React.createRef();
+    const { isFileSelected } = this.state;
 
     return (
       <Modal dialogClassName="upload-file-modal" show={this.props.visible} onHide={this.closeModal}>
@@ -104,7 +115,7 @@ export default class UploadModal extends React.Component {
             data-bypass="true"
             variant="cf-primary"
             onClick={this.upload}
-            disabled={this.props.inProgress}
+            disabled={this.props.inProgress || !isFileSelected}
             type="button"
           >
             <i className="fonticon-up-circled" /> Upload Attachment
