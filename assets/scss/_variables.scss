@@ -58,6 +58,7 @@ $cf-danger: #ff0c35 !default;
 $cf-success: #448c11 !default;
 $cf-info: #329898 !default;
 $cf-error: #d9534f !default;
+$cf-warning: #d9c74f !default;
 $cf-white: #ffffff !default;
 $cf-black: #000000 !default;
 $cf-transparent: transparent !default;
@@ -266,6 +267,9 @@ $link-hover-decoration: $cf-link-decoration-hover !default;
 $primary: $cf-primary !default;
 $secondary: $cf-secondary !default;
 $danger: $cf-danger !default;
+$success: $cf-success !default;
+$info: $cf-info !default;
+$warning: $cf-warning !default;
 
 // dropdowns
 $dropdown-bg: $cf-dropdown-bg !default;
