@@ -714,8 +714,8 @@ body .control-toggle-include-docs span {
     background-color: $cf-dropdown-item-bg;
     color: $cf-dropdown-item-color;
     &:hover {
-      background-color: $cf-brand-hightlight-hover;
-      color: $cf-white;
+      background-color: $cf-dropdown-item-bg-hover;
+      color: $cf-dropdown-item-color-hover;
     }
   }
 
