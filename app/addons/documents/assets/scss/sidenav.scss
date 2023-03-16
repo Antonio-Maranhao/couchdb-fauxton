@@ -26,8 +26,8 @@
   // selected nav item row styles
   .nav .active > a {
     text-shadow: none;
-    background-color: $cf-background01;
-    color: $cf-brand-highlight;
+    background-color: $cf-sidebar-bg-active;
+    color: $cf-sidebar-color-active;
     &:hover {
       color: $cf-sidebar-color-hover;
     }
@@ -37,7 +37,7 @@
     color: $cf-sidebar-icon-color;
 
     &:hover {
-      color: $cf-brand-hightlight-hover;
+      color: $cf-sidebar-icon-color-hover;
     }
   }
 
@@ -66,7 +66,7 @@
         color: $cf-sidebar-color-hover;
       }
       p {
-        background-color: $cf-brand-hightlight-hover;
+        background-color: $cf-sidebar-bg-hover;
       }
     }
     .accordion-list-item p {
@@ -103,7 +103,7 @@
       li {
         cursor: pointer;
         &.active > a {
-          background-color: $cf-background01;
+          background-color: $cf-sidebar-bg-active;
           color: $cf-sidebar-color-active;
         }
         > a.down .fonticon-play {
@@ -119,9 +119,9 @@
           border-top: none;
 
           &:hover {
-            color: $cf-white;
+            color: $cf-sidebar-subitem-color-hover;
             text-decoration: none;
-            background-color: $cf-brand-hightlight-hover;
+            background-color: $cf-sidebar-subitem-bg-hover;
           }
           &.accordion-header {
             padding: 8px 5px 8px 36px;
@@ -131,7 +131,7 @@
             background-color:$cf-transparent;
 
             &:hover {
-              color: $cf-brand-hightlight-hover;
+              color: $cf-sidebar-subitem-color-hover;
             }
           }
         }
@@ -157,7 +157,7 @@
       position: relative;
     }
     .accordion-header:hover .fonticon-play {
-      color: white;
+      color: $cf-sidebar-color-hover;
     }
   }
 
@@ -191,7 +191,7 @@
     padding-left: 4px;
     @include transition(all 0.25s linear);
     &:hover {
-      color: $cf-brand-hightlight-hover;
+      color: $cf-sidebar-icon-color-hover;
     }
     &:before {
       font-size: 17px;
