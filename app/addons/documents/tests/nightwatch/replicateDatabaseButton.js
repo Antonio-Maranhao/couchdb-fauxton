@@ -31,13 +31,13 @@ module.exports = {
   'Shows correct view on replicate database': function (client) {
     const waitTime = client.globals.maxWaitTime,
           baseUrl = client.options.launch_url;
-    const srcDbSelector = '#replication-source-local-database-select';
+    const srcDbSelector = 'select#replication-source-local-database-select';
     client
       .loginToGUI()
       .url(baseUrl + '/#/database/' + testDbName + '/_all_docs')
 
       .clickWhenVisible('#faux-header__doc-header-dropdown-toggle')
-      .clickWhenVisible('.faux-header__doc-header-dropdown-itemwrapper .fonticon-replicate')
+      .clickWhenVisible('a.dropdown-item .fonticon-replicate')
 
       //Wait for replication page to show up
       .waitForElementVisible('.replication__page', waitTime, false)
@@ -46,7 +46,7 @@ module.exports = {
       .waitForElementVisible(srcDbSelector, waitTime, false)
 
       //Get the text values
-      .getText(srcDbSelector, function (data) {
+      .getValue(srcDbSelector, function (data) {
         this.verify.ok(data.value === testDbName,
           'Check if database name is filled in source name');
       })
