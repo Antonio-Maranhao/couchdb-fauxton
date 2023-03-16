@@ -53,7 +53,7 @@ module.exports = {
       .clickWhenVisible('.control-toggle-queryoptions')
       .waitForElementPresent('input#qoIncludeDocs', waitTime, false)
       .clickWhenVisible('input#qoIncludeDocs')
-      .clickWhenVisible('.query-options .btn-secondary')
+      .clickWhenVisible('#query-options-tray #button-options .btn-cf-primary')
       .waitForElementPresent('.two-sides-toggle-button', waitTime, false)
       .assert.textContains('.two-sides-toggle-button button.active', 'Table')
 
@@ -64,7 +64,7 @@ module.exports = {
       .waitForElementPresent('input#qoIncludeDocs', waitTime, false)
       .assert.attributeEquals('input#qoIncludeDocs', 'checked', 'true')
       .clickWhenVisible('input#qoIncludeDocs')
-      .clickWhenVisible('.query-options .btn-secondary')
+      .clickWhenVisible('#query-options-tray #button-options .btn-cf-primary')
       .waitForElementPresent('.two-sides-toggle-button', waitTime, false)
       .assert.textContains('.two-sides-toggle-button button.active', 'Metadata')
       .end();

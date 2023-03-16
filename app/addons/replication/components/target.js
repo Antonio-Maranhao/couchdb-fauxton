@@ -56,6 +56,7 @@ const RemoteTargetReplicationRow = ({ onChange, value }) => {
   return (
     <Form.Control
       type="text"
+      id="replication-remote-connection-url"
       className="form-control"
       placeholder="https://"
       value={value}
@@ -73,6 +74,7 @@ const ExistingLocalTargetReplicationRow = ({ onChange, value, databases }) => {
   const options = databases.map(option => <option value={option} key={option}>{option}</option>);
   return (
     <Form.Select
+      id="replication-target-existing-local-database-database-name"
       value={value}
       placeholder="Database name"
       onChange={(e) => onChange(e.target.value)}
