@@ -17,6 +17,7 @@ import utils from '../../../../test/mocha/testUtils';
 import FauxtonAPI from '../../../core/api';
 import {ResultsToolBar} from '../components/results-toolbar';
 import Constants from '../constants';
+import { act } from 'react-dom/test-utils';
 
 describe('Results Toolbar', () => {
 
@@ -90,7 +91,7 @@ describe('Results Toolbar', () => {
     sinon.assert.calledWith(mockUpdateStyle, { textOverflow: Constants.INDEX_RESULTS_STYLE.TEXT_OVERFLOW_FULL});
   });
 
-  it('switches font size', () => {
+  it('switches font size', async() => {
     const mockUpdateStyle = sinon.spy();
     const wrapper = mount(<ResultsToolBar
       {...defaultProps}
@@ -99,13 +100,27 @@ describe('Results Toolbar', () => {
       updateResultsStyle={mockUpdateStyle}
       selectedLayout={Constants.LAYOUT_ORIENTATION.METADATA}/>
     );
-    wrapper.find('a.icon').at(1).simulate('click');
+
+    // expand the dropdown
+    const dropdownButton = wrapper.find('#result-style-menu button.dropdown-toggle');
+    dropdownButton.simulate('click');
+    await act(async () => {
+      wrapper.update();
+    });
+
+    // get the 'small' button
+    const smallButton = wrapper.find('DropdownItem button').at(1);
+    smallButton.simulate('click');
     sinon.assert.calledWith(mockUpdateStyle, { fontSize: Constants.INDEX_RESULTS_STYLE.FONT_SIZE_SMALL});
 
-    wrapper.find('a.icon').at(2).simulate('click');
+    // get the 'medium' button
+    const mediumButton = wrapper.find('DropdownItem button').at(2);
+    mediumButton.simulate('click');
     sinon.assert.calledWith(mockUpdateStyle, { fontSize: Constants.INDEX_RESULTS_STYLE.FONT_SIZE_MEDIUM});
 
-    wrapper.find('a.icon').at(3).simulate('click');
+    // get the 'medium' button
+    const largeButton = wrapper.find('DropdownItem button').at(3);
+    largeButton.simulate('click');
     sinon.assert.calledWith(mockUpdateStyle, { fontSize: Constants.INDEX_RESULTS_STYLE.FONT_SIZE_LARGE});
   });
 
