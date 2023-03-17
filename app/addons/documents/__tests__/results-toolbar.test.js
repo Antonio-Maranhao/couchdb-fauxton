@@ -78,7 +78,7 @@ describe('Results Toolbar', () => {
     expect(wrapper.find('Button#create-new-doc-btn').prop('href')).toMatch(/\?partitionKey=partKey1$/);
   });
 
-  it.only('toggles display density', async() => {
+  it('toggles display density', async() => {
     // i.e. 'show full values'/'truncate values'
     const mockUpdateStyle = sinon.spy();
     const wrapper = mount(<ResultsToolBar

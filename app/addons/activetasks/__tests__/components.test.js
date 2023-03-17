@@ -43,7 +43,7 @@ describe('Active Tasks -- Components', () => {
         });
       });
 
-      it.only('should trigger change to search term', () => {
+      it('should trigger change to search term', () => {
         const spy = sinon.spy();
         const tabs = mount(
           <FilterTabs
