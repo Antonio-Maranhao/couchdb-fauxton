@@ -27,6 +27,7 @@ button:focus {
 a.help-link {
   color: $cf-secondary;
   text-decoration: none;
+  margin-left: 0.25rem;
   &:hover {
     color: $cf-brand-hightlight-hover;
   }
