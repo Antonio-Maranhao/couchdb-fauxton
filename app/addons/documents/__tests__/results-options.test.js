@@ -27,13 +27,24 @@ describe('Results Options', () => {
     updateStyle: () => {}
   };
 
-  it('calls updateStyle when one of the options is clicked', () => {
+  it('calls updateStyle when one of the options is clicked', async() => {
     const mockUpdateStyle = sinon.spy();
     const wrapper = mount(<ResultsOptions
       {...defaultProps}
       updateStyle={mockUpdateStyle}/>
     );
-    wrapper.find('a.icon').at(0).simulate('click');
+
+    // expand the dropdown
+    const dropdownButton = wrapper.find('#result-style-menu button.dropdown-toggle');
+    dropdownButton.simulate('click');
+    await act(async () => {
+      wrapper.update();
+    });
+
+    // click the 'large' font size toggle button
+    const largeButton = wrapper.find('DropdownItem button').at(3);
+    largeButton.simulate('click');
+
     sinon.assert.called(mockUpdateStyle);
   });
 
