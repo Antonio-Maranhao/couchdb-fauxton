@@ -179,20 +179,6 @@
   overflow: hidden;
   padding-bottom:0;
   border-radius:0;
-
-  a {
-    background-color: $cf-dropdown-item-bg;
-    color: $cf-dropdown-item-color;
-    margin-bottom: 2px;
-    
-    &:hover {
-      background-color: $cf-brand-hightlight-hover;
-    }
-
-    &:last-child {
-      margin-bottom:0;
-    }
-  }
 }
 
 div.string-editor-modal {
