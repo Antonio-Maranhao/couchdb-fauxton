@@ -15,6 +15,7 @@ import React from 'react';
 import sinon from 'sinon';
 import ResultsOptions from '../components/results-options';
 import Constants from '../constants';
+import { act } from 'react-dom/test-utils';
 
 describe('Results Options', () => {
 
@@ -36,28 +37,52 @@ describe('Results Options', () => {
     sinon.assert.called(mockUpdateStyle);
   });
 
-  it('shows the two sections by default', () => {
+  it('shows the two sections by default', async() => {
     const wrapper = mount(<ResultsOptions
       {...defaultProps} />
     );
-    expect(wrapper.find('li.header-label').length).toBe(2);
+
+    // expand the dropdown
+    const dropdownButton = wrapper.find('#result-style-menu button.dropdown-toggle');
+    dropdownButton.simulate('click');
+    await act(async () => {
+      wrapper.update();
+    });
+
+    expect(wrapper.find('DropdownHeader div.dropdown-header').length).toBe(2);
   });
 
-  it('hides Display Density when prop is set to false', () => {
+  it('hides Display Density when prop is set to false', async() => {
     const wrapper = mount(<ResultsOptions
       {...defaultProps}
       showDensity={false} />
     );
-    expect(wrapper.find('li.header-label').length).toBe(1);
-    expect(wrapper.find('li.header-label').text()).toBe('Font size');
+
+    // expand the dropdown
+    const dropdownButton = wrapper.find('#result-style-menu button.dropdown-toggle');
+    dropdownButton.simulate('click');
+    await act(async () => {
+      wrapper.update();
+    });
+
+    expect(wrapper.find('DropdownHeader').length).toBe(1);
+    expect(wrapper.find('DropdownHeader div.dropdown-header').text()).toBe('Font size');
   });
 
-  it('hides Font Size when prop is set to false', () => {
+  it('hides Font Size when prop is set to false', async() => {
     const wrapper = mount(<ResultsOptions
       {...defaultProps}
       showFontSize={false} />
     );
-    expect(wrapper.find('li.header-label').length).toBe(1);
-    expect(wrapper.find('li.header-label').text()).toBe('Display density');
+
+    // expand the dropdown
+    const dropdownButton = wrapper.find('#result-style-menu button.dropdown-toggle');
+    dropdownButton.simulate('click');
+    await act(async () => {
+      wrapper.update();
+    });
+
+    expect(wrapper.find('DropdownHeader').length).toBe(1);
+    expect(wrapper.find('DropdownHeader div.dropdown-header').text()).toBe('Display density');
   });
 });
