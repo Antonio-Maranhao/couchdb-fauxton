@@ -43,7 +43,7 @@ describe('Active Tasks -- Components', () => {
         });
       });
 
-      it('should trigger change to search term', () => {
+      it.only('should trigger change to search term', () => {
         const spy = sinon.spy();
         const tabs = mount(
           <FilterTabs
@@ -51,7 +51,8 @@ describe('Active Tasks -- Components', () => {
             selectedRadio={"All Tasks"}
           />
         );
-        tabs.find('.searchbox').simulate('change', {target: {value: 'searching'}});
+
+        tabs.find('input.searchbox').simulate('change', {target: {value: 'searching'}});
         expect(spy.calledOnce).toBeTruthy();
       });
     });
