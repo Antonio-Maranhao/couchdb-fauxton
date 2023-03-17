@@ -19,6 +19,7 @@ import '../../base';
 import DesignDoc from '../components/DesignDoc';
 import IndexSection from '../components/IndexSection';
 import MainSidebar from '../components/MainSidebar';
+import { act } from 'react-dom/test-utils';
 
 const { restore} = utils;
 
@@ -48,14 +49,22 @@ describe('DesignDoc', () => {
     restore(FauxtonAPI.urls);
   });
 
-  it('confirm URLs are properly encoded when design doc name has special chars', () => {
+  it.only('confirm URLs are properly encoded when design doc name has special chars', async() => {
     const wrapper = mount(<DesignDoc
       {...defaultProps}
       designDocName={'doc-$-#-.1'}
     />);
 
-    expect(wrapper.find('a.icon.fonticon-plus-circled').at(1).props()['href']).toContain('/doc-%24-%23-.1');
     expect(wrapper.find('a.toggle-view.accordion-header').props()['href']).toContain('/doc-%24-%23-.1');
+    const dropdownBtn = wrapper.find('a.icon.fonticon-plus-circled').at(0);
+    dropdownBtn.simulate('click');
+
+    await act(async () => {
+      wrapper.update();
+    });
+
+    const menuItem = wrapper.find('a.dropdown-item');
+    expect(menuItem.first().prop('href')).toContain('/doc-%24-%23-.1');
   });
 
   it('check toggle() works when design doc name has special characters', () => {
