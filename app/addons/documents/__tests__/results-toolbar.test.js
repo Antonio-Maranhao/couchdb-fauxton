@@ -55,7 +55,7 @@ describe('Results Toolbar', () => {
     );
     expect(wrapper.find('.bulk-action-component').length).toBe(1);
     expect(wrapper.find('div.two-sides-toggle-button').length).toBe(1);
-    expect(wrapper.find('#create-new-doc-btn').length).toBe(1);
+    expect(wrapper.find('Button#create-new-doc-btn').length).toBe(1);
   });
 
   it('does not render bulk action component when list is not deletable', () => {
