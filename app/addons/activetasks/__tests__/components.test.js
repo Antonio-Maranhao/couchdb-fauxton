@@ -51,7 +51,8 @@ describe('Active Tasks -- Components', () => {
             selectedRadio={"All Tasks"}
           />
         );
-        tabs.find('.searchbox').simulate('change', {target: {value: 'searching'}});
+
+        tabs.find('input.searchbox').simulate('change', {target: {value: 'searching'}});
         expect(spy.calledOnce).toBeTruthy();
       });
     });
