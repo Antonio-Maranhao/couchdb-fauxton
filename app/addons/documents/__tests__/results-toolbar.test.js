@@ -66,7 +66,7 @@ describe('Results Toolbar', () => {
     );
     expect(wrapper.find('.bulk-action-component').length).toBe(0);
     expect(wrapper.find('div.two-sides-toggle-button').length).toBe(1);
-    expect(wrapper.find('#create-new-doc-btn').length).toBe(1);
+    expect(wrapper.find('Button#create-new-doc-btn').length).toBe(1);
   });
 
   it('includes default partition key when one is selected', () => {
@@ -75,10 +75,11 @@ describe('Results Toolbar', () => {
       hasResults={true}
       isListDeletable={false}
       partitionKey={'partKey1'} />);
-    expect(wrapper.find('#create-new-doc-btn').prop('href')).toMatch(/\?partitionKey=partKey1$/);
+    expect(wrapper.find('Button#create-new-doc-btn').prop('href')).toMatch(/\?partitionKey=partKey1$/);
   });
 
-  it('toggles display density', () => {
+  it.only('toggles display density', async() => {
+    // i.e. 'show full values'/'truncate values'
     const mockUpdateStyle = sinon.spy();
     const wrapper = mount(<ResultsToolBar
       {...defaultProps}
@@ -87,7 +88,21 @@ describe('Results Toolbar', () => {
       updateResultsStyle={mockUpdateStyle}
       selectedLayout={Constants.LAYOUT_ORIENTATION.METADATA}/>
     );
-    wrapper.find('a.icon').first().simulate('click');
+
+    // expand the dropdown
+    const dropdownButton = wrapper.find('#result-style-menu button.dropdown-toggle');
+    dropdownButton.simulate('click');
+    await act(async () => {
+      wrapper.update();
+    });
+
+    // 'show full values'
+    const smallButton = wrapper.find('DropdownItem button').at(0);
+    smallButton.simulate('click');
+    await act(async () => {
+      wrapper.update();
+    });
+
     sinon.assert.calledWith(mockUpdateStyle, { textOverflow: Constants.INDEX_RESULTS_STYLE.TEXT_OVERFLOW_FULL});
   });
 
