@@ -449,6 +449,7 @@ table.table.column-bordered {
 // react-select color design
 .Select div.Select-control {
   border: none;
+  border-radius: $cf-border-radius;
 
   .Select-input {
     padding-top: 4px; // adjust <input> so it's centered
