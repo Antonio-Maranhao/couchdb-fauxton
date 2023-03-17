@@ -200,6 +200,7 @@
 .execution-stats-popup {
   font-size: 14px;
   .execution-stats-popup-component {
+    margin: 0.5rem;
     [data-status="false"] {
       color: $cf-text01-muted;
     }
