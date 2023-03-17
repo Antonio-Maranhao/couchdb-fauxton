@@ -430,9 +430,11 @@ table.table.column-bordered {
     }
   }
   
-  .Select-control,
-  .Select-menu-outer {
+  .Select-control {
     width: 210px;
+  }
+  .Select-menu-outer {
+    max-width: 450px;
   }
 }
 
@@ -463,8 +465,8 @@ table.table.column-bordered {
 }
 
 .Select .is-focused {
-  background-color: $cf-brand-hightlight-hover;
-  color: $cf-white;
+  background-color: $cf-dropdown-item-bg-hover;
+  color: $cf-dropdown-item-color-hover;
 }
 
 .Select .is-focused:not(.is-open) > .Select-control {
@@ -478,7 +480,7 @@ table.table.column-bordered {
 }
 
 .Select-arrow-zone > .Select-arrow {
-  border-top-color: $cf-background02;
+  border-top-color: $cf-text01;
 }
 
 .Select-arrow-zone:hover > .Select-arrow {
