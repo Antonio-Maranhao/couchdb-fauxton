@@ -139,32 +139,63 @@ describe('Results Toolbar', () => {
     sinon.assert.calledWith(mockUpdateStyle, { fontSize: Constants.INDEX_RESULTS_STYLE.FONT_SIZE_LARGE});
   });
 
-  it('does not show Display Density option in JSON layout', () => {
+  it('does not show Display Density option in JSON layout', async() => {
     const toolbarJson = mount(<ResultsToolBar
       {...defaultProps}
       hasResults={true}
       isListDeletable={false}
       selectedLayout={Constants.LAYOUT_ORIENTATION.JSON}/>
     );
-    expect(toolbarJson.find('li.header-label').text()).toBe('Font size');
 
-    const toolbarMetadata = mount(<ResultsToolBar
+    // expand the dropdown
+    const dropdownButton = toolbarJson.find('#result-style-menu button.dropdown-toggle');
+    dropdownButton.simulate('click');
+    await act(async () => {
+      toolbarJson.update();
+    });
+
+    console.info(toolbarJson.debug());
+
+    expect(toolbarJson.find('DropdownHeader div.dropdown-header').text()).toBe('Font size');
+
+  });
+
+  it('shows Display Density and Font Size options in Metadata layout', async() => {
+    const wrapper = mount(<ResultsToolBar
       {...defaultProps}
       hasResults={true}
       isListDeletable={false}
       selectedLayout={Constants.LAYOUT_ORIENTATION.METADATA}/>
     );
-    expect(toolbarMetadata.find('li.header-label').at(0).text()).toBe('Display density');
-    expect(toolbarMetadata.find('li.header-label').at(1).text()).toBe('Font size');
 
-    const toolbarTable = mount(<ResultsToolBar
+    // expand the dropdown
+    const dropdownButton = wrapper.find('#result-style-menu button.dropdown-toggle');
+    dropdownButton.simulate('click');
+    await act(async () => {
+      wrapper.update();
+    });
+
+    expect(wrapper.find('DropdownHeader div.dropdown-header').at(0).text()).toBe('Display density');
+    expect(wrapper.find('DropdownHeader div.dropdown-header').at(1).text()).toBe('Font size');
+  });
+
+  it('shows Display Density and Font Size options in Table layout', async() => {
+    const wrapper = mount(<ResultsToolBar
       {...defaultProps}
       hasResults={true}
       isListDeletable={false}
       selectedLayout={Constants.LAYOUT_ORIENTATION.TABLE}/>
     );
-    expect(toolbarTable.find('li.header-label').at(0).text()).toBe('Display density');
-    expect(toolbarTable.find('li.header-label').at(1).text()).toBe('Font size');
+
+    // expand the dropdown
+    const dropdownButton = wrapper.find('#result-style-menu button.dropdown-toggle');
+    dropdownButton.simulate('click');
+    await act(async () => {
+      wrapper.update();
+    });
+
+    expect(wrapper.find('DropdownHeader div.dropdown-header').at(0).text()).toBe('Display density');
+    expect(wrapper.find('DropdownHeader div.dropdown-header').at(1).text()).toBe('Font size');
   });
 
   it('shows Table, Metadata and JSON modes when querying a global view', () => {
