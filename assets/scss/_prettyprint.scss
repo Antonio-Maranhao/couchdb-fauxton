@@ -31,3 +31,7 @@ pre.prettyprint {
     color: $cf-code-token-muted;
   }
 }
+
+div#explain-plan-wrapper .prettyprint{
+  box-shadow: $cf-box-shadow;
+}
