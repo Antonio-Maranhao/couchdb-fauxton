@@ -28,7 +28,7 @@ div#dashboard-content div.revision-wrapper {
   }
 
   .revision-browser-controls {
-    padding: 2rem 1rem 2rem 1rem;
+    padding: 1rem;
     background-color: $cf-background01;
   }
 
@@ -60,9 +60,12 @@ div#dashboard-content div.revision-wrapper {
   }
 
   .revision-split-area {
-    padding: 2rem ;
-    @include display-flex();
+    background-color: $cf-code-bg;
     color: $cf-white;
+    margin: 0rem 1rem 1rem 1rem;
+    padding: 1rem;
+    box-shadow: $cf-box-shadow;
+    @include display-flex();
 
     .ours-area {
       width: 50%;
@@ -95,19 +98,24 @@ div#dashboard-content div.revision-wrapper {
 
   .revision-diff-area {
     background-color: $cf-code-bg;
-    color: $cf-white;
-    padding: 2rem ;
+    color: $cf-code-token-variable-color;
+    margin: 0rem 1rem 1rem 1rem;
+    padding: 1rem;
+    box-shadow: $cf-box-shadow;
   }
+
   .revision-diff-area .jsondiffpatch-unchanged,
   .revision-diff-area .jsondiffpatch-unchanged pre {
-    color: $cf-white;
+    color: $cf-code-token-variable-color;
     background-color: transparent;
     border: none;
   }
+
   .revision-diff-area .jsondiffpatch-added,
   .revision-diff-area .jsondiffpatch-deleted {
     color: $cf-black;
   }
+
   .revision-diff-area .jsondiffpatch-modified .jsondiffpatch-left-value pre,
   .jsondiffpatch-textdiff-deleted,
   .jsondiffpatch-deleted .jsondiffpatch-property-name,
@@ -117,11 +125,15 @@ div#dashboard-content div.revision-wrapper {
 
   .revision-diff-area .jsondiffpatch-modified .jsondiffpatch-value {
     color: $cf-black;
+    
   }
 
   .revision-diff-area .jsondiffpatch-delta {
-    font-size: 0.825rem;
+    font-size: 13px;
     padding: 0;
+    pre {
+      font-size: 13px;
+    }
   }
 
   .two-sides-toggle-button {
@@ -131,6 +143,6 @@ div#dashboard-content div.revision-wrapper {
 
 .delete-conflicts-modal {
   .do-not-show-again label {
-    font-size: 0.825rem;
+    font-size: 13px;
   }
 }
