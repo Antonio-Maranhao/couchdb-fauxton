@@ -50,7 +50,7 @@ const Item = ({title, url, icon, onClick}) => {
   return (
     <Dropdown.Item as={itemType} onClick={onClick} href={url}>
       <div className='ms-1'>
-        <i className={"align-middle icon " + icon}></i>
+        <i className={"align-middle icon fonticon-fw " + icon}></i>
         <span className="ms-2 align-middle">
           {title}
         </span>

@@ -1,29 +1,39 @@
-$fauxtonFont: "fauxtonicon8";
+$fauxtonFont: "fauxtonicon9";
 
-@font-face {font-family: "fauxtonicon8";
-  src: url('../fonts/fauxtonicon8.eot'); /* IE9*/
-  src: url('../fonts/fauxtonicon8.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url("../fonts/fauxtonicon8.woff2") format("woff2"),
-  url("../fonts/fauxtonicon8.woff") format("woff"),
-  url('../fonts/fauxtonicon8.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('../fonts/fauxtonicon8.svg#fauxtonicon8') format('svg'); /* iOS 4.1- */
+@font-face {font-family: "fauxtonicon9";
+  src: url('../fonts/fauxtonicon9.eot'); /* IE9*/
+  src: url('../fonts/fauxtonicon9.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url("../fonts/fauxtonicon9.woff2") format("woff2"),
+  url("../fonts/fauxtonicon9.woff") format("woff"),
+  url('../fonts/fauxtonicon9.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../fonts/fauxtonicon9.svg#fauxtonicon9') format('svg'); /* iOS 4.1- */
   font-weight: normal;
   font-style: normal;
 }
 
-[class^="fonticon-"]:before, [class*=" fonticon-"]:before {
-  display: inline-block;
-  font-family: 'fauxtonicon8' !important;
-  font-weight: normal;
-  font-style: normal;
-  font-variant: normal;
-  line-height: 1;
-  text-decoration: inherit;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+[class^="fonticon-"], [class*=" fonticon-"] {
+  &[class*=" fonticon-fw"] {
+    /* fixed-width class, based on Font Awesome's 'fa-fw' class */
+    width: 1.28571429em;
+    text-align: center;
+    display: inline-block;
+  }
+
+  &:before {
+    display: inline-block;
+    font-family: 'fauxtonicon9' !important;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-decoration: inherit;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+  }
 }
 
 $fonticon-activetasks: "\ea01";

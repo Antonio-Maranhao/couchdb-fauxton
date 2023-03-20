@@ -11,19 +11,29 @@ $fauxtonFont: "{{fontname}}";
   font-style: normal;
 }
 
-[class^="{{prefix}}-"]:before, [class*=" {{prefix}}-"]:before {
-  display: inline-block;
-  font-family: '{{fontname}}' !important;
-  font-weight: normal;
-  font-style: normal;
-  font-variant: normal;
-  line-height: 1;
-  text-decoration: inherit;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+[class^="{{prefix}}-"], [class*=" {{prefix}}-"] {
+  &[class*=" {{prefix}}-fw"] {
+    /* fixed-width class, based on Font Awesome's 'fa-fw' class */
+    width: 1.28571429em;
+    text-align: center;
+    display: inline-block;
+  }
+
+  &:before {
+    display: inline-block;
+    font-family: '{{fontname}}' !important;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-decoration: inherit;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+  }
 }
 
 {{cssToVars}}
