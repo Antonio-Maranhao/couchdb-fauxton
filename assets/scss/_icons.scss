@@ -14,7 +14,7 @@ $fauxtonFont: "fauxtonicon9";
 [class^="fonticon-"], [class*=" fonticon-"] {
   &[class*=" fonticon-fw"] {
     /* fixed-width class, based on Font Awesome's 'fa-fw' class */
-    width: 1.28571429em;
+    width: calc(20em / 16);
     text-align: center;
     display: inline-block;
   }
