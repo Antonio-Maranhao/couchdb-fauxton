@@ -98,7 +98,7 @@ export default class ChangeRow extends React.Component {
           <div className="row">
             <div className="col-2 fw-bold">changes</div>
             <div className="col-10">
-              <Button className="cf-secondary" onClick={this.toggleJSON.bind(this)}>{codeVisible ? 'Close JSON' : 'View JSON'}</Button>
+              <Button variant="cf-secondary" onClick={this.toggleJSON.bind(this)}>{codeVisible ? 'Close JSON' : 'View JSON'}</Button>
             </div>
           </div>
 
