@@ -10,6 +10,8 @@
 button.clipboard-copy-element {
   background: transparent;
   border: 0;
+  color: $cf-text-fonticon01;
+
   &:hover {
     color: $cf-link-color-hover;
   }
