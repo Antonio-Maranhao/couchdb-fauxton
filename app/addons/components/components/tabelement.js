@@ -26,6 +26,9 @@ export const TabElement = ({selected, text, onChange, iconClass, badgeText}) => 
     <li className={`component-tab-element ${additionalClass}`}>
 
       <label>
+        <div className="tab-element-indicator-wrapper">
+          <div className="tab-element-indicator"></div>
+        </div>
         <div className="tab-element-content">
           <i className={iconClass}></i>
           <input
@@ -36,9 +39,6 @@ export const TabElement = ({selected, text, onChange, iconClass, badgeText}) => 
 
           {text}
           {badge}
-        </div>
-        <div className="tab-element-indicator-wrapper">
-          <div className="tab-element-indicator"></div>
         </div>
       </label>
     </li>

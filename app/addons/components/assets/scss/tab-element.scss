@@ -17,6 +17,7 @@
   padding-left: 0;
   margin-bottom: 0;
   height: 60px;
+  background-color: $cf-tab-wrapper-bg;
   padding-left: 20px;
   overflow: hidden;
   width: 100%;
@@ -84,6 +85,7 @@
   }
 
   &.tab-element-checked {
+    background-color: $cf-tab-element-bg-active;
     color: $cf-tab-element-color-active;
     label {
       cursor: default;
@@ -98,6 +100,7 @@
   transition: all 0.25s linear;
 
   &:hover {
+    background-color: $cf-tab-element-bg-hover;
     color: $cf-tab-element-color-hover;
   }
 
