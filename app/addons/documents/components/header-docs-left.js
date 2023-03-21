@@ -49,7 +49,7 @@ const Item = ({title, url, icon, onClick}) => {
   let itemType = (url == null) ? 'button' : "a";
   return (
     <Dropdown.Item as={itemType} onClick={onClick} href={url}>
-      <div className='ms-1'>
+      <div className='py-1 ms-1'>
         <i className={"align-middle icon fonticon-fw " + icon}></i>
         <span className="ms-2 align-middle">
           {title}
