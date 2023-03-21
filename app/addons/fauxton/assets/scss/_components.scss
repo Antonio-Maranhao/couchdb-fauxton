@@ -4,13 +4,14 @@
 .clipboard-copy-element {
   i:before {
     margin-right: 0px;
-    color: $cf-text-fonticon01;
   }
 }
 
 button.clipboard-copy-element {
   background: transparent;
   border: 0;
+  color: $cf-text-fonticon01;
+
   &:hover {
     color: $cf-link-color-hover;
   }
