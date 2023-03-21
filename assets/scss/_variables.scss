@@ -200,6 +200,11 @@ $cf-partition-selector-color: $cf-text-fonticon01 !default;
 $cf-partition-selector-color-hover: $cf-brand-hightlight-hover !default;
 $cf-partition-selector-color-active: $cf-brand-highlight !default;
 
+// pills
+$cf-pill-bg: $cf-background03 !default;
+$cf-pill-color: $cf-text03 !default;
+$cf-pill-color-hover: $cf-brand-hightlight-hover !default;
+
 // sidebar
 $cf-sidebar-width: 330px !default;
 $cf-sidebar-bg: $cf-white !default;
@@ -235,7 +240,6 @@ $cf-tab-element-color-hover: $cf-link-color-hover !default;
 $cf-tab-element-indicator-hover: $cf-tab-element-indicator-active !default;
 $cf-tab-element-badge: $cf-link-color-hover !default;
 
-
 // tables
 $cf-table-stripped-bg: $cf-background-01-alt !default;
 
@@ -250,11 +254,6 @@ $cf-topheader-height: 64px !default;
 // tray
 $cf-tray-body-bg: $cf-background02 !default;
 $cf-tray-body-color: $cf-text02 !default;
-
-// pills
-$cf-pill-bg: $cf-background03 !default;
-$cf-pill-color: $cf-text03 !default;
-$cf-pill-color-hover: $cf-brand-hightlight-hover !default;
 
 // logo paths can be set via settings.json
 $largeLogoPath: "../../../../../assets/img/CouchDB-negative-logo.png" !default;
