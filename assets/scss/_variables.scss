@@ -223,13 +223,13 @@ $cf-slider-border-color: $cf-border-color02 !default;
 $cf-page-header-border: $cf-border-color01 !default;
 
 // tabs
-$cf-tab-wrapper-bg: $cf-background03 !default;
+$cf-tab-wrapper-bg: $cf-transparent !default;
 $cf-tab-element-bg: $cf-background01 !default;
 $cf-tab-element-color: $cf-text01 !default;
-$cf-tab-element-bg-active: $cf-white !default;
+$cf-tab-element-bg-active: $cf-transparent !default;
 $cf-tab-element-color-active: $cf-tab-element-color !default;
 $cf-tab-element-indicator-active: $cf-link-color-hover !default;
-$cf-tab-element-bg-hover: $cf-white !default;
+$cf-tab-element-bg-hover: $cf-transparent !default;
 $cf-tab-element-color-hover: $cf-link-color-hover !default;
 $cf-tab-element-indicator-hover: $cf-tab-element-indicator-active !default;
 $cf-tab-element-badge: $cf-link-color-hover !default;
