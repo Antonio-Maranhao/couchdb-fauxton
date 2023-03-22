@@ -10,11 +10,11 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 import React from 'react';
-import { Form } from 'react-bootstrap';
 import Components from "../../components/react-components";
 const {TabElement, TabElementWrapper} = Components;
+import { Form, InputGroup } from 'react-bootstrap';
 
-export default class ActiveTasksFilterTabs extends React.Component {
+export class ActiveTasksFilterTabs extends React.Component {
   static defaultProps = {
     radioNames : [
       'All Tasks',
@@ -50,27 +50,35 @@ export default class ActiveTasksFilterTabs extends React.Component {
     );
   };
 
+  render() {
+    const filterTabs = this.createFilterTabs();
+    return (
+      <TabElementWrapper>
+        {filterTabs}
+      </TabElementWrapper>
+    );
+  }
+}
+
+export class ActiveTasksFilter extends React.Component {
   searchTermChange = (e) => {
     var searchTerm = e.target.value;
     this.props.onSearch(searchTerm);
   };
 
   render() {
-    const filterTabs = this.createFilterTabs();
     return (
-      <TabElementWrapper>
-        {filterTabs}
-        <li className="component-tab-list-element">
-          <Form.Control
-            id="active-tasks-search-box"
-            className="searchbox"
-            type="text"
-            name="search"
-            placeholder="Search for databases..."
-            value={this.props.searchTerm}
-            onChange={this.searchTermChange} />
-        </li>
-      </TabElementWrapper>
+      <InputGroup id="replication-filter-group">
+        <InputGroup.Text><i className="fonticon-filter" /></InputGroup.Text>
+        <Form.Control
+          id="active-tasks-search-box"
+          type="text"
+          name="search"
+          placeholder="Search for databases..."
+          value={this.props.searchTerm}
+          onChange={this.searchTermChange}
+        />
+      </InputGroup>
     );
   }
 }
