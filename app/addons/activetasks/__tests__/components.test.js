@@ -10,7 +10,7 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 import TableHeader from '../components/tableheader';
-import FilterTabs from '../components/filtertabs';
+import {ActiveTasksFilterTabs, ActiveTasksFilter} from '../components/filtertabs';
 import React from "react";
 import {mount} from 'enzyme';
 import sinon from "sinon";
@@ -31,7 +31,7 @@ describe('Active Tasks -- Components', () => {
         radioTexts.forEach((text) => {
           let spy = sinon.spy();
           const tabs = mount(
-            <FilterTabs
+            <ActiveTasksFilterTabs
               onRadioClick={spy}
               selectedRadio={"All Tasks"}
               radioNames={radioTexts}
@@ -46,13 +46,12 @@ describe('Active Tasks -- Components', () => {
       it('should trigger change to search term', () => {
         const spy = sinon.spy();
         const tabs = mount(
-          <FilterTabs
+          <ActiveTasksFilter
             onSearch={spy}
-            selectedRadio={"All Tasks"}
           />
         );
 
-        tabs.find('input.searchbox').simulate('change', {target: {value: 'searching'}});
+        tabs.find('input.form-control[name="search"]').simulate('change', {target: {value: 'searching'}});
         expect(spy.calledOnce).toBeTruthy();
       });
     });
