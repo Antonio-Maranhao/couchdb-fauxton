@@ -311,10 +311,6 @@ table.table.column-bordered {
   border: none;
   border-radius: $cf-border-radius;
   overflow: unset; // hack to fix an issue where after clicking the dropdown, the text shifts up
-
-  // .Select-input {
-  //   padding-top: 4px; // adjust <input> so it's centered
-  // }
 }
 
 .Select .Select-menu-outer{
