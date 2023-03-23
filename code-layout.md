@@ -67,7 +67,7 @@ Check out [writing_addons.md](writing_addons.md) for more information on writing
 ## CSS / SCSS
 
 We use SCSS for generating our CSS. The bulk of the shared CSS used throughout the application is found in 
-[assets/scss/](assets/less), but any addon may contain its own `assets/scss` subfolder containing whatever unique
+[assets/scss/](assets/scss), but any addon may contain its own `assets/scss` subfolder containing whatever unique
 styles are needed.
 
 ## Icons

@@ -11,7 +11,7 @@ discussed, agreed upon and documented here.
 
 - [Javascript](#js)
 - [HTML](#html)
-- [CSS / Less](#css)
+- [CSS / SCSS](#css)
 
 
 <a name="js" />
