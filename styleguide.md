@@ -236,9 +236,9 @@ styled; they should be used for JS hooks only.
 
 <a name="css" />
 
-## CSS / Less
+## CSS / SCSS
 
-We use Less to generate our CSS.
+We use SCSS to generate our CSS.
 
 #### Indentation / Whitespace
 - Indent using 2 spaces. Don’t use tabs.
