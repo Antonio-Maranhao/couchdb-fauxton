@@ -167,6 +167,9 @@ $cf-navbar-item-bg-hover: $cf-brand-hightlight-hover !default;
 $cf-navbar-item-color-hover: $cf-white !default;
 $cf-navbar-item-bg-active: $cf-brand-highlight !default;
 $cf-navbar-item-color-active: $cf-white !default;
+$cf-navbar-item-badge-bg: $cf-link-color-hover !default;
+$cf-navbar-item-badge-bg-hover: $cf-navbar-item-color-hover !default;
+$cf-navbar-item-badge-bg-active: $cf-navbar-item-color-active !default;
 
 // notifications
 $cf-alert-bg: $cf-white !default;

@@ -123,24 +123,27 @@
 
 .faux-navbar__icon-badge:after {
   content: "";
-  position: absolute;
-  background: $cf-navbar-item-bg-hover;
-  border: 1px solid $cf-navbar-item-bg-hover;
+  display: inline-block;
+  position: relative;
+  top: -42px;
+  right: 8px;
+  background: $cf-navbar-item-badge-bg;
+  border: 1px solid $cf-navbar-item-badge-bg;
   height: 8px;
   width: 8px;
-  top: 0;
-  right: -2px;
   text-align: center;
   font-size: 0.5rem;
   border-radius: 50%;
 }
 
 .faux-navbar__link:hover .faux-navbar__icon-badge:after {
-  border-color: $cf-navbar-item-color-hover;
+  border-color: $cf-navbar-item-badge-bg-hover;
+  background-color: $cf-navbar-item-badge-bg-hover;
 }
 
 .faux-navbar__link--active .faux-navbar__icon-badge:after {
-  border-color: $cf-navbar-item-color-active;
+  border-color: $cf-navbar-item-badge-bg-active;
+  background-color: $cf-navbar-item-badge-bg-active;
 }
 
 .faux-navbar__text {
