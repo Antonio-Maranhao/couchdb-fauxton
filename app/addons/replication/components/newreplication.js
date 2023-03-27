@@ -249,7 +249,8 @@ export default class NewReplicationController extends React.Component {
       sourceAuth,
       targetAuthType,
       targetAuth,
-      targetDatabasePartitioned
+      targetDatabasePartitioned,
+      pageLimit
     } = this.props;
 
     let _rev;
@@ -275,7 +276,7 @@ export default class NewReplicationController extends React.Component {
       targetAuthType,
       targetAuth,
       targetDatabasePartitioned
-    });
+    }, pageLimit);
   }
 
   confirmButtonEnabled () {
