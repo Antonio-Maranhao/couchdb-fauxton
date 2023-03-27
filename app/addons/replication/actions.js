@@ -51,7 +51,7 @@ export const getDatabasesList = () => dispatch => {
     });
 };
 
-export const replicate = (params, pageLimit) => dispatch => {
+export const replicate = (params, pageLimit = 100) => dispatch => {
   const replicationDoc = createReplicationDoc(params);
   const url = MainHelper.getServerUrl("/_replicator");
   const promise = post(url, replicationDoc);

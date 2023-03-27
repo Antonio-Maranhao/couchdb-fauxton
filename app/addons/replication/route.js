@@ -45,6 +45,7 @@ const ReplicationRouteObject = FauxtonAPI.RouteObject.extend({
     return <ReplicationController
       routeLocalSource={localSource}
       section={'new replication'}
+      pageLimit={100}
     />;
   },
 
@@ -52,6 +53,7 @@ const ReplicationRouteObject = FauxtonAPI.RouteObject.extend({
     return <ReplicationController
       replicationId={replicationId}
       section={'new replication'}
+      pageLimit={100}
     />;
   },
 
