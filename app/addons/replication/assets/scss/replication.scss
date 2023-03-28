@@ -47,6 +47,10 @@ div.replication__page {
   padding: 1rem;
   padding-bottom: 50px;
   width: 100%;
+
+  > table {
+    margin-top:1rem;
+  }
 }
 
 .replication__table-row {
