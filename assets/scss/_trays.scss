@@ -37,6 +37,14 @@
     height: auto;
     line-height: 1em;
   }
+
+  .btn-group {
+    .btn-cf-secondary:hover:not(.active) {
+      color: $cf-btn-secondary-color-hover;
+      background-color: $cf-btn-secondary-bg-hover;
+      border-color: $cf-btn-secondary-bg-hover;
+    }
+  }
 }
 
 #header-lookahead .dropdown-menu li.active {

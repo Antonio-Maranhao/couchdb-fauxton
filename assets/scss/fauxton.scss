@@ -37,7 +37,7 @@
     // background
     $cf-btn-primary-bg,
     // border
-    $cf-btn-primary-bg,
+    $cf-btn-primary-border,
     // color
     $cf-btn-primary-color,
     // hover background
@@ -64,7 +64,7 @@
 .btn-cf-secondary {
   @include button-variant(
     $cf-btn-secondary-bg,
-    $cf-btn-secondary-bg,
+    $cf-btn-secondary-border,
     $cf-btn-secondary-color,
     $cf-btn-secondary-bg-hover,
     $cf-btn-secondary-bg-hover,
@@ -81,7 +81,7 @@
 .btn-cf-danger {
   @include button-variant(
     $cf-btn-danger-bg,
-    $cf-btn-danger-bg,
+    $cf-btn-danger-border,
     $cf-btn-danger-color,
     $cf-btn-danger-bg-hover,
     $cf-btn-danger-bg-hover,
@@ -98,7 +98,7 @@
 .btn-cf-cancel {
   @include button-variant(
     $cf-btn-cancel-bg,
-    $cf-btn-cancel-bg,
+    $cf-btn-cancel-border,
     $cf-btn-cancel-color,
     $cf-btn-cancel-bg-hover,
     $cf-btn-cancel-bg-hover,

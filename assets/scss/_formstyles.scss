@@ -15,6 +15,12 @@ button:focus {
   outline: 0 !important;
 }
 
+.btn-group {
+  .btn.active.btn-cf-secondary {
+    border-color: $cf-border-color02;
+  }
+}
+
 .help-block {
   font-size: 12px;
 }
