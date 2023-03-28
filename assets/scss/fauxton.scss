@@ -308,7 +308,6 @@ table.table.column-bordered {
 
 // react-select color design
 .Select div.Select-control {
-  border: none;
   border-radius: $cf-border-radius;
   overflow: unset; // hack to fix an issue where after clicking the dropdown, the text shifts up
 }
