@@ -10,13 +10,6 @@
 //  License for the specific language governing permissions and limitations under
 //  the License.
 
-
-//
-// BOOTSTRAP 5 NOTES (can be removed once upgrade is completed)
-// - Reviewed animations in this file. Unused items were removed.
-// - Some were moved to other files because they're tied to certain CSS styles - i.e. not generic enough to be placed here
-// 
-
 @mixin animation($options) {
   -webkit-animation: $options;
   -moz-animation: $options;

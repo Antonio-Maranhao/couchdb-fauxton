@@ -38,29 +38,6 @@
     margin: 0;
   }
 
-
-  .toggle-btns {
-    .btn {
-      padding: 5px 12px 5px;
-      background: $cf-query-options-btn-bg;
-      color: $cf-text02;
-      font-size: 12px;
-      border: none;
-    }
-    .btn.active {
-      background: $cf-white;
-      color: $link-hover-color;
-      box-shadow: none;
-    }
-    label:first-child {
-      @include border-radius(5px 0 0 5px);
-    }
-    label:last-child {
-      @include border-radius(0 5px 5px 0);
-      margin-left: 1px;
-    }
-  }
-
   label.disabled {
     cursor: not-allowed;
     opacity: 0.5;
