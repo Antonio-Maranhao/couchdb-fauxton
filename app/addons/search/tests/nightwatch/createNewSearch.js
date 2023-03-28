@@ -71,8 +71,8 @@ module.exports = {
       .waitForElementPresent('#new-design-docs-button', client.globals.maxWaitTime, false)
       .click('#new-design-docs-button a')
       .click('#new-design-docs-button a[href="#/database/' + newDatabaseName + '/new_search"]')
-      .waitForElementVisible('.styled-select select', client.globals.maxWaitTime, false)
-      .assert.value('.styled-select select', 'new-doc')
+      .waitForElementVisible('select.form-select#faux__edit-view__design-doc', client.globals.maxWaitTime, false)
+      .assert.value('select.form-select#faux__edit-view__design-doc', 'new-doc')
       .end();
   },
 

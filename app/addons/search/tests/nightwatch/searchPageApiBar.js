@@ -28,7 +28,7 @@ module.exports = {
       .waitForElementPresent('#new-design-docs-button', client.globals.maxWaitTime, false)
       .click('#new-design-docs-button a')
       .click('#new-design-docs-button a[href="#/database/' + newDatabaseName + '/new_search"]')
-      .clickWhenVisible('.styled-select select')
+      .clickWhenVisible('select.form-select')
 
       // confirm there's no API URL field on the create index page
       .pause(5000)
