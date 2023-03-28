@@ -85,7 +85,7 @@ export class ReplicationAuth extends React.Component {
     }
 
     return (
-      <span id="replications-auth-help-span">{helpText[0]}</span>
+      <span id="replications-auth-help-span" className="form-text">{helpText[0]}</span>
     );
   }
 
