@@ -43,7 +43,7 @@ module.exports = {
       .waitForElementVisible('.replication__page', waitTime, false)
 
       //Wait for source select to show
-      .waitForElementVisible(srcDbSelector, waitTime, false)
+      .waitForElementVisible(srcDbSelector + " > option", waitTime, false)
 
       //Get the text values
       .getValue(srcDbSelector, function (data) {
