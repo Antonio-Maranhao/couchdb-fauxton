@@ -14,3 +14,4 @@ ace.config.setModuleUrl('ace/mode/javascript', require('file-loader?esModule=fal
 ace.config.setModuleUrl('ace/mode/javascript_worker', require('file-loader?esModule=false&outputPath=dashboard.assets/js!ace-builds/src-noconflict/worker-javascript.js'));
 ace.config.setModuleUrl('ace/ext/static_highlight', require('file-loader?esModule=false&outputPath=dashboard.assets/js!ace-builds/src-noconflict/ext-static_highlight.js'));
 ace.config.setModuleUrl('ace/ext/searchbox', require('file-loader?esModule=false&outputPath=dashboard.assets/js!ace-builds/src-noconflict/ext-searchbox.js'));
+ace.config.setModuleUrl('ace/mode/mango', require('file-loader?esModule=false&outputPath=dashboard.assets/js!./ace-mode-mango.js'));
