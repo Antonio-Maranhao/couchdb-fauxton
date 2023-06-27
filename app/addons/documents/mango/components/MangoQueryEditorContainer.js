@@ -45,7 +45,6 @@ const getAvailableAdditionalIndexes = ({ additionalIndexes }) => {
 const mapStateToProps = (state, ownProps) => {
   const mangoQuery = state.mangoQuery;
   const indexResults = state.indexResults;
-
   return {
     databaseName: ownProps.databaseName,
     queryFindCode: Helpers.formatCode(mangoQuery.queryFindCode),
@@ -60,7 +59,8 @@ const mapStateToProps = (state, ownProps) => {
     fetchParams: indexResults.fetchParams,
     executionStats: indexResults.executionStats,
     warning: indexResults.warning,
-    partitionKey: ownProps.partitionKey
+    partitionKey: ownProps.partitionKey,
+    executionStatsSupported: mangoQuery.executionStatsSupported,
   };
 };
 
@@ -68,6 +68,10 @@ const mapDispatchToProps = (dispatch/*, ownProps*/) => {
   return {
     loadQueryHistory: (options) => {
       dispatch(Actions.loadQueryHistory(options));
+    },
+
+    checkExecutionStatsSupport: (options) => {
+      dispatch(Actions.checkExecutionStatsSupport(options));
     },
 
     runExplainQuery: (options) => {

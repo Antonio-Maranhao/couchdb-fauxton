@@ -11,7 +11,6 @@
 // the License.
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { Popover, OverlayTrigger } from 'react-bootstrap';
 
 export default class ExecutionStatsPanel extends React.Component {
   constructor (props) {
@@ -53,79 +52,48 @@ export default class ExecutionStatsPanel extends React.Component {
   }
 
   executionStatsLine(title, value, alwaysShow = false, units = "") {
-    // if (typeof value === 'number') {
     const hasValue = value === 0 && !alwaysShow ? "false" : "true";
     return <div data-status={hasValue}>{title + ": "}<span className="value">{value.toLocaleString()} {units}</span></div>;
-    // }
-    // return null;
   }
 
-  executionStatsPopupComponent(executionStats) {
-    if (!executionStats) return null;
-    return (
-      <div className="execution-stats-popup-component">
-        {/* keys examined always 0 so hide it for now */}
-        {/* {this.executionStatsLine("keys examined", executionStats.total_keys_examined)} */}
-        {this.executionStatsLine("execution time", this.humanizeDuration(executionStats.execution_time_ms), true)}
-        {this.executionStatsLine("results returned", executionStats.results_returned, true)}
-        {this.executionStatsLine("documents examined", executionStats.total_docs_examined)}
-        {this.executionStatsLine("documents examined (quorum)", executionStats.total_quorum_docs_examined)}
+  executionStatsBody(executionStats) {
 
-        {/* {this.executionStatsLine("execution time", Math.round(executionStats.execution_time_ms), false, "ms")} */}
-
-
-        {/* {this.humanizeDuration(executionStats.execution_time_ms)} */}
-      </div>
-    );
-  }
-
-  statsDiv(executionStats, warningText) {
-    return (
-      // <Popover id="popover-execution-stats" title="Execution Statistics">
-      <div className="execution-stats-popup">
-        {this.warningPopupComponent(warningText)}
-        {this.executionStatsPopupComponent(executionStats)}
-      </div>
-      // </Popover>
-    );
+    let content = null;
+    if (!executionStats) {
+      content = (
+        <div className='execution-stats-empty-body'>
+          Statistics are displayed after running a query
+        </div>);
+    } else {
+      content = (
+        <div className="execution-stats-body">
+          {this.executionStatsLine("Executed at", new Date(executionStats.ts).toLocaleTimeString(), true)}
+          {this.executionStatsLine("Execution time", this.humanizeDuration(executionStats.execution_time_ms), true)}
+          {this.executionStatsLine("Results returned", executionStats.results_returned, true)}
+          {this.executionStatsLine("Documents examined", executionStats.total_docs_examined)}
+          {this.executionStatsLine("Documents examined (quorum)", executionStats.total_quorum_docs_examined)}
+        </div>);
+    }
+    return (<>
+      <div className="execution-stats-header">Execution Statistics</div>
+      {content}
+    </>);
   }
 
   render() {
     const {
+      executionStatsSupported,
       executionStats,
       warning
     } = this.props;
 
     const warningText = this.getWarning(warning);
-
-    // let warningComponent = null;
-    // if (warningText) {
-    //   warningComponent = <i className="fonticon-attention-circled"></i>;
-    // }
-
-    // let executionStatsComponent = null;
-    // if (executionStats) {
-    //   executionStatsComponent = (
-    //     <span className="execution-stats-component">Executed in {this.humanizeDuration(executionStats.execution_time_ms)}</span>
-    //   );
-    // } else if (warningText) {
-    //   executionStatsComponent = (
-    //     <span className="execution-stats-component">Warning</span>
-    //   );
-    // }
-
-    const statsDiv = this.statsDiv(executionStats, warningText);
-    // warning: #f1c21b
-    // error:
     return (
       <>
-        {/* <span className="execution-stats">
-          { {warningComponent} }
-          {executionStatsComponent}
-        </span> */}
-
-
-        {statsDiv}
+        <div className="execution-stats">
+          {this.warningPopupComponent(warningText)}
+          {executionStatsSupported ? this.executionStatsBody(executionStats) : null}
+        </div>
       </>
     );
   }
@@ -133,5 +101,6 @@ export default class ExecutionStatsPanel extends React.Component {
 
 ExecutionStatsPanel.propTypes = {
   executionStats: PropTypes.object,
-  warning: PropTypes.string
+  warning: PropTypes.string,
+  executionStatsSupported: PropTypes.bool
 };

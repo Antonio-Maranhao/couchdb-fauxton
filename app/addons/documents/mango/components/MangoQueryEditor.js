@@ -35,6 +35,7 @@ export default class MangoQueryEditor extends Component {
     this.props.loadQueryHistory({ databaseName: this.props.databaseName });
     // Clear results list in case it was populated by other pages
     this.props.clearResults();
+    this.props.checkExecutionStatsSupport({ databaseName: this.props.databaseName });
 
     // Add key binding to run query when doing Ctrl-Enter
     const editor = this.codeEditor.codeEditor.editor;
@@ -192,9 +193,11 @@ MangoQueryEditor.propTypes = {
   queryFindCodeChanged: PropTypes.bool,
   databaseName: PropTypes.string.isRequired,
   partitionKey: PropTypes.string,
+  executionStatsSupported: PropTypes.bool.isRequired,
   runExplainQuery: PropTypes.func.isRequired,
   runQuery: PropTypes.func.isRequired,
   manageIndexes: PropTypes.func.isRequired,
   loadQueryHistory: PropTypes.func.isRequired,
-  clearResults: PropTypes.func.isRequired
+  clearResults: PropTypes.func.isRequired,
+  checkExecutionStatsSupport: PropTypes.func.isRequired,
 };

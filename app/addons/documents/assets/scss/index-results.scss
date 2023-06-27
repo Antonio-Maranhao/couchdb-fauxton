@@ -196,10 +196,18 @@
   }
 }
 
-.execution-stats-popup {
-  font-size: 14px;
-  .execution-stats-popup-component {
+.execution-stats {
+  .execution-stats-header {
+    font-size: 16px;
     margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .execution-stats-empty-body {
+    font-style: italic;
+  }
+
+  .execution-stats-body {
     [data-status="false"] {
       color: $cf-text01-muted;
     }
@@ -210,13 +218,6 @@
     }
   }
   .warning {
-    // background-color: $cf-alert-bg;
-    // color: $cf-warning; // #f1c21b
-    //color: $cf-error; //#da1e28
-    // color: $cf-info; // #0043ce
-    // color: white;
-    // background-color: #393939;
-    // border-left: 4px solid #f1c21b;
     padding: 0.5rem;
     margin-top: 0.5rem;
     font-weight: 600;
@@ -226,9 +227,5 @@
     i::before {
       color: $cf-warning;
     }
-    
-
-    // $cf-alert-bg: $cf-white !default;
-    // $cf-alert-color: $cf-text01 !default;
   }
 }
