@@ -116,7 +116,8 @@ export default class MangoIndexEditor extends Component {
               ref={node => this.codeEditor = node}
               title="Index"
               docLink={getDocUrl('MANGO_INDEX')}
-              defaultCode={this.props.queryIndexCode} />
+              defaultCode={this.props.queryIndexCode}
+              className="mango-editor-wrapper"/>
             {this.partitionedCheckobx()}
           </PaddedBorderedBox>
           <div className="padded-box">

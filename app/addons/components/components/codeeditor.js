@@ -68,8 +68,7 @@ export class CodeEditor extends React.Component {
     stringEditModalVisible: false,
     stringEditIconVisible: false,
     stringEditIconStyle: {},
-    stringEditModalValue: '',
-    editorMode: 'javascript'
+    stringEditModalValue: ''
   };
 
   hasChanged = () => {
@@ -344,26 +343,13 @@ export class CodeEditor extends React.Component {
   };
 
   render() {
-    // const [mode, setMode] = useState('javascript');
-    const { editorMode } = this.state;
-    const switchMode = () => {
-      if (editorMode === 'javascript') {
-        this.setState({editorMode: 'mango'});
-      } else {
-        this.setState({editorMode: 'javascript'});
-      }
-    };
     return (
       <div>
-        Mode:<strong>{editorMode}</strong> Theme:<strong>{this.props.theme}</strong>
-        <br/>
-        <button onClick={switchMode}>Switch</button>
-        <br/>
         <AceEditor
           name={this.props.id}
           className="js-editor"
-          // mode={this.props.mode}
-          mode={editorMode}
+          mode={this.props.mode}
+          // mode={editorMode}
           theme={this.props.theme}
           onLoad={_.bind(this.onAceLoad, this)}
           onBlur={_.bind(this.onBlur, this)}

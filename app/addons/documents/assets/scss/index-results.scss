@@ -199,7 +199,7 @@
 .execution-stats-popup {
   font-size: 14px;
   .execution-stats-popup-component {
-    margin: 0.5rem;
+    margin-top: 0.5rem;
     [data-status="false"] {
       color: $cf-text01-muted;
     }
@@ -210,16 +210,25 @@
     }
   }
   .warning {
-    color: $cf-alert-error-color;
-    margin: 0.5rem;
-  }
-}
+    // background-color: $cf-alert-bg;
+    // color: $cf-warning; // #f1c21b
+    //color: $cf-error; //#da1e28
+    // color: $cf-info; // #0043ce
+    // color: white;
+    // background-color: #393939;
+    // border-left: 4px solid #f1c21b;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    background-color: $cf-alert-bg;
+    color: $cf-alert-color;
+    border-left: 4px solid $cf-warning;
+    i::before {
+      color: $cf-warning;
+    }
+    
 
-.execution-stats {
-  font-size: 13px;
-  padding: 8px 8px 8px 0;
-
-  .fonticon-attention-circled {
-    margin-right: 4px;
+    // $cf-alert-bg: $cf-white !default;
+    // $cf-alert-color: $cf-text01 !default;
   }
 }

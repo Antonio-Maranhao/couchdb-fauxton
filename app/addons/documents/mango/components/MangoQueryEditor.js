@@ -18,7 +18,7 @@ import "../../../../../assets/js/plugins/prettify";
 import app from "../../../../app";
 import FauxtonAPI from "../../../../core/api";
 import ReactComponents from "../../../components/react-components";
-import ExecutionStats from './ExecutionStats';
+import ExecutionStatsPanel from './ExecutionStatsPanel';
 
 const PaddedBorderedBox = ReactComponents.PaddedBorderedBox;
 const CodeEditorPanel = ReactComponents.CodeEditorPanel;
@@ -97,7 +97,9 @@ export default class MangoQueryEditor extends Component {
               ref={node => this.codeEditor = node}
               title={this.props.editorTitle}
               docLink={getDocUrl('MANGO_SEARCH')}
-              defaultCode={this.props.queryFindCode} />
+              syntaxMode="mango"
+              defaultCode={this.props.queryFindCode}
+              className="mango-editor-wrapper"/>
           </PaddedBorderedBox>
           <div className="padded-box">
             <div className="actions-panel">
@@ -109,7 +111,7 @@ export default class MangoQueryEditor extends Component {
               </div>
             </div>
             <div>
-              <ExecutionStats {...this.props} />
+              <ExecutionStatsPanel {...this.props} />
             </div>
           </div>
         </form>

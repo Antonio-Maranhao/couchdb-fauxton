@@ -1,0 +1,48 @@
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
+//
+//   http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
+
+import PropTypes from 'prop-types';
+import React from "react";
+import IndexFields from "./IndexFields";
+import ReactComponents from '../../../components/react-components';
+
+export default function IndexPanel ({index, reason}) {
+  const columnClass = 'col-12 col-sm-6 col-lg-4';
+  const tags = [
+    index.partitioned ? 'scope: partitioned' : 'scope: global',
+    index.name.length % 2 === 0 ? 'match: yes' : 'match: no',
+    'dummy: foo',
+    'dummy: bar',
+  ];
+  return (
+    <div className='row me-1 ms-1 explain-index-panel'>
+      <div className={columnClass}>
+        <strong>{index.type}</strong>: {index.name}
+        <br/>
+        <ReactComponents.BadgeList elements={tags} removeBadge={() => {}} />
+      </div>
+      <div className={columnClass}>
+        <IndexFields fields={index.def.fields}/>
+      </div>
+      <div className={columnClass}>
+				Score: ???
+        {reason ? <><br/>Reason: {reason}</> : null}
+      </div>
+
+    </div>
+  );
+}
+
+IndexPanel.propTypes = {
+  index: PropTypes.object.isRequired,
+  reason: PropTypes.string,
+};
