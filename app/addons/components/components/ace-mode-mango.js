@@ -1,4 +1,5 @@
 /* eslint-disable */
+// based on node_modules/ace-builds/src-noconflict/mode-json.js
 ace.define("ace/mode/mango_highlight_rules", ["require", "exports", "module", "ace/lib/oop", "ace/mode/text_highlight_rules"], function(require, exports, module) {
   "use strict";
   var oop = require("../lib/oop");
@@ -275,7 +276,7 @@ ace.define("ace/mode/mango", ["require", "exports", "module", "ace/lib/oop", "ac
       this.$outdent.autoOutdent(doc, row);
     };
     this.createWorker = function (session) {
-      var worker = new WorkerClient(["ace"], "ace/mode/json_worker", "JsonWorker");
+      var worker = new WorkerClient(["ace"], "ace/mode/mango_worker", "MangoWorker");
       worker.attachToDocument(session.getDocument());
       worker.on("annotate", function (e) {
         session.setAnnotations(e.data);
