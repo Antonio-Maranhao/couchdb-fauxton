@@ -62,7 +62,7 @@ export default class ExecutionStatsPanel extends React.Component {
     if (!executionStats) {
       content = (
         <div className='execution-stats-empty-body'>
-          Statistics are displayed after running a query
+          Run query to display execution statistics.
         </div>);
     } else {
       content = (
