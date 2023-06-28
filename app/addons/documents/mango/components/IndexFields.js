@@ -13,12 +13,12 @@
 import PropTypes from 'prop-types';
 import React from "react";
 
-export default function IndexFields ({fields}) {
+export default function IndexFields ({fields, isTextIndex}) {
   if (!fields) {
     return null;
   }
   if (fields.length === 0) {
-    return <div className='col-12'>No fields</div>;
+    return <div className='col-12'>{isTextIndex ? 'All fields' : 'No fields'}</div>;
   }
 
   const fieldsList = fields.map((field) => {
@@ -36,4 +36,5 @@ export default function IndexFields ({fields}) {
 
 IndexFields.propTypes = {
   fields: PropTypes.arrayOf(PropTypes.object).isRequired,
+  isTextIndex: PropTypes.bool,
 };

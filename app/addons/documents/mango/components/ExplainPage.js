@@ -56,6 +56,35 @@ export default class ExplainPage extends Component {
     );
   }
 
+  // Sort candidates indexes to show list JSON indexes not chosen first, then unusable
+  // JSON indexes, then all others (text, partial, etc)
+  sortCandidateIndexes (candidates) {
+    const notChosenJsonIndexes = [];
+    const notUsableJsonIndexes = [];
+    const otherIndexes = [];
+    candidates.forEach((c) => {
+      if (c.index.type === 'json') {
+        if (c.reason && c.reason.includes('not_chosen')) {
+          notChosenJsonIndexes.push(c);
+        } else {
+          notUsableJsonIndexes.push(c);
+        }
+      } else {
+        otherIndexes.push(c);
+      }
+    });
+    notChosenJsonIndexes.sort((a, b) => {
+      if (a.score === undefined) {
+        return 1;
+      }
+      if (b.score === undefined) {
+        return -1;
+      }
+      return a.score - b.score;
+    });
+    return notChosenJsonIndexes.concat(notUsableJsonIndexes).concat(otherIndexes);
+  }
+
   rawJsonResponse () {
 
     return (
@@ -92,7 +121,8 @@ export default class ExplainPage extends Component {
     const {index_candidates} = this.props.explainPlan;
     let candidateIndexes = null;
     if (index_candidates && index_candidates.length > 0) {
-      candidateIndexes = index_candidates.map((candidate) => {
+      const sortedCandidates = this.sortCandidateIndexes(index_candidates);
+      candidateIndexes = sortedCandidates.map((candidate) => {
         const { index, reason, score, covering } = candidate;
         return <IndexPanel key={`${index.ddoc}"-"${index.name}`} isWinner={false}
           index={index} reason={reason} score={score} covering={covering === "true"}/>;

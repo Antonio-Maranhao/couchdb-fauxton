@@ -13,7 +13,7 @@ const index_candidates = [
       }
     },
     "reason": [
-      "not_choosen",
+      "not_chosen",
       "not_composite"
     ]
   },
@@ -32,7 +32,7 @@ const index_candidates = [
       }
     },
     "reason": [
-      "not_choosen",
+      "not_chosen",
       "insufficient_index_range"
     ],
     "score": 1,
@@ -53,7 +53,7 @@ const index_candidates = [
       }
     },
     "reason": [
-      "not_choosen",
+      "not_chosen",
       "not_composite"
     ]
   },
@@ -141,7 +141,7 @@ const index_candidates = [
       }
     },
     "reason": [
-      "not_choosen",
+      "not_chosen",
       "insufficient_index_range"
     ],
     "score": 2,

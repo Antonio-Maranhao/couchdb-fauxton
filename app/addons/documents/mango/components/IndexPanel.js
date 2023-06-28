@@ -34,7 +34,7 @@ export default function IndexPanel ({index, isWinner, reason, score, covering}) 
         <ReactComponents.BadgeList elements={tags} removeBadge={() => {}} />
       </div>
       <div className={columnClass}>
-        <IndexFields fields={index.def.fields}/>
+        <IndexFields fields={index.def.fields} isTextIndex={index.type === 'text'}/>
       </div>
       {isWinner ? <div className={columnClass}>&nbsp;</div> :
         <div className={columnClass}>
@@ -56,7 +56,7 @@ function formatReason(reason) {
 
 IndexPanel.propTypes = {
   index: PropTypes.object.isRequired,
-  reason: PropTypes.string,
+  reason: PropTypes.arrayOf(PropTypes.string),
   score: PropTypes.number,
   covering: PropTypes.bool,
   isWinner: PropTypes.bool, // 'true' if this is the winning index from the explain response
