@@ -15,34 +15,48 @@ import React from "react";
 import IndexFields from "./IndexFields";
 import ReactComponents from '../../../components/react-components';
 
-export default function IndexPanel ({index, reason}) {
-  const columnClass = 'col-12 col-sm-6 col-lg-4';
+export default function IndexPanel ({index, reason, score, covering}) {
+  const firstColumnClass = 'col-md-12 col-lg-4 mb-0';
+  const otherColumnsClass = 'col-md-12 col-lg-4 mb-4 mb-lg-0';
   const tags = [
     index.partitioned ? 'scope: partitioned' : 'scope: global',
-    index.name.length % 2 === 0 ? 'match: yes' : 'match: no',
-    'dummy: foo',
-    'dummy: bar',
   ];
+  if (covering) {
+    tags.push('covering');
+  }
   return (
     <div className='row me-1 ms-1 explain-index-panel'>
-      <div className={columnClass}>
+      <div className={firstColumnClass}>
         <strong>{index.type}</strong>: {index.name}
+        <br/>
+        <span className="index-ddoc-name">{index.ddoc}</span>
         <br/>
         <ReactComponents.BadgeList elements={tags} removeBadge={() => {}} />
       </div>
-      <div className={columnClass}>
+      <div className={otherColumnsClass}>
         <IndexFields fields={index.def.fields}/>
       </div>
-      <div className={columnClass}>
-				Score: ???
-        {reason ? <><br/>Reason: {reason}</> : null}
+      <div className={otherColumnsClass}>
+				Score: {score >= 0 ? score : 'n/a'}
+        {reason ? <><br/>Reason: {formatReason(reason)}</> : null}
       </div>
 
     </div>
   );
 }
 
+function formatReason(reason) {
+  if (typeof reason === 'string') {
+    return reason;
+  } else if (reason && reason.length > 0) {
+    return reason.join(', ');
+  }
+  return 'n/a';
+}
+
 IndexPanel.propTypes = {
   index: PropTypes.object.isRequired,
   reason: PropTypes.string,
+  score: PropTypes.number,
+  covering: PropTypes.bool,
 };

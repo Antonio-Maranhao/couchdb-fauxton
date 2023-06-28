@@ -15,6 +15,7 @@ import React, { Component } from "react";
 import { TabElementWrapper, TabElement } from '../../../components/components/tabelement';
 import Components from "../../../components/react-components";
 import IndexPanel from "./IndexPanel";
+import sampleIndexCandidates from "./sampleIndexCandidates";
 
 const { Accordion, AccordionItem } = Components;
 
@@ -73,179 +74,7 @@ export default class ExplainPage extends Component {
       return "Invalid explain plan";
     }
     // TODO: remove me
-    this.props.explainPlan.index_candidates = [
-      {
-        "index": {
-          "ddoc": null,
-          "name": "_all_docs",
-          "type": "special",
-          "def": {
-            "fields": [
-              {
-                "_id": "asc"
-              }
-            ]
-          }
-        },
-        "reason": "not_choosen"
-      },
-      {
-        "index": {
-          "ddoc": "_design/age",
-          "name": "age",
-          "type": "json",
-          "partitioned": false,
-          "def": {
-            "fields": [
-              {
-                "age": "asc"
-              }
-            ]
-          }
-        },
-        "reason": "insufficient_index_range"
-      },
-      {
-        "index": {
-          "ddoc": "_design/favorites",
-          "name": "favorites",
-          "type": "json",
-          "partitioned": false,
-          "def": {
-            "fields": [
-              {
-                "favorites": "asc"
-              }
-            ]
-          }
-        },
-        "reason": "missing_fields"
-      },
-      {
-        "index": {
-          "ddoc": "_design/favorites_3",
-          "name": "favorites_3",
-          "type": "json",
-          "partitioned": false,
-          "def": {
-            "fields": [
-              {
-                "favorites.3": "asc"
-              }
-            ]
-          }
-        },
-        "reason": "missing_fields"
-      },
-      {
-        "index": {
-          "ddoc": "_design/location",
-          "name": "location",
-          "type": "json",
-          "partitioned": false,
-          "def": {
-            "fields": [
-              {
-                "location.state": "asc"
-              },
-              {
-                "location.city": "asc"
-              },
-              {
-                "location.address.street": "asc"
-              },
-              {
-                "location.address.number": "asc"
-              }
-            ]
-          }
-        },
-        "reason": "missing_fields"
-      },
-      {
-        "index": {
-          "ddoc": "_design/manager",
-          "name": "manager",
-          "type": "json",
-          "partitioned": false,
-          "def": {
-            "fields": [
-              {
-                "manager": "asc"
-              }
-            ]
-          }
-        },
-        "reason": "insufficient_index_range"
-      },
-      {
-        "index": {
-          "ddoc": "_design/name",
-          "name": "name",
-          "type": "json",
-          "partitioned": false,
-          "def": {
-            "fields": [
-              {
-                "name.last": "asc"
-              },
-              {
-                "name.first": "asc"
-              }
-            ]
-          }
-        },
-        "reason": "missing_fields"
-      },
-      {
-        "index": {
-          "ddoc": "_design/ordered",
-          "name": "ordered",
-          "type": "json",
-          "partitioned": false,
-          "def": {
-            "fields": [
-              {
-                "ordered": "asc"
-              }
-            ]
-          }
-        },
-        "reason": "missing_fields"
-      },
-      {
-        "index": {
-          "ddoc": "_design/twitter",
-          "name": "twitter",
-          "type": "json",
-          "partitioned": false,
-          "def": {
-            "fields": [
-              {
-                "twitter": "asc"
-              }
-            ]
-          }
-        },
-        "reason": "missing_fields"
-      },
-      {
-        "index": {
-          "ddoc": "_design/user_id",
-          "name": "user_id",
-          "type": "json",
-          "partitioned": false,
-          "def": {
-            "fields": [
-              {
-                "user_id": "asc"
-              }
-            ]
-          }
-        },
-        "reason": "missing_fields"
-      }
-    ];
+    this.props.explainPlan.index_candidates = sampleIndexCandidates;
 
     // Matching index
     let matchingIndex = null;
@@ -264,13 +93,13 @@ export default class ExplainPage extends Component {
     let candidateIndexes = null;
     if (index_candidates && index_candidates.length > 0) {
       candidateIndexes = index_candidates.map((candidate) => {
-        const { index, reason} = candidate;
+        const { index, reason, score, covering } = candidate;
         return <IndexPanel key={`${index.ddoc}"-"${index.name}`}
-          index={index} reason={reason}/>;
+          index={index} reason={reason} score={score} covering={covering === "true"}/>;
       });
     } else {
       candidateIndexes = <div className='explain-index-panel'>
-          No candidates index found.
+          No candidate indexes found.
       </div>;
     }
 
@@ -285,16 +114,7 @@ export default class ExplainPage extends Component {
     );
   }
 
-
-
   render () {
-    // const { tabSection } = this.state;
-    // let content = null;
-    // if (tabSection === 'json') {
-    //   content = this.jsonTabContent();
-    // } else if (tabSection === 'parsed') {
-    //   content = this.parsedTabContent();
-    // }
     return (
       <div id="explain-plan-wrapper">
         {/* {this.getTabs()} */}
