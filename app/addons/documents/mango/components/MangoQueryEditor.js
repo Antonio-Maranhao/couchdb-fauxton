@@ -19,6 +19,7 @@ import app from "../../../../app";
 import FauxtonAPI from "../../../../core/api";
 import ReactComponents from "../../../components/react-components";
 import ExecutionStatsPanel from './ExecutionStatsPanel';
+import MangoQueryCheatsheetModal from './MangoQueryCheatsheetModal';
 
 const PaddedBorderedBox = ReactComponents.PaddedBorderedBox;
 const CodeEditorPanel = ReactComponents.CodeEditorPanel;
@@ -76,9 +77,22 @@ export default class MangoQueryEditor extends Component {
     this.setEditorValue(selectedItem.value);
   }
 
+  state = {
+    isCheatsheetVisible: false,
+  };
+
+  hideCheatsheetModal = () => {
+    this.setState({isCheatsheetVisible: false});
+  };
+
+  showCheatsheetModal = () => {
+    this.setState({isCheatsheetVisible: true});
+  };
+
   editor() {
     return (
       <div className="mango-editor-wrapper">
+        <MangoQueryCheatsheetModal isVisible={this.state.isCheatsheetVisible} onHide={this.hideCheatsheetModal}/>
         <form className="form-horizontal" onSubmit={(ev) => {this.runQuery(ev);}}>
           <div className="padded-box">
             <ReactSelect
@@ -100,6 +114,9 @@ export default class MangoQueryEditor extends Component {
               docLink={getDocUrl('MANGO_SEARCH')}
               syntaxMode="mango"
               defaultCode={this.props.queryFindCode}
+              showCheatSheetIcon={true}
+              onCheatsheatIconClick={this.showCheatsheetModal}
+              setHeightToLineCount={false}
               className="mango-editor-wrapper"/>
           </PaddedBorderedBox>
           <div className="padded-box">

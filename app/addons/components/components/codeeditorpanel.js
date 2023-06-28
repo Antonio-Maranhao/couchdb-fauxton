@@ -10,7 +10,6 @@
 // License for the specific language governing permissions and limitations under
 // the License.
 import React from "react";
-import { Modal, Table } from 'react-bootstrap';
 import ReactDOM from "react-dom";
 import {CodeEditor} from './codeeditor';
 import {Beautify} from './beautify';
@@ -22,88 +21,6 @@ const ignorableErrors = [
   'Missing name in function declaration.',
   "['{a}'] is better written in dot notation."
 ];
-
-// const sampleCode = `
-// director": {
-//   "$eq": "Lars von Trier"
-// }`;
-const validValues = `"null", "boolean", "number", "string", "array", and "object"`;
-function MangoHintsModal({isVisible, onHide}) {
-  return <Modal dialogClassName="mango-cheatsheet-modal" show={isVisible}>
-    <Modal.Header closeButton={false}>
-      <Modal.Title>Query Cheatsheet</Modal.Title>
-    </Modal.Header>
-    <Modal.Body>
-      <div className='table-wrapper'>
-        <Table striped>
-          <thead>
-            <tr>
-              <th>Operator type</th>
-              <th>Operators</th>
-              <th>Purpose</th>
-
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>(In)equality</td>
-              <td>
-                $eq, $ne<br/>
-                $lt, $lte<br/>
-                $gt, $gte
-              </td>
-              <td>
-                Equal, Not equal<br/>
-                Lesser, Lesser or equal,<br/>
-                Greater, Greater or equal
-              </td>
-
-            </tr>
-            <tr>
-              <td>Object</td>
-              <td>$exists</td>
-              <td>Check field exists or not</td>
-
-            </tr>
-            <tr>
-              <td>Object</td>
-              <td>$type</td>
-              <td>Check field type (<pre>{validValues}</pre>)</td>
-
-            </tr>
-            <tr>
-              <td>Array</td>
-              <td>$in, $nin</td>
-              <td>Field must exist / not exist</td>
-
-            </tr>
-            <tr>
-              <td>Array</td>
-              <td>$size</td>
-              <td>Match length of an array field</td>
-
-            </tr>
-            <tr>
-              <td>Misc.</td>
-              <td>$mod</td>
-              <td>Matches <pre>field % Divisor == Remainder</pre></td>
-
-            </tr>
-            <tr>
-              <td>Misc.</td>
-              <td>$regex</td>
-              <td>String value matches a regex</td>
-
-            </tr>
-          </tbody>
-        </Table>
-      </div>
-    </Modal.Body>
-    <Modal.Footer>
-      <button onClick={onHide} data-bypass="true" className="btn btn-cf-secondary">Close</button>
-    </Modal.Footer>
-  </Modal>;
-}
 
 /**
  * A pre-packaged JS editor panel for use on the Edit Index / Mango pages. Includes options for a title, zen mode
@@ -118,6 +35,9 @@ export class CodeEditorPanel extends React.Component {
     docLink: '',
     allowZenMode: true,
     syntaxMode: 'javascript',
+    onCheatsheatIconClick: () => {},
+    showCheatSheetIcon: false,
+    setHeightToLineCount: true,
     blur () {}
   };
 
@@ -125,7 +45,6 @@ export class CodeEditorPanel extends React.Component {
     return {
       zenModeEnabled: false,
       code: this.props.defaultCode,
-      showHintsModal: false,
     };
   };
 
@@ -142,7 +61,10 @@ export class CodeEditorPanel extends React.Component {
   };
 
   getHintsIcon = () => {
-    return <span className="fonticon fonticon-bookmark cheatsheet-icon" title="Show cheatsheet" onClick={this.showHintsModal}></span>;
+    if (!this.props.showCheatSheetIcon) {
+      return null;
+    }
+    return <span className="fonticon fonticon-bookmark cheatsheet-icon" title="Show cheatsheet" onClick={this.props.onCheatsheatIconClick}></span>;
   };
 
   getDocIcon = () => {
@@ -203,22 +125,21 @@ export class CodeEditorPanel extends React.Component {
 
   state = this.getStoreState();
 
-  hideHintsModal = () => {
-    this.setState({showHintsModal: false});
-  };
-
-  showHintsModal = () => {
-    this.setState({showHintsModal: true});
-  };
-
   render() {
     var classes = '';
     if (this.props.className) {
       classes = this.props.className;
     }
+    const heightSettings = {};
+    if (this.props.setHeightToLineCount) {
+      heightSettings.setHeightToLineCount = true;
+      heightSettings.maxLines = 1000;
+    } else {
+      heightSettings.setHeightToLineCount = false;
+      heightSettings.minLines = 30;
+    }
     return (
       <div id="editor-panel-wrapper" className={classes}>
-        <MangoHintsModal isVisible={this.state.showHintsModal} onHide={this.hideHintsModal}/>
         <label>
           <span>{this.props.title}</span>
           {this.getDocIcon()}
@@ -232,9 +153,8 @@ export class CodeEditorPanel extends React.Component {
           defaultCode={this.state.code}
           showGutter={true}
           ignorableErrors={ignorableErrors}
-          // setHeightToLineCount={true}
-          minLines={30}
           blur={this.props.blur}
+          {...heightSettings}
         />
         <Beautify code={this.state.code} beautifiedCode={this.beautify} />
         {this.getZenModeOverlay()}

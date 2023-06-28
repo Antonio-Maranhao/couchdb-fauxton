@@ -349,7 +349,6 @@ export class CodeEditor extends React.Component {
           name={this.props.id}
           className="js-editor"
           mode={this.props.mode}
-          // mode={editorMode}
           theme={this.props.theme}
           onLoad={_.bind(this.onAceLoad, this)}
           onBlur={_.bind(this.onBlur, this)}
