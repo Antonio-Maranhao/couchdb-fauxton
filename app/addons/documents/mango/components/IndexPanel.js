@@ -16,8 +16,7 @@ import IndexFields from "./IndexFields";
 import ReactComponents from '../../../components/react-components';
 
 export default function IndexPanel ({index, reason, score, covering}) {
-  const firstColumnClass = 'col-md-12 col-lg-4 mb-0';
-  const otherColumnsClass = 'col-md-12 col-lg-4 mb-4 mb-lg-0';
+  const columnClass = 'col-md-12 col-lg-4 mb-4 mb-lg-0';
   const tags = [
     index.partitioned ? 'scope: partitioned' : 'scope: global',
   ];
@@ -26,17 +25,16 @@ export default function IndexPanel ({index, reason, score, covering}) {
   }
   return (
     <div className='row me-1 ms-1 explain-index-panel'>
-      <div className={firstColumnClass}>
+      <div className={columnClass}>
         <strong>{index.type}</strong>: {index.name}
         <br/>
-        <span className="index-ddoc-name">{index.ddoc}</span>
-        <br/>
+        {index.ddoc ? (<><span className="index-ddoc-name">{index.ddoc}</span><br/></>) : null}
         <ReactComponents.BadgeList elements={tags} removeBadge={() => {}} />
       </div>
-      <div className={otherColumnsClass}>
+      <div className={columnClass}>
         <IndexFields fields={index.def.fields}/>
       </div>
-      <div className={otherColumnsClass}>
+      <div className={columnClass}>
 				Score: {score >= 0 ? score : 'n/a'}
         {reason ? <><br/>Reason: {formatReason(reason)}</> : null}
       </div>
