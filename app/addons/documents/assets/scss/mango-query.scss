@@ -31,9 +31,13 @@
   }
 }
 
-.explain-json {
+.explain-json-response {
   padding-left: 0rem;
   margin-top: 1rem;
+}
+
+.explain-plan-section-title {
+	font-size: 1rem;
 }
 
 .explain-index-panel {
@@ -42,6 +46,7 @@
   border-top: 1px solid $cf-border-color01;
   border-bottom: 1px solid $cf-border-color01;
 	word-break: break-all;
+	font-size: 0.875rem;
 
 	.index-ddoc-name {
 		font-size: 0.75rem;
@@ -53,6 +58,7 @@
 
 	ul.component-badgelist {
 		margin-bottom: 0;
+		margin-top: 0;
 	}
 
 	li.badge {
@@ -60,7 +66,7 @@
 		padding-left: 0;
 
 		div.remove-filter {
-			padding: 10px;
+			padding: 0.5rem;
     	background-color: #d0e2ff;
     	border-radius: 5px;
 			span {

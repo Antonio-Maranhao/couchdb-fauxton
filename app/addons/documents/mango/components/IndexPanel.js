@@ -15,10 +15,10 @@ import React from "react";
 import IndexFields from "./IndexFields";
 import ReactComponents from '../../../components/react-components';
 
-export default function IndexPanel ({index, reason, score, covering}) {
-  const columnClass = 'col-md-12 col-lg-4 mb-4 mb-lg-0';
+export default function IndexPanel ({index, isWinner, reason, score, covering}) {
+  const columnClass = 'col-md-12 col-lg-3 mb-4 mb-lg-0';
   const tags = [
-    index.partitioned ? 'scope: partitioned' : 'scope: global',
+    index.partitioned ? 'partitioned' : 'global',
   ];
   if (covering) {
     tags.push('covering');
@@ -29,16 +29,18 @@ export default function IndexPanel ({index, reason, score, covering}) {
         <strong>{index.type}</strong>: {index.name}
         <br/>
         {index.ddoc ? (<><span className="index-ddoc-name">{index.ddoc}</span><br/></>) : null}
+      </div>
+      <div className={columnClass}>
         <ReactComponents.BadgeList elements={tags} removeBadge={() => {}} />
       </div>
       <div className={columnClass}>
         <IndexFields fields={index.def.fields}/>
       </div>
-      <div className={columnClass}>
-				Score: {score >= 0 ? score : 'n/a'}
-        {reason ? <><br/>Reason: {formatReason(reason)}</> : null}
-      </div>
-
+      {isWinner ? <div className={columnClass}>&nbsp;</div> :
+        <div className={columnClass}>
+					Score: {score >= 0 ? score : 'n/a'}
+          {reason ? <><br/>Reason: {formatReason(reason)}</> : null}
+        </div>}
     </div>
   );
 }
@@ -57,4 +59,5 @@ IndexPanel.propTypes = {
   reason: PropTypes.string,
   score: PropTypes.number,
   covering: PropTypes.bool,
+  isWinner: PropTypes.bool, // 'true' if this is the winning index from the explain response
 };

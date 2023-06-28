@@ -56,10 +56,10 @@ export default class ExplainPage extends Component {
     );
   }
 
-  jsonTabContent () {
+  rawJsonResponse () {
 
     return (
-      <Accordion className="explain-json">
+      <Accordion className="explain-json-response">
         <AccordionItem title='JSON response'>
           <pre className="prettyprint">{JSON.stringify(this.props.explainPlan, null, ' ')}</pre>
         </AccordionItem>
@@ -68,7 +68,7 @@ export default class ExplainPage extends Component {
     );
   }
 
-  parsedTabContent () {
+  parsedContent () {
     const {index} = this.props.explainPlan;
     if (!index) {
       return "Invalid explain plan";
@@ -85,7 +85,7 @@ export default class ExplainPage extends Component {
           You can create an index to optimize query time.
       </div>;
     } else {
-      matchingIndex = <IndexPanel index={index} />;
+      matchingIndex = <IndexPanel index={index} isWinner={true}/>;
     }
 
     // Candidates
@@ -94,7 +94,7 @@ export default class ExplainPage extends Component {
     if (index_candidates && index_candidates.length > 0) {
       candidateIndexes = index_candidates.map((candidate) => {
         const { index, reason, score, covering } = candidate;
-        return <IndexPanel key={`${index.ddoc}"-"${index.name}`}
+        return <IndexPanel key={`${index.ddoc}"-"${index.name}`} isWinner={false}
           index={index} reason={reason} score={score} covering={covering === "true"}/>;
       });
     } else {
@@ -104,22 +104,21 @@ export default class ExplainPage extends Component {
     }
 
     return (
-      <div>
-        <h4>Selected Index</h4>
+      <>
+        <span className="explain-plan-section-title">Selected Index</span>
         {matchingIndex}
         <br/>
-        <h4>Candidate Indexes</h4>
+        <span className="explain-plan-section-title">Candidate Indexes</span>
         {candidateIndexes}
-      </div>
+      </>
     );
   }
 
   render () {
     return (
       <div id="explain-plan-wrapper">
-        {/* {this.getTabs()} */}
-        {this.parsedTabContent()}
-        {this.jsonTabContent()}
+        {this.parsedContent()}
+        {this.rawJsonResponse()}
       </div>
     );
   }
