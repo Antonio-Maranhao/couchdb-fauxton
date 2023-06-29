@@ -12,10 +12,9 @@ export default [
         ]
       }
     },
-    "reason": [
-      "not_chosen",
-      "not_composite"
-    ]
+    "usable": false,
+    "reason": "unfavored_type",
+    "ranking": 3
   },
   {
     "index": {
@@ -31,11 +30,9 @@ export default [
         ]
       }
     },
-    "reason": [
-      "not_chosen",
-      "insufficient_index_range"
-    ],
-    "score": 1,
+    "usable": true,
+    "reason": "less_overlap",
+    "ranking": 1,
     "covering": false
   },
   {
@@ -52,10 +49,9 @@ export default [
         "index_array_lengths": true
       }
     },
-    "reason": [
-      "not_chosen",
-      "not_composite"
-    ]
+    "usable": false,
+    "reason": "unfavored_type",
+    "ranking": 3
   },
   {
     "index": {
@@ -71,10 +67,9 @@ export default [
         ]
       }
     },
-    "reason": [
-      "not_usable",
-      "missing_fields"
-    ],
+    "usable": false,
+    "reason": "field_mismatch",
+    "ranking": 4,
     "covering": false
   },
   {
@@ -91,10 +86,9 @@ export default [
         ]
       }
     },
-    "reason": [
-      "not_usable",
-      "missing_fields"
-    ],
+    "usable": false,
+    "reason": "field_mismatch",
+    "ranking": 4,
     "covering": false
   },
   {
@@ -120,10 +114,9 @@ export default [
         ]
       }
     },
-    "reason": [
-      "not_usable",
-      "missing_fields"
-    ],
+    "usable": false,
+    "reason": "field_mismatch",
+    "ranking": 4,
     "covering": false
   },
   {
@@ -140,11 +133,9 @@ export default [
         ]
       }
     },
-    "reason": [
-      "not_chosen",
-      "insufficient_index_range"
-    ],
-    "score": 2,
+    "usable": true,
+    "reason": "less_overlap",
+    "ranking": 2,
     "covering": false
   },
   {
@@ -164,10 +155,9 @@ export default [
         ]
       }
     },
-    "reason": [
-      "not_usable",
-      "missing_fields"
-    ],
+    "usable": false,
+    "reason": "field_mismatch",
+    "ranking": 4,
     "covering": false
   },
   {
@@ -184,10 +174,9 @@ export default [
         ]
       }
     },
-    "reason": [
-      "not_usable",
-      "missing_fields"
-    ],
+    "usable": false,
+    "reason": "field_mismatch",
+    "ranking": 4,
     "covering": false
   },
   {
@@ -204,10 +193,9 @@ export default [
         ]
       }
     },
-    "reason": [
-      "not_usable",
-      "missing_fields"
-    ],
+    "usable": false,
+    "reason": "field_mismatch",
+    "ranking": 4,
     "covering": false
   },
   {
@@ -224,10 +212,9 @@ export default [
         ]
       }
     },
-    "reason": [
-      "not_usable",
-      "missing_fields"
-    ],
+    "usable": false,
+    "reason": "field_mismatch",
+    "ranking": 4,
     "covering": false
   }
 ];

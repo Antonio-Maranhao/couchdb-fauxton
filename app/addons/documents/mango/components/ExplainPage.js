@@ -12,10 +12,11 @@
 
 import PropTypes from 'prop-types';
 import React, { Component } from "react";
+import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { TabElementWrapper, TabElement } from '../../../components/components/tabelement';
 import Components from "../../../components/react-components";
 import IndexPanel from "./IndexPanel";
-import sampleIndexCandidates from "./sampleIndexCandidates";
+import sampleIndexCandidates from "./sampleIndexCandidatesNew";
 
 const { Accordion, AccordionItem } = Components;
 
@@ -58,7 +59,7 @@ export default class ExplainPage extends Component {
 
   // Sort candidates indexes to show list JSON indexes not chosen first, then unusable
   // JSON indexes, then all others (text, partial, etc)
-  sortCandidateIndexes (candidates) {
+  sortCandidateIndexes_OldFormat (candidates) {
     const notChosenJsonIndexes = [];
     const notUsableJsonIndexes = [];
     const otherIndexes = [];
@@ -85,8 +86,33 @@ export default class ExplainPage extends Component {
     return notChosenJsonIndexes.concat(notUsableJsonIndexes).concat(otherIndexes);
   }
 
-  rawJsonResponse () {
+  sortCandidatesByRanking(a, b) {
+    if (a.ranking === undefined) {
+      return 1;
+    }
+    if (b.ranking === undefined) {
+      return -1;
+    }
+    const diff = a.ranking - b.ranking;
+    if (diff === 0) {
+      return a.index.name.localeCompare(b.index.name);
+    }
+    return diff;
+  }
 
+  pickUsableIndexes(candidates) {
+    return candidates.filter(c => {
+      return c.index.type === 'json' && c.usable;
+    }).sort(this.sortCandidatesByRanking);
+  }
+
+  pickNotUsableIndexes(candidates) {
+    return candidates.filter(c => {
+      return c.index.type !== 'json' || !c.usable;
+    }).sort(this.sortCandidatesByRanking);
+  }
+
+  rawJsonResponse () {
     return (
       <Accordion className="explain-json-response">
         <AccordionItem title='JSON response'>
@@ -119,27 +145,50 @@ export default class ExplainPage extends Component {
 
     // Candidates
     const {index_candidates} = this.props.explainPlan;
-    let candidateIndexes = null;
+    let usableIndexPanelList = null;
+    let notUsableIndexPanelList = null;
     if (index_candidates && index_candidates.length > 0) {
-      const sortedCandidates = this.sortCandidateIndexes(index_candidates);
-      candidateIndexes = sortedCandidates.map((candidate) => {
-        const { index, reason, score, covering } = candidate;
+      const sortedCandidates = this.pickUsableIndexes(index_candidates);
+      usableIndexPanelList = sortedCandidates.map((candidate) => {
+        const { index, reason, ranking, covering } = candidate;
         return <IndexPanel key={`${index.ddoc}"-"${index.name}`} isWinner={false}
-          index={index} reason={reason} score={score} covering={covering === "true"}/>;
+          index={index} reason={reason} ranking={ranking} covering={covering === "true"}/>;
       });
-    } else {
-      candidateIndexes = <div className='explain-index-panel'>
-          No candidate indexes found.
+
+      const sortedNotUsable = this.pickNotUsableIndexes(index_candidates);
+      notUsableIndexPanelList = sortedNotUsable.map((candidate) => {
+        const { index, reason, ranking, covering } = candidate;
+        return <IndexPanel key={`${index.ddoc}"-"${index.name}`} isWinner={false}
+          index={index} reason={reason} ranking={ranking} covering={covering === "true"}/>;
+      });
+    }
+    if (!usableIndexPanelList) {
+      usableIndexPanelList = <div className='explain-index-panel'>
+          No usable indexes found.
+      </div>;
+    }
+    if (!notUsableIndexPanelList) {
+      notUsableIndexPanelList = <div className='explain-index-panel'>
+          No other indexes found.
       </div>;
     }
 
     return (
       <>
-        <span className="explain-plan-section-title">Selected Index</span>
+        <span className="explain-plan-section-title">
+          Selected Index<InfoIcon tooltip_content={"The index used when running the query"}/>
+        </span>
         {matchingIndex}
         <br/>
-        <span className="explain-plan-section-title">Candidate Indexes</span>
-        {candidateIndexes}
+        <span className="explain-plan-section-title">
+          Usable Indexes<InfoIcon tooltip_content={"Other suitable indexes that were not chosen"}/>
+        </span>
+        {usableIndexPanelList}
+        <br/>
+        <span className="explain-plan-section-title">
+          Not Usable Indexes<InfoIcon tooltip_content={"Other indexes that do not match the given query"}/>
+        </span>
+        {notUsableIndexPanelList}
       </>
     );
   }
@@ -156,4 +205,13 @@ export default class ExplainPage extends Component {
 
 ExplainPage.propTypes = {
   explainPlan: PropTypes.object.isRequired
+};
+
+const InfoIcon = ({tooltip_content}) => {
+  const tooltip = <Tooltip id="graveyard-tooltip">{tooltip_content}</Tooltip>;
+  return (
+    <OverlayTrigger placement="top" overlay={tooltip}>
+      <i className="fonticon fonticon-info-circled"></i>
+    </OverlayTrigger>
+  );
 };

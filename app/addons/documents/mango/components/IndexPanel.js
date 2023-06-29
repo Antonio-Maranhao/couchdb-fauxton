@@ -15,7 +15,7 @@ import React from "react";
 import IndexFields from "./IndexFields";
 import ReactComponents from '../../../components/react-components';
 
-export default function IndexPanel ({index, isWinner, reason, score, covering}) {
+export default function IndexPanel ({index, isWinner, reason, ranking, covering}) {
   const columnClass = 'col-md-12 col-lg-3 mb-4 mb-lg-0';
   const tags = [
     index.partitioned ? 'partitioned' : 'global',
@@ -38,7 +38,7 @@ export default function IndexPanel ({index, isWinner, reason, score, covering}) 
       </div>
       {isWinner ? <div className={columnClass}>&nbsp;</div> :
         <div className={columnClass}>
-					Score: {score >= 0 ? score : 'n/a'}
+					Ranking: {ranking >= 0 ? ranking : 'n/a'}
           {reason ? <><br/>Reason: {formatReason(reason)}</> : null}
         </div>}
     </div>
@@ -56,8 +56,8 @@ function formatReason(reason) {
 
 IndexPanel.propTypes = {
   index: PropTypes.object.isRequired,
-  reason: PropTypes.arrayOf(PropTypes.string),
-  score: PropTypes.number,
+  reason: PropTypes.string,
+  ranking: PropTypes.number,
   covering: PropTypes.bool,
   isWinner: PropTypes.bool, // 'true' if this is the winning index from the explain response
 };
