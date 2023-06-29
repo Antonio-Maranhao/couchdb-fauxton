@@ -186,7 +186,7 @@ export default class ExplainPage extends Component {
         {usableIndexPanelList}
         <br/>
         <span className="explain-plan-section-title">
-          Not Usable Indexes<InfoIcon tooltip_content={"Other indexes that do not match the given query"}/>
+          Not Usable Indexes<InfoIcon tooltip_content={"Indexes that do not match the given query"}/>
         </span>
         {notUsableIndexPanelList}
       </>
