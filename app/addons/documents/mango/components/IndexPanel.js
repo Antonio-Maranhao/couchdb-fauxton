@@ -15,7 +15,15 @@ import React from "react";
 import IndexFields from "./IndexFields";
 import ReactComponents from '../../../components/react-components';
 
-export default function IndexPanel ({index, isWinner, reason, ranking, covering}) {
+function ReasonValue({reason, onClick}) {
+  const _onClick = (ev) => {
+		  ev.preventDefault();
+		  onClick();
+  };
+  return <a href="#" data-bypass="true" onClick={_onClick}>{formatReason(reason)}</a>;
+}
+
+export default function IndexPanel ({index, isWinner, reason, ranking, covering, onReasonClick}) {
   const columnClass = 'col-md-12 col-lg-3 mb-4 mb-lg-0';
   const tags = [
     index.partitioned ? 'partitioned' : 'global',
@@ -23,8 +31,9 @@ export default function IndexPanel ({index, isWinner, reason, ranking, covering}
   if (covering) {
     tags.push('covering');
   }
+
   return (
-    <div className='row me-1 ms-1 explain-index-panel'>
+    <div className='row explain-index-panel'>
       <div className={columnClass}>
         <strong>{index.type}</strong>: {index.name}
         <br/>
@@ -39,7 +48,7 @@ export default function IndexPanel ({index, isWinner, reason, ranking, covering}
       {isWinner ? <div className={columnClass}>&nbsp;</div> :
         <div className={columnClass}>
 					Ranking: {ranking >= 0 ? ranking : 'n/a'}
-          {reason ? <><br/>Reason: {formatReason(reason)}</> : null}
+          {reason ? <><br/>Reason: <ReasonValue reason={reason} onClick={onReasonClick} /></> : null}
         </div>}
     </div>
   );
@@ -56,6 +65,7 @@ function formatReason(reason) {
 
 IndexPanel.propTypes = {
   index: PropTypes.object.isRequired,
+  onReasonClick: PropTypes.func.isRequired,
   reason: PropTypes.string,
   ranking: PropTypes.number,
   covering: PropTypes.bool,

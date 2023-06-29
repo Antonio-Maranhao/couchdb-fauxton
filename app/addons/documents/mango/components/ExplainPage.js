@@ -12,13 +12,14 @@
 
 import PropTypes from 'prop-types';
 import React, { Component } from "react";
-import { Tooltip, OverlayTrigger } from 'react-bootstrap';
-import { TabElementWrapper, TabElement } from '../../../components/components/tabelement';
-import Components from "../../../components/react-components";
+import { Button, ButtonGroup, Tooltip, OverlayTrigger } from 'react-bootstrap';
+// import { TabElementWrapper, TabElement } from '../../../components/components/tabelement';
+// import Components from "../../../components/react-components";
 import IndexPanel from "./IndexPanel";
+import ExplainReasonsLegendModal from './ExplainReasonsLegendModal';
 // import sampleIndexCandidates from "./sampleIndexCandidatesNew";
 
-const { Accordion, AccordionItem } = Components;
+// const { Accordion, AccordionItem } = Components;
 
 export default class ExplainPage extends Component {
   componentDidMount () {
@@ -30,32 +31,42 @@ export default class ExplainPage extends Component {
   }
 
   state = {
-    tabSection: 'parsed',
+    viewFormat: 'parsed',
+    isReasonsModalVisible: false,
   };
 
-  onTabChange = (tabSection) => {
-    this.setState({ tabSection });
+  onViewFormatChange = (viewFormat) => {
+    this.setState({ viewFormat });
   };
 
-  getTabs () {
-    const { tabSection } = this.state;
-    return (
-      <TabElementWrapper>
-        <TabElement
-          key={1}
-          selected={tabSection === 'parsed'}
-          text={"Parsed"}
-          onChange={() => this.onTabChange('parsed')}
-        />
-        <TabElement
-          key={1}
-          selected={tabSection === 'json'}
-          text={"JSON"}
-          onChange={() => this.onTabChange('json')}
-        />
-      </TabElementWrapper>
-    );
-  }
+  hideReasonsModal = () => {
+    this.setState({isReasonsModalVisible: false});
+  };
+
+  showReasonsModal = () => {
+    this.setState({isReasonsModalVisible: true});
+  };
+
+
+  // getTabs () {
+  //   const { tabSection } = this.state;
+  //   return (
+  //     <TabElementWrapper>
+  //       <TabElement
+  //         key={1}
+  //         selected={tabSection === 'parsed'}
+  //         text={"Parsed"}
+  //         onChange={() => this.onTabChange('parsed')}
+  //       />
+  //       <TabElement
+  //         key={1}
+  //         selected={tabSection === 'json'}
+  //         text={"JSON"}
+  //         onChange={() => this.onTabChange('json')}
+  //       />
+  //     </TabElementWrapper>
+  //   );
+  // }
 
   // Sort candidates indexes to show list JSON indexes not chosen first, then unusable
   // JSON indexes, then all others (text, partial, etc)
@@ -112,14 +123,37 @@ export default class ExplainPage extends Component {
     }).sort(this.sortCandidatesByRanking);
   }
 
+  toggleButtons() {
+    return (
+      <div className="row mb-4">
+        <div className="col">
+          <ButtonGroup aria-label='Explain format selector' >
+            <Button type="button"
+              id="explain-parsed-view"
+              active={this.state.viewFormat === 'parsed'}
+              onClick={() => {this.onViewFormatChange('parsed');}}
+              variant="cf-secondary">Parsed</Button>
+            <Button type="button"
+              id="explain-json-view"
+              active={this.state.viewFormat === 'json'}
+              onClick={() => {this.onViewFormatChange('json');}}
+              variant="cf-secondary">JSON</Button>
+          </ButtonGroup>
+        </div>
+      </div>);
+  }
+
   rawJsonResponse () {
     return (
-      <Accordion className="explain-json-response">
-        <AccordionItem title='JSON response'>
-          <pre className="prettyprint">{JSON.stringify(this.props.explainPlan, null, ' ')}</pre>
-        </AccordionItem>
-      </Accordion>
-
+      // <Accordion className="explain-json-response">
+      //   <AccordionItem title='JSON response'>
+      //     <pre className="prettyprint">{JSON.stringify(this.props.explainPlan, null, ' ')}</pre>
+      //   </AccordionItem>
+      // </Accordion>
+      <div className="explain-json-response">
+        <span className="explain-plan-section-title">JSON Response</span>
+        <pre className="prettyprint">{JSON.stringify(this.props.explainPlan, null, ' ')}</pre>
+      </div>
     );
   }
 
@@ -140,7 +174,7 @@ export default class ExplainPage extends Component {
           You can create an index to optimize query time.
       </div>;
     } else {
-      matchingIndex = <IndexPanel index={index} isWinner={true}/>;
+      matchingIndex = <IndexPanel index={index} isWinner={true} onReasonClick={this.showReasonsModal}/>;
     }
 
     // Candidates
@@ -151,23 +185,23 @@ export default class ExplainPage extends Component {
       const sortedCandidates = this.pickUsableIndexes(index_candidates);
       usableIndexPanelList = sortedCandidates.map((candidate) => {
         const { index, reason, ranking, covering } = candidate;
-        return <IndexPanel key={`${index.ddoc}"-"${index.name}`} isWinner={false}
+        return <IndexPanel key={`${index.ddoc}"-"${index.name}`} isWinner={false} onReasonClick={this.showReasonsModal}
           index={index} reason={reason} ranking={ranking} covering={covering === "true"}/>;
       });
 
       const sortedNotUsable = this.pickNotUsableIndexes(index_candidates);
       notUsableIndexPanelList = sortedNotUsable.map((candidate) => {
         const { index, reason, ranking, covering } = candidate;
-        return <IndexPanel key={`${index.ddoc}"-"${index.name}`} isWinner={false}
+        return <IndexPanel key={`${index.ddoc}"-"${index.name}`} isWinner={false} onReasonClick={this.showReasonsModal}
           index={index} reason={reason} ranking={ranking} covering={covering === "true"}/>;
       });
     }
-    if (!usableIndexPanelList) {
+    if (!usableIndexPanelList || usableIndexPanelList.length === 0) {
       usableIndexPanelList = <div className='explain-index-panel'>
           No usable indexes found.
       </div>;
     }
-    if (!notUsableIndexPanelList) {
+    if (!notUsableIndexPanelList || notUsableIndexPanelList.length === 0) {
       notUsableIndexPanelList = <div className='explain-index-panel'>
           No other indexes found.
       </div>;
@@ -181,12 +215,12 @@ export default class ExplainPage extends Component {
         {matchingIndex}
         <br/>
         <span className="explain-plan-section-title">
-          Usable Indexes<InfoIcon tooltip_content={"Other suitable indexes that were not chosen"}/>
+          Suitable Indexes<InfoIcon tooltip_content={"Other suitable indexes that were not chosen"}/>
         </span>
         {usableIndexPanelList}
         <br/>
         <span className="explain-plan-section-title">
-          Not Usable Indexes<InfoIcon tooltip_content={"Indexes that do not match the given query"}/>
+          Unsuitable Indexes<InfoIcon tooltip_content={"Indexes that do not match the given query"}/>
         </span>
         {notUsableIndexPanelList}
       </>
@@ -196,8 +230,10 @@ export default class ExplainPage extends Component {
   render () {
     return (
       <div id="explain-plan-wrapper">
-        {this.parsedContent()}
-        {this.rawJsonResponse()}
+        <ExplainReasonsLegendModal isVisible={this.state.isReasonsModalVisible} onHide={this.hideReasonsModal}/>
+        {this.toggleButtons()}
+        {this.state.viewFormat === 'parsed' ? this.parsedContent() : null}
+        {this.state.viewFormat === 'json' ? this.rawJsonResponse() : null}
       </div>
     );
   }
