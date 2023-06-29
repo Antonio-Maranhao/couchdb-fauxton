@@ -1527,7 +1527,7 @@ ace.define("ace/mode/mango/mango_parse",[], function(require, exports, module) {
                 while (ch) {
                     key = string();
                     if (key === "$ne" || key === "$regex") {
-                        addWarning(`${key} operator prevents use of indexes`);
+                        addWarning(`${key} operator might prevent optimal use of indexes`);
                     }
                     white();
                     next(':');
