@@ -7,6 +7,7 @@ WORKDIR /build
 # Add the project files to the image
 ADD . /build
 
+RUN node --version
 RUN npm ci
 
 # RUN ./node_modules/grunt-cli/bin/grunt clean:release release
@@ -37,7 +38,7 @@ RUN npm ci
 # RUN mv nginx.conf /etc/nginx/ \
 #   && mv dashboard-nginx.conf /etc/nginx/conf.d/
 
-EXPOSE 8080
+EXPOSE 8000
 
 ENV COUCH_HOST=http://host.docker.internal:5984
 

@@ -16,7 +16,7 @@ import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { TabElementWrapper, TabElement } from '../../../components/components/tabelement';
 import Components from "../../../components/react-components";
 import IndexPanel from "./IndexPanel";
-import sampleIndexCandidates from "./sampleIndexCandidatesNew";
+// import sampleIndexCandidates from "./sampleIndexCandidatesNew";
 
 const { Accordion, AccordionItem } = Components;
 
@@ -129,7 +129,7 @@ export default class ExplainPage extends Component {
       return "Invalid explain plan";
     }
     // TODO: remove me
-    this.props.explainPlan.index_candidates = sampleIndexCandidates;
+    // this.props.explainPlan.index_candidates = sampleIndexCandidates;
 
     // Matching index
     let matchingIndex = null;
