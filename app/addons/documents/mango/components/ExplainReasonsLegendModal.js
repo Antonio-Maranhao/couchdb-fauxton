@@ -28,7 +28,7 @@ export default function ExplainReasonsLegendModal({isVisible, onHide}) {
             </tr>
             <tr>
               <td>excluded_by_user</td>
-              <td>Index did not match the specified `“use_index”` value.</td>
+              <td>Index did not match the specified <code>“use_index”</code> value.</td>
             </tr>
             <tr>
               <td>field_mismatch</td>
@@ -48,7 +48,7 @@ export default function ExplainReasonsLegendModal({isVisible, onHide}) {
             </tr>
             <tr>
               <td>unfavored_type</td>
-              <td>An index with a preferred type was selected. Order of index type preference: json, text, special (“all docs”).</td>
+              <td>An index with a preferred type was selected. Order of index type preference: json, text, special (<code>_all docs</code>).</td>
             </tr>
           </tbody>
         </Table>
