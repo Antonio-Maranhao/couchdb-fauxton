@@ -184,16 +184,16 @@ export default class ExplainPage extends Component {
     if (index_candidates && index_candidates.length > 0) {
       const sortedCandidates = this.pickUsableIndexes(index_candidates);
       usableIndexPanelList = sortedCandidates.map((candidate) => {
-        const { index, reason, ranking, covering } = candidate;
+        const { index, reason, covering } = candidate;
         return <IndexPanel key={`${index.ddoc}"-"${index.name}`} isWinner={false} onReasonClick={this.showReasonsModal}
-          index={index} reason={reason} ranking={ranking} covering={covering === "true"}/>;
+          index={index} reason={reason} covering={covering === "true"}/>;
       });
 
       const sortedNotUsable = this.pickNotUsableIndexes(index_candidates);
       notUsableIndexPanelList = sortedNotUsable.map((candidate) => {
-        const { index, reason, ranking, covering } = candidate;
+        const { index, reason, covering } = candidate;
         return <IndexPanel key={`${index.ddoc}"-"${index.name}`} isWinner={false} onReasonClick={this.showReasonsModal}
-          index={index} reason={reason} ranking={ranking} covering={covering === "true"}/>;
+          index={index} reason={reason} covering={covering === "true"}/>;
       });
     }
     if (!usableIndexPanelList || usableIndexPanelList.length === 0) {

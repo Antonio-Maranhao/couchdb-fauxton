@@ -23,7 +23,7 @@ function ReasonValue({reason, onClick}) {
   return <a href="#" data-bypass="true" onClick={_onClick}>{formatReason(reason)}</a>;
 }
 
-export default function IndexPanel ({index, isWinner, reason, ranking, covering, onReasonClick}) {
+export default function IndexPanel ({index, isWinner, reason, covering, onReasonClick}) {
   const columnClass = 'col-md-12 col-lg-3 mb-4 mb-lg-0';
   const tags = [
     index.partitioned ? 'partitioned' : 'global',
@@ -47,8 +47,7 @@ export default function IndexPanel ({index, isWinner, reason, ranking, covering,
       </div>
       {isWinner ? <div className={columnClass}>&nbsp;</div> :
         <div className={columnClass}>
-					Ranking: {ranking >= 0 ? ranking : 'n/a'}
-          {reason ? <><br/>Reason: <ReasonValue reason={reason} onClick={onReasonClick} /></> : null}
+          {reason ? <ReasonValue reason={reason} onClick={onReasonClick} /> : <span>reason not available</span>}
         </div>}
     </div>
   );
@@ -67,7 +66,6 @@ IndexPanel.propTypes = {
   index: PropTypes.object.isRequired,
   onReasonClick: PropTypes.func.isRequired,
   reason: PropTypes.string,
-  ranking: PropTypes.number,
   covering: PropTypes.bool,
   isWinner: PropTypes.bool, // 'true' if this is the winning index from the explain response
 };
