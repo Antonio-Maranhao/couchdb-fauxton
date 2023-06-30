@@ -47,6 +47,16 @@
 	}
 }
 
+.explain-reasons-legend-modal {
+  max-width: none!important;
+  width: 50%!important;
+  
+  .table-wrapper {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+}
+
 .explain-index-panel {
   background-color: white;
 	margin-left: 0.25rem !important;
