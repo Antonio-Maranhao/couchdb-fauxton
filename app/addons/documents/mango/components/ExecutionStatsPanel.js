@@ -70,6 +70,7 @@ export default class ExecutionStatsPanel extends React.Component {
           {this.executionStatsLine("Executed at", new Date(executionStats.ts).toLocaleTimeString(), true)}
           {this.executionStatsLine("Execution time", this.humanizeDuration(executionStats.execution_time_ms), true)}
           {this.executionStatsLine("Results returned", executionStats.results_returned, true)}
+          {this.executionStatsLine("Keys examined", executionStats.total_keys_examined)}
           {this.executionStatsLine("Documents examined", executionStats.total_docs_examined)}
           {this.executionStatsLine("Documents examined (quorum)", executionStats.total_quorum_docs_examined)}
         </div>);

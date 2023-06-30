@@ -86,7 +86,7 @@ export default class ExplainPage extends Component {
       }
     });
     notChosenJsonIndexes.sort((a, b) => {
-      if (a.score === undefined) {
+      if (a.ranking === undefined) {
         return 1;
       }
       if (b.score === undefined) {
@@ -158,7 +158,7 @@ export default class ExplainPage extends Component {
   }
 
   parsedContent () {
-    const {index} = this.props.explainPlan;
+    const {index, covered} = this.props.explainPlan;
     if (!index) {
       return "Invalid explain plan";
     }
@@ -174,7 +174,7 @@ export default class ExplainPage extends Component {
           You can create an index to optimize query time.
       </div>;
     } else {
-      matchingIndex = <IndexPanel index={index} isWinner={true} onReasonClick={this.showReasonsModal}/>;
+      matchingIndex = <IndexPanel index={index} isWinner={true} covering={covered} onReasonClick={this.showReasonsModal}/>;
     }
 
     // Candidates

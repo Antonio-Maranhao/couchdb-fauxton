@@ -64,8 +64,7 @@ export default class ExecutionStats extends React.Component {
     if (!executionStats) return null;
     return (
       <div className="execution-stats-popup-component">
-        {/* keys examined always 0 so hide it for now */}
-        {/* {this.executionStatsLine("keys examined", executionStats.total_keys_examined)} */}
+        {this.executionStatsLine("keys examined", executionStats.total_keys_examined)}
         {this.executionStatsLine("documents examined", executionStats.total_docs_examined)}
         {this.executionStatsLine("documents examined (quorum)", executionStats.total_quorum_docs_examined)}
         {this.executionStatsLine("results returned", executionStats.results_returned, true)}
