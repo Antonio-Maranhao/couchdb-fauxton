@@ -157,25 +157,33 @@ export default class ExplainPage extends Component {
     );
   }
 
+  isKeyRangeUnbounded(mrargs) {
+    if (mrargs) {
+      const { start_key, end_key } = mrargs;
+      if (!start_key && end_key === "<MAX>") {
+        return true;
+      }
+      if (start_key && start_key.length === 0 && end_key && end_key.length === 1 && end_key[0] === "<MAX>") {
+        return true;
+      }
+    }
+    return false;
+  }
+
   parsedContent () {
-    const {index, covered} = this.props.explainPlan;
+    const {index, covered, mrargs} = this.props.explainPlan;
     if (!index) {
       return "Invalid explain plan";
     }
     // TODO: remove me
     // this.props.explainPlan.index_candidates = sampleIndexCandidates;
 
+    let extraInfo = this.isKeyRangeUnbounded(mrargs) ?
+      <span className='index-extra-info'>Explain shows <code>start_key</code> and <code>end_key</code> as undefined, indicating all documents are scanned.</span> : null;
+
+
     // Matching index
-    let matchingIndex = null;
-    if (index.name === '_all_docs') {
-      matchingIndex = <div className='explain-index-panel'>
-          No matching index found. Using built-in <code>_all_docs</code> index.
-        <br/>
-          You can create an index to optimize query time.
-      </div>;
-    } else {
-      matchingIndex = <IndexPanel index={index} isWinner={true} covering={covered} onReasonClick={this.showReasonsModal}/>;
-    }
+    let matchingIndex = <IndexPanel index={index} isWinner={true} covering={covered} onReasonClick={this.showReasonsModal} extraInfo={extraInfo}/>;
 
     // Candidates
     const {index_candidates} = this.props.explainPlan;
@@ -198,7 +206,7 @@ export default class ExplainPage extends Component {
     }
     if (!usableIndexPanelList || usableIndexPanelList.length === 0) {
       usableIndexPanelList = <div className='explain-index-panel'>
-          No usable indexes found.
+          No other suitable indexes found.
       </div>;
     }
     if (!notUsableIndexPanelList || notUsableIndexPanelList.length === 0) {
