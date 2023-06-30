@@ -160,12 +160,15 @@ export default class ExplainPage extends Component {
   isKeyRangeUnbounded(mrargs) {
     if (mrargs) {
       const { start_key, end_key } = mrargs;
-      if (!start_key && end_key === "<MAX>") {
-        return true;
-      }
-      if (start_key && start_key.length === 0 && end_key && end_key.length === 1 && end_key[0] === "<MAX>") {
-        return true;
-      }
+
+      // When an index is sorted descending,
+      // start_key and end_key are reversed.
+      // This detects a maximum index scan range (between null/[] and "<MAX>")
+      // by concatenatings the start/end keys,
+      // removing any null/empty elements,
+      // and testing that we have a single element "<MAX>" left.
+      const max_range = [start_key, end_key].flat().filter(n => n);
+      return max_range.length === 1 && max_range[0] === "<MAX>";
     }
     return false;
   }
