@@ -73,8 +73,9 @@ export class Badge extends React.Component {
   };
 
   render() {
+    const className = "badge " + this.props.label.replace(' ', '-');
     return (
-      <li className="badge">
+      <li className={className}>
         <div className="remove-filter">
           <span>{this.props.label}</span>
           { this.props.showClose ?

@@ -58,12 +58,12 @@
 }
 
 .explain-index-panel {
-  background-color: white;
+  	background-color: white;
 	margin-left: 0.25rem !important;
 	margin-right: 0.25rem !important;
-  padding: 0.5rem;
-  border-top: 1px solid $cf-border-color01;
-  border-bottom: 1px solid $cf-border-color01;
+	padding: 0.5rem;
+	border-top: 1px solid $cf-border-color01;
+	border-bottom: 1px solid $cf-border-color01;
 	word-break: break-all;
 	font-size: 0.875rem;
 
@@ -90,8 +90,8 @@
 
 		div.remove-filter {
 			padding: 0.5rem;
-    	background-color: #d0e2ff;
-    	border-radius: 5px;
+			background-color: #d0e2ff;
+			border-radius: 5px;
 			span {
 				padding: 0;
 				margin: 0;
@@ -99,5 +99,18 @@
 				font-size: 14px;
 			}
 		}
+	}
+
+	li.covering {
+		div.remove-filter {
+			background-color: $cf-primary;
+			span {
+				color: #ffffff;
+			}
+		}
+	}
+
+	.fonticon-attention-circled {
+		margin-right: 4px;
 	}
 }

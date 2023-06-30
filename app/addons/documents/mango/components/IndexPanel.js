@@ -23,7 +23,7 @@ function ReasonValue({reason, onClick}) {
   return <a href="#" data-bypass="true" onClick={_onClick}>{formatReason(reason)}</a>;
 }
 
-export default function IndexPanel ({index, isWinner, reason, covering, onReasonClick, extraInfo}) {
+export default function IndexPanel ({index, isWinner, reason,  covering, onReasonClick, extraInfo}) {
   const columnClass = 'col-md-12 col-lg-3 mb-4 mb-lg-0';
   const tags = [
     index.partitioned ? 'partitioned' : 'global',

@@ -179,7 +179,7 @@ export default class ExplainPage extends Component {
     // this.props.explainPlan.index_candidates = sampleIndexCandidates;
 
     let extraInfo = this.isKeyRangeUnbounded(mrargs) ?
-      <span className='index-extra-info'>Explain shows <code>start_key</code> and <code>end_key</code> as undefined, indicating all documents are scanned.</span> : null;
+      <span className='index-extra-info'><span className='fonticon-attention-circled'></span>Full index scan detected. Query time will degrade as documents are added to the index.</span> : null;
 
 
     // Matching index

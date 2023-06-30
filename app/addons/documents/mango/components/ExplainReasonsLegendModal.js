@@ -35,6 +35,10 @@ export default function ExplainReasonsLegendModal({isVisible, onHide}) {
               <td>The index does contain the fields required to answer the query.</td>
             </tr>
             <tr>
+              <td>less_overlap</td>
+              <td>The index has less field coverage than the selected index.</td>
+            </tr>
+            <tr>
               <td>is_partial</td>
               <td>Partial indexes cannot be selected automatically.</td>
             </tr>
