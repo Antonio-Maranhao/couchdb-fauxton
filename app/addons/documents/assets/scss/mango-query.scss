@@ -110,6 +110,15 @@
 		}
 	}
 
+	li.partitioned {
+		div.remove-filter {
+			background-color: #ffa53d;
+			span {
+				color: #000000;
+			}
+		}
+	}
+
 	.fonticon-attention-circled {
 		margin-right: 4px;
 	}
