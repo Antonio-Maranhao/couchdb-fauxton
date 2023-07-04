@@ -196,10 +196,18 @@
   }
 }
 
-.execution-stats-popup {
-  font-size: 14px;
-  .execution-stats-popup-component {
-    margin: 0.5rem;
+.execution-stats {
+  .execution-stats-header {
+    font-size: 16px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .execution-stats-empty-body {
+    font-style: italic;
+  }
+
+  .execution-stats-body {
     [data-status="false"] {
       color: $cf-text01-muted;
     }
@@ -210,16 +218,14 @@
     }
   }
   .warning {
-    color: $cf-alert-error-color;
-    margin: 0.5rem;
-  }
-}
-
-.execution-stats {
-  font-size: 13px;
-  padding: 8px 8px 8px 0;
-
-  .fonticon-attention-circled {
-    margin-right: 4px;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    background-color: $cf-alert-bg;
+    color: $cf-alert-color;
+    border-left: 4px solid $cf-warning;
+    i::before {
+      color: $cf-warning;
+    }
   }
 }

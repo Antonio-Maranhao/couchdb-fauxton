@@ -62,6 +62,13 @@
   .help-link {
     margin-left: 4px;
   }
+
+  .mango-editor-wrapper {
+    height: 300px;
+    & > div {
+      height: 90%;
+    }
+  }
 }
 
 .mango-select {
